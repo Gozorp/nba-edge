@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NBA Edge — Automated Prediction Pipeline</title>
+<style>
+  :root{
+    --bg:#0b0e13; --panel:#141a23; --panel2:#1a2230; --ink:#e8edf4;
+    --muted:#8b98ab; --accent:#f0803c; --accent2:#4cc38a; --line:#243040;
+  }
+  *{box-sizing:border-box; margin:0; padding:0}
+  body{background:var(--bg); color:var(--ink);
+       font:16px/1.6 "Segoe UI", system-ui, -apple-system, sans-serif}
+  .wrap{max-width:980px; margin:0 auto; padding:0 20px}
+  header{padding:64px 0 40px; border-bottom:1px solid var(--line)}
+  .ball{font-size:44px}
+  h1{font-size:40px; letter-spacing:-.5px; margin:8px 0 6px}
+  h1 span{color:var(--accent)}
+  .sub{color:var(--muted); max-width:640px}
+  h2{font-size:22px; margin:0 0 16px; color:var(--ink)}
+  section{padding:36px 0; border-bottom:1px solid var(--line)}
+  .grid{display:grid; gap:14px}
+  .g4{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+  .g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+  .card{background:var(--panel); border:1px solid var(--line);
+        border-radius:12px; padding:18px 20px}
+  .big{font-size:34px; font-weight:700; color:var(--accent2)}
+  .lbl{color:var(--muted); font-size:13px; text-transform:uppercase;
+       letter-spacing:.08em}
+  .note{color:var(--muted); font-size:14px; margin-top:10px}
+  table{width:100%; border-collapse:collapse; font-size:14px}
+  th,td{text-align:left; padding:7px 10px; border-bottom:1px solid var(--line)}
+  th{color:var(--muted); font-weight:600}
+  td.num{font-variant-numeric:tabular-nums}
+  .bar{height:8px; background:var(--panel2); border-radius:4px; overflow:hidden}
+  .bar i{display:block; height:100%; background:var(--accent)}
+  ol{padding-left:22px}
+  ol li{margin:8px 0}
+  code{background:var(--panel2); padding:2px 7px; border-radius:6px;
+       font-size:13.5px; color:#ffd9bd}
+  footer{padding:28px 0 60px; color:var(--muted); font-size:13.5px}
+  a{color:var(--accent)}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="ball">🏀</div>
+    <h1>NBA <span>Edge</span></h1>
+    <p class="sub">A self-recalibrating NBA prediction system: 48,871 games of
+    history, leakage-free temporal features, XGBoost models for moneyline,
+    spread, and player impact — retrained automatically when the data says so.</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2>2025-26 season — fully out-of-sample</h2>
+    <div class="grid g4">
+      <div class="card"><div class="big">68.2%</div>
+        <div class="lbl">Winner accuracy</div></div>
+      <div class="card"><div class="big">0.737</div>
+        <div class="lbl">AUC</div></div>
+      <div class="card"><div class="big">0.207</div>
+        <div class="lbl">Brier score</div></div>
+      <div class="card"><div class="big">±11.5</div>
+        <div class="lbl">Spread MAE (pts)</div></div>
+    </div>
+    <p class="note">n = 1,229 games. Training data ends 2025-04-19 — the model
+    never saw a single 2025-26 game. Reference point: Vegas closing lines
+    land ≈ 70–71% on winners.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>What drives a prediction</h2>
+    <div class="grid g2">
+      <div class="card">
+        <p class="lbl" style="margin-bottom:10px">Top SHAP drivers — win model</p>
+        <table>
+          <tr><th>Feature</th><th style="width:45%">mean |φ|</th></tr>
+          <tr><td><code>d_net_rtg_std</code></td>
+              <td><div class="bar"><i style="width:100%"></i></div></td></tr>
+          <tr><td><code>a_fg3_share_r7</code></td>
+              <td><div class="bar"><i style="width:14%"></i></div></td></tr>
+          <tr><td><code>a_fg3_share_std</code></td>
+              <td><div class="bar"><i style="width:12%"></i></div></td></tr>
+          <tr><td><code>d_adj_net_rtg_std</code></td>
+              <td><div class="bar"><i style="width:11%"></i></div></td></tr>
+          <tr><td><code>a_rest_days</code></td>
+              <td><div class="bar"><i style="width:10%"></i></div></td></tr>
+        </table>
+        <p class="note">Season-to-date net-rating differential dominates;
+        3-point profile and rest carry the rest. Exact TreeSHAP, local
+        accuracy asserted &lt; 1e-3 on every run.</p>
+      </div>
+      <div class="card">
+        <p class="lbl" style="margin-bottom:10px">Calibration — predicted vs actual</p>
+        <table>
+          <tr><th>Predicted band</th><th>Predicted</th><th>Actual</th></tr>
+          <tr><td>Underdog (&lt;.25)</td><td class="num">.181</td><td class="num">.163</td></tr>
+          <tr><td>.40 – .46</td><td class="num">.432</td><td class="num">.463</td></tr>
+          <tr><td>.52 – .57</td><td class="num">.541</td><td class="num">.656</td></tr>
+          <tr><td>.63 – .68</td><td class="num">.656</td><td class="num">.642</td></tr>
+          <tr><td>Favorite (&gt;.78)</td><td class="num">.831</td><td class="num">.846</td></tr>
+        </table>
+        <p class="note">Honest deciles from the out-of-sample season; mild
+        underconfidence in the toss-up band.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Player archetypes — discovered, not assigned</h2>
+    <div class="grid g4">
+      <div class="card"><div class="lbl">Playmaker</div>
+        <p class="note"><code>ast36+ stl36+</code></p></div>
+      <div class="card"><div class="lbl">Floor spacer</div>
+        <p class="note"><code>fg3a/fga+ fg3a36+</code></p></div>
+      <div class="card"><div class="lbl">Glass big</div>
+        <p class="note"><code>oreb36+ trb%+</code></p></div>
+      <div class="card"><div class="lbl">High-usage scorer</div>
+        <p class="note"><code>usg%+ pts36+</code></p></div>
+    </div>
+    <p class="note">K-Means over standardized per-36 / shot-profile / usage
+    space; k★ = 4 by silhouette scan (0.214). Player impact target (PI) uses
+    ridge-learned event weights — R² 0.729 at the team level, frozen
+    pre-2023 so no future information leaks into training.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>The loop</h2>
+    <ol>
+      <li><b>Ingest</b> — nightly box scores scraped politely (75% of the
+        documented rate cap, exponential backoff, resumable checkpoints).</li>
+      <li><b>Rebuild</b> — every feature is a <code>shift(1)</code> window:
+        game <i>t</i> sees only games &le; <i>t−1</i>. Walk-forward CV only.</li>
+      <li><b>Monitor</b> — PSI on phase-invariant differential features +
+        a Brier z-test against the model's own holdout ledger.</li>
+      <li><b>Retrain (gated)</b> — drift signal or 150+ new games; a
+        challenger must beat the champion on shared holdout to be promoted.</li>
+      <li><b>Predict</b> — tonight's slate: win probability, fair moneyline,
+        projected spread, player PI.</li>
+    </ol>
+    <p class="note">Daily predictions publish here during the 2026-27 season.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Built on a 235-table historical archive (1946→2023) fused with
+    daily basketball-reference data (2023→present). Model-fair odds are not
+    betting advice; if you bet, bet what you can afford to lose.</p>
+  </div>
+</footer>
+</body>
+</html>
