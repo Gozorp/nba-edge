@@ -232,14 +232,14 @@ function paintGradeRecord() {
 
 /* ---------- theme + visits + help ---------- */
 function initTheme() {
-  const saved = localStorage.getItem("nbaedge-theme") || "tactical";
+  const saved = lsGet("nbaedge-theme") || "tactical";
   document.body.dataset.theme = saved;
   $("theme-label").textContent = saved.toUpperCase();
   $("theme-toggle").onclick = () => {
     const next = document.body.dataset.theme === "tactical" ? "courtside" : "tactical";
     document.body.dataset.theme = next;
     $("theme-label").textContent = next.toUpperCase();
-    localStorage.setItem("nbaedge-theme", next);
+    lsSet("nbaedge-theme", next);
   };
 }
 /* Unique-visit counter via counterapi.dev (anonymous, no fingerprinting).
@@ -248,6 +248,22 @@ function initTheme() {
    Bot gating: crawlers without JS never reach this; webdriver/headless and
    bot UAs are read-only; prerendered pages (speculation rules) defer until
    real activation + tab visibility, so background prerenders don't count. */
+/* Storage on gozorp.github.io is SHARED across both terminals and can be
+   full (quota). Storage is an optimization here, never a dependency: all
+   access goes through safe wrappers, the pill renders before any write is
+   attempted, and the visited-flag falls back to a scoped cookie. */
+function lsGet(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+function lsSet(k, v) { try { localStorage.setItem(k, v); return true; } catch (e) { return false; } }
+function markVisited() {
+  if (!lsSet("nbaedge_visited_v1", "1")) {
+    try { document.cookie = "nbaedge_v=1; max-age=31536000; path=/nba-edge/; SameSite=Lax"; } catch (e) {}
+  }
+}
+function hasVisited() {
+  if (lsGet("nbaedge_visited_v1")) return true;
+  try { return document.cookie.indexOf("nbaedge_v=1") !== -1; } catch (e) { return false; }
+}
+
 function isLikelyBot() {
   if (navigator.webdriver === true) return true;
   return /bot|crawl|spider|slurp|headless|lighthouse|prerender|preview|fetch|monitor|scan/i
@@ -269,13 +285,13 @@ function whenTrulyVisible(fn) {
 }
 function initVisits() {
   const el = $("visitText");
-  const VISIT_KEY = "nbaedge_visited_v1", COUNT_KEY = "nbaedge_last_count_v1";
+  const COUNT_KEY = "nbaedge_last_count_v1";
   const BASE = "https://api.counterapi.dev/v1/gozorp-nba-edge/unique_visits";
-  const cached = parseInt(localStorage.getItem(COUNT_KEY) || "0", 10);
+  const cached = parseInt(lsGet(COUNT_KEY) || "0", 10);
   if (cached > 0) el.textContent = cached.toLocaleString() + " unique visits";
   const show = (count) => {
-    localStorage.setItem(COUNT_KEY, String(count));
-    el.textContent = count.toLocaleString() + " unique visits";
+    el.textContent = count.toLocaleString() + " unique visits";  // text FIRST
+    lsSet(COUNT_KEY, String(count));                             // storage best-effort
   };
   const hit = async (url) => {
     try {
@@ -292,9 +308,9 @@ function initVisits() {
   });
   // The INCREMENT stays gated: real visibility + non-bot + first visit only.
   whenTrulyVisible(async () => {
-    if (localStorage.getItem(VISIT_KEY) || isLikelyBot()) return;
+    if (hasVisited() || isLikelyBot()) return;
     const c = await hit(BASE + "/up");
-    if (c != null) { localStorage.setItem(VISIT_KEY, "1"); show(c); }
+    if (c != null) { markVisited(); show(c); }
   });
 }
 function initXfade() {
