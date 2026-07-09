@@ -57,15 +57,28 @@ function animate(el, target, suffix) {
 /* ---------- date strip + picker ---------- */
 function paintDateStrip() {
   const strip = $("dateStrip");
-  // Chronological left -> right (past .. future), so the strip reads like a
-  // timeline and the arrow buttons move the same direction as the dates.
-  MANIFEST.dates.slice(0, 14).reverse().forEach((d) => {
+  // Full season timeline, chronological left -> right (past .. future).
+  // The active chip is kept in view by followActiveChip() on every load,
+  // so stepping into the past never scrolls the selection out of sight.
+  [...MANIFEST.dates].reverse().forEach((d) => {
     const b = document.createElement("button");
     b.className = "date-chip"; b.textContent = d.slice(5); b.dataset.date = d;
+    b.title = d;
     b.onclick = () => { $("datePicker").value = d; loadSlate(d); };
     strip.appendChild(b);
   });
-  strip.scrollLeft = strip.scrollWidth;   // newest (right edge) in view
+}
+function followActiveChip() {
+  const chip = document.querySelector(".date-chip.active");
+  if (!chip || typeof chip.scrollIntoView !== "function") return;
+  const rm = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  try {
+    chip.scrollIntoView({ inline: "center", block: "nearest",
+                          behavior: rm ? "auto" : "smooth" });
+  } catch (e) { /* older engines: positional fallback */
+    chip.parentElement.scrollLeft =
+      chip.offsetLeft - chip.parentElement.clientWidth / 2;
+  }
 }
 function initPicker() {
   $("loadBtn").onclick = () => loadSlate($("datePicker").value);
@@ -103,6 +116,7 @@ async function loadSlate(date, { bust = false } = {}) {
   CURRENT = { date, games: payload.games };
   document.querySelectorAll(".date-chip").forEach(c =>
     c.classList.toggle("active", c.dataset.date === date));
+  followActiveChip();
   renderSlate(applyFilter(payload.games));
   const n = payload.games.length;
   const hits = payload.games.filter(g => g.result && g.result.pick_correct).length;
