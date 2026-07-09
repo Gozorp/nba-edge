@@ -1,13 +1,14 @@
 /* NBA edge service worker — cache-first app shell, network-first data */
-const SHELL = "nba-edge-shell-v1";
-const ASSETS = ["./", "./index.html", "./js/app.js", "./icon.svg", "./manifest.json"];
+const SHELL = "nba-edge-shell-v2";
+const ASSETS = ["./", "./index.html", "./js/app.js?v=2", "./icon.svg", "./manifest.json"];
 self.addEventListener("install", (e) => {
   e.waitUntil(caches.open(SHELL).then((c) => c.addAll(ASSETS)));
   self.skipWaiting();
 });
 self.addEventListener("activate", (e) => {
   e.waitUntil(caches.keys().then((ks) =>
-    Promise.all(ks.filter((k) => k !== SHELL).map((k) => caches.delete(k)))));
+    Promise.all(ks.filter((k) => k !== SHELL).map((k) => caches.delete(k))))
+    .then(() => self.clients.claim()));
 });
 self.addEventListener("fetch", (e) => {
   const url = new URL(e.request.url);

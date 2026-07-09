@@ -15,21 +15,27 @@ function gradeClass(g) {
 function fmtML(v) { return v > 0 ? "+" + v : String(v); }
 function setStatus(msg) { $("status").textContent = msg || ""; }
 
-/* ---------- boot ---------- */
-document.addEventListener("DOMContentLoaded", async () => {
-  initTheme(); initVisits(); initDrawer(); initHelp(); initPicker(); initChips();
+/* ---------- boot ----------
+   Runs immediately if the DOM is already parsed (script sits at the end of
+   <body>), falls back to DOMContentLoaded otherwise — immune to load-order
+   races. Each init is isolated so one failure cannot kill the rest. */
+async function boot() {
+  const inits = [initTheme, initVisits, initDrawer, initHelp, initPicker, initChips];
+  for (const f of inits) { try { f(); } catch (e) { console.error("[nbaedge]", f.name, e); } }
   if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("sw.js").catch(() => {});
   }
   try {
     MANIFEST = await fetch("data/manifest.json", { cache: "no-store" }).then(r => r.json());
   } catch (e) { setStatus("manifest unavailable"); return; }
-  paintHero(); paintDateStrip(); paintGradeRecord(); loadHealth();
+  try { paintHero(); paintDateStrip(); paintGradeRecord(); loadHealth(); } catch (e) { console.error("[nbaedge]", e); }
   $("built-at").textContent = " · data built " + (MANIFEST.built_at || "").slice(0, 10);
   const initial = MANIFEST.dates[0];
   $("datePicker").value = initial;
   loadSlate(initial);
-});
+}
+if (document.readyState !== "loading") { boot(); }
+else { document.addEventListener("DOMContentLoaded", boot); }
 
 /* ---------- hero counters ---------- */
 function paintHero() {
