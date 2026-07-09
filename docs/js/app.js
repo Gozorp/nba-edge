@@ -273,23 +273,28 @@ function initVisits() {
   const BASE = "https://api.counterapi.dev/v1/gozorp-nba-edge/unique_visits";
   const cached = parseInt(localStorage.getItem(COUNT_KEY) || "0", 10);
   if (cached > 0) el.textContent = cached.toLocaleString() + " unique visits";
+  const show = (count) => {
+    localStorage.setItem(COUNT_KEY, String(count));
+    el.textContent = count.toLocaleString() + " unique visits";
+  };
+  const hit = async (url) => {
+    try {
+      const r = await fetch(url, { cache: "no-store" });
+      if (!r.ok) return null;
+      const j = await r.json();
+      return (typeof j.count === "number") ? j.count : null;
+    } catch (e) { return null; }
+  };
+  // Display is read-only and immediate — even in hidden/prerendered tabs.
+  hit(BASE + "/").then((c) => {
+    if (c != null) show(c);
+    else if (cached <= 0) el.textContent = "visits offline";
+  });
+  // The INCREMENT stays gated: real visibility + non-bot + first visit only.
   whenTrulyVisible(async () => {
-    const bump = !localStorage.getItem(VISIT_KEY) && !isLikelyBot();
-    const urls = bump ? [BASE + "/up"] : [BASE + "/"];
-    let count = null;
-    for (const url of urls) {
-      try {
-        const r = await fetch(url, { cache: "no-store" });
-        if (!r.ok) continue;
-        const j = await r.json();
-        if (typeof j.count === "number") { count = j.count; break; }
-      } catch (e) { /* offline — cached count stays */ }
-    }
-    if (count != null) {
-      if (bump) localStorage.setItem(VISIT_KEY, "1");
-      localStorage.setItem(COUNT_KEY, String(count));
-      el.textContent = count.toLocaleString() + " unique visits";
-    } else if (cached <= 0) { el.textContent = "visits offline"; }
+    if (localStorage.getItem(VISIT_KEY) || isLikelyBot()) return;
+    const c = await hit(BASE + "/up");
+    if (c != null) { localStorage.setItem(VISIT_KEY, "1"); show(c); }
   });
 }
 function initXfade() {
