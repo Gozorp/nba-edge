@@ -1,0 +1,96 @@
+{
+"date": "2026-07-09",
+"games": [
+{
+"espn_id": "401881822",
+"league": "Las Vegas",
+"tip_utc": "2026-07-09T19:30Z",
+"state": "STATUS_SCHEDULED",
+"is_final": false,
+"away": "Minnesota Timberwolves",
+"home": "New Orleans Pelicans",
+"away_abbr": "MIN",
+"home_abbr": "NO",
+"away_score": 0,
+"home_score": 0
+},
+{
+"espn_id": "401881823",
+"league": "Las Vegas",
+"tip_utc": "2026-07-09T20:30Z",
+"state": "STATUS_SCHEDULED",
+"is_final": false,
+"away": "San Antonio Spurs",
+"home": "Atlanta Hawks",
+"away_abbr": "SA",
+"home_abbr": "ATL",
+"away_score": 0,
+"home_score": 0
+},
+{
+"espn_id": "401881824",
+"league": "Las Vegas",
+"tip_utc": "2026-07-09T21:30Z",
+"state": "STATUS_SCHEDULED",
+"is_final": false,
+"away": "Detroit Pistons",
+"home": "Philadelphia 76ers",
+"away_abbr": "DET",
+"home_abbr": "PHI",
+"away_score": 0,
+"home_score": 0
+},
+{
+"espn_id": "401881825",
+"league": "Las Vegas",
+"tip_utc": "2026-07-09T23:00Z",
+"state": "STATUS_SCHEDULED",
+"is_final": false,
+"away": "Golden State Warriors",
+"home": "Dallas Mavericks",
+"away_abbr": "GS",
+"home_abbr": "DAL",
+"away_score": 0,
+"home_score": 0
+},
+{
+"espn_id": "401881826",
+"league": "Las Vegas",
+"tip_utc": "2026-07-09T23:30Z",
+"state": "STATUS_SCHEDULED",
+"is_final": false,
+"away": "Charlotte Hornets",
+"home": "Orlando Magic",
+"away_abbr": "CHA",
+"home_abbr": "ORL",
+"away_score": 0,
+"home_score": 0
+},
+{
+"espn_id": "401879488",
+"league": "Las Vegas",
+"tip_utc": "2026-07-10T01:00Z",
+"state": "STATUS_SCHEDULED",
+"is_final": false,
+"away": "Utah Jazz",
+"home": "Washington Wizards",
+"away_abbr": "UTAH",
+"home_abbr": "WSH",
+"away_score": 0,
+"home_score": 0
+},
+{
+"espn_id": "401881827",
+"league": "Las Vegas",
+"tip_utc": "2026-07-10T03:00Z",
+"state": "STATUS_SCHEDULED",
+"is_final": false,
+"away": "Sacramento Kings",
+"home": "LA Clippers",
+"away_abbr": "SAC",
+"home_abbr": "LAC",
+"away_score": 0,
+"home_score": 0
+}
+]
+}

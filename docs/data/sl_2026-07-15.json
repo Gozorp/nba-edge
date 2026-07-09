@@ -1,0 +1,109 @@
+{
+"date": "2026-07-15",
+"games": [
+{
+"espn_id": "401881865",
+"league": "Las Vegas",
+"tip_utc": "2026-07-15T19:30Z",
+"state": "STATUS_SCHEDULED",
+"is_final": false,
+"away": "Indiana Pacers",
+"home": "Minnesota Timberwolves",
+"away_abbr": "IND",
+"home_abbr": "MIN",
+"away_score": 0,
+"home_score": 0
+},
+{
+"espn_id": "401881866",
+"league": "Las Vegas",
+"tip_utc": "2026-07-15T20:00Z",
+"state": "STATUS_SCHEDULED",
+"is_final": false,
+"away": "Orlando Magic",
+"home": "Philadelphia 76ers",
+"away_abbr": "ORL",
+"home_abbr": "PHI",
+"away_score": 0,
+"home_score": 0
+},
+{
+"espn_id": "401881867",
+"league": "Las Vegas",
+"tip_utc": "2026-07-15T21:30Z",
+"state": "STATUS_SCHEDULED",
+"is_final": false,
+"away": "New Orleans Pelicans",
+"home": "Cleveland Cavaliers",
+"away_abbr": "NO",
+"home_abbr": "CLE",
+"away_score": 0,
+"home_score": 0
+},
+{
+"espn_id": "401881868",
+"league": "Las Vegas",
+"tip_utc": "2026-07-15T22:00Z",
+"state": "STATUS_SCHEDULED",
+"is_final": false,
+"away": "Phoenix Suns",
+"home": "Detroit Pistons",
+"away_abbr": "PHX",
+"home_abbr": "DET",
+"away_score": 0,
+"home_score": 0
+},
+{
+"espn_id": "401881869",
+"league": "Las Vegas",
+"tip_utc": "2026-07-15T23:30Z",
+"state": "STATUS_SCHEDULED",
+"is_final": false,
+"away": "Milwaukee Bucks",
+"home": "Charlotte Hornets",
+"away_abbr": "MIL",
+"home_abbr": "CHA",
+"away_score": 0,
+"home_score": 0
+},
+{
+"espn_id": "401881870",
+"league": "Las Vegas",
+"tip_utc": "2026-07-16T00:00Z",
+"state": "STATUS_SCHEDULED",
+"is_final": false,
+"away": "Boston Celtics",
+"home": "Sacramento Kings",
+"away_abbr": "BOS",
+"home_abbr": "SAC",
+"away_score": 0,
+"home_score": 0
+},
+{
+"espn_id": "401881871",
+"league": "Las Vegas",
+"tip_utc": "2026-07-16T01:30Z",
+"state": "STATUS_SCHEDULED",
+"is_final": false,
+"away": "Utah Jazz",
+"home": "San Antonio Spurs",
+"away_abbr": "UTAH",
+"home_abbr": "SA",
+"away_score": 0,
+"home_score": 0
+},
+{
+"espn_id": "401881872",
+"league": "Las Vegas",
+"tip_utc": "2026-07-16T02:30Z",
+"state": "STATUS_SCHEDULED",
+"is_final": false,
+"away": "Washington Wizards",
+"home": "LA Clippers",
+"away_abbr": "WSH",
+"home_abbr": "LAC",
+"away_score": 0,
+"home_score": 0
+}
+]
+}

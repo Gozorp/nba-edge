@@ -1,0 +1,31 @@
+{
+"date": "2026-07-07",
+"games": [
+{
+"espn_id": "401879924",
+"league": "Salt Lake City",
+"tip_utc": "2026-07-07T23:00Z",
+"state": "STATUS_FINAL",
+"is_final": true,
+"away": "Atlanta Hawks",
+"home": "Memphis Grizzlies",
+"away_abbr": "ATL",
+"home_abbr": "MEM",
+"away_score": 96,
+"home_score": 82
+},
+{
+"espn_id": "401879925",
+"league": "Salt Lake City",
+"tip_utc": "2026-07-08T01:00Z",
+"state": "STATUS_FINAL",
+"is_final": true,
+"away": "Oklahoma City Thunder",
+"home": "Utah Jazz",
+"away_abbr": "OKC",
+"home_abbr": "UTAH",
+"away_score": 69,
+"home_score": 103
+}
+]
+}

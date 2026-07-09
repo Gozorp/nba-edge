@@ -1,0 +1,31 @@
+{
+"date": "2026-07-03",
+"games": [
+{
+"espn_id": "401881933",
+"league": "California Classic",
+"tip_utc": "2026-07-04T00:00Z",
+"state": "STATUS_FINAL",
+"is_final": true,
+"away": "Miami Heat",
+"home": "San Antonio Spurs",
+"away_abbr": "MIA",
+"home_abbr": "SA",
+"away_score": 88,
+"home_score": 87
+},
+{
+"espn_id": "401881934",
+"league": "California Classic",
+"tip_utc": "2026-07-04T02:30Z",
+"state": "STATUS_FINAL",
+"is_final": true,
+"away": "Los Angeles Lakers",
+"home": "Golden State Warriors Gold",
+"away_abbr": "LAL",
+"home_abbr": "GS",
+"away_score": 72,
+"home_score": 104
+}
+]
+}

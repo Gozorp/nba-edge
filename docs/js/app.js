@@ -7,6 +7,7 @@ const $ = (id) => document.getElementById(id);
 let MANIFEST = null;
 let CURRENT = { date: null, games: [] };
 let FILTER = null;
+let MODE = "nba";               // "nba" (graded archive) | "sl" (summer league)
 
 /* ---------- utils ---------- */
 function gradeClass(g) {
@@ -20,7 +21,7 @@ function setStatus(msg) { $("status").textContent = msg || ""; }
    <body>), falls back to DOMContentLoaded otherwise — immune to load-order
    races. Each init is isolated so one failure cannot kill the rest. */
 async function boot() {
-  const inits = [initTheme, initVisits, initDrawer, initHelp, initPicker, initChips, initXfade];
+  const inits = [initTheme, initVisits, initDrawer, initHelp, initPicker, initChips, initXfade, initLeagueToggle];
   for (const f of inits) { try { f(); } catch (e) { console.error("[nbaedge]", f.name, e); } }
   if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("sw.js").catch(() => {});
@@ -55,12 +56,40 @@ function animate(el, target, suffix) {
 }
 
 /* ---------- date strip + picker ---------- */
+function modeDates() {
+  return MODE === "sl" ? (MANIFEST.sl_dates || []) : MANIFEST.dates;
+}
+function initLeagueToggle() {
+  document.querySelectorAll(".lg-chip").forEach((c) => {
+    c.onclick = () => {
+      if (MODE === c.dataset.mode) return;
+      MODE = c.dataset.mode;
+      document.querySelectorAll(".lg-chip").forEach((x) =>
+        x.classList.toggle("on", x.dataset.mode === MODE));
+      $("sl-banner").style.display = MODE === "sl" ? "block" : "none";
+      $("nba-head").style.display = MODE === "sl" ? "none" : "";
+      $("sl-head").style.display = MODE === "sl" ? "" : "none";
+      $("quick-chips").style.display = MODE === "sl" ? "none" : "flex";
+      FILTER = null;
+      document.querySelectorAll(".q-chip").forEach((x) => x.classList.remove("on"));
+      paintDateStrip();
+      const dates = modeDates();
+      // SL runs live in July: land on TODAY's slate when it exists,
+      // otherwise the nearest date (list is newest-first).
+      const today = new Date().toISOString().slice(0, 10);
+      const first = dates.includes(today) ? today : dates[0];
+      if (first) { $("datePicker").value = first; loadSlate(first); }
+      else { renderSlate([]); setStatus("no slates published"); }
+    };
+  });
+}
 function paintDateStrip() {
   const strip = $("dateStrip");
+  strip.querySelectorAll(".date-chip").forEach((c) => c.remove());
   // Full season timeline, chronological left -> right (past .. future).
   // The active chip is kept in view by followActiveChip() on every load,
   // so stepping into the past never scrolls the selection out of sight.
-  [...MANIFEST.dates].reverse().forEach((d) => {
+  [...modeDates()].reverse().forEach((d) => {
     const b = document.createElement("button");
     b.className = "date-chip"; b.textContent = d.slice(5); b.dataset.date = d;
     b.title = d;
@@ -85,12 +114,13 @@ function initPicker() {
   $("nextBtn").onclick = () => step("future");
 }
 function step(where) {
-  // MANIFEST.dates is newest-first: past = index+1, future = index-1.
-  const i = MANIFEST.dates.indexOf(CURRENT.date);
+  // date lists are newest-first: past = index+1, future = index-1.
+  const dates = modeDates();
+  const i = dates.indexOf(CURRENT.date);
   const j = i + (where === "past" ? 1 : -1);
-  if (j >= 0 && j < MANIFEST.dates.length) {
-    $("datePicker").value = MANIFEST.dates[j];
-    loadSlate(MANIFEST.dates[j]);
+  if (j >= 0 && j < dates.length) {
+    $("datePicker").value = dates[j];
+    loadSlate(dates[j]);
   }
 }
 
@@ -100,7 +130,8 @@ async function loadSlate(date, { bust = false } = {}) {
   setStatus("loading " + date + "…");
   let payload = null;
   try {
-    const url = "data/picks_" + date + ".json" + (bust ? "?b=" + Date.now() : "");
+    const prefix = MODE === "sl" ? "data/sl_" : "data/picks_";
+    const url = prefix + date + ".json" + (bust ? "?b=" + Date.now() : "");
     const r = await fetch(url, { cache: bust ? "no-store" : "default" });
     if (r.ok) payload = await r.json();
   } catch (e) { /* handled below */ }
@@ -114,10 +145,41 @@ async function loadSlate(date, { bust = false } = {}) {
   document.querySelectorAll(".date-chip").forEach(c =>
     c.classList.toggle("active", c.dataset.date === date));
   followActiveChip();
-  renderSlate(applyFilter(payload.games));
   const n = payload.games.length;
-  const hits = payload.games.filter(g => g.result && g.result.pick_correct).length;
-  setStatus(n + " games · model " + hits + "/" + n + " on " + date);
+  if (MODE === "sl") {
+    renderSlateSL(payload.games);
+    const fin = payload.games.filter(g => g.is_final).length;
+    setStatus(n + " games · " + fin + " final · " + date);
+  } else {
+    renderSlate(applyFilter(payload.games));
+    const hits = payload.games.filter(g => g.result && g.result.pick_correct).length;
+    setStatus(n + " games · model " + hits + "/" + n + " on " + date);
+  }
+}
+
+function renderSlateSL(games) {
+  const tb = $("slate-body");
+  tb.innerHTML = "";
+  $("slate").style.display = games.length ? "table" : "none";
+  $("empty").style.display = games.length ? "none" : "block";
+  games.forEach((g) => {
+    const tr = document.createElement("tr");
+    const tip = (g.tip_utc || "").slice(11, 16) || "—";
+    const stateTxt = g.is_final ? "FINAL"
+      : (g.state === "STATUS_IN_PROGRESS" ? "LIVE" : "Scheduled");
+    const score = (g.is_final || g.state === "STATUS_IN_PROGRESS")
+      ? '<span class="mono sl-final">' + g.away_score + " – " + g.home_score + "</span>"
+      : '<span class="mono sl-sched">—</span>';
+    tr.innerHTML =
+      '<td class="mono" style="color:var(--muted)">' + g.league + "</td>" +
+      "<td><b>" + (g.away_abbr || g.away) + "</b> @ <b>" + (g.home_abbr || g.home) + "</b></td>" +
+      '<td class="mono">' + tip + "</td>" +
+      "<td>" + (g.is_final ? '<span class="res-w">' + stateTxt + "</span>"
+                : stateTxt === "LIVE" ? '<span style="color:var(--accent)">LIVE</span>'
+                : '<span class="sl-sched">' + stateTxt + "</span>") + "</td>" +
+      "<td>" + score + "</td>";
+    tb.appendChild(tr);
+  });
 }
 
 function applyFilter(games) {

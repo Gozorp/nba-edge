@@ -1,0 +1,57 @@
+{
+"date": "2026-07-05",
+"games": [
+{
+"espn_id": "401881929",
+"league": "California Classic",
+"tip_utc": "2026-07-05T19:00Z",
+"state": "STATUS_FINAL",
+"is_final": true,
+"away": "Brooklyn Nets",
+"home": "Milwaukee Bucks",
+"away_abbr": "BKN",
+"home_abbr": "MIL",
+"away_score": 89,
+"home_score": 69
+},
+{
+"espn_id": "401881935",
+"league": "California Classic",
+"tip_utc": "2026-07-05T20:30Z",
+"state": "STATUS_FINAL",
+"is_final": true,
+"away": "Miami Heat",
+"home": "Los Angeles Lakers",
+"away_abbr": "MIA",
+"home_abbr": "LAL",
+"away_score": 91,
+"home_score": 93
+},
+{
+"espn_id": "401881930",
+"league": "California Classic",
+"tip_utc": "2026-07-05T21:00Z",
+"state": "STATUS_FINAL",
+"is_final": true,
+"away": "Golden State Warriors Blue",
+"home": "Sacramento Kings",
+"away_abbr": "GS",
+"home_abbr": "SAC",
+"away_score": 85,
+"home_score": 91
+},
+{
+"espn_id": "401881936",
+"league": "California Classic",
+"tip_utc": "2026-07-05T23:00Z",
+"state": "STATUS_FINAL",
+"is_final": true,
+"away": "San Antonio Spurs",
+"home": "Golden State Warriors Gold",
+"away_abbr": "SA",
+"home_abbr": "GS",
+"away_score": 69,
+"home_score": 98
+}
+]
+}

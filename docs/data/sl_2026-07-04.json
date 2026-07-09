@@ -1,0 +1,57 @@
+{
+"date": "2026-07-04",
+"games": [
+{
+"espn_id": "401879920",
+"league": "Salt Lake City",
+"tip_utc": "2026-07-04T19:00Z",
+"state": "STATUS_FINAL",
+"is_final": true,
+"away": "Memphis Grizzlies",
+"home": "Oklahoma City Thunder",
+"away_abbr": "MEM",
+"home_abbr": "OKC",
+"away_score": 111,
+"home_score": 74
+},
+{
+"espn_id": "401881927",
+"league": "California Classic",
+"tip_utc": "2026-07-04T19:00Z",
+"state": "STATUS_FINAL",
+"is_final": true,
+"away": "Milwaukee Bucks",
+"home": "Golden State Warriors Blue",
+"away_abbr": "MIL",
+"home_abbr": "GS",
+"away_score": 97,
+"home_score": 83
+},
+{
+"espn_id": "401879921",
+"league": "Salt Lake City",
+"tip_utc": "2026-07-04T21:00Z",
+"state": "STATUS_FINAL",
+"is_final": true,
+"away": "Atlanta Hawks",
+"home": "Utah Jazz",
+"away_abbr": "ATL",
+"home_abbr": "UTAH",
+"away_score": 102,
+"home_score": 103
+},
+{
+"espn_id": "401881925",
+"league": "California Classic",
+"tip_utc": "2026-07-04T21:00Z",
+"state": "STATUS_FINAL",
+"is_final": true,
+"away": "Brooklyn Nets",
+"home": "Sacramento Kings",
+"away_abbr": "BKN",
+"home_abbr": "SAC",
+"away_score": 76,
+"home_score": 79
+}
+]
+}

@@ -1,0 +1,109 @@
+{
+"date": "2026-07-12",
+"games": [
+{
+"espn_id": "401881843",
+"league": "Las Vegas",
+"tip_utc": "2026-07-12T19:00Z",
+"state": "STATUS_SCHEDULED",
+"is_final": false,
+"away": "Phoenix Suns",
+"home": "New Orleans Pelicans",
+"away_abbr": "PHX",
+"home_abbr": "NO",
+"away_score": 0,
+"home_score": 0
+},
+{
+"espn_id": "401881844",
+"league": "Las Vegas",
+"tip_utc": "2026-07-12T20:00Z",
+"state": "STATUS_SCHEDULED",
+"is_final": false,
+"away": "Cleveland Cavaliers",
+"home": "Detroit Pistons",
+"away_abbr": "CLE",
+"home_abbr": "DET",
+"away_score": 0,
+"home_score": 0
+},
+{
+"espn_id": "401881845",
+"league": "Las Vegas",
+"tip_utc": "2026-07-12T21:00Z",
+"state": "STATUS_SCHEDULED",
+"is_final": false,
+"away": "Charlotte Hornets",
+"home": "Boston Celtics",
+"away_abbr": "CHA",
+"home_abbr": "BOS",
+"away_score": 0,
+"home_score": 0
+},
+{
+"espn_id": "401881846",
+"league": "Las Vegas",
+"tip_utc": "2026-07-12T22:00Z",
+"state": "STATUS_SCHEDULED",
+"is_final": false,
+"away": "Oklahoma City Thunder",
+"home": "Golden State Warriors",
+"away_abbr": "OKC",
+"home_abbr": "GS",
+"away_score": 0,
+"home_score": 0
+},
+{
+"espn_id": "401881847",
+"league": "Las Vegas",
+"tip_utc": "2026-07-12T23:00Z",
+"state": "STATUS_SCHEDULED",
+"is_final": false,
+"away": "Orlando Magic",
+"home": "Portland Trail Blazers",
+"away_abbr": "ORL",
+"home_abbr": "POR",
+"away_score": 0,
+"home_score": 0
+},
+{
+"espn_id": "401881848",
+"league": "Las Vegas",
+"tip_utc": "2026-07-13T00:00Z",
+"state": "STATUS_SCHEDULED",
+"is_final": false,
+"away": "Sacramento Kings",
+"home": "Washington Wizards",
+"away_abbr": "SAC",
+"home_abbr": "WSH",
+"away_score": 0,
+"home_score": 0
+},
+{
+"espn_id": "401881849",
+"league": "Las Vegas",
+"tip_utc": "2026-07-13T01:00Z",
+"state": "STATUS_SCHEDULED",
+"is_final": false,
+"away": "San Antonio Spurs",
+"home": "Milwaukee Bucks",
+"away_abbr": "SA",
+"home_abbr": "MIL",
+"away_score": 0,
+"home_score": 0
+},
+{
+"espn_id": "401881850",
+"league": "Las Vegas",
+"tip_utc": "2026-07-13T02:00Z",
+"state": "STATUS_SCHEDULED",
+"is_final": false,
+"away": "LA Clippers",
+"home": "Utah Jazz",
+"away_abbr": "LAC",
+"home_abbr": "UTAH",
+"away_score": 0,
+"home_score": 0
+}
+]
+}

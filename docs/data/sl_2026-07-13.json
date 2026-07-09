@@ -1,0 +1,109 @@
+{
+"date": "2026-07-13",
+"games": [
+{
+"espn_id": "401881851",
+"league": "Las Vegas",
+"tip_utc": "2026-07-13T20:00Z",
+"state": "STATUS_SCHEDULED",
+"is_final": false,
+"away": "Detroit Pistons",
+"home": "New York Knicks",
+"away_abbr": "DET",
+"home_abbr": "NY",
+"away_score": 0,
+"home_score": 0
+},
+{
+"espn_id": "401881852",
+"league": "Las Vegas",
+"tip_utc": "2026-07-13T20:30Z",
+"state": "STATUS_SCHEDULED",
+"is_final": false,
+"away": "Toronto Raptors",
+"home": "Indiana Pacers",
+"away_abbr": "TOR",
+"home_abbr": "IND",
+"away_score": 0,
+"home_score": 0
+},
+{
+"espn_id": "401881853",
+"league": "Las Vegas",
+"tip_utc": "2026-07-13T22:00Z",
+"state": "STATUS_SCHEDULED",
+"is_final": false,
+"away": "Atlanta Hawks",
+"home": "Boston Celtics",
+"away_abbr": "ATL",
+"home_abbr": "BOS",
+"away_score": 0,
+"home_score": 0
+},
+{
+"espn_id": "401881854",
+"league": "Las Vegas",
+"tip_utc": "2026-07-13T23:00Z",
+"state": "STATUS_SCHEDULED",
+"is_final": false,
+"away": "Dallas Mavericks",
+"home": "Memphis Grizzlies",
+"away_abbr": "DAL",
+"home_abbr": "MEM",
+"away_score": 0,
+"home_score": 0
+},
+{
+"espn_id": "401881855",
+"league": "Las Vegas",
+"tip_utc": "2026-07-14T00:00Z",
+"state": "STATUS_SCHEDULED",
+"is_final": false,
+"away": "Miami Heat",
+"home": "Cleveland Cavaliers",
+"away_abbr": "MIA",
+"home_abbr": "CLE",
+"away_score": 0,
+"home_score": 0
+},
+{
+"espn_id": "401881856",
+"league": "Las Vegas",
+"tip_utc": "2026-07-14T01:00Z",
+"state": "STATUS_SCHEDULED",
+"is_final": false,
+"away": "Chicago Bulls",
+"home": "Utah Jazz",
+"away_abbr": "CHI",
+"home_abbr": "UTAH",
+"away_score": 0,
+"home_score": 0
+},
+{
+"espn_id": "401881857",
+"league": "Las Vegas",
+"tip_utc": "2026-07-14T02:00Z",
+"state": "STATUS_SCHEDULED",
+"is_final": false,
+"away": "Phoenix Suns",
+"home": "Milwaukee Bucks",
+"away_abbr": "PHX",
+"home_abbr": "MIL",
+"away_score": 0,
+"home_score": 0
+},
+{
+"espn_id": "401881858",
+"league": "Las Vegas",
+"tip_utc": "2026-07-14T03:00Z",
+"state": "STATUS_SCHEDULED",
+"is_final": false,
+"away": "Minnesota Timberwolves",
+"home": "Portland Trail Blazers",
+"away_abbr": "MIN",
+"home_abbr": "POR",
+"away_score": 0,
+"home_score": 0
+}
+]
+}

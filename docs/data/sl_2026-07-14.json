@@ -1,0 +1,83 @@
+{
+"date": "2026-07-14",
+"games": [
+{
+"espn_id": "401881859",
+"league": "Las Vegas",
+"tip_utc": "2026-07-14T20:00Z",
+"state": "STATUS_SCHEDULED",
+"is_final": false,
+"away": "Philadelphia 76ers",
+"home": "Houston Rockets",
+"away_abbr": "PHI",
+"home_abbr": "HOU",
+"away_score": 0,
+"home_score": 0
+},
+{
+"espn_id": "401881860",
+"league": "Las Vegas",
+"tip_utc": "2026-07-14T22:00Z",
+"state": "STATUS_SCHEDULED",
+"is_final": false,
+"away": "Sacramento Kings",
+"home": "Brooklyn Nets",
+"away_abbr": "SAC",
+"home_abbr": "BKN",
+"away_score": 0,
+"home_score": 0
+},
+{
+"espn_id": "401881861",
+"league": "Las Vegas",
+"tip_utc": "2026-07-14T23:00Z",
+"state": "STATUS_SCHEDULED",
+"is_final": false,
+"away": "Memphis Grizzlies",
+"home": "Golden State Warriors",
+"away_abbr": "MEM",
+"home_abbr": "GS",
+"away_score": 0,
+"home_score": 0
+},
+{
+"espn_id": "401881862",
+"league": "Las Vegas",
+"tip_utc": "2026-07-15T00:00Z",
+"state": "STATUS_SCHEDULED",
+"is_final": false,
+"away": "Washington Wizards",
+"home": "Chicago Bulls",
+"away_abbr": "WSH",
+"home_abbr": "CHI",
+"away_score": 0,
+"home_score": 0
+},
+{
+"espn_id": "401881863",
+"league": "Las Vegas",
+"tip_utc": "2026-07-15T01:00Z",
+"state": "STATUS_SCHEDULED",
+"is_final": false,
+"away": "Denver Nuggets",
+"home": "Oklahoma City Thunder",
+"away_abbr": "DEN",
+"home_abbr": "OKC",
+"away_score": 0,
+"home_score": 0
+},
+{
+"espn_id": "401881864",
+"league": "Las Vegas",
+"tip_utc": "2026-07-15T02:00Z",
+"state": "STATUS_SCHEDULED",
+"is_final": false,
+"away": "LA Clippers",
+"home": "Los Angeles Lakers",
+"away_abbr": "LAC",
+"home_abbr": "LAL",
+"away_score": 0,
+"home_score": 0
+}
+]
+}

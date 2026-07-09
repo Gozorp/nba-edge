@@ -81,6 +81,13 @@ body[data-theme="courtside"] .picker input[type=date]{color-scheme:light}
 .picker button:hover{border-color:var(--accent)}
 .picker-arrow{font-size:1rem;padding:7px 11px}
 #status{color:var(--muted);font-size:.78rem}
+#league-toggle{display:flex;gap:8px;padding:14px 0 0}
+.lg-chip{background:var(--bg-elev);border:1px solid var(--border);color:var(--muted);border-radius:8px;padding:6px 14px;font-family:var(--mono);font-size:.7rem;font-weight:600;letter-spacing:.08em;cursor:pointer}
+.lg-chip.on{color:var(--accent);border-color:var(--accent)}
+#sl-banner{display:none;border:1px dashed var(--border);border-radius:9px;color:var(--muted);font-size:.78rem;padding:9px 13px;margin:10px 0 2px}
+#sl-banner b{color:var(--accent)}
+.sl-final{color:var(--text);font-weight:700}
+.sl-sched{color:var(--muted)}
 #quick-chips{display:flex;gap:7px;flex-wrap:wrap}
 .q-chip{background:transparent;border:1px dashed var(--border);color:var(--muted);border-radius:999px;padding:5px 11px;font-size:.72rem;cursor:pointer}
 .q-chip.on,.q-chip:hover{color:var(--accent);border-color:var(--accent)}
@@ -215,6 +222,10 @@ footer{border-top:1px solid var(--border);padding:26px 0 60px;color:var(--muted)
 
 <main id="main-slate-anchor">
   <div class="wrap">
+    <div id="league-toggle" role="tablist" aria-label="League">
+      <button class="lg-chip on" data-mode="nba">NBA 2025-26</button>
+      <button class="lg-chip" data-mode="sl">SUMMER LEAGUE</button>
+    </div>
     <div class="date-strip" id="dateStrip"><span class="date-strip-label">Slates:</span></div>
     <div class="picker">
       <button id="prevBtn" class="picker-arrow" title="Previous slate date">‹</button>
@@ -230,10 +241,16 @@ footer{border-top:1px solid var(--border);padding:26px 0 60px;color:var(--muted)
       <button type="button" class="q-chip" data-filter="upset">Upset calls</button>
       <button type="button" class="q-chip" data-filter="wrong">Model misses</button>
     </div>
+    <div id="sl-banner"><b>Exhibition regime</b> — the NBA model does not grade
+      Summer League (five-game rosters of rookies and two-ways share nothing with
+      the parent club the features describe). Slate and verified results only.</div>
     <table id="slate" style="display:none">
-      <thead><tr>
+      <thead id="nba-head"><tr>
         <th>Grade</th><th>Matchup</th><th>Pick</th><th class="prob-cell">Win prob</th>
         <th>Fair ML</th><th>Proj margin</th><th>Result</th>
+      </tr></thead>
+      <thead id="sl-head" style="display:none"><tr>
+        <th>League</th><th>Matchup</th><th>Tip (UTC)</th><th>Status</th><th>Score</th>
       </tr></thead>
       <tbody id="slate-body"></tbody>
     </table>
@@ -277,6 +294,6 @@ footer{border-top:1px solid var(--border);padding:26px 0 60px;color:var(--muted)
   </div>
 </footer>
 
-<script src="js/app.js?v=9"></script>
+<script src="js/app.js?v=10"></script>
 </body>
 </html>

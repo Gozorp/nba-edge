@@ -1,0 +1,83 @@
+{
+"date": "2026-07-06",
+"games": [
+{
+"espn_id": "401879922",
+"league": "Salt Lake City",
+"tip_utc": "2026-07-06T23:00Z",
+"state": "STATUS_FINAL",
+"is_final": true,
+"away": "Atlanta Hawks",
+"home": "Oklahoma City Thunder",
+"away_abbr": "ATL",
+"home_abbr": "OKC",
+"away_score": 82,
+"home_score": 77
+},
+{
+"espn_id": "401881937",
+"league": "California Classic",
+"tip_utc": "2026-07-06T23:30Z",
+"state": "STATUS_FINAL",
+"is_final": true,
+"away": "Los Angeles Lakers",
+"home": "San Antonio Spurs",
+"away_abbr": "LAL",
+"home_abbr": "SA",
+"away_score": 88,
+"home_score": 84
+},
+{
+"espn_id": "401881931",
+"league": "California Classic",
+"tip_utc": "2026-07-07T00:00Z",
+"state": "STATUS_FINAL",
+"is_final": true,
+"away": "Golden State Warriors Blue",
+"home": "Brooklyn Nets",
+"away_abbr": "GS",
+"home_abbr": "BKN",
+"away_score": 79,
+"home_score": 100
+},
+{
+"espn_id": "401879923",
+"league": "Salt Lake City",
+"tip_utc": "2026-07-07T01:00Z",
+"state": "STATUS_FINAL",
+"is_final": true,
+"away": "Memphis Grizzlies",
+"home": "Utah Jazz",
+"away_abbr": "MEM",
+"home_abbr": "UTAH",
+"away_score": 100,
+"home_score": 109
+},
+{
+"espn_id": "401881938",
+"league": "California Classic",
+"tip_utc": "2026-07-07T02:00Z",
+"state": "STATUS_FINAL",
+"is_final": true,
+"away": "Miami Heat",
+"home": "Golden State Warriors Gold",
+"away_abbr": "MIA",
+"home_abbr": "GS",
+"away_score": 95,
+"home_score": 85
+},
+{
+"espn_id": "401881932",
+"league": "California Classic",
+"tip_utc": "2026-07-07T02:00Z",
+"state": "STATUS_FINAL",
+"is_final": true,
+"away": "Milwaukee Bucks",
+"home": "Sacramento Kings",
+"away_abbr": "MIL",
+"home_abbr": "SAC",
+"away_score": 89,
+"home_score": 95
+}
+]
+}

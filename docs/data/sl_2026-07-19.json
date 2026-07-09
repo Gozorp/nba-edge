@@ -1,0 +1,44 @@
+{
+"date": "2026-07-19",
+"games": [
+{
+"espn_id": "401881720",
+"league": "Las Vegas",
+"tip_utc": "2026-07-19T20:30Z",
+"state": "STATUS_SCHEDULED",
+"is_final": false,
+"away": "TBD",
+"home": "TBD",
+"away_abbr": "TBD",
+"home_abbr": "TBD",
+"away_score": 0,
+"home_score": 0
+},
+{
+"espn_id": "401881721",
+"league": "Las Vegas",
+"tip_utc": "2026-07-19T22:30Z",
+"state": "STATUS_SCHEDULED",
+"is_final": false,
+"away": "TBD",
+"home": "TBD",
+"away_abbr": "TBD",
+"home_abbr": "TBD",
+"away_score": 0,
+"home_score": 0
+},
+{
+"espn_id": "401881722",
+"league": "Las Vegas",
+"tip_utc": "2026-07-20T01:00Z",
+"state": "STATUS_SCHEDULED",
+"is_final": false,
+"away": "TBD",
+"home": "TBD",
+"away_abbr": "TBD",
+"home_abbr": "TBD",
+"away_score": 0,
+"home_score": 0
+}
+]
+}
