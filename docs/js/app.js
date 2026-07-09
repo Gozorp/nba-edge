@@ -69,16 +69,13 @@ function paintDateStrip() {
   });
 }
 function followActiveChip() {
+  // Deterministic positioning: smooth scrollIntoView proved slow and
+  // interruptible with a 200-chip strip; direct scrollLeft always lands.
   const chip = document.querySelector(".date-chip.active");
-  if (!chip || typeof chip.scrollIntoView !== "function") return;
-  const rm = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
-  try {
-    chip.scrollIntoView({ inline: "center", block: "nearest",
-                          behavior: rm ? "auto" : "smooth" });
-  } catch (e) { /* older engines: positional fallback */
-    chip.parentElement.scrollLeft =
-      chip.offsetLeft - chip.parentElement.clientWidth / 2;
-  }
+  if (!chip) return;
+  const strip = chip.parentElement;
+  strip.scrollLeft = Math.max(
+    0, chip.offsetLeft - (strip.clientWidth - chip.offsetWidth) / 2);
 }
 function initPicker() {
   $("loadBtn").onclick = () => loadSlate($("datePicker").value);
@@ -288,10 +285,12 @@ function initVisits() {
   const COUNT_KEY = "nbaedge_last_count_v1";
   const BASE = "https://api.counterapi.dev/v1/gozorp-nba-edge/unique_visits";
   const cached = parseInt(lsGet(COUNT_KEY) || "0", 10);
-  if (cached > 0) el.textContent = cached.toLocaleString() + " unique visits";
+  if (cached > 0) el.textContent = cached.toLocaleString()
+    + (cached === 1 ? " unique visit" : " unique visits");
   const show = (count) => {
-    el.textContent = count.toLocaleString() + " unique visits";  // text FIRST
-    lsSet(COUNT_KEY, String(count));                             // storage best-effort
+    el.textContent = count.toLocaleString()
+      + (count === 1 ? " unique visit" : " unique visits");  // text FIRST
+    lsSet(COUNT_KEY, String(count));                         // storage best-effort
   };
   const hit = async (url) => {
     try {

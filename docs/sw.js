@@ -2,7 +2,7 @@
    Rationale: cache-first pinned clients to stale shells until the sw itself
    updated (slow via CDN max-age). Network-first serves the newest deploy on
    every online visit and still works offline from the last good copy. */
-const CACHE = "nba-edge-v8";
+const CACHE = "nba-edge-v9";
 self.addEventListener("install", (e) => { self.skipWaiting(); });
 self.addEventListener("activate", (e) => {
   e.waitUntil(caches.keys().then((ks) =>
