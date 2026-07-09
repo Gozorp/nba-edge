@@ -39,6 +39,19 @@
   ol li{margin:8px 0}
   code{background:var(--panel2); padding:2px 7px; border-radius:6px;
        font-size:13.5px; color:#ffd9bd}
+  header .wrap{position:relative}
+  #mlb-return{
+    position:absolute; top:8px; right:0;
+    display:inline-flex; align-items:center; gap:8px;
+    padding:8px 15px; background:var(--panel);
+    border:1px solid var(--line); border-radius:999px;
+    color:var(--ink); text-decoration:none; font-size:14px;
+    transition:border-color .15s, transform .15s}
+  #mlb-return:hover{border-color:var(--accent); transform:scale(1.04)}
+  #mlb-return svg{flex:none}
+  @media (max-width:640px){
+    #mlb-return{position:static; margin-bottom:14px}
+  }
   footer{padding:28px 0 60px; color:var(--muted); font-size:13.5px}
   a{color:var(--accent)}
 </style>
@@ -46,6 +59,15 @@
 <body>
 <header>
   <div class="wrap">
+    <a id="mlb-return" href="https://gozorp.github.io/MLB-edges/"
+       title="Return to Gozorp's MLB edge" aria-label="Return to the MLB site">
+      <svg viewBox="0 0 48 48" width="18" height="18" aria-hidden="true">
+        <circle cx="24" cy="24" r="20" fill="#ffffff" stroke="#111111" stroke-width="3"/>
+        <path d="M14.5 8 C 23 15.5, 23 32.5, 14.5 40" fill="none" stroke="#E8590C" stroke-width="2.4" stroke-linecap="round"/>
+        <path d="M33.5 8 C 25 15.5, 25 32.5, 33.5 40" fill="none" stroke="#E8590C" stroke-width="2.4" stroke-linecap="round"/>
+      </svg>
+      Back to MLB edge
+    </a>
     <div class="ball">🏀</div>
     <h1>NBA <span>Edge</span></h1>
     <p class="sub">A self-recalibrating NBA prediction system: 48,871 games of
