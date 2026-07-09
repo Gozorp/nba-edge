@@ -1,0 +1,134 @@
+{
+"date": "2026-04-29",
+"games": [
+{
+"game_id": "202604290CLE",
+"away": "Toronto Raptors",
+"home": "Cleveland Cavaliers",
+"away_abbr": "TOR",
+"home_abbr": "CLE",
+"p_home": 0.503,
+"pick": "CLE",
+"pick_prob": 0.503,
+"fair_ml_home": -101,
+"fair_ml_away": 101,
+"pred_margin_home": 2.5,
+"grade": "C",
+"tier": "COINFLIP",
+"season_type": "Playoffs",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": 6.0
+},
+{
+"label": "Away recent o-boards (3g)",
+"impact_pp": -1.6
+},
+{
+"label": "Home season shooting",
+"impact_pp": 1.2
+},
+{
+"label": "Away season shooting",
+"impact_pp": -1.1
+},
+{
+"label": "Away 3-point profile",
+"impact_pp": -1.0
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 5,
+"pick_correct": 1
+}
+},
+{
+"game_id": "202604290DET",
+"away": "Orlando Magic",
+"home": "Detroit Pistons",
+"away_abbr": "ORL",
+"home_abbr": "DET",
+"p_home": 0.5575,
+"pick": "DET",
+"pick_prob": 0.5575,
+"fair_ml_home": -126,
+"fair_ml_away": 126,
+"pred_margin_home": 6.6,
+"grade": "B-",
+"tier": "LEAN",
+"season_type": "Playoffs",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": 11.2
+},
+{
+"label": "Away recent shooting (3g)",
+"impact_pp": -3.5
+},
+{
+"label": "Home recent turnovers",
+"impact_pp": -2.4
+},
+{
+"label": "Away recent shooting",
+"impact_pp": 2.1
+},
+{
+"label": "Away recent schedule",
+"impact_pp": 1.7
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 7,
+"pick_correct": 1
+}
+},
+{
+"game_id": "202604290LAL",
+"away": "Houston Rockets",
+"home": "Los Angeles Lakers",
+"away_abbr": "HOU",
+"home_abbr": "LAL",
+"p_home": 0.5053,
+"pick": "LAL",
+"pick_prob": 0.5053,
+"fair_ml_home": -102,
+"fair_ml_away": 102,
+"pred_margin_home": 3.5,
+"grade": "C",
+"tier": "COINFLIP",
+"season_type": "Playoffs",
+"factors": [
+{
+"label": "Home recent shooting",
+"impact_pp": 3.7
+},
+{
+"label": "Home recent turnovers",
+"impact_pp": -3.1
+},
+{
+"label": "Home season shooting",
+"impact_pp": 2.8
+},
+{
+"label": "Season net-rating edge",
+"impact_pp": 2.0
+},
+{
+"label": "Home adjusted quality",
+"impact_pp": 1.4
+}
+],
+"result": {
+"home_win": 0,
+"margin_home": -6,
+"pick_correct": 0
+}
+}
+]
+}

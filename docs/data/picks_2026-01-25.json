@@ -1,0 +1,263 @@
+{
+"date": "2026-01-25",
+"games": [
+{
+"game_id": "202601250DET",
+"away": "Sacramento Kings",
+"home": "Detroit Pistons",
+"away_abbr": "SAC",
+"home_abbr": "DET",
+"p_home": 0.8257,
+"pick": "DET",
+"pick_prob": 0.8257,
+"fair_ml_home": -474,
+"fair_ml_away": 474,
+"pred_margin_home": 12.2,
+"grade": "A",
+"tier": "PLATINUM",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": 15.7
+},
+{
+"label": "Home recent defense",
+"impact_pp": 2.3
+},
+{
+"label": "Shooting-efficiency edge",
+"impact_pp": -1.3
+},
+{
+"label": "SOS-adjusted quality edge",
+"impact_pp": 1.1
+},
+{
+"label": "Away adjusted quality",
+"impact_pp": 1.0
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 23,
+"pick_correct": 1
+}
+},
+{
+"game_id": "202601250LAC",
+"away": "Brooklyn Nets",
+"home": "Los Angeles Clippers",
+"away_abbr": "BRK",
+"home_abbr": "LAC",
+"p_home": 0.743,
+"pick": "LAC",
+"pick_prob": 0.743,
+"fair_ml_home": -289,
+"fair_ml_away": 289,
+"pred_margin_home": 8.4,
+"grade": "A",
+"tier": "PLATINUM",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": 7.7
+},
+{
+"label": "Last-7 form edge",
+"impact_pp": 2.4
+},
+{
+"label": "Away adjusted quality",
+"impact_pp": 2.1
+},
+{
+"label": "Away last-7 net rating",
+"impact_pp": 1.5
+},
+{
+"label": "SOS-adjusted quality edge",
+"impact_pp": 1.2
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 37,
+"pick_correct": 1
+}
+},
+{
+"game_id": "202601250MIN",
+"away": "Golden State Warriors",
+"home": "Minnesota Timberwolves",
+"away_abbr": "GSW",
+"home_abbr": "MIN",
+"p_home": 0.4906,
+"pick": "GSW",
+"pick_prob": 0.5094,
+"fair_ml_home": 104,
+"fair_ml_away": -104,
+"pred_margin_home": 3.5,
+"grade": "C",
+"tier": "COINFLIP",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": 4.5
+},
+{
+"label": "Home FT rate",
+"impact_pp": -1.3
+},
+{
+"label": "Away recent FT rate",
+"impact_pp": -1.3
+},
+{
+"label": "Home season shooting",
+"impact_pp": 1.3
+},
+{
+"label": "Away season shooting",
+"impact_pp": -1.2
+}
+],
+"result": {
+"home_win": 0,
+"margin_home": -26,
+"pick_correct": 1
+}
+},
+{
+"game_id": "202601250OKC",
+"away": "Toronto Raptors",
+"home": "Oklahoma City Thunder",
+"away_abbr": "TOR",
+"home_abbr": "OKC",
+"p_home": 0.8007,
+"pick": "OKC",
+"pick_prob": 0.8007,
+"fair_ml_home": -402,
+"fair_ml_away": 402,
+"pred_margin_home": 11.6,
+"grade": "A",
+"tier": "PLATINUM",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": 13.4
+},
+{
+"label": "Home season net rating",
+"impact_pp": 4.7
+},
+{
+"label": "Home recent shooting",
+"impact_pp": 2.0
+},
+{
+"label": "Away season offense",
+"impact_pp": -1.5
+},
+{
+"label": "SOS-adjusted quality edge",
+"impact_pp": 1.5
+}
+],
+"result": {
+"home_win": 0,
+"margin_home": -2,
+"pick_correct": 0
+}
+},
+{
+"game_id": "202601250PHO",
+"away": "Miami Heat",
+"home": "Phoenix Suns",
+"away_abbr": "MIA",
+"home_abbr": "PHO",
+"p_home": 0.6672,
+"pick": "PHO",
+"pick_prob": 0.6672,
+"fair_ml_home": -200,
+"fair_ml_away": 200,
+"pred_margin_home": 4.9,
+"grade": "A-",
+"tier": "GOLD",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Away rest days",
+"impact_pp": 3.7
+},
+{
+"label": "Season net-rating edge",
+"impact_pp": 3.0
+},
+{
+"label": "Home recent 3P profile",
+"impact_pp": 2.6
+},
+{
+"label": "Pace differential",
+"impact_pp": 1.6
+},
+{
+"label": "SOS-adjusted quality edge",
+"impact_pp": -1.2
+}
+],
+"result": {
+"home_win": 0,
+"margin_home": -9,
+"pick_correct": 0
+}
+},
+{
+"game_id": "202601250SAS",
+"away": "New Orleans Pelicans",
+"home": "San Antonio Spurs",
+"away_abbr": "NOP",
+"home_abbr": "SAS",
+"p_home": 0.7484,
+"pick": "SAS",
+"pick_prob": 0.7484,
+"fair_ml_home": -297,
+"fair_ml_away": 297,
+"pred_margin_home": 9.7,
+"grade": "A",
+"tier": "PLATINUM",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": 16.7
+},
+{
+"label": "Away adjusted quality",
+"impact_pp": 1.7
+},
+{
+"label": "Away season offense",
+"impact_pp": -1.2
+},
+{
+"label": "SOS-adjusted quality edge",
+"impact_pp": 0.9
+},
+{
+"label": "Away off-rebound rate",
+"impact_pp": 0.9
+}
+],
+"result": {
+"home_win": 0,
+"margin_home": -9,
+"pick_correct": 0
+}
+}
+]
+}

@@ -1,0 +1,48 @@
+{
+"date": "2026-06-10",
+"games": [
+{
+"game_id": "202606100NYK",
+"away": "San Antonio Spurs",
+"home": "New York Knicks",
+"away_abbr": "SAS",
+"home_abbr": "NYK",
+"p_home": 0.5369,
+"pick": "NYK",
+"pick_prob": 0.5369,
+"fair_ml_home": -116,
+"fair_ml_away": 116,
+"pred_margin_home": -0.4,
+"grade": "B-",
+"tier": "LEAN",
+"season_type": "Playoffs",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": 2.3
+},
+{
+"label": "Away recent shooting (3g)",
+"impact_pp": -1.9
+},
+{
+"label": "Away recent schedule",
+"impact_pp": 1.6
+},
+{
+"label": "Home last-7 net rating",
+"impact_pp": 1.6
+},
+{
+"label": "Schedule-strength edge",
+"impact_pp": 1.5
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 1,
+"pick_correct": 1
+}
+}
+]
+}

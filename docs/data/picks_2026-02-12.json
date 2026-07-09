@@ -1,0 +1,134 @@
+{
+"date": "2026-02-12",
+"games": [
+{
+"game_id": "202602120LAL",
+"away": "Dallas Mavericks",
+"home": "Los Angeles Lakers",
+"away_abbr": "DAL",
+"home_abbr": "LAL",
+"p_home": 0.5725,
+"pick": "LAL",
+"pick_prob": 0.5725,
+"fair_ml_home": -134,
+"fair_ml_away": 134,
+"pred_margin_home": 5.9,
+"grade": "B",
+"tier": "BRONZE",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": 4.2
+},
+{
+"label": "Home season shooting",
+"impact_pp": 3.2
+},
+{
+"label": "Home recent shooting",
+"impact_pp": 1.3
+},
+{
+"label": "Home FT rate",
+"impact_pp": -1.1
+},
+{
+"label": "Away season offense",
+"impact_pp": -0.8
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 20,
+"pick_correct": 1
+}
+},
+{
+"game_id": "202602120OKC",
+"away": "Milwaukee Bucks",
+"home": "Oklahoma City Thunder",
+"away_abbr": "MIL",
+"home_abbr": "OKC",
+"p_home": 0.8078,
+"pick": "OKC",
+"pick_prob": 0.8078,
+"fair_ml_home": -420,
+"fair_ml_away": 420,
+"pred_margin_home": 13.2,
+"grade": "A",
+"tier": "PLATINUM",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": 14.4
+},
+{
+"label": "Home season net rating",
+"impact_pp": 2.9
+},
+{
+"label": "SOS-adjusted quality edge",
+"impact_pp": 2.2
+},
+{
+"label": "Last-7 form edge",
+"impact_pp": 2.1
+},
+{
+"label": "Away rest days",
+"impact_pp": 1.9
+}
+],
+"result": {
+"home_win": 0,
+"margin_home": -17,
+"pick_correct": 0
+}
+},
+{
+"game_id": "202602120UTA",
+"away": "Portland Trail Blazers",
+"home": "Utah Jazz",
+"away_abbr": "POR",
+"home_abbr": "UTA",
+"p_home": 0.4228,
+"pick": "POR",
+"pick_prob": 0.5772,
+"fair_ml_home": 137,
+"fair_ml_away": -137,
+"pred_margin_home": -3.4,
+"grade": "B",
+"tier": "BRONZE",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": -8.6
+},
+{
+"label": "Away rest days",
+"impact_pp": 3.2
+},
+{
+"label": "Home adjusted quality",
+"impact_pp": -2.7
+},
+{
+"label": "Home season net rating",
+"impact_pp": -2.0
+},
+{
+"label": "Away season pace",
+"impact_pp": 1.5
+}
+],
+"result": {
+"home_win": 0,
+"margin_home": -16,
+"pick_correct": 1
+}
+}
+]
+}

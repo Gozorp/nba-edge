@@ -1,0 +1,91 @@
+{
+"date": "2026-05-04",
+"games": [
+{
+"game_id": "202605040NYK",
+"away": "Philadelphia 76ers",
+"home": "New York Knicks",
+"away_abbr": "PHI",
+"home_abbr": "NYK",
+"p_home": 0.7528,
+"pick": "NYK",
+"pick_prob": 0.7528,
+"fair_ml_home": -305,
+"fair_ml_away": 305,
+"pred_margin_home": 9.5,
+"grade": "A",
+"tier": "PLATINUM",
+"season_type": "Playoffs",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": 7.6
+},
+{
+"label": "Rest edge",
+"impact_pp": 2.9
+},
+{
+"label": "Home season offense",
+"impact_pp": -1.6
+},
+{
+"label": "Last-7 form edge",
+"impact_pp": 1.6
+},
+{
+"label": "Away last-3 net rating",
+"impact_pp": 1.2
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 39,
+"pick_correct": 1
+}
+},
+{
+"game_id": "202605040SAS",
+"away": "Minnesota Timberwolves",
+"home": "San Antonio Spurs",
+"away_abbr": "MIN",
+"home_abbr": "SAS",
+"p_home": 0.6163,
+"pick": "SAS",
+"pick_prob": 0.6163,
+"fair_ml_home": -161,
+"fair_ml_away": 161,
+"pred_margin_home": 5.1,
+"grade": "B+",
+"tier": "SILVER",
+"season_type": "Playoffs",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": 8.5
+},
+{
+"label": "Rest edge",
+"impact_pp": 2.6
+},
+{
+"label": "Home season offense",
+"impact_pp": -1.4
+},
+{
+"label": "Away 3-point profile",
+"impact_pp": -1.3
+},
+{
+"label": "Away season shooting",
+"impact_pp": -0.8
+}
+],
+"result": {
+"home_win": 0,
+"margin_home": -2,
+"pick_correct": 0
+}
+}
+]
+}

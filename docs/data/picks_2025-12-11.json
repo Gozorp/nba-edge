@@ -1,0 +1,177 @@
+{
+"date": "2025-12-11",
+"games": [
+{
+"game_id": "202512110HOU",
+"away": "Los Angeles Clippers",
+"home": "Houston Rockets",
+"away_abbr": "LAC",
+"home_abbr": "HOU",
+"p_home": 0.8097,
+"pick": "HOU",
+"pick_prob": 0.8097,
+"fair_ml_home": -426,
+"fair_ml_away": 426,
+"pred_margin_home": 14.2,
+"grade": "A",
+"tier": "PLATINUM",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": 14.3
+},
+{
+"label": "Last-7 form edge",
+"impact_pp": 2.0
+},
+{
+"label": "Home recent o-boards (3g)",
+"impact_pp": 1.5
+},
+{
+"label": "Home recent o-boards",
+"impact_pp": 1.3
+},
+{
+"label": "Away adjusted quality",
+"impact_pp": 1.1
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 2,
+"pick_correct": 1
+}
+},
+{
+"game_id": "202512110MIL",
+"away": "Boston Celtics",
+"home": "Milwaukee Bucks",
+"away_abbr": "BOS",
+"home_abbr": "MIL",
+"p_home": 0.3556,
+"pick": "BOS",
+"pick_prob": 0.6444,
+"fair_ml_home": 181,
+"fair_ml_away": -181,
+"pred_margin_home": -1.8,
+"grade": "B+",
+"tier": "SILVER",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": -12.4
+},
+{
+"label": "Home season shooting",
+"impact_pp": 3.9
+},
+{
+"label": "Away recent offense",
+"impact_pp": -3.6
+},
+{
+"label": "Home recent 3P profile",
+"impact_pp": 1.9
+},
+{
+"label": "Last-7 form edge",
+"impact_pp": -1.6
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 15,
+"pick_correct": 0
+}
+},
+{
+"game_id": "202512110NOP",
+"away": "Portland Trail Blazers",
+"home": "New Orleans Pelicans",
+"away_abbr": "POR",
+"home_abbr": "NOP",
+"p_home": 0.3471,
+"pick": "POR",
+"pick_prob": 0.6529,
+"fair_ml_home": 188,
+"fair_ml_away": -188,
+"pred_margin_home": -5.1,
+"grade": "A-",
+"tier": "GOLD",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": -8.3
+},
+{
+"label": "Away recent shooting (3g)",
+"impact_pp": -1.9
+},
+{
+"label": "SOS-adjusted quality edge",
+"impact_pp": -1.7
+},
+{
+"label": "Home adjusted quality",
+"impact_pp": -1.7
+},
+{
+"label": "Shooting-efficiency edge",
+"impact_pp": 1.6
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 23,
+"pick_correct": 0
+}
+},
+{
+"game_id": "202512110SAC",
+"away": "Denver Nuggets",
+"home": "Sacramento Kings",
+"away_abbr": "DEN",
+"home_abbr": "SAC",
+"p_home": 0.1501,
+"pick": "DEN",
+"pick_prob": 0.8499,
+"fair_ml_home": 566,
+"fair_ml_away": -566,
+"pred_margin_home": -7.9,
+"grade": "A",
+"tier": "PLATINUM",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": -13.0
+},
+{
+"label": "Home season net rating",
+"impact_pp": -1.3
+},
+{
+"label": "Home opponent quality faced",
+"impact_pp": -1.2
+},
+{
+"label": "Away recent offense",
+"impact_pp": -1.1
+},
+{
+"label": "Home adjusted quality",
+"impact_pp": -0.9
+}
+],
+"result": {
+"home_win": 0,
+"margin_home": -31,
+"pick_correct": 1
+}
+}
+]
+}

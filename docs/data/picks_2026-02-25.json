@@ -1,0 +1,263 @@
+{
+"date": "2026-02-25",
+"games": [
+{
+"game_id": "202602250DEN",
+"away": "Boston Celtics",
+"home": "Denver Nuggets",
+"away_abbr": "BOS",
+"home_abbr": "DEN",
+"p_home": 0.4922,
+"pick": "BOS",
+"pick_prob": 0.5078,
+"fair_ml_home": 103,
+"fair_ml_away": -103,
+"pred_margin_home": 6.3,
+"grade": "C",
+"tier": "COINFLIP",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": -4.4
+},
+{
+"label": "Rest edge",
+"impact_pp": 3.2
+},
+{
+"label": "Home pace_r3",
+"impact_pp": -2.8
+},
+{
+"label": "Away rest days",
+"impact_pp": 2.5
+},
+{
+"label": "Away last-3 net rating",
+"impact_pp": -1.2
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 19,
+"pick_correct": 0
+}
+},
+{
+"game_id": "202602250DET",
+"away": "Oklahoma City Thunder",
+"home": "Detroit Pistons",
+"away_abbr": "OKC",
+"home_abbr": "DET",
+"p_home": 0.4309,
+"pick": "OKC",
+"pick_prob": 0.5691,
+"fair_ml_home": 132,
+"fair_ml_away": -132,
+"pred_margin_home": 2.4,
+"grade": "B",
+"tier": "BRONZE",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": -7.4
+},
+{
+"label": "Home recent o-boards",
+"impact_pp": 4.3
+},
+{
+"label": "Home opponent quality faced",
+"impact_pp": -3.3
+},
+{
+"label": "Away rest days",
+"impact_pp": 2.6
+},
+{
+"label": "Home recent o-boards (3g)",
+"impact_pp": 2.3
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 8,
+"pick_correct": 0
+}
+},
+{
+"game_id": "202602250HOU",
+"away": "Sacramento Kings",
+"home": "Houston Rockets",
+"away_abbr": "SAC",
+"home_abbr": "HOU",
+"p_home": 0.9114,
+"pick": "HOU",
+"pick_prob": 0.9114,
+"fair_ml_home": -1029,
+"fair_ml_away": 1029,
+"pred_margin_home": 13.8,
+"grade": "A",
+"tier": "PLATINUM",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": 8.6
+},
+{
+"label": "SOS-adjusted quality edge",
+"impact_pp": 1.2
+},
+{
+"label": "Last-7 form edge",
+"impact_pp": 1.1
+},
+{
+"label": "Home recent turnovers",
+"impact_pp": -1.1
+},
+{
+"label": "Away adjusted quality",
+"impact_pp": 1.0
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 31,
+"pick_correct": 1
+}
+},
+{
+"game_id": "202602250MEM",
+"away": "Golden State Warriors",
+"home": "Memphis Grizzlies",
+"away_abbr": "GSW",
+"home_abbr": "MEM",
+"p_home": 0.4673,
+"pick": "GSW",
+"pick_prob": 0.5327,
+"fair_ml_home": 114,
+"fair_ml_away": -114,
+"pred_margin_home": -4.3,
+"grade": "B-",
+"tier": "LEAN",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": -6.5
+},
+{
+"label": "Away rest days",
+"impact_pp": 2.3
+},
+{
+"label": "Rest edge",
+"impact_pp": 2.0
+},
+{
+"label": "Home pace_r3",
+"impact_pp": -1.8
+},
+{
+"label": "Home adjusted quality",
+"impact_pp": -1.5
+}
+],
+"result": {
+"home_win": 0,
+"margin_home": -21,
+"pick_correct": 1
+}
+},
+{
+"game_id": "202602250MIL",
+"away": "Cleveland Cavaliers",
+"home": "Milwaukee Bucks",
+"away_abbr": "CLE",
+"home_abbr": "MIL",
+"p_home": 0.2653,
+"pick": "CLE",
+"pick_prob": 0.7347,
+"fair_ml_home": 277,
+"fair_ml_away": -277,
+"pred_margin_home": -4.1,
+"grade": "A",
+"tier": "PLATINUM",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": -11.8
+},
+{
+"label": "Away rest days",
+"impact_pp": 1.9
+},
+{
+"label": "Home rest days",
+"impact_pp": -1.7
+},
+{
+"label": "FT-rate edge",
+"impact_pp": -1.4
+},
+{
+"label": "Last-7 form edge",
+"impact_pp": -1.3
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 2,
+"pick_correct": 0
+}
+},
+{
+"game_id": "202602250TOR",
+"away": "San Antonio Spurs",
+"home": "Toronto Raptors",
+"away_abbr": "SAS",
+"home_abbr": "TOR",
+"p_home": 0.3149,
+"pick": "SAS",
+"pick_prob": 0.6851,
+"fair_ml_home": 218,
+"fair_ml_away": -218,
+"pred_margin_home": -3.1,
+"grade": "A-",
+"tier": "GOLD",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": -9.3
+},
+{
+"label": "Home rest days",
+"impact_pp": -1.9
+},
+{
+"label": "Away last-3 net rating",
+"impact_pp": -1.7
+},
+{
+"label": "Home adjusted quality",
+"impact_pp": 1.0
+},
+{
+"label": "Rest edge",
+"impact_pp": -0.9
+}
+],
+"result": {
+"home_win": 0,
+"margin_home": -3,
+"pick_correct": 1
+}
+}
+]
+}

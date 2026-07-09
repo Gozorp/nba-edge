@@ -1,0 +1,91 @@
+{
+"date": "2025-12-10",
+"games": [
+{
+"game_id": "202512100LAL",
+"away": "San Antonio Spurs",
+"home": "Los Angeles Lakers",
+"away_abbr": "SAS",
+"home_abbr": "LAL",
+"p_home": 0.5786,
+"pick": "LAL",
+"pick_prob": 0.5786,
+"fair_ml_home": -137,
+"fair_ml_away": 137,
+"pred_margin_home": 3.3,
+"grade": "B",
+"tier": "BRONZE",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Home season shooting",
+"impact_pp": 4.5
+},
+{
+"label": "Home recent shooting",
+"impact_pp": 4.1
+},
+{
+"label": "Home FT rate",
+"impact_pp": -1.9
+},
+{
+"label": "Season net-rating edge",
+"impact_pp": 1.1
+},
+{
+"label": "Home adjusted quality",
+"impact_pp": 0.9
+}
+],
+"result": {
+"home_win": 0,
+"margin_home": -13,
+"pick_correct": 0
+}
+},
+{
+"game_id": "202512100OKC",
+"away": "Phoenix Suns",
+"home": "Oklahoma City Thunder",
+"away_abbr": "PHO",
+"home_abbr": "OKC",
+"p_home": 0.7556,
+"pick": "OKC",
+"pick_prob": 0.7556,
+"fair_ml_home": -309,
+"fair_ml_away": 309,
+"pred_margin_home": 11.0,
+"grade": "A",
+"tier": "PLATINUM",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": 13.9
+},
+{
+"label": "Home season net rating",
+"impact_pp": 3.9
+},
+{
+"label": "Away recent FT rate (3g)",
+"impact_pp": 2.0
+},
+{
+"label": "Away season offense",
+"impact_pp": -2.0
+},
+{
+"label": "Home recent shooting",
+"impact_pp": 1.8
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 49,
+"pick_correct": 1
+}
+}
+]
+}

@@ -1,0 +1,263 @@
+{
+"date": "2026-02-21",
+"games": [
+{
+"game_id": "202602210CHI",
+"away": "Detroit Pistons",
+"home": "Chicago Bulls",
+"away_abbr": "DET",
+"home_abbr": "CHI",
+"p_home": 0.1527,
+"pick": "DET",
+"pick_prob": 0.8473,
+"fair_ml_home": 555,
+"fair_ml_away": -555,
+"pred_margin_home": -7.7,
+"grade": "A",
+"tier": "PLATINUM",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": -10.8
+},
+{
+"label": "Last-7 form edge",
+"impact_pp": -5.6
+},
+{
+"label": "Home recent 3P profile",
+"impact_pp": 2.3
+},
+{
+"label": "Home last-7 net rating",
+"impact_pp": -1.6
+},
+{
+"label": "SOS-adjusted quality edge",
+"impact_pp": -1.1
+}
+],
+"result": {
+"home_win": 0,
+"margin_home": -16,
+"pick_correct": 1
+}
+},
+{
+"game_id": "202602210MIA",
+"away": "Memphis Grizzlies",
+"home": "Miami Heat",
+"away_abbr": "MEM",
+"home_abbr": "MIA",
+"p_home": 0.7023,
+"pick": "MIA",
+"pick_prob": 0.7023,
+"fair_ml_home": -236,
+"fair_ml_away": 236,
+"pred_margin_home": 6.0,
+"grade": "A",
+"tier": "PLATINUM",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": 9.7
+},
+{
+"label": "Away rest days",
+"impact_pp": 4.2
+},
+{
+"label": "Last-7 form edge",
+"impact_pp": 2.5
+},
+{
+"label": "Home recent turnovers",
+"impact_pp": -1.6
+},
+{
+"label": "Home rest days",
+"impact_pp": -1.5
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 16,
+"pick_correct": 1
+}
+},
+{
+"game_id": "202602210NOP",
+"away": "Philadelphia 76ers",
+"home": "New Orleans Pelicans",
+"away_abbr": "PHI",
+"home_abbr": "NOP",
+"p_home": 0.2737,
+"pick": "PHI",
+"pick_prob": 0.7263,
+"fair_ml_home": 265,
+"fair_ml_away": -265,
+"pred_margin_home": -3.9,
+"grade": "A",
+"tier": "PLATINUM",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": -8.8
+},
+{
+"label": "Home adjusted quality",
+"impact_pp": -2.5
+},
+{
+"label": "Home recent turnovers",
+"impact_pp": -1.7
+},
+{
+"label": "Shooting-efficiency edge",
+"impact_pp": 1.4
+},
+{
+"label": "Home season net rating",
+"impact_pp": -1.1
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 15,
+"pick_correct": 0
+}
+},
+{
+"game_id": "202602210NYK",
+"away": "Houston Rockets",
+"home": "New York Knicks",
+"away_abbr": "HOU",
+"home_abbr": "NYK",
+"p_home": 0.5047,
+"pick": "NYK",
+"pick_prob": 0.5047,
+"fair_ml_home": -102,
+"fair_ml_away": 102,
+"pred_margin_home": 5.8,
+"grade": "C",
+"tier": "COINFLIP",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": 5.1
+},
+{
+"label": "Home pace_r3",
+"impact_pp": -2.1
+},
+{
+"label": "Home recent turnovers",
+"impact_pp": -1.3
+},
+{
+"label": "Away recent o-boards (3g)",
+"impact_pp": -1.2
+},
+{
+"label": "Home season offense",
+"impact_pp": -1.2
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 2,
+"pick_correct": 1
+}
+},
+{
+"game_id": "202602210PHO",
+"away": "Orlando Magic",
+"home": "Phoenix Suns",
+"away_abbr": "ORL",
+"home_abbr": "PHO",
+"p_home": 0.4345,
+"pick": "ORL",
+"pick_prob": 0.5655,
+"fair_ml_home": 130,
+"fair_ml_away": -130,
+"pred_margin_home": -0.2,
+"grade": "B",
+"tier": "BRONZE",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Last-7 form edge",
+"impact_pp": -4.4
+},
+{
+"label": "Home recent turnovers",
+"impact_pp": -3.2
+},
+{
+"label": "Home recent o-boards (3g)",
+"impact_pp": 3.1
+},
+{
+"label": "Season net-rating edge",
+"impact_pp": 3.1
+},
+{
+"label": "Home recent 3P profile",
+"impact_pp": 2.4
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 3,
+"pick_correct": 0
+}
+},
+{
+"game_id": "202602210SAS",
+"away": "Sacramento Kings",
+"home": "San Antonio Spurs",
+"away_abbr": "SAC",
+"home_abbr": "SAS",
+"p_home": 0.8231,
+"pick": "SAS",
+"pick_prob": 0.8231,
+"fair_ml_home": -465,
+"fair_ml_away": 465,
+"pred_margin_home": 12.5,
+"grade": "A",
+"tier": "PLATINUM",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": 14.3
+},
+{
+"label": "Last-7 form edge",
+"impact_pp": 2.8
+},
+{
+"label": "SOS-adjusted quality edge",
+"impact_pp": 2.4
+},
+{
+"label": "Away recent shooting (3g)",
+"impact_pp": -1.5
+},
+{
+"label": "Away FT rate",
+"impact_pp": 1.0
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 17,
+"pick_correct": 1
+}
+}
+]
+}

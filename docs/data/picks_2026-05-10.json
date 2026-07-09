@@ -1,0 +1,91 @@
+{
+"date": "2026-05-10",
+"games": [
+{
+"game_id": "202605100MIN",
+"away": "San Antonio Spurs",
+"home": "Minnesota Timberwolves",
+"away_abbr": "SAS",
+"home_abbr": "MIN",
+"p_home": 0.3368,
+"pick": "SAS",
+"pick_prob": 0.6632,
+"fair_ml_home": 197,
+"fair_ml_away": -197,
+"pred_margin_home": -2.2,
+"grade": "A-",
+"tier": "GOLD",
+"season_type": "Playoffs",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": -7.9
+},
+{
+"label": "Last-7 form edge",
+"impact_pp": -2.1
+},
+{
+"label": "Home opponent quality faced",
+"impact_pp": -1.6
+},
+{
+"label": "Shooting-efficiency edge",
+"impact_pp": -1.1
+},
+{
+"label": "Home off-rebound rate",
+"impact_pp": 1.1
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 5,
+"pick_correct": 0
+}
+},
+{
+"game_id": "202605100PHI",
+"away": "New York Knicks",
+"home": "Philadelphia 76ers",
+"away_abbr": "NYK",
+"home_abbr": "PHI",
+"p_home": 0.1873,
+"pick": "NYK",
+"pick_prob": 0.8127,
+"fair_ml_home": 434,
+"fair_ml_away": -434,
+"pred_margin_home": -9.3,
+"grade": "A",
+"tier": "PLATINUM",
+"season_type": "Playoffs",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": -9.8
+},
+{
+"label": "Last-7 form edge",
+"impact_pp": -5.3
+},
+{
+"label": "Away recent offense",
+"impact_pp": -1.7
+},
+{
+"label": "Home adjusted quality",
+"impact_pp": 1.2
+},
+{
+"label": "Home recent schedule",
+"impact_pp": -0.9
+}
+],
+"result": {
+"home_win": 0,
+"margin_home": -30,
+"pick_correct": 1
+}
+}
+]
+}

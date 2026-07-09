@@ -1,0 +1,91 @@
+{
+"date": "2026-05-11",
+"games": [
+{
+"game_id": "202605110CLE",
+"away": "Detroit Pistons",
+"home": "Cleveland Cavaliers",
+"away_abbr": "DET",
+"home_abbr": "CLE",
+"p_home": 0.3645,
+"pick": "DET",
+"pick_prob": 0.6355,
+"fair_ml_home": 174,
+"fair_ml_away": -174,
+"pred_margin_home": -2.3,
+"grade": "B+",
+"tier": "SILVER",
+"season_type": "Playoffs",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": -6.7
+},
+{
+"label": "Last-7 form edge",
+"impact_pp": -2.2
+},
+{
+"label": "Home recent schedule",
+"impact_pp": -1.5
+},
+{
+"label": "Home recent turnovers",
+"impact_pp": -1.2
+},
+{
+"label": "Shooting-efficiency edge",
+"impact_pp": 1.1
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 9,
+"pick_correct": 0
+}
+},
+{
+"game_id": "202605110LAL",
+"away": "Oklahoma City Thunder",
+"home": "Los Angeles Lakers",
+"away_abbr": "OKC",
+"home_abbr": "LAL",
+"p_home": 0.1227,
+"pick": "OKC",
+"pick_prob": 0.8773,
+"fair_ml_home": 715,
+"fair_ml_away": -715,
+"pred_margin_home": -8.7,
+"grade": "A",
+"tier": "PLATINUM",
+"season_type": "Playoffs",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": -9.6
+},
+{
+"label": "Last-7 form edge",
+"impact_pp": -4.2
+},
+{
+"label": "Home recent turnovers",
+"impact_pp": -2.5
+},
+{
+"label": "Home season shooting",
+"impact_pp": 1.9
+},
+{
+"label": "Home opponent quality faced",
+"impact_pp": -1.2
+}
+],
+"result": {
+"home_win": 0,
+"margin_home": -5,
+"pick_correct": 1
+}
+}
+]
+}

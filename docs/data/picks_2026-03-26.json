@@ -1,0 +1,134 @@
+{
+"date": "2026-03-26",
+"games": [
+{
+"game_id": "202603260CHO",
+"away": "New York Knicks",
+"home": "Charlotte Hornets",
+"away_abbr": "NYK",
+"home_abbr": "CHO",
+"p_home": 0.5405,
+"pick": "CHO",
+"pick_prob": 0.5405,
+"fair_ml_home": -118,
+"fair_ml_away": 118,
+"pred_margin_home": 3.9,
+"grade": "B-",
+"tier": "LEAN",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": -7.4
+},
+{
+"label": "Home recent 3P profile",
+"impact_pp": 7.1
+},
+{
+"label": "Away recent offense",
+"impact_pp": -2.7
+},
+{
+"label": "Home recent o-boards (3g)",
+"impact_pp": 2.6
+},
+{
+"label": "Home recent 3P profile (3g)",
+"impact_pp": 1.8
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 11,
+"pick_correct": 1
+}
+},
+{
+"game_id": "202603260DET",
+"away": "New Orleans Pelicans",
+"home": "Detroit Pistons",
+"away_abbr": "NOP",
+"home_abbr": "DET",
+"p_home": 0.6797,
+"pick": "DET",
+"pick_prob": 0.6797,
+"fair_ml_home": -212,
+"fair_ml_away": 212,
+"pred_margin_home": 4.8,
+"grade": "A-",
+"tier": "GOLD",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": 17.5
+},
+{
+"label": "Home recent o-boards",
+"impact_pp": 2.3
+},
+{
+"label": "Away season offense",
+"impact_pp": -1.8
+},
+{
+"label": "Home rest days",
+"impact_pp": -1.6
+},
+{
+"label": "Home FT rate",
+"impact_pp": -1.2
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 21,
+"pick_correct": 1
+}
+},
+{
+"game_id": "202603260ORL",
+"away": "Sacramento Kings",
+"home": "Orlando Magic",
+"away_abbr": "SAC",
+"home_abbr": "ORL",
+"p_home": 0.7411,
+"pick": "ORL",
+"pick_prob": 0.7411,
+"fair_ml_home": -286,
+"fair_ml_away": 286,
+"pred_margin_home": 9.6,
+"grade": "A",
+"tier": "PLATINUM",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": 16.1
+},
+{
+"label": "Away adjusted quality",
+"impact_pp": 2.5
+},
+{
+"label": "SOS-adjusted quality edge",
+"impact_pp": 1.0
+},
+{
+"label": "Home FT rate",
+"impact_pp": -1.0
+},
+{
+"label": "Away last-3 net rating",
+"impact_pp": -0.9
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 4,
+"pick_correct": 1
+}
+}
+]
+}

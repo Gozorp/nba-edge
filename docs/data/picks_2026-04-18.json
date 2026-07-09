@@ -1,0 +1,177 @@
+{
+"date": "2026-04-18",
+"games": [
+{
+"game_id": "202604180CLE",
+"away": "Toronto Raptors",
+"home": "Cleveland Cavaliers",
+"away_abbr": "TOR",
+"home_abbr": "CLE",
+"p_home": 0.5605,
+"pick": "CLE",
+"pick_prob": 0.5605,
+"fair_ml_home": -128,
+"fair_ml_away": 128,
+"pred_margin_home": 5.1,
+"grade": "B",
+"tier": "BRONZE",
+"season_type": "Playoffs",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": 5.7
+},
+{
+"label": "Last-7 form edge",
+"impact_pp": -2.3
+},
+{
+"label": "Home season shooting",
+"impact_pp": 1.8
+},
+{
+"label": "Away last-3 net rating",
+"impact_pp": 1.3
+},
+{
+"label": "Home adjusted quality",
+"impact_pp": 1.1
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 13,
+"pick_correct": 1
+}
+},
+{
+"game_id": "202604180DEN",
+"away": "Minnesota Timberwolves",
+"home": "Denver Nuggets",
+"away_abbr": "MIN",
+"home_abbr": "DEN",
+"p_home": 0.5758,
+"pick": "DEN",
+"pick_prob": 0.5758,
+"fair_ml_home": -136,
+"fair_ml_away": 136,
+"pred_margin_home": 1.5,
+"grade": "B",
+"tier": "BRONZE",
+"season_type": "Playoffs",
+"factors": [
+{
+"label": "Home season shooting",
+"impact_pp": 4.0
+},
+{
+"label": "Season net-rating edge",
+"impact_pp": 3.5
+},
+{
+"label": "Home recent shooting",
+"impact_pp": 2.8
+},
+{
+"label": "Home recent turnovers",
+"impact_pp": -2.6
+},
+{
+"label": "Away season shooting",
+"impact_pp": -1.9
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 11,
+"pick_correct": 1
+}
+},
+{
+"game_id": "202604180LAL",
+"away": "Houston Rockets",
+"home": "Los Angeles Lakers",
+"away_abbr": "HOU",
+"home_abbr": "LAL",
+"p_home": 0.4638,
+"pick": "HOU",
+"pick_prob": 0.5362,
+"fair_ml_home": 116,
+"fair_ml_away": -116,
+"pred_margin_home": -0.9,
+"grade": "B-",
+"tier": "LEAN",
+"season_type": "Playoffs",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": -3.8
+},
+{
+"label": "Home season shooting",
+"impact_pp": 3.1
+},
+{
+"label": "Away recent offense",
+"impact_pp": -2.5
+},
+{
+"label": "Last-7 form edge",
+"impact_pp": -2.2
+},
+{
+"label": "Home FT rate",
+"impact_pp": -1.5
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 9,
+"pick_correct": 0
+}
+},
+{
+"game_id": "202604180NYK",
+"away": "Atlanta Hawks",
+"home": "New York Knicks",
+"away_abbr": "ATL",
+"home_abbr": "NYK",
+"p_home": 0.5809,
+"pick": "NYK",
+"pick_prob": 0.5809,
+"fair_ml_home": -139,
+"fair_ml_away": 139,
+"pred_margin_home": 6.3,
+"grade": "B",
+"tier": "BRONZE",
+"season_type": "Playoffs",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": 10.0
+},
+{
+"label": "Home recent pace",
+"impact_pp": -2.2
+},
+{
+"label": "Away season shooting",
+"impact_pp": -1.5
+},
+{
+"label": "Pace differential",
+"impact_pp": 1.4
+},
+{
+"label": "Home season offense",
+"impact_pp": -1.1
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 11,
+"pick_correct": 1
+}
+}
+]
+}

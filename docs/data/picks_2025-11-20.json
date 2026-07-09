@@ -1,0 +1,177 @@
+{
+"date": "2025-11-20",
+"games": [
+{
+"game_id": "202511200MEM",
+"away": "Sacramento Kings",
+"home": "Memphis Grizzlies",
+"away_abbr": "SAC",
+"home_abbr": "MEM",
+"p_home": 0.556,
+"pick": "MEM",
+"pick_prob": 0.556,
+"fair_ml_home": -125,
+"fair_ml_away": 125,
+"pred_margin_home": 5.2,
+"grade": "B-",
+"tier": "LEAN",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": 4.2
+},
+{
+"label": "Away last-7 net rating",
+"impact_pp": 3.3
+},
+{
+"label": "Home season net rating",
+"impact_pp": -2.9
+},
+{
+"label": "Away rest days",
+"impact_pp": 2.8
+},
+{
+"label": "Home recent offense (3g)",
+"impact_pp": 2.1
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 41,
+"pick_correct": 1
+}
+},
+{
+"game_id": "202511200MIL",
+"away": "Philadelphia 76ers",
+"home": "Milwaukee Bucks",
+"away_abbr": "PHI",
+"home_abbr": "MIL",
+"p_home": 0.5919,
+"pick": "MIL",
+"pick_prob": 0.5919,
+"fair_ml_home": -145,
+"fair_ml_away": 145,
+"pred_margin_home": 1.8,
+"grade": "B",
+"tier": "BRONZE",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Rest edge",
+"impact_pp": 4.0
+},
+{
+"label": "Season net-rating edge",
+"impact_pp": -4.0
+},
+{
+"label": "Away rest days",
+"impact_pp": 2.8
+},
+{
+"label": "Home season shooting",
+"impact_pp": 2.5
+},
+{
+"label": "Shooting-efficiency edge",
+"impact_pp": 1.3
+}
+],
+"result": {
+"home_win": 0,
+"margin_home": -9,
+"pick_correct": 0
+}
+},
+{
+"game_id": "202511200ORL",
+"away": "Los Angeles Clippers",
+"home": "Orlando Magic",
+"away_abbr": "LAC",
+"home_abbr": "ORL",
+"p_home": 0.6198,
+"pick": "ORL",
+"pick_prob": 0.6198,
+"fair_ml_home": -163,
+"fair_ml_away": 163,
+"pred_margin_home": 5.2,
+"grade": "B+",
+"tier": "SILVER",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": 12.3
+},
+{
+"label": "Home FT rate",
+"impact_pp": -1.8
+},
+{
+"label": "Away season shooting",
+"impact_pp": -1.4
+},
+{
+"label": "Away 3-point profile",
+"impact_pp": -1.3
+},
+{
+"label": "Away season defense",
+"impact_pp": 1.2
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 28,
+"pick_correct": 1
+}
+},
+{
+"game_id": "202511200SAS",
+"away": "Atlanta Hawks",
+"home": "San Antonio Spurs",
+"away_abbr": "ATL",
+"home_abbr": "SAS",
+"p_home": 0.6412,
+"pick": "SAS",
+"pick_prob": 0.6412,
+"fair_ml_home": -179,
+"fair_ml_away": 179,
+"pred_margin_home": 7.4,
+"grade": "B+",
+"tier": "SILVER",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": 9.7
+},
+{
+"label": "Home season shooting",
+"impact_pp": 2.4
+},
+{
+"label": "Away season shooting",
+"impact_pp": -1.1
+},
+{
+"label": "Away recent offense (3g)",
+"impact_pp": 1.0
+},
+{
+"label": "Home turnover rate",
+"impact_pp": 1.0
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 9,
+"pick_correct": 1
+}
+}
+]
+}

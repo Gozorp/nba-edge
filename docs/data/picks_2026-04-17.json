@@ -1,0 +1,91 @@
+{
+"date": "2026-04-17",
+"games": [
+{
+"game_id": "202604170ORL",
+"away": "Charlotte Hornets",
+"home": "Orlando Magic",
+"away_abbr": "CHO",
+"home_abbr": "ORL",
+"p_home": 0.4085,
+"pick": "CHO",
+"pick_prob": 0.5915,
+"fair_ml_home": 145,
+"fair_ml_away": -145,
+"pred_margin_home": -2.2,
+"grade": "B",
+"tier": "BRONZE",
+"season_type": "Playoffs",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": -6.1
+},
+{
+"label": "Away season shooting",
+"impact_pp": -1.4
+},
+{
+"label": "Home recent defense (3g)",
+"impact_pp": 1.1
+},
+{
+"label": "Away recent FT rate (3g)",
+"impact_pp": 1.0
+},
+{
+"label": "Home FT rate",
+"impact_pp": -1.0
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 31,
+"pick_correct": 0
+}
+},
+{
+"game_id": "202604170PHO",
+"away": "Golden State Warriors",
+"home": "Phoenix Suns",
+"away_abbr": "GSW",
+"home_abbr": "PHO",
+"p_home": 0.5515,
+"pick": "PHO",
+"pick_prob": 0.5515,
+"fair_ml_home": -123,
+"fair_ml_away": 123,
+"pred_margin_home": 4.0,
+"grade": "B-",
+"tier": "LEAN",
+"season_type": "Playoffs",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": 3.9
+},
+{
+"label": "Home recent o-boards (3g)",
+"impact_pp": 3.0
+},
+{
+"label": "Away recent shooting",
+"impact_pp": -1.3
+},
+{
+"label": "Shooting-efficiency edge",
+"impact_pp": -1.3
+},
+{
+"label": "Away season shooting",
+"impact_pp": -1.3
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 15,
+"pick_correct": 1
+}
+}
+]
+}

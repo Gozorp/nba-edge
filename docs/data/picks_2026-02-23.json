@@ -1,0 +1,134 @@
+{
+"date": "2026-02-23",
+"games": [
+{
+"game_id": "202602230DET",
+"away": "San Antonio Spurs",
+"home": "Detroit Pistons",
+"away_abbr": "SAS",
+"home_abbr": "DET",
+"p_home": 0.4976,
+"pick": "SAS",
+"pick_prob": 0.5024,
+"fair_ml_home": 101,
+"fair_ml_away": -101,
+"pred_margin_home": 0.3,
+"grade": "C",
+"tier": "COINFLIP",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": 3.7
+},
+{
+"label": "Away recent offense",
+"impact_pp": -3.4
+},
+{
+"label": "Home recent o-boards (3g)",
+"impact_pp": 2.0
+},
+{
+"label": "Away last-3 net rating",
+"impact_pp": -1.4
+},
+{
+"label": "Home FT rate",
+"impact_pp": -1.4
+}
+],
+"result": {
+"home_win": 0,
+"margin_home": -11,
+"pick_correct": 1
+}
+},
+{
+"game_id": "202602230HOU",
+"away": "Utah Jazz",
+"home": "Houston Rockets",
+"away_abbr": "UTA",
+"home_abbr": "HOU",
+"p_home": 0.709,
+"pick": "HOU",
+"pick_prob": 0.709,
+"fair_ml_home": -244,
+"fair_ml_away": 244,
+"pred_margin_home": 9.9,
+"grade": "A",
+"tier": "PLATINUM",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": 19.0
+},
+{
+"label": "Away adjusted quality",
+"impact_pp": 2.4
+},
+{
+"label": "Away season offense",
+"impact_pp": -2.1
+},
+{
+"label": "Home recent turnovers",
+"impact_pp": -1.8
+},
+{
+"label": "Pace differential",
+"impact_pp": 1.5
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 20,
+"pick_correct": 1
+}
+},
+{
+"game_id": "202602230MEM",
+"away": "Sacramento Kings",
+"home": "Memphis Grizzlies",
+"away_abbr": "SAC",
+"home_abbr": "MEM",
+"p_home": 0.667,
+"pick": "MEM",
+"pick_prob": 0.667,
+"fair_ml_home": -200,
+"fair_ml_away": 200,
+"pred_margin_home": 9.4,
+"grade": "A-",
+"tier": "GOLD",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": 10.9
+},
+{
+"label": "Last-7 form edge",
+"impact_pp": 3.1
+},
+{
+"label": "Home adjusted quality",
+"impact_pp": -3.0
+},
+{
+"label": "Home pace_r3",
+"impact_pp": -1.9
+},
+{
+"label": "Away recent shooting (3g)",
+"impact_pp": -1.8
+}
+],
+"result": {
+"home_win": 0,
+"margin_home": -9,
+"pick_correct": 0
+}
+}
+]
+}

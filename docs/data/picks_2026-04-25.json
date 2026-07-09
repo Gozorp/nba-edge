@@ -1,0 +1,177 @@
+{
+"date": "2026-04-25",
+"games": [
+{
+"game_id": "202604250ATL",
+"away": "New York Knicks",
+"home": "Atlanta Hawks",
+"away_abbr": "NYK",
+"home_abbr": "ATL",
+"p_home": 0.3599,
+"pick": "NYK",
+"pick_prob": 0.6401,
+"fair_ml_home": 178,
+"fair_ml_away": -178,
+"pred_margin_home": -1.3,
+"grade": "B+",
+"tier": "SILVER",
+"season_type": "Playoffs",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": -8.4
+},
+{
+"label": "Away off-rebound rate",
+"impact_pp": 1.3
+},
+{
+"label": "Home adjusted quality",
+"impact_pp": 1.1
+},
+{
+"label": "Home recent schedule",
+"impact_pp": -1.0
+},
+{
+"label": "Away season offense",
+"impact_pp": -0.9
+}
+],
+"result": {
+"home_win": 0,
+"margin_home": -16,
+"pick_correct": 1
+}
+},
+{
+"game_id": "202604250MIN",
+"away": "Denver Nuggets",
+"home": "Minnesota Timberwolves",
+"away_abbr": "DEN",
+"home_abbr": "MIN",
+"p_home": 0.4826,
+"pick": "DEN",
+"pick_prob": 0.5174,
+"fair_ml_home": 107,
+"fair_ml_away": -107,
+"pred_margin_home": 0.9,
+"grade": "C",
+"tier": "COINFLIP",
+"season_type": "Playoffs",
+"factors": [
+{
+"label": "Away recent FT rate (3g)",
+"impact_pp": 1.6
+},
+{
+"label": "Season net-rating edge",
+"impact_pp": 1.5
+},
+{
+"label": "Away season shooting",
+"impact_pp": -1.2
+},
+{
+"label": "Away recent o-boards (3g)",
+"impact_pp": 1.2
+},
+{
+"label": "Home recent turnovers",
+"impact_pp": 1.1
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 16,
+"pick_correct": 0
+}
+},
+{
+"game_id": "202604250ORL",
+"away": "Detroit Pistons",
+"home": "Orlando Magic",
+"away_abbr": "DET",
+"home_abbr": "ORL",
+"p_home": 0.3384,
+"pick": "DET",
+"pick_prob": 0.6616,
+"fair_ml_home": 196,
+"fair_ml_away": -196,
+"pred_margin_home": -2.4,
+"grade": "A-",
+"tier": "GOLD",
+"season_type": "Playoffs",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": -11.7
+},
+{
+"label": "Home recent defense",
+"impact_pp": 2.5
+},
+{
+"label": "Shooting-efficiency edge",
+"impact_pp": -1.4
+},
+{
+"label": "Home adjusted quality",
+"impact_pp": 1.4
+},
+{
+"label": "Home recent defense (3g)",
+"impact_pp": 1.3
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 8,
+"pick_correct": 0
+}
+},
+{
+"game_id": "202604250PHO",
+"away": "Oklahoma City Thunder",
+"home": "Phoenix Suns",
+"away_abbr": "OKC",
+"home_abbr": "PHO",
+"p_home": 0.1668,
+"pick": "OKC",
+"pick_prob": 0.8332,
+"fair_ml_home": 500,
+"fair_ml_away": -500,
+"pred_margin_home": -8.1,
+"grade": "A",
+"tier": "PLATINUM",
+"season_type": "Playoffs",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": -10.8
+},
+{
+"label": "Last-7 form edge",
+"impact_pp": -1.5
+},
+{
+"label": "Home opponent quality faced",
+"impact_pp": -1.5
+},
+{
+"label": "Home adjusted quality",
+"impact_pp": 0.9
+},
+{
+"label": "Away season shooting",
+"impact_pp": -0.9
+}
+],
+"result": {
+"home_win": 0,
+"margin_home": -12,
+"pick_correct": 1
+}
+}
+]
+}

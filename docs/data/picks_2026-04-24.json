@@ -1,0 +1,134 @@
+{
+"date": "2026-04-24",
+"games": [
+{
+"game_id": "202604240HOU",
+"away": "Los Angeles Lakers",
+"home": "Houston Rockets",
+"away_abbr": "LAL",
+"home_abbr": "HOU",
+"p_home": 0.6331,
+"pick": "HOU",
+"pick_prob": 0.6331,
+"fair_ml_home": -173,
+"fair_ml_away": 173,
+"pred_margin_home": 4.3,
+"grade": "B+",
+"tier": "SILVER",
+"season_type": "Playoffs",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": 4.2
+},
+{
+"label": "Home recent o-boards (3g)",
+"impact_pp": 3.3
+},
+{
+"label": "Home recent o-boards",
+"impact_pp": 2.6
+},
+{
+"label": "Shooting-efficiency edge",
+"impact_pp": -2.1
+},
+{
+"label": "Home 3-point profile",
+"impact_pp": 1.9
+}
+],
+"result": {
+"home_win": 0,
+"margin_home": -4,
+"pick_correct": 0
+}
+},
+{
+"game_id": "202604240PHI",
+"away": "Boston Celtics",
+"home": "Philadelphia 76ers",
+"away_abbr": "BOS",
+"home_abbr": "PHI",
+"p_home": 0.3857,
+"pick": "BOS",
+"pick_prob": 0.6143,
+"fair_ml_home": 159,
+"fair_ml_away": -159,
+"pred_margin_home": -3.5,
+"grade": "B+",
+"tier": "SILVER",
+"season_type": "Playoffs",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": -9.6
+},
+{
+"label": "Away FT rate",
+"impact_pp": 1.6
+},
+{
+"label": "Home adjusted quality",
+"impact_pp": 1.5
+},
+{
+"label": "Shooting-efficiency edge",
+"impact_pp": -1.1
+},
+{
+"label": "Away 3-point profile",
+"impact_pp": -1.0
+}
+],
+"result": {
+"home_win": 0,
+"margin_home": -8,
+"pick_correct": 1
+}
+},
+{
+"game_id": "202604240POR",
+"away": "San Antonio Spurs",
+"home": "Portland Trail Blazers",
+"away_abbr": "SAS",
+"home_abbr": "POR",
+"p_home": 0.3168,
+"pick": "SAS",
+"pick_prob": 0.6832,
+"fair_ml_home": 216,
+"fair_ml_away": -216,
+"pred_margin_home": 0.3,
+"grade": "D",
+"tier": "CONFLICT",
+"season_type": "Playoffs",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": -14.0
+},
+{
+"label": "Home adjusted quality",
+"impact_pp": 1.6
+},
+{
+"label": "Home off-rebound rate",
+"impact_pp": 1.6
+},
+{
+"label": "SOS-adjusted quality edge",
+"impact_pp": -1.2
+},
+{
+"label": "Away 3-point profile",
+"impact_pp": -0.9
+}
+],
+"result": {
+"home_win": 0,
+"margin_home": -12,
+"pick_correct": 1
+}
+}
+]
+}

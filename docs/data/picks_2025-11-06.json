@@ -1,0 +1,48 @@
+{
+"date": "2025-11-06",
+"games": [
+{
+"game_id": "202511060PHO",
+"away": "Los Angeles Clippers",
+"home": "Phoenix Suns",
+"away_abbr": "LAC",
+"home_abbr": "PHO",
+"p_home": 0.6657,
+"pick": "PHO",
+"pick_prob": 0.6657,
+"fair_ml_home": -199,
+"fair_ml_away": 199,
+"pred_margin_home": 6.1,
+"grade": "A-",
+"tier": "GOLD",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": 3.4
+},
+{
+"label": "Home recent 3P profile",
+"impact_pp": 2.8
+},
+{
+"label": "Away off-rebound rate",
+"impact_pp": 1.5
+},
+{
+"label": "SOS-adjusted quality edge",
+"impact_pp": 1.5
+},
+{
+"label": "Away turnover rate",
+"impact_pp": 1.1
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 13,
+"pick_correct": 1
+}
+}
+]
+}

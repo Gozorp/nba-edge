@@ -1,0 +1,134 @@
+{
+"date": "2026-04-20",
+"games": [
+{
+"game_id": "202604200CLE",
+"away": "Toronto Raptors",
+"home": "Cleveland Cavaliers",
+"away_abbr": "TOR",
+"home_abbr": "CLE",
+"p_home": 0.5969,
+"pick": "CLE",
+"pick_prob": 0.5969,
+"fair_ml_home": -148,
+"fair_ml_away": 148,
+"pred_margin_home": 5.1,
+"grade": "B",
+"tier": "BRONZE",
+"season_type": "Playoffs",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": 5.4
+},
+{
+"label": "Home recent shooting",
+"impact_pp": 2.6
+},
+{
+"label": "Home season shooting",
+"impact_pp": 1.6
+},
+{
+"label": "Away recent o-boards (3g)",
+"impact_pp": 0.9
+},
+{
+"label": "Away 3-point profile",
+"impact_pp": -0.9
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 10,
+"pick_correct": 1
+}
+},
+{
+"game_id": "202604200DEN",
+"away": "Minnesota Timberwolves",
+"home": "Denver Nuggets",
+"away_abbr": "MIN",
+"home_abbr": "DEN",
+"p_home": 0.4986,
+"pick": "MIN",
+"pick_prob": 0.5014,
+"fair_ml_home": 101,
+"fair_ml_away": -101,
+"pred_margin_home": 2.5,
+"grade": "C",
+"tier": "COINFLIP",
+"season_type": "Playoffs",
+"factors": [
+{
+"label": "Home season shooting",
+"impact_pp": 3.8
+},
+{
+"label": "Season net-rating edge",
+"impact_pp": 3.2
+},
+{
+"label": "Home recent turnovers",
+"impact_pp": -2.3
+},
+{
+"label": "Home FT rate",
+"impact_pp": -1.2
+},
+{
+"label": "Away 3-point profile",
+"impact_pp": -1.2
+}
+],
+"result": {
+"home_win": 0,
+"margin_home": -5,
+"pick_correct": 1
+}
+},
+{
+"game_id": "202604200NYK",
+"away": "Atlanta Hawks",
+"home": "New York Knicks",
+"away_abbr": "ATL",
+"home_abbr": "NYK",
+"p_home": 0.6079,
+"pick": "NYK",
+"pick_prob": 0.6079,
+"fair_ml_home": -155,
+"fair_ml_away": 155,
+"pred_margin_home": 5.9,
+"grade": "B+",
+"tier": "SILVER",
+"season_type": "Playoffs",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": 8.8
+},
+{
+"label": "Pace differential",
+"impact_pp": 1.7
+},
+{
+"label": "Home season offense",
+"impact_pp": -1.5
+},
+{
+"label": "Away season shooting",
+"impact_pp": -1.5
+},
+{
+"label": "Home recent shooting",
+"impact_pp": 1.3
+}
+],
+"result": {
+"home_win": 0,
+"margin_home": -1,
+"pick_correct": 0
+}
+}
+]
+}

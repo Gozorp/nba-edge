@@ -1,0 +1,306 @@
+{
+"date": "2026-01-14",
+"games": [
+{
+"game_id": "202601140CHI",
+"away": "Utah Jazz",
+"home": "Chicago Bulls",
+"away_abbr": "UTA",
+"home_abbr": "CHI",
+"p_home": 0.5957,
+"pick": "CHI",
+"pick_prob": 0.5957,
+"fair_ml_home": -147,
+"fair_ml_away": 147,
+"pred_margin_home": 4.5,
+"grade": "B",
+"tier": "BRONZE",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": 9.5
+},
+{
+"label": "Away season pace",
+"impact_pp": 1.5
+},
+{
+"label": "Away adjusted quality",
+"impact_pp": 1.5
+},
+{
+"label": "Home rest days",
+"impact_pp": -1.0
+},
+{
+"label": "Away rest days",
+"impact_pp": -1.0
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 2,
+"pick_correct": 1
+}
+},
+{
+"game_id": "202601140DAL",
+"away": "Denver Nuggets",
+"home": "Dallas Mavericks",
+"away_abbr": "DEN",
+"home_abbr": "DAL",
+"p_home": 0.317,
+"pick": "DEN",
+"pick_prob": 0.683,
+"fair_ml_home": 215,
+"fair_ml_away": -215,
+"pred_margin_home": -4.5,
+"grade": "A-",
+"tier": "GOLD",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": -15.5
+},
+{
+"label": "Home adjusted quality",
+"impact_pp": -2.6
+},
+{
+"label": "Away rest days",
+"impact_pp": 1.8
+},
+{
+"label": "Away season shooting",
+"impact_pp": -1.3
+},
+{
+"label": "Away season defense",
+"impact_pp": 1.2
+}
+],
+"result": {
+"home_win": 0,
+"margin_home": -9,
+"pick_correct": 1
+}
+},
+{
+"game_id": "202601140IND",
+"away": "Toronto Raptors",
+"home": "Indiana Pacers",
+"away_abbr": "TOR",
+"home_abbr": "IND",
+"p_home": 0.3192,
+"pick": "TOR",
+"pick_prob": 0.6808,
+"fair_ml_home": 213,
+"fair_ml_away": -213,
+"pred_margin_home": -4.1,
+"grade": "A-",
+"tier": "GOLD",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": -11.0
+},
+{
+"label": "Home recent defense (3g)",
+"impact_pp": 1.9
+},
+{
+"label": "Home season net rating",
+"impact_pp": -1.6
+},
+{
+"label": "SOS-adjusted quality edge",
+"impact_pp": -1.0
+},
+{
+"label": "Away opponent quality faced",
+"impact_pp": -0.8
+}
+],
+"result": {
+"home_win": 0,
+"margin_home": -14,
+"pick_correct": 1
+}
+},
+{
+"game_id": "202601140LAC",
+"away": "Washington Wizards",
+"home": "Los Angeles Clippers",
+"away_abbr": "WAS",
+"home_abbr": "LAC",
+"p_home": 0.7886,
+"pick": "LAC",
+"pick_prob": 0.7886,
+"fair_ml_home": -373,
+"fair_ml_away": 373,
+"pred_margin_home": 13.0,
+"grade": "A",
+"tier": "PLATINUM",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": 13.2
+},
+{
+"label": "Away adjusted quality",
+"impact_pp": 3.0
+},
+{
+"label": "Pace differential",
+"impact_pp": 1.0
+},
+{
+"label": "SOS-adjusted quality edge",
+"impact_pp": 0.9
+},
+{
+"label": "Away recent shooting (3g)",
+"impact_pp": -0.8
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 14,
+"pick_correct": 1
+}
+},
+{
+"game_id": "202601140NOP",
+"away": "Brooklyn Nets",
+"home": "New Orleans Pelicans",
+"away_abbr": "BRK",
+"home_abbr": "NOP",
+"p_home": 0.4369,
+"pick": "BRK",
+"pick_prob": 0.5631,
+"fair_ml_home": 129,
+"fair_ml_away": -129,
+"pred_margin_home": -1.4,
+"grade": "B",
+"tier": "BRONZE",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Home adjusted quality",
+"impact_pp": -2.7
+},
+{
+"label": "Home season net rating",
+"impact_pp": -2.6
+},
+{
+"label": "Away recent shooting (3g)",
+"impact_pp": -2.3
+},
+{
+"label": "Away adjusted quality",
+"impact_pp": 1.5
+},
+{
+"label": "Home rest days",
+"impact_pp": -1.4
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 3,
+"pick_correct": 0
+}
+},
+{
+"game_id": "202601140PHI",
+"away": "Cleveland Cavaliers",
+"home": "Philadelphia 76ers",
+"away_abbr": "CLE",
+"home_abbr": "PHI",
+"p_home": 0.4758,
+"pick": "CLE",
+"pick_prob": 0.5242,
+"fair_ml_home": 110,
+"fair_ml_away": -110,
+"pred_margin_home": 3.0,
+"grade": "C",
+"tier": "COINFLIP",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Away off-rebound rate",
+"impact_pp": 1.6
+},
+{
+"label": "Away 3-point profile",
+"impact_pp": -1.3
+},
+{
+"label": "Home adjusted quality",
+"impact_pp": 1.1
+},
+{
+"label": "Away season shooting",
+"impact_pp": -1.0
+},
+{
+"label": "Last-7 form edge",
+"impact_pp": 0.9
+}
+],
+"result": {
+"home_win": 0,
+"margin_home": -26,
+"pick_correct": 1
+}
+},
+{
+"game_id": "202601140SAC",
+"away": "New York Knicks",
+"home": "Sacramento Kings",
+"away_abbr": "NYK",
+"home_abbr": "SAC",
+"p_home": 0.2048,
+"pick": "NYK",
+"pick_prob": 0.7952,
+"fair_ml_home": 388,
+"fair_ml_away": -388,
+"pred_margin_home": -7.3,
+"grade": "A",
+"tier": "PLATINUM",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": -17.2
+},
+{
+"label": "Home adjusted quality",
+"impact_pp": -1.9
+},
+{
+"label": "Away recent o-boards (3g)",
+"impact_pp": -1.0
+},
+{
+"label": "Home season net rating",
+"impact_pp": -0.8
+},
+{
+"label": "Home pace_r3",
+"impact_pp": 0.8
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 11,
+"pick_correct": 0
+}
+}
+]
+}

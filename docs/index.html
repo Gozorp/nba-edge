@@ -3,183 +3,264 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>NBA Edge — Automated Prediction Pipeline</title>
+<title>Gozorp's NBA edge — The Quant Terminal</title>
+<meta name="description" content="Daily NBA slate predictions with graded picks, fair odds, and SHAP factor analysis.">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="manifest" href="manifest.json">
 <style>
-  :root{
-    --bg:#0b0e13; --panel:#141a23; --panel2:#1a2230; --ink:#e8edf4;
-    --muted:#8b98ab; --accent:#f0803c; --accent2:#4cc38a; --line:#243040;
-  }
-  *{box-sizing:border-box; margin:0; padding:0}
-  body{background:var(--bg); color:var(--ink);
-       font:16px/1.6 "Segoe UI", system-ui, -apple-system, sans-serif}
-  .wrap{max-width:980px; margin:0 auto; padding:0 20px}
-  header{padding:64px 0 40px; border-bottom:1px solid var(--line)}
-  .ball{font-size:44px}
-  h1{font-size:40px; letter-spacing:-.5px; margin:8px 0 6px}
-  h1 span{color:var(--accent)}
-  .sub{color:var(--muted); max-width:640px}
-  h2{font-size:22px; margin:0 0 16px; color:var(--ink)}
-  section{padding:36px 0; border-bottom:1px solid var(--line)}
-  .grid{display:grid; gap:14px}
-  .g4{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
-  .g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
-  .card{background:var(--panel); border:1px solid var(--line);
-        border-radius:12px; padding:18px 20px}
-  .big{font-size:34px; font-weight:700; color:var(--accent2)}
-  .lbl{color:var(--muted); font-size:13px; text-transform:uppercase;
-       letter-spacing:.08em}
-  .note{color:var(--muted); font-size:14px; margin-top:10px}
-  table{width:100%; border-collapse:collapse; font-size:14px}
-  th,td{text-align:left; padding:7px 10px; border-bottom:1px solid var(--line)}
-  th{color:var(--muted); font-weight:600}
-  td.num{font-variant-numeric:tabular-nums}
-  .bar{height:8px; background:var(--panel2); border-radius:4px; overflow:hidden}
-  .bar i{display:block; height:100%; background:var(--accent)}
-  ol{padding-left:22px}
-  ol li{margin:8px 0}
-  code{background:var(--panel2); padding:2px 7px; border-radius:6px;
-       font-size:13.5px; color:#ffd9bd}
-  header .wrap{position:relative}
-  #mlb-return{
-    position:absolute; top:8px; right:0;
-    display:inline-flex; align-items:center; gap:8px;
-    padding:8px 15px; background:var(--panel);
-    border:1px solid var(--line); border-radius:999px;
-    color:var(--ink); text-decoration:none; font-size:14px;
-    transition:border-color .15s, transform .15s}
-  #mlb-return:hover{border-color:var(--accent); transform:scale(1.04)}
-  #mlb-return svg{flex:none}
-  @media (max-width:640px){
-    #mlb-return{position:static; margin-bottom:14px}
-  }
-  footer{padding:28px 0 60px; color:var(--muted); font-size:13.5px}
-  a{color:var(--accent)}
+:root{
+  --bg:#0b0e13; --bg-elev:#141a23; --bg-elev2:#1a2230; --text:#e8edf4;
+  --muted:#8b98ab; --border:#243040; --accent:#f0803c; --green:#3fb950;
+  --yellow:#d29922; --orange:#db6d28; --red:#f85149;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+body[data-theme="courtside"]{
+  --bg:#f4efe7; --bg-elev:#ffffff; --bg-elev2:#efe7d9; --text:#191512;
+  --muted:#6d6156; --border:#d8cbb8; --accent:#c2410c;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font:15px/1.55 "Segoe UI",system-ui,sans-serif;transition:background .2s}
+.wrap{max-width:1080px;margin:0 auto;padding:0 18px}
+
+/* ---------- header ---------- */
+header{border-bottom:1px solid var(--border);padding:14px 0;position:sticky;top:0;background:var(--bg);z-index:50}
+header .wrap{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+#site-logo{flex:none;vertical-align:-6px}
+header h1{font-size:1.25rem;letter-spacing:-.02em;margin-right:4px}
+header .meta{color:var(--muted);font-size:.8rem;flex:1 1 auto}
+.visit-pill{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:.68rem;color:var(--muted);border:1px solid var(--border);border-radius:999px;padding:4px 10px}
+.visit-dot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse 2.4s infinite}
+@keyframes pulse{50%{opacity:.35}}
+#theme-toggle{background:var(--bg-elev);color:var(--muted);border:1px solid var(--border);border-radius:8px;font-family:var(--mono);font-size:.68rem;font-weight:600;letter-spacing:.08em;padding:6px 10px;cursor:pointer}
+#theme-toggle:hover{color:var(--text);border-color:var(--accent)}
+#help-btn{background:transparent;border:1px solid var(--border);color:var(--muted);width:30px;height:30px;border-radius:50%;cursor:pointer;font-weight:700;font-size:.85rem}
+#help-btn:hover,#drawer-btn:hover{border-color:var(--accent);color:var(--accent)}
+#drawer-btn{background:transparent;border:1px solid var(--border);color:var(--muted);height:30px;border-radius:8px;cursor:pointer;font-family:var(--mono);font-size:.68rem;padding:0 10px}
+#mlb-return{display:inline-flex;align-items:center;gap:7px;padding:6px 12px;background:var(--bg-elev);border:1px solid var(--border);border-radius:999px;color:var(--text);text-decoration:none;font-size:.78rem}
+#mlb-return:hover{border-color:var(--accent)}
+
+/* ---------- hero ---------- */
+#nba-hero{padding:72px 0 46px;border-bottom:1px solid var(--border);
+  background:radial-gradient(1000px 400px at 70% -10%, rgba(240,128,60,.12), transparent)}
+.hero-eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+.hero-headline{font-size:2.7rem;letter-spacing:-.03em;line-height:1.1;margin-bottom:12px}
+.hero-tagline{color:var(--muted);max-width:640px;margin-bottom:28px}
+.hero-stats{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:26px}
+.hero-stat{background:var(--bg-elev);border:1px solid var(--border);border-radius:12px;padding:14px 22px;min-width:150px}
+.hero-stat-value{font-family:var(--mono);font-size:1.9rem;font-weight:700}
+.hero-stat-value.green{color:var(--green)} .hero-stat-value.accent{color:var(--accent)}
+.hero-stat-label{color:var(--muted);font-size:.75rem;text-transform:uppercase;letter-spacing:.06em}
+.hero-cta{display:inline-block;background:var(--accent);color:#14100c;font-weight:700;padding:10px 20px;border-radius:9px;text-decoration:none}
+.hero-cta:hover{filter:brightness(1.1)}
+
+/* ---------- picker ---------- */
+.date-strip{display:flex;gap:8px;align-items:center;overflow-x:auto;padding:14px 0 4px;font-family:var(--mono);font-size:.72rem}
+.date-strip-label{color:var(--muted);flex:none}
+.date-chip{flex:none;border:1px solid var(--border);border-radius:999px;background:var(--bg-elev);color:var(--muted);padding:4px 11px;cursor:pointer}
+.date-chip.active,.date-chip:hover{color:var(--text);border-color:var(--accent)}
+.picker{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:12px 0 6px}
+.picker input[type=date]{background:var(--bg-elev);color:var(--text);border:1px solid var(--border);border-radius:8px;padding:7px 9px;font-family:var(--mono);font-size:.8rem;color-scheme:dark}
+body[data-theme="courtside"] .picker input[type=date]{color-scheme:light}
+.picker button{background:var(--bg-elev);color:var(--text);border:1px solid var(--border);border-radius:8px;padding:7px 13px;cursor:pointer;font-size:.8rem}
+.picker button:hover{border-color:var(--accent)}
+.picker-arrow{font-size:1rem;padding:7px 11px}
+#status{color:var(--muted);font-size:.78rem}
+#quick-chips{display:flex;gap:7px;flex-wrap:wrap}
+.q-chip{background:transparent;border:1px dashed var(--border);color:var(--muted);border-radius:999px;padding:5px 11px;font-size:.72rem;cursor:pointer}
+.q-chip.on,.q-chip:hover{color:var(--accent);border-color:var(--accent)}
+
+/* ---------- slate table ---------- */
+main{padding:6px 0 60px}
+table#slate{width:100%;border-collapse:collapse;font-size:.85rem;margin-top:10px}
+#slate th{font-family:var(--mono);font-size:.66rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);text-align:left;padding:8px 10px;border-bottom:1px solid var(--border)}
+#slate td{padding:10px;border-bottom:1px solid var(--border);vertical-align:middle}
+tr.row-clickable{cursor:pointer}
+tr.row-clickable:hover{background:var(--bg-elev)}
+.grade{display:inline-block;font-family:var(--mono);font-weight:700;font-size:.74rem;border-radius:6px;padding:3px 8px;min-width:30px;text-align:center}
+.grade-A{background:rgba(63,185,80,.2);color:var(--green)}
+.grade-A-{background:rgba(63,185,80,.14);color:var(--green)}
+.grade-Bp{background:rgba(210,153,34,.2);color:var(--yellow)}
+.grade-B{background:rgba(139,148,158,.2);color:var(--muted)}
+.grade-Bm{background:rgba(139,148,158,.14);color:var(--muted)}
+.grade-C{background:rgba(219,109,40,.2);color:var(--orange)}
+.grade-D{background:rgba(248,81,73,.2);color:var(--red)}
+.prob-cell{min-width:130px}
+.prob-bar{height:7px;background:var(--bg-elev2);border-radius:4px;overflow:hidden;margin-top:4px}
+.prob-bar i{display:block;height:100%;background:var(--accent)}
+.mono{font-family:var(--mono)}
+.res-w{color:var(--green);font-weight:700} .res-l{color:var(--red);font-weight:700}
+.res-pend{color:var(--muted)}
+tr.deep{display:none;background:var(--bg-elev)}
+tr.deep.open{display:table-row}
+.deep-inner{padding:14px 12px;display:grid;grid-template-columns:1.3fr 1fr;gap:22px}
+@media(max-width:760px){.deep-inner{grid-template-columns:1fr}}
+.deep-h{font-family:var(--mono);font-size:.66rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:8px}
+.factor{display:flex;align-items:center;gap:9px;margin:5px 0;font-size:.8rem}
+.factor .fl{flex:1}
+.fbar{flex:2;height:7px;background:var(--bg-elev2);border-radius:4px;position:relative}
+.fbar i{position:absolute;top:0;height:100%;border-radius:4px}
+.fbar i.pos{background:var(--green);left:50%} .fbar i.neg{background:var(--red);right:50%}
+.fv{font-family:var(--mono);font-size:.72rem;width:56px;text-align:right}
+.deep-meta div{margin:4px 0;font-size:.8rem;color:var(--muted)}
+.deep-meta b{color:var(--text)}
+#empty{color:var(--muted);padding:40px 0;text-align:center;display:none}
+
+/* ---------- drawer ---------- */
+#side-drawer{position:fixed;top:0;right:-340px;width:330px;height:100%;background:var(--bg-elev);border-left:1px solid var(--border);z-index:200;transition:right .25s;padding:18px;overflow-y:auto}
+#side-drawer.open{right:0}
+#drawer-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:150;display:none}
+#drawer-backdrop.show{display:block}
+.drawer-h{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.drawer-h h2{font-size:1rem}
+.drawer-close{background:none;border:none;color:var(--muted);font-size:1.3rem;cursor:pointer}
+.health-pill{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:7px}
+.hp-green{background:var(--green)} .hp-yellow{background:var(--yellow)} .hp-red{background:var(--red)}
+.health-row{border:1px solid var(--border);border-radius:9px;padding:9px 11px;margin:7px 0;font-size:.78rem}
+.health-row .hr-name{font-family:var(--mono);font-size:.66rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.drawer-section{margin-top:22px}
+.drawer-section h3{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:8px}
+.gr-row{display:flex;justify-content:space-between;font-family:var(--mono);font-size:.74rem;padding:3px 0;border-bottom:1px dashed var(--border)}
+
+/* ---------- help panel ---------- */
+#help-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:300;display:none;backdrop-filter:blur(2px)}
+#help-backdrop.show{display:flex;align-items:flex-start;justify-content:center;overflow-y:auto;padding:40px 14px}
+#help-panel{background:var(--bg-elev);border:1px solid var(--border);border-radius:14px;max-width:680px;width:100%;padding:26px}
+#help-panel h2{margin-bottom:14px}
+.glossary-row{display:grid;grid-template-columns:170px 1fr;gap:12px;padding:8px 0;border-bottom:1px solid var(--border);font-size:.84rem}
+.glossary-row .term{font-family:var(--mono);color:var(--accent);font-size:.76rem}
+.glossary-row .def{color:var(--muted)}
+.help-close{float:right;background:none;border:1px solid var(--border);color:var(--muted);border-radius:8px;padding:4px 12px;cursor:pointer}
+footer{border-top:1px solid var(--border);padding:26px 0 60px;color:var(--muted);font-size:.78rem}
 </style>
 </head>
-<body>
+<body data-theme="tactical">
+
 <header>
   <div class="wrap">
-    <a id="mlb-return" href="https://gozorp.github.io/MLB-edges/"
-       title="Return to Gozorp's MLB edge" aria-label="Return to the MLB site">
-      <svg viewBox="0 0 48 48" width="18" height="18" aria-hidden="true">
+    <svg id="site-logo" viewBox="0 0 48 48" width="30" height="30" aria-hidden="true">
+      <circle cx="24" cy="24" r="20" fill="#E8590C" stroke="#111111" stroke-width="3"/>
+      <path d="M4 24 h40 M24 4 v40" stroke="#111111" stroke-width="2.4" fill="none"/>
+      <path d="M9.5 9.5 C 18 16.5, 30 16.5, 38.5 9.5" stroke="#111111" stroke-width="2.4" fill="none"/>
+      <path d="M9.5 38.5 C 18 31.5, 30 31.5, 38.5 38.5" stroke="#111111" stroke-width="2.4" fill="none"/>
+    </svg>
+    <h1>Gozorp's NBA edge</h1>
+    <div class="meta">Daily NBA slate predictions with graded picks &amp; factor analysis</div>
+    <span class="visit-pill" title="Visit counter — per browser"><span class="visit-dot"></span><span id="visitText">…</span></span>
+    <button id="theme-toggle" title="Switch visual theme">MODE: <span id="theme-label">TACTICAL</span></button>
+    <button id="drawer-btn" title="Model health &amp; tools">☰ TOOLS</button>
+    <button id="help-btn" title="Help &amp; glossary" aria-label="Open help panel">?</button>
+    <a id="mlb-return" href="https://gozorp.github.io/MLB-edges/" title="Return to Gozorp's MLB edge" aria-label="Return to the MLB site">
+      <svg viewBox="0 0 48 48" width="16" height="16" aria-hidden="true">
         <circle cx="24" cy="24" r="20" fill="#ffffff" stroke="#111111" stroke-width="3"/>
         <path d="M14.5 8 C 23 15.5, 23 32.5, 14.5 40" fill="none" stroke="#E8590C" stroke-width="2.4" stroke-linecap="round"/>
         <path d="M33.5 8 C 25 15.5, 25 32.5, 33.5 40" fill="none" stroke="#E8590C" stroke-width="2.4" stroke-linecap="round"/>
       </svg>
-      Back to MLB edge
+      MLB edge
     </a>
-    <div class="ball">🏀</div>
-    <h1>NBA <span>Edge</span></h1>
-    <p class="sub">A self-recalibrating NBA prediction system: 48,871 games of
-    history, leakage-free temporal features, XGBoost models for moneyline,
-    spread, and player impact — retrained automatically when the data says so.</p>
   </div>
 </header>
 
-<section>
+<nav id="side-drawer" aria-label="Tools &amp; context">
+  <div class="drawer-h"><h2>Model health</h2>
+    <button class="drawer-close" id="drawer-close" aria-label="Close drawer">×</button></div>
+  <div id="health-card-body">Loading health snapshot…</div>
+  <div class="drawer-section">
+    <h3>Season record by grade</h3>
+    <div id="grade-record">…</div>
+  </div>
+  <div class="drawer-section">
+    <h3>Links</h3>
+    <div class="health-row"><a href="https://github.com/Gozorp/nba-edge" style="color:var(--accent)">Pipeline source on GitHub</a></div>
+    <div class="health-row"><a href="https://gozorp.github.io/MLB-edges/" style="color:var(--accent)">⚾ MLB edge terminal</a></div>
+  </div>
+</nav>
+<div id="drawer-backdrop"></div>
+
+<section id="nba-hero" aria-label="nba_edge hero">
   <div class="wrap">
-    <h2>2025-26 season — fully out-of-sample</h2>
-    <div class="grid g4">
-      <div class="card"><div class="big">68.2%</div>
-        <div class="lbl">Winner accuracy</div></div>
-      <div class="card"><div class="big">0.737</div>
-        <div class="lbl">AUC</div></div>
-      <div class="card"><div class="big">0.207</div>
-        <div class="lbl">Brier score</div></div>
-      <div class="card"><div class="big">±11.5</div>
-        <div class="lbl">Spread MAE (pts)</div></div>
+    <div class="hero-eyebrow">Daily NBA Slate · The Quant Terminal</div>
+    <h2 class="hero-headline">Find the model's edge.</h2>
+    <p class="hero-tagline">
+      Every game on the slate, graded. Win probabilities from a walk-forward XGBoost model,
+      fair moneylines, projected spreads, and the exact factors behind each pick — verified
+      against final scores across the full season archive.
+    </p>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="hero-stat-value green" id="hero-acc" data-target="0">0</div>
+        <div class="hero-stat-label">Season accuracy</div></div>
+      <div class="hero-stat"><div class="hero-stat-value" id="hero-agrade" data-target="0">0</div>
+        <div class="hero-stat-label">A-pick hit rate</div></div>
+      <div class="hero-stat"><div class="hero-stat-value accent" id="hero-slates" data-target="0">0</div>
+        <div class="hero-stat-label">Slates archived</div></div>
     </div>
-    <p class="note">n = 1,229 games. Training data ends 2025-04-19 — the model
-    never saw a single 2025-26 game. Reference point: Vegas closing lines
-    land ≈ 70–71% on winners.</p>
+    <a href="#main-slate-anchor" class="hero-cta">View the slate ↓</a>
   </div>
 </section>
 
-<section>
+<main id="main-slate-anchor">
   <div class="wrap">
-    <h2>What drives a prediction</h2>
-    <div class="grid g2">
-      <div class="card">
-        <p class="lbl" style="margin-bottom:10px">Top SHAP drivers — win model</p>
-        <table>
-          <tr><th>Feature</th><th style="width:45%">mean |φ|</th></tr>
-          <tr><td><code>d_net_rtg_std</code></td>
-              <td><div class="bar"><i style="width:100%"></i></div></td></tr>
-          <tr><td><code>a_fg3_share_r7</code></td>
-              <td><div class="bar"><i style="width:14%"></i></div></td></tr>
-          <tr><td><code>a_fg3_share_std</code></td>
-              <td><div class="bar"><i style="width:12%"></i></div></td></tr>
-          <tr><td><code>d_adj_net_rtg_std</code></td>
-              <td><div class="bar"><i style="width:11%"></i></div></td></tr>
-          <tr><td><code>a_rest_days</code></td>
-              <td><div class="bar"><i style="width:10%"></i></div></td></tr>
-        </table>
-        <p class="note">Season-to-date net-rating differential dominates;
-        3-point profile and rest carry the rest. Exact TreeSHAP, local
-        accuracy asserted &lt; 1e-3 on every run.</p>
-      </div>
-      <div class="card">
-        <p class="lbl" style="margin-bottom:10px">Calibration — predicted vs actual</p>
-        <table>
-          <tr><th>Predicted band</th><th>Predicted</th><th>Actual</th></tr>
-          <tr><td>Underdog (&lt;.25)</td><td class="num">.181</td><td class="num">.163</td></tr>
-          <tr><td>.40 – .46</td><td class="num">.432</td><td class="num">.463</td></tr>
-          <tr><td>.52 – .57</td><td class="num">.541</td><td class="num">.656</td></tr>
-          <tr><td>.63 – .68</td><td class="num">.656</td><td class="num">.642</td></tr>
-          <tr><td>Favorite (&gt;.78)</td><td class="num">.831</td><td class="num">.846</td></tr>
-        </table>
-        <p class="note">Honest deciles from the out-of-sample season; mild
-        underconfidence in the toss-up band.</p>
-      </div>
+    <div class="date-strip" id="dateStrip"><span class="date-strip-label">Slates:</span></div>
+    <div class="picker">
+      <button id="prevBtn" class="picker-arrow" title="Previous slate date">‹</button>
+      <input type="date" id="datePicker"/>
+      <button id="nextBtn" class="picker-arrow" title="Next slate date">›</button>
+      <button id="loadBtn">Load slate</button>
+      <button id="refreshBtn" title="Re-fetch with cache bypass">Refresh data</button>
+      <span class="mono" id="status"></span>
     </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <h2>Player archetypes — discovered, not assigned</h2>
-    <div class="grid g4">
-      <div class="card"><div class="lbl">Playmaker</div>
-        <p class="note"><code>ast36+ stl36+</code></p></div>
-      <div class="card"><div class="lbl">Floor spacer</div>
-        <p class="note"><code>fg3a/fga+ fg3a36+</code></p></div>
-      <div class="card"><div class="lbl">Glass big</div>
-        <p class="note"><code>oreb36+ trb%+</code></p></div>
-      <div class="card"><div class="lbl">High-usage scorer</div>
-        <p class="note"><code>usg%+ pts36+</code></p></div>
+    <div id="quick-chips" aria-label="Quick slate filters">
+      <button type="button" class="q-chip" data-filter="agrade">A grades</button>
+      <button type="button" class="q-chip" data-filter="best">Best pick</button>
+      <button type="button" class="q-chip" data-filter="upset">Upset calls</button>
+      <button type="button" class="q-chip" data-filter="wrong">Model misses</button>
     </div>
-    <p class="note">K-Means over standardized per-36 / shot-profile / usage
-    space; k★ = 4 by silhouette scan (0.214). Player impact target (PI) uses
-    ridge-learned event weights — R² 0.729 at the team level, frozen
-    pre-2023 so no future information leaks into training.</p>
+    <table id="slate" style="display:none">
+      <thead><tr>
+        <th>Grade</th><th>Matchup</th><th>Pick</th><th class="prob-cell">Win prob</th>
+        <th>Fair ML</th><th>Proj margin</th><th>Result</th>
+      </tr></thead>
+      <tbody id="slate-body"></tbody>
+    </table>
+    <div id="empty">No games match — clear filters or pick another date.</div>
   </div>
-</section>
+</main>
 
-<section>
-  <div class="wrap">
-    <h2>The loop</h2>
-    <ol>
-      <li><b>Ingest</b> — nightly box scores scraped politely (75% of the
-        documented rate cap, exponential backoff, resumable checkpoints).</li>
-      <li><b>Rebuild</b> — every feature is a <code>shift(1)</code> window:
-        game <i>t</i> sees only games &le; <i>t−1</i>. Walk-forward CV only.</li>
-      <li><b>Monitor</b> — PSI on phase-invariant differential features +
-        a Brier z-test against the model's own holdout ledger.</li>
-      <li><b>Retrain (gated)</b> — drift signal or 150+ new games; a
-        challenger must beat the champion on shared holdout to be promoted.</li>
-      <li><b>Predict</b> — tonight's slate: win probability, fair moneyline,
-        projected spread, player PI.</li>
-    </ol>
-    <p class="note">Daily predictions publish here during the 2026-27 season.</p>
+<div id="help-backdrop">
+  <div id="help-panel" role="dialog" aria-label="Help and glossary">
+    <button class="help-close" id="help-close">Close ✕</button>
+    <h2>How to read the terminal</h2>
+    <div class="glossary-row"><span class="term">GRADE</span><span class="def">
+      Deterministic pick quality. conf = |P(home) − 0.5|, agree = spread model
+      and win-prob model point the same way. A: conf ≥ .20 &amp; agree · A−: ≥ .15 &amp; agree ·
+      B+: ≥ .10 &amp; agree · B: ≥ .06 · B−: ≥ .03 · C: coin flip · D: models conflict.</span></div>
+    <div class="glossary-row"><span class="term">WIN PROB</span><span class="def">
+      Model probability the pick side wins. From an XGBoost classifier trained
+      walk-forward on 2016+ seasons — features are strictly pre-game (no leakage).</span></div>
+    <div class="glossary-row"><span class="term">FAIR ML</span><span class="def">
+      The no-vig American moneyline implied by the model's probability. Compare
+      against a book's line: model more confident than the price ⇒ potential edge.</span></div>
+    <div class="glossary-row"><span class="term">PROJ MARGIN</span><span class="def">
+      Separate regression model's projected home-team margin (spread proxy).</span></div>
+    <div class="glossary-row"><span class="term">FACTORS</span><span class="def">
+      Exact SHAP attribution for this game, converted to approximate win-probability
+      points. Positive pushes toward the home side.</span></div>
+    <div class="glossary-row"><span class="term">RESULT</span><span class="def">
+      Final score verification — every archived pick is graded against what actually
+      happened. Nothing is retroactively edited.</span></div>
+    <p style="margin-top:14px;color:var(--muted);font-size:.8rem">
+      Model-fair odds are not betting advice. If you bet, bet what you can afford to lose.</p>
   </div>
-</section>
+</div>
 
 <footer>
   <div class="wrap">
-    <p>Built on a 235-table historical archive (1946→2023) fused with
-    daily basketball-reference data (2023→present). Model-fair odds are not
-    betting advice; if you bet, bet what you can afford to lose.</p>
+    Self-recalibrating pipeline: nightly ingest → leakage-free features → XGBoost →
+    SHAP → drift-gated retraining. Archive mode: full 2025-26 season, out-of-sample.
+    <span class="mono" id="built-at"></span>
   </div>
 </footer>
+
+<script src="js/app.js"></script>
 </body>
 </html>

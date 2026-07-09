@@ -1,0 +1,263 @@
+{
+"date": "2026-01-10",
+"games": [
+{
+"game_id": "202601100BOS",
+"away": "San Antonio Spurs",
+"home": "Boston Celtics",
+"away_abbr": "SAS",
+"home_abbr": "BOS",
+"p_home": 0.4532,
+"pick": "SAS",
+"pick_prob": 0.5468,
+"fair_ml_home": 121,
+"fair_ml_away": -121,
+"pred_margin_home": 3.5,
+"grade": "B-",
+"tier": "LEAN",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": 4.0
+},
+{
+"label": "Home rest days",
+"impact_pp": -3.7
+},
+{
+"label": "Home recent o-boards (3g)",
+"impact_pp": 2.8
+},
+{
+"label": "Home recent turnovers",
+"impact_pp": -2.7
+},
+{
+"label": "Home season shooting",
+"impact_pp": 1.7
+}
+],
+"result": {
+"home_win": 0,
+"margin_home": -5,
+"pick_correct": 1
+}
+},
+{
+"game_id": "202601100CHI",
+"away": "Dallas Mavericks",
+"home": "Chicago Bulls",
+"away_abbr": "DAL",
+"home_abbr": "CHI",
+"p_home": 0.4954,
+"pick": "DAL",
+"pick_prob": 0.5046,
+"fair_ml_home": 102,
+"fair_ml_away": -102,
+"pred_margin_home": 2.0,
+"grade": "C",
+"tier": "COINFLIP",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Home recent FT rate (3g)",
+"impact_pp": -1.6
+},
+{
+"label": "Away adjusted quality",
+"impact_pp": 1.6
+},
+{
+"label": "Home season net rating",
+"impact_pp": -1.5
+},
+{
+"label": "SOS-adjusted quality edge",
+"impact_pp": 1.3
+},
+{
+"label": "Rest edge",
+"impact_pp": 1.1
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 18,
+"pick_correct": 0
+}
+},
+{
+"game_id": "202601100CLE",
+"away": "Minnesota Timberwolves",
+"home": "Cleveland Cavaliers",
+"away_abbr": "MIN",
+"home_abbr": "CLE",
+"p_home": 0.3601,
+"pick": "MIN",
+"pick_prob": 0.6399,
+"fair_ml_home": 178,
+"fair_ml_away": -178,
+"pred_margin_home": -1.7,
+"grade": "B+",
+"tier": "SILVER",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": -9.2
+},
+{
+"label": "Last-7 form edge",
+"impact_pp": -1.5
+},
+{
+"label": "Away last-3 net rating",
+"impact_pp": -1.2
+},
+{
+"label": "Away recent offense",
+"impact_pp": -1.1
+},
+{
+"label": "Away season shooting",
+"impact_pp": -1.1
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 12,
+"pick_correct": 0
+}
+},
+{
+"game_id": "202601100DET",
+"away": "Los Angeles Clippers",
+"home": "Detroit Pistons",
+"away_abbr": "LAC",
+"home_abbr": "DET",
+"p_home": 0.7231,
+"pick": "DET",
+"pick_prob": 0.7231,
+"fair_ml_home": -261,
+"fair_ml_away": 261,
+"pred_margin_home": 12.6,
+"grade": "A",
+"tier": "PLATINUM",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": 12.5
+},
+{
+"label": "Away rest days",
+"impact_pp": 2.7
+},
+{
+"label": "Home FT rate",
+"impact_pp": -2.3
+},
+{
+"label": "Rest edge",
+"impact_pp": 1.8
+},
+{
+"label": "Away 3-point profile",
+"impact_pp": -1.5
+}
+],
+"result": {
+"home_win": 0,
+"margin_home": -6,
+"pick_correct": 0
+}
+},
+{
+"game_id": "202601100IND",
+"away": "Miami Heat",
+"home": "Indiana Pacers",
+"away_abbr": "MIA",
+"home_abbr": "IND",
+"p_home": 0.3272,
+"pick": "MIA",
+"pick_prob": 0.6728,
+"fair_ml_home": 206,
+"fair_ml_away": -206,
+"pred_margin_home": -9.7,
+"grade": "A-",
+"tier": "GOLD",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": -13.2
+},
+{
+"label": "Away season pace",
+"impact_pp": 2.1
+},
+{
+"label": "Home season net rating",
+"impact_pp": -1.9
+},
+{
+"label": "Last-7 form edge",
+"impact_pp": -1.3
+},
+{
+"label": "Home recent offense",
+"impact_pp": 1.2
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 24,
+"pick_correct": 0
+}
+},
+{
+"game_id": "202601100UTA",
+"away": "Charlotte Hornets",
+"home": "Utah Jazz",
+"away_abbr": "CHO",
+"home_abbr": "UTA",
+"p_home": 0.3565,
+"pick": "CHO",
+"pick_prob": 0.6435,
+"fair_ml_home": 181,
+"fair_ml_away": -181,
+"pred_margin_home": -4.1,
+"grade": "B+",
+"tier": "SILVER",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": -8.2
+},
+{
+"label": "Home recent defense",
+"impact_pp": -1.5
+},
+{
+"label": "Home FT rate",
+"impact_pp": -1.3
+},
+{
+"label": "Away off-rebound rate",
+"impact_pp": 1.1
+},
+{
+"label": "Pace differential",
+"impact_pp": 0.9
+}
+],
+"result": {
+"home_win": 0,
+"margin_home": -55,
+"pick_correct": 1
+}
+}
+]
+}

@@ -1,0 +1,42 @@
+{
+ "version": 1,
+ "checked_at": "2026-07-09T13:31:11.425065+00:00",
+ "overall": "green",
+ "categories": {
+  "model": "green",
+  "data_flow": "green",
+  "deployment": "green"
+ },
+ "checks": [
+  {
+   "name": "model_versions",
+   "severity": "green",
+   "message": "clf v0003 / margin v0003 promoted",
+   "category": "model"
+  },
+  {
+   "name": "oos_accuracy",
+   "severity": "green",
+   "message": "2025-26 out-of-sample accuracy 68.2%",
+   "category": "model"
+  },
+  {
+   "name": "data_drift",
+   "severity": "green",
+   "message": "max PSI 0.234 (0 critical)",
+   "category": "data_flow"
+  },
+  {
+   "name": "concept_drift",
+   "severity": "green",
+   "message": "only 0 post-holdout games \u2014 below CLT floor (30)",
+   "category": "model"
+  }
+ ],
+ "holdout_metrics": {
+  "logloss": 0.6053955551383613,
+  "brier": 0.20904113918275027,
+  "auc": 0.7335079421906503,
+  "acc": 0.6750572082379863
+ }
+}

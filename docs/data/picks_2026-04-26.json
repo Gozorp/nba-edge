@@ -1,0 +1,177 @@
+{
+"date": "2026-04-26",
+"games": [
+{
+"game_id": "202604260HOU",
+"away": "Los Angeles Lakers",
+"home": "Houston Rockets",
+"away_abbr": "LAL",
+"home_abbr": "HOU",
+"p_home": 0.6712,
+"pick": "HOU",
+"pick_prob": 0.6712,
+"fair_ml_home": -204,
+"fair_ml_away": 204,
+"pred_margin_home": 6.5,
+"grade": "A-",
+"tier": "GOLD",
+"season_type": "Playoffs",
+"factors": [
+{
+"label": "Home recent o-boards (3g)",
+"impact_pp": 4.1
+},
+{
+"label": "Home recent o-boards",
+"impact_pp": 3.6
+},
+{
+"label": "Season net-rating edge",
+"impact_pp": 3.3
+},
+{
+"label": "Shooting-efficiency edge",
+"impact_pp": -1.6
+},
+{
+"label": "Away season shooting",
+"impact_pp": -1.5
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 19,
+"pick_correct": 1
+}
+},
+{
+"game_id": "202604260PHI",
+"away": "Boston Celtics",
+"home": "Philadelphia 76ers",
+"away_abbr": "BOS",
+"home_abbr": "PHI",
+"p_home": 0.3486,
+"pick": "BOS",
+"pick_prob": 0.6514,
+"fair_ml_home": 187,
+"fair_ml_away": -187,
+"pred_margin_home": -3.5,
+"grade": "A-",
+"tier": "GOLD",
+"season_type": "Playoffs",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": -9.4
+},
+{
+"label": "Home adjusted quality",
+"impact_pp": 1.4
+},
+{
+"label": "Away FT rate",
+"impact_pp": 1.3
+},
+{
+"label": "Last-7 form edge",
+"impact_pp": -1.3
+},
+{
+"label": "Shooting-efficiency edge",
+"impact_pp": -1.1
+}
+],
+"result": {
+"home_win": 0,
+"margin_home": -32,
+"pick_correct": 1
+}
+},
+{
+"game_id": "202604260POR",
+"away": "San Antonio Spurs",
+"home": "Portland Trail Blazers",
+"away_abbr": "SAS",
+"home_abbr": "POR",
+"p_home": 0.3037,
+"pick": "SAS",
+"pick_prob": 0.6963,
+"fair_ml_home": 229,
+"fair_ml_away": -229,
+"pred_margin_home": 0.6,
+"grade": "D",
+"tier": "CONFLICT",
+"season_type": "Playoffs",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": -13.9
+},
+{
+"label": "Home adjusted quality",
+"impact_pp": 1.7
+},
+{
+"label": "Home off-rebound rate",
+"impact_pp": 1.2
+},
+{
+"label": "SOS-adjusted quality edge",
+"impact_pp": -1.1
+},
+{
+"label": "Shooting-efficiency edge",
+"impact_pp": -0.9
+}
+],
+"result": {
+"home_win": 0,
+"margin_home": -21,
+"pick_correct": 1
+}
+},
+{
+"game_id": "202604260TOR",
+"away": "Cleveland Cavaliers",
+"home": "Toronto Raptors",
+"away_abbr": "CLE",
+"home_abbr": "TOR",
+"p_home": 0.5301,
+"pick": "TOR",
+"pick_prob": 0.5301,
+"fair_ml_home": -113,
+"fair_ml_away": 113,
+"pred_margin_home": 3.4,
+"grade": "B-",
+"tier": "LEAN",
+"season_type": "Playoffs",
+"factors": [
+{
+"label": "Home recent shooting",
+"impact_pp": 4.0
+},
+{
+"label": "Away 3-point profile",
+"impact_pp": -1.3
+},
+{
+"label": "Away off-rebound rate",
+"impact_pp": 1.1
+},
+{
+"label": "SOS-adjusted quality edge",
+"impact_pp": 1.0
+},
+{
+"label": "Away season shooting",
+"impact_pp": -1.0
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 4,
+"pick_correct": 1
+}
+}
+]
+}

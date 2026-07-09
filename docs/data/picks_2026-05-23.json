@@ -1,0 +1,48 @@
+{
+"date": "2026-05-23",
+"games": [
+{
+"game_id": "202605230CLE",
+"away": "New York Knicks",
+"home": "Cleveland Cavaliers",
+"away_abbr": "NYK",
+"home_abbr": "CLE",
+"p_home": 0.3475,
+"pick": "NYK",
+"pick_prob": 0.6525,
+"fair_ml_home": 188,
+"fair_ml_away": -188,
+"pred_margin_home": -2.9,
+"grade": "A-",
+"tier": "GOLD",
+"season_type": "Playoffs",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": -8.0
+},
+{
+"label": "Away recent offense",
+"impact_pp": -3.4
+},
+{
+"label": "Home season shooting",
+"impact_pp": 1.9
+},
+{
+"label": "Last-7 form edge",
+"impact_pp": -1.8
+},
+{
+"label": "Shooting-efficiency edge",
+"impact_pp": -1.5
+}
+],
+"result": {
+"home_win": 0,
+"margin_home": -13,
+"pick_correct": 1
+}
+}
+]
+}

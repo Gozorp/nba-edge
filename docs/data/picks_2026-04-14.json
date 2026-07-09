@@ -1,0 +1,91 @@
+{
+"date": "2026-04-14",
+"games": [
+{
+"game_id": "202604140CHO",
+"away": "Miami Heat",
+"home": "Charlotte Hornets",
+"away_abbr": "MIA",
+"home_abbr": "CHO",
+"p_home": 0.5511,
+"pick": "CHO",
+"pick_prob": 0.5511,
+"fair_ml_home": -123,
+"fair_ml_away": 123,
+"pred_margin_home": 8.1,
+"grade": "B-",
+"tier": "LEAN",
+"season_type": "Playoffs",
+"factors": [
+{
+"label": "Home recent 3P profile",
+"impact_pp": 5.2
+},
+{
+"label": "Away recent offense",
+"impact_pp": -3.3
+},
+{
+"label": "Home recent o-boards",
+"impact_pp": 2.5
+},
+{
+"label": "Away recent FT rate (3g)",
+"impact_pp": -1.3
+},
+{
+"label": "Away last-3 net rating",
+"impact_pp": 1.3
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 1,
+"pick_correct": 1
+}
+},
+{
+"game_id": "202604140PHO",
+"away": "Portland Trail Blazers",
+"home": "Phoenix Suns",
+"away_abbr": "POR",
+"home_abbr": "PHO",
+"p_home": 0.5038,
+"pick": "PHO",
+"pick_prob": 0.5038,
+"fair_ml_home": -102,
+"fair_ml_away": 102,
+"pred_margin_home": 2.8,
+"grade": "C",
+"tier": "COINFLIP",
+"season_type": "Playoffs",
+"factors": [
+{
+"label": "Last-7 form edge",
+"impact_pp": -6.0
+},
+{
+"label": "Home recent o-boards (3g)",
+"impact_pp": 4.6
+},
+{
+"label": "Season net-rating edge",
+"impact_pp": 3.4
+},
+{
+"label": "Away turnover rate",
+"impact_pp": 1.9
+},
+{
+"label": "Home adjusted quality",
+"impact_pp": 1.3
+}
+],
+"result": {
+"home_win": 0,
+"margin_home": -4,
+"pick_correct": 0
+}
+}
+]
+}

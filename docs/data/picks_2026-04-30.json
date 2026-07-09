@@ -1,0 +1,134 @@
+{
+"date": "2026-04-30",
+"games": [
+{
+"game_id": "202604300ATL",
+"away": "New York Knicks",
+"home": "Atlanta Hawks",
+"away_abbr": "NYK",
+"home_abbr": "ATL",
+"p_home": 0.3427,
+"pick": "NYK",
+"pick_prob": 0.6573,
+"fair_ml_home": 192,
+"fair_ml_away": -192,
+"pred_margin_home": -5.1,
+"grade": "A-",
+"tier": "GOLD",
+"season_type": "Playoffs",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": -8.3
+},
+{
+"label": "Last-7 form edge",
+"impact_pp": -2.6
+},
+{
+"label": "Away off-rebound rate",
+"impact_pp": 1.3
+},
+{
+"label": "Home adjusted quality",
+"impact_pp": 1.3
+},
+{
+"label": "Away season offense",
+"impact_pp": -1.1
+}
+],
+"result": {
+"home_win": 0,
+"margin_home": -51,
+"pick_correct": 1
+}
+},
+{
+"game_id": "202604300MIN",
+"away": "Denver Nuggets",
+"home": "Minnesota Timberwolves",
+"away_abbr": "DEN",
+"home_abbr": "MIN",
+"p_home": 0.4721,
+"pick": "DEN",
+"pick_prob": 0.5279,
+"fair_ml_home": 112,
+"fair_ml_away": -112,
+"pred_margin_home": 2.8,
+"grade": "C",
+"tier": "COINFLIP",
+"season_type": "Playoffs",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": 1.8
+},
+{
+"label": "SOS-adjusted quality edge",
+"impact_pp": -1.2
+},
+{
+"label": "Away season shooting",
+"impact_pp": -1.2
+},
+{
+"label": "Home recent turnovers",
+"impact_pp": 1.0
+},
+{
+"label": "Home season net rating",
+"impact_pp": 0.9
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 12,
+"pick_correct": 0
+}
+},
+{
+"game_id": "202604300PHI",
+"away": "Boston Celtics",
+"home": "Philadelphia 76ers",
+"away_abbr": "BOS",
+"home_abbr": "PHI",
+"p_home": 0.352,
+"pick": "BOS",
+"pick_prob": 0.648,
+"fair_ml_home": 184,
+"fair_ml_away": -184,
+"pred_margin_home": -2.0,
+"grade": "B+",
+"tier": "SILVER",
+"season_type": "Playoffs",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": -8.5
+},
+{
+"label": "Last-7 form edge",
+"impact_pp": -1.8
+},
+{
+"label": "Home recent schedule",
+"impact_pp": -1.7
+},
+{
+"label": "Home adjusted quality",
+"impact_pp": 1.4
+},
+{
+"label": "Away FT rate",
+"impact_pp": 1.3
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 13,
+"pick_correct": 0
+}
+}
+]
+}

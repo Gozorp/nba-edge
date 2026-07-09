@@ -1,0 +1,263 @@
+{
+"date": "2026-03-11",
+"games": [
+{
+"game_id": "202603110DEN",
+"away": "Houston Rockets",
+"home": "Denver Nuggets",
+"away_abbr": "HOU",
+"home_abbr": "DEN",
+"p_home": 0.6794,
+"pick": "DEN",
+"pick_prob": 0.6794,
+"fair_ml_home": -212,
+"fair_ml_away": 212,
+"pred_margin_home": 7.4,
+"grade": "A-",
+"tier": "GOLD",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": 2.8
+},
+{
+"label": "Away rest days",
+"impact_pp": 2.4
+},
+{
+"label": "Home season shooting",
+"impact_pp": 1.9
+},
+{
+"label": "Rest edge",
+"impact_pp": 1.3
+},
+{
+"label": "Home season net rating",
+"impact_pp": 1.1
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 36,
+"pick_correct": 1
+}
+},
+{
+"game_id": "202603110LAC",
+"away": "Minnesota Timberwolves",
+"home": "Los Angeles Clippers",
+"away_abbr": "MIN",
+"home_abbr": "LAC",
+"p_home": 0.4806,
+"pick": "MIN",
+"pick_prob": 0.5194,
+"fair_ml_home": 108,
+"fair_ml_away": -108,
+"pred_margin_home": -1.2,
+"grade": "C",
+"tier": "COINFLIP",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": -6.6
+},
+{
+"label": "Away rest days",
+"impact_pp": 2.9
+},
+{
+"label": "Away season shooting",
+"impact_pp": -1.9
+},
+{
+"label": "Rest edge",
+"impact_pp": 1.7
+},
+{
+"label": "SOS-adjusted quality edge",
+"impact_pp": -1.4
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 25,
+"pick_correct": 0
+}
+},
+{
+"game_id": "202603110NOP",
+"away": "Toronto Raptors",
+"home": "New Orleans Pelicans",
+"away_abbr": "TOR",
+"home_abbr": "NOP",
+"p_home": 0.6715,
+"pick": "NOP",
+"pick_prob": 0.6715,
+"fair_ml_home": -204,
+"fair_ml_away": 204,
+"pred_margin_home": 2.0,
+"grade": "A-",
+"tier": "GOLD",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": -5.6
+},
+{
+"label": "Rest edge",
+"impact_pp": 3.8
+},
+{
+"label": "Home recent o-boards (3g)",
+"impact_pp": 2.8
+},
+{
+"label": "Home adjusted quality",
+"impact_pp": -2.3
+},
+{
+"label": "Away rest days",
+"impact_pp": 2.3
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 11,
+"pick_correct": 1
+}
+},
+{
+"game_id": "202603110ORL",
+"away": "Cleveland Cavaliers",
+"home": "Orlando Magic",
+"away_abbr": "CLE",
+"home_abbr": "ORL",
+"p_home": 0.4316,
+"pick": "CLE",
+"pick_prob": 0.5684,
+"fair_ml_home": 132,
+"fair_ml_away": -132,
+"pred_margin_home": -1.1,
+"grade": "B",
+"tier": "BRONZE",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": -6.1
+},
+{
+"label": "Rest edge",
+"impact_pp": 2.0
+},
+{
+"label": "Home FT rate",
+"impact_pp": -1.5
+},
+{
+"label": "Away 3-point profile",
+"impact_pp": -1.3
+},
+{
+"label": "Away off-rebound rate",
+"impact_pp": 1.1
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 6,
+"pick_correct": 0
+}
+},
+{
+"game_id": "202603110SAC",
+"away": "Charlotte Hornets",
+"home": "Sacramento Kings",
+"away_abbr": "CHO",
+"home_abbr": "SAC",
+"p_home": 0.254,
+"pick": "CHO",
+"pick_prob": 0.746,
+"fair_ml_home": 294,
+"fair_ml_away": -294,
+"pred_margin_home": -9.6,
+"grade": "A",
+"tier": "PLATINUM",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": -13.4
+},
+{
+"label": "Home recent turnovers (3g)",
+"impact_pp": 4.7
+},
+{
+"label": "Home adjusted quality",
+"impact_pp": -2.3
+},
+{
+"label": "Last-7 form edge",
+"impact_pp": -2.3
+},
+{
+"label": "Away rest days",
+"impact_pp": 2.0
+}
+],
+"result": {
+"home_win": 0,
+"margin_home": -8,
+"pick_correct": 1
+}
+},
+{
+"game_id": "202603110UTA",
+"away": "New York Knicks",
+"home": "Utah Jazz",
+"away_abbr": "NYK",
+"home_abbr": "UTA",
+"p_home": 0.2112,
+"pick": "NYK",
+"pick_prob": 0.7888,
+"fair_ml_home": 373,
+"fair_ml_away": -373,
+"pred_margin_home": -9.9,
+"grade": "A",
+"tier": "PLATINUM",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": -15.1
+},
+{
+"label": "Schedule-strength edge",
+"impact_pp": 2.3
+},
+{
+"label": "Home season net rating",
+"impact_pp": -1.9
+},
+{
+"label": "Home adjusted quality",
+"impact_pp": -1.9
+},
+{
+"label": "Home recent o-boards (3g)",
+"impact_pp": 1.5
+}
+],
+"result": {
+"home_win": 0,
+"margin_home": -17,
+"pick_correct": 1
+}
+}
+]
+}

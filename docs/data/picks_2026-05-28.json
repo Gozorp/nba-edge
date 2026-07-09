@@ -1,0 +1,48 @@
+{
+"date": "2026-05-28",
+"games": [
+{
+"game_id": "202605280SAS",
+"away": "Oklahoma City Thunder",
+"home": "San Antonio Spurs",
+"away_abbr": "OKC",
+"home_abbr": "SAS",
+"p_home": 0.3498,
+"pick": "OKC",
+"pick_prob": 0.6502,
+"fair_ml_home": 186,
+"fair_ml_away": -186,
+"pred_margin_home": 1.3,
+"grade": "D",
+"tier": "CONFLICT",
+"season_type": "Playoffs",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": -6.6
+},
+{
+"label": "Home recent schedule",
+"impact_pp": -2.1
+},
+{
+"label": "Home opponent quality faced",
+"impact_pp": -1.8
+},
+{
+"label": "Away season shooting",
+"impact_pp": -1.4
+},
+{
+"label": "SOS-adjusted quality edge",
+"impact_pp": -1.1
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 27,
+"pick_correct": 0
+}
+}
+]
+}

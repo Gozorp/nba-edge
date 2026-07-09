@@ -1,0 +1,134 @@
+{
+"date": "2026-04-23",
+"games": [
+{
+"game_id": "202604230ATL",
+"away": "New York Knicks",
+"home": "Atlanta Hawks",
+"away_abbr": "NYK",
+"home_abbr": "ATL",
+"p_home": 0.3916,
+"pick": "NYK",
+"pick_prob": 0.6084,
+"fair_ml_home": 155,
+"fair_ml_away": -155,
+"pred_margin_home": -1.7,
+"grade": "B+",
+"tier": "SILVER",
+"season_type": "Playoffs",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": -7.7
+},
+{
+"label": "Last-7 form edge",
+"impact_pp": -2.5
+},
+{
+"label": "Home adjusted quality",
+"impact_pp": 1.1
+},
+{
+"label": "Away off-rebound rate",
+"impact_pp": 1.0
+},
+{
+"label": "SOS-adjusted quality edge",
+"impact_pp": -1.0
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 1,
+"pick_correct": 0
+}
+},
+{
+"game_id": "202604230MIN",
+"away": "Denver Nuggets",
+"home": "Minnesota Timberwolves",
+"away_abbr": "DEN",
+"home_abbr": "MIN",
+"p_home": 0.4753,
+"pick": "DEN",
+"pick_prob": 0.5247,
+"fair_ml_home": 110,
+"fair_ml_away": -110,
+"pred_margin_home": 2.8,
+"grade": "C",
+"tier": "COINFLIP",
+"season_type": "Playoffs",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": 2.2
+},
+{
+"label": "Home pace_r3",
+"impact_pp": -1.6
+},
+{
+"label": "Home season shooting",
+"impact_pp": 1.1
+},
+{
+"label": "Away recent offense",
+"impact_pp": -1.1
+},
+{
+"label": "Away season shooting",
+"impact_pp": -1.0
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 17,
+"pick_correct": 0
+}
+},
+{
+"game_id": "202604230TOR",
+"away": "Cleveland Cavaliers",
+"home": "Toronto Raptors",
+"away_abbr": "CLE",
+"home_abbr": "TOR",
+"p_home": 0.557,
+"pick": "TOR",
+"pick_prob": 0.557,
+"fair_ml_home": -126,
+"fair_ml_away": 126,
+"pred_margin_home": 1.5,
+"grade": "B-",
+"tier": "LEAN",
+"season_type": "Playoffs",
+"factors": [
+{
+"label": "Home recent shooting",
+"impact_pp": 3.3
+},
+{
+"label": "SOS-adjusted quality edge",
+"impact_pp": 1.4
+},
+{
+"label": "Home adjusted quality",
+"impact_pp": 1.1
+},
+{
+"label": "Away 3-point profile",
+"impact_pp": -1.1
+},
+{
+"label": "Away rest days",
+"impact_pp": -1.1
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 22,
+"pick_correct": 1
+}
+}
+]
+}

@@ -1,0 +1,91 @@
+{
+"date": "2026-04-22",
+"games": [
+{
+"game_id": "202604220DET",
+"away": "Orlando Magic",
+"home": "Detroit Pistons",
+"away_abbr": "ORL",
+"home_abbr": "DET",
+"p_home": 0.6993,
+"pick": "DET",
+"pick_prob": 0.6993,
+"fair_ml_home": -233,
+"fair_ml_away": 233,
+"pred_margin_home": 8.2,
+"grade": "A-",
+"tier": "GOLD",
+"season_type": "Playoffs",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": 11.8
+},
+{
+"label": "Away last-3 net rating",
+"impact_pp": 1.7
+},
+{
+"label": "Home FT rate",
+"impact_pp": -1.3
+},
+{
+"label": "Away recent schedule",
+"impact_pp": 1.0
+},
+{
+"label": "Home off-rebound rate",
+"impact_pp": 1.0
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 15,
+"pick_correct": 1
+}
+},
+{
+"game_id": "202604220OKC",
+"away": "Phoenix Suns",
+"home": "Oklahoma City Thunder",
+"away_abbr": "PHO",
+"home_abbr": "OKC",
+"p_home": 0.5801,
+"pick": "OKC",
+"pick_prob": 0.5801,
+"fair_ml_home": -138,
+"fair_ml_away": 138,
+"pred_margin_home": 8.8,
+"grade": "B",
+"tier": "BRONZE",
+"season_type": "Playoffs",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": 14.8
+},
+{
+"label": "Away season offense",
+"impact_pp": -2.9
+},
+{
+"label": "Home season net rating",
+"impact_pp": 2.8
+},
+{
+"label": "Home recent shooting",
+"impact_pp": 2.3
+},
+{
+"label": "Home recent turnovers",
+"impact_pp": -1.9
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 13,
+"pick_correct": 1
+}
+}
+]
+}

@@ -1,0 +1,392 @@
+{
+"date": "2025-11-10",
+"games": [
+{
+"game_id": "202511100CHI",
+"away": "San Antonio Spurs",
+"home": "Chicago Bulls",
+"away_abbr": "SAS",
+"home_abbr": "CHI",
+"p_home": 0.3091,
+"pick": "SAS",
+"pick_prob": 0.6909,
+"fair_ml_home": 224,
+"fair_ml_away": -224,
+"pred_margin_home": -0.9,
+"grade": "A-",
+"tier": "GOLD",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": -13.8
+},
+{
+"label": "Away FT rate",
+"impact_pp": -1.9
+},
+{
+"label": "Home opponent quality faced",
+"impact_pp": -1.7
+},
+{
+"label": "Home adjusted quality",
+"impact_pp": 1.6
+},
+{
+"label": "Home season shooting",
+"impact_pp": 1.2
+}
+],
+"result": {
+"home_win": 0,
+"margin_home": -4,
+"pick_correct": 1
+}
+},
+{
+"game_id": "202511100CHO",
+"away": "Los Angeles Lakers",
+"home": "Charlotte Hornets",
+"away_abbr": "LAL",
+"home_abbr": "CHO",
+"p_home": 0.4973,
+"pick": "LAL",
+"pick_prob": 0.5027,
+"fair_ml_home": 101,
+"fair_ml_away": -101,
+"pred_margin_home": 0.7,
+"grade": "C",
+"tier": "COINFLIP",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": -6.0
+},
+{
+"label": "Home recent o-boards (3g)",
+"impact_pp": 3.4
+},
+{
+"label": "Rest edge",
+"impact_pp": 2.3
+},
+{
+"label": "Home turnover rate",
+"impact_pp": 2.3
+},
+{
+"label": "Home recent 3P profile",
+"impact_pp": 1.7
+}
+],
+"result": {
+"home_win": 0,
+"margin_home": -10,
+"pick_correct": 1
+}
+},
+{
+"game_id": "202511100DAL",
+"away": "Milwaukee Bucks",
+"home": "Dallas Mavericks",
+"away_abbr": "MIL",
+"home_abbr": "DAL",
+"p_home": 0.2791,
+"pick": "MIL",
+"pick_prob": 0.7209,
+"fair_ml_home": 258,
+"fair_ml_away": -258,
+"pred_margin_home": -4.4,
+"grade": "A",
+"tier": "PLATINUM",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": -11.3
+},
+{
+"label": "Schedule-strength edge",
+"impact_pp": 2.7
+},
+{
+"label": "Home adjusted quality",
+"impact_pp": -2.3
+},
+{
+"label": "Away season shooting",
+"impact_pp": -1.5
+},
+{
+"label": "Away rest days",
+"impact_pp": 1.2
+}
+],
+"result": {
+"home_win": 0,
+"margin_home": -2,
+"pick_correct": 1
+}
+},
+{
+"game_id": "202511100DET",
+"away": "Washington Wizards",
+"home": "Detroit Pistons",
+"away_abbr": "WAS",
+"home_abbr": "DET",
+"p_home": 0.8308,
+"pick": "DET",
+"pick_prob": 0.8308,
+"fair_ml_home": -491,
+"fair_ml_away": 491,
+"pred_margin_home": 13.7,
+"grade": "A",
+"tier": "PLATINUM",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": 12.9
+},
+{
+"label": "SOS-adjusted quality edge",
+"impact_pp": 2.6
+},
+{
+"label": "Last-7 form edge",
+"impact_pp": 1.8
+},
+{
+"label": "Away adjusted quality",
+"impact_pp": 1.0
+},
+{
+"label": "Away last-7 net rating",
+"impact_pp": 1.0
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 2,
+"pick_correct": 1
+}
+},
+{
+"game_id": "202511100LAC",
+"away": "Atlanta Hawks",
+"home": "Los Angeles Clippers",
+"away_abbr": "ATL",
+"home_abbr": "LAC",
+"p_home": 0.3802,
+"pick": "ATL",
+"pick_prob": 0.6198,
+"fair_ml_home": 163,
+"fair_ml_away": -163,
+"pred_margin_home": -3.6,
+"grade": "B+",
+"tier": "SILVER",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": -10.1
+},
+{
+"label": "Home season shooting",
+"impact_pp": 2.2
+},
+{
+"label": "Last-7 form edge",
+"impact_pp": -1.7
+},
+{
+"label": "Home turnover rate",
+"impact_pp": 1.4
+},
+{
+"label": "Home pace_r3",
+"impact_pp": 1.4
+}
+],
+"result": {
+"home_win": 0,
+"margin_home": -3,
+"pick_correct": 1
+}
+},
+{
+"game_id": "202511100MIA",
+"away": "Cleveland Cavaliers",
+"home": "Miami Heat",
+"away_abbr": "CLE",
+"home_abbr": "MIA",
+"p_home": 0.5879,
+"pick": "MIA",
+"pick_prob": 0.5879,
+"fair_ml_home": -143,
+"fair_ml_away": 143,
+"pred_margin_home": 5.7,
+"grade": "B",
+"tier": "BRONZE",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": 5.6
+},
+{
+"label": "Home season shooting",
+"impact_pp": 3.3
+},
+{
+"label": "Away recent o-boards (3g)",
+"impact_pp": -1.5
+},
+{
+"label": "SOS-adjusted quality edge",
+"impact_pp": 1.5
+},
+{
+"label": "Home pace_r3",
+"impact_pp": -1.3
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 2,
+"pick_correct": 1
+}
+},
+{
+"game_id": "202511100ORL",
+"away": "Portland Trail Blazers",
+"home": "Orlando Magic",
+"away_abbr": "POR",
+"home_abbr": "ORL",
+"p_home": 0.4467,
+"pick": "POR",
+"pick_prob": 0.5533,
+"fair_ml_home": 124,
+"fair_ml_away": -124,
+"pred_margin_home": -0.5,
+"grade": "B-",
+"tier": "LEAN",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": 3.3
+},
+{
+"label": "Home rest days",
+"impact_pp": -2.7
+},
+{
+"label": "Home FT rate",
+"impact_pp": -2.1
+},
+{
+"label": "Away 3-point profile",
+"impact_pp": -1.6
+},
+{
+"label": "Schedule-strength edge",
+"impact_pp": 1.2
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 3,
+"pick_correct": 0
+}
+},
+{
+"game_id": "202511100PHO",
+"away": "New Orleans Pelicans",
+"home": "Phoenix Suns",
+"away_abbr": "NOP",
+"home_abbr": "PHO",
+"p_home": 0.87,
+"pick": "PHO",
+"pick_prob": 0.87,
+"fair_ml_home": -669,
+"fair_ml_away": 669,
+"pred_margin_home": 14.3,
+"grade": "A",
+"tier": "PLATINUM",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": 10.2
+},
+{
+"label": "Last-7 form edge",
+"impact_pp": 1.8
+},
+{
+"label": "Home recent o-boards (3g)",
+"impact_pp": 1.6
+},
+{
+"label": "Away adjusted quality",
+"impact_pp": 1.1
+},
+{
+"label": "Away last-7 net rating",
+"impact_pp": 1.1
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 23,
+"pick_correct": 1
+}
+},
+{
+"game_id": "202511100UTA",
+"away": "Minnesota Timberwolves",
+"home": "Utah Jazz",
+"away_abbr": "MIN",
+"home_abbr": "UTA",
+"p_home": 0.2058,
+"pick": "MIN",
+"pick_prob": 0.7942,
+"fair_ml_home": 386,
+"fair_ml_away": -386,
+"pred_margin_home": -5.4,
+"grade": "A",
+"tier": "PLATINUM",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": -16.6
+},
+{
+"label": "Last-7 form edge",
+"impact_pp": -2.5
+},
+{
+"label": "Home off-rebound rate",
+"impact_pp": 2.1
+},
+{
+"label": "Home recent o-boards",
+"impact_pp": 1.9
+},
+{
+"label": "Home adjusted quality",
+"impact_pp": -1.7
+}
+],
+"result": {
+"home_win": 0,
+"margin_home": -7,
+"pick_correct": 1
+}
+}
+]
+}

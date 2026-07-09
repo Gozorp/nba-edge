@@ -1,0 +1,10 @@
+{
+  "name": "Gozorp's NBA edge",
+  "short_name": "NBA edge",
+  "description": "Daily NBA slate predictions with graded picks and SHAP factor analysis",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#0b0e13",
+  "theme_color": "#0b0e13",
+  "icons": [{ "src": "icon.svg", "sizes": "any", "type": "image/svg+xml" }]
+}

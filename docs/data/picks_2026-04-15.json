@@ -1,0 +1,91 @@
+{
+"date": "2026-04-15",
+"games": [
+{
+"game_id": "202604150LAC",
+"away": "Golden State Warriors",
+"home": "Los Angeles Clippers",
+"away_abbr": "GSW",
+"home_abbr": "LAC",
+"p_home": 0.5695,
+"pick": "LAC",
+"pick_prob": 0.5695,
+"fair_ml_home": -132,
+"fair_ml_away": 132,
+"pred_margin_home": 2.2,
+"grade": "B",
+"tier": "BRONZE",
+"season_type": "Playoffs",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": 5.1
+},
+{
+"label": "Away season shooting",
+"impact_pp": -1.3
+},
+{
+"label": "Home FT rate",
+"impact_pp": -1.3
+},
+{
+"label": "Home adjusted quality",
+"impact_pp": 1.2
+},
+{
+"label": "SOS-adjusted quality edge",
+"impact_pp": 1.1
+}
+],
+"result": {
+"home_win": 0,
+"margin_home": -5,
+"pick_correct": 0
+}
+},
+{
+"game_id": "202604150PHI",
+"away": "Orlando Magic",
+"home": "Philadelphia 76ers",
+"away_abbr": "ORL",
+"home_abbr": "PHI",
+"p_home": 0.4538,
+"pick": "ORL",
+"pick_prob": 0.5462,
+"fair_ml_home": 120,
+"fair_ml_away": -120,
+"pred_margin_home": 1.5,
+"grade": "B-",
+"tier": "LEAN",
+"season_type": "Playoffs",
+"factors": [
+{
+"label": "FT-rate edge",
+"impact_pp": -1.7
+},
+{
+"label": "Season net-rating edge",
+"impact_pp": 1.2
+},
+{
+"label": "Away rest days",
+"impact_pp": -1.1
+},
+{
+"label": "SOS-adjusted quality edge",
+"impact_pp": -1.0
+},
+{
+"label": "Last-3 form edge",
+"impact_pp": -0.9
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 12,
+"pick_correct": 0
+}
+}
+]
+}

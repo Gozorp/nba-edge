@@ -1,0 +1,134 @@
+{
+"date": "2025-12-08",
+"games": [
+{
+"game_id": "202512080IND",
+"away": "Sacramento Kings",
+"home": "Indiana Pacers",
+"away_abbr": "SAC",
+"home_abbr": "IND",
+"p_home": 0.4889,
+"pick": "SAC",
+"pick_prob": 0.5111,
+"fair_ml_home": 105,
+"fair_ml_away": -105,
+"pred_margin_home": -0.6,
+"grade": "C",
+"tier": "COINFLIP",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": 3.2
+},
+{
+"label": "Home adjusted quality",
+"impact_pp": -3.1
+},
+{
+"label": "Home season net rating",
+"impact_pp": -2.9
+},
+{
+"label": "Pace differential",
+"impact_pp": -1.6
+},
+{
+"label": "FT-rate edge",
+"impact_pp": 1.2
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 11,
+"pick_correct": 0
+}
+},
+{
+"game_id": "202512080MIN",
+"away": "Phoenix Suns",
+"home": "Minnesota Timberwolves",
+"away_abbr": "PHO",
+"home_abbr": "MIN",
+"p_home": 0.6046,
+"pick": "MIN",
+"pick_prob": 0.6046,
+"fair_ml_home": -153,
+"fair_ml_away": 153,
+"pred_margin_home": 5.9,
+"grade": "B+",
+"tier": "SILVER",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": 4.9
+},
+{
+"label": "Home season shooting",
+"impact_pp": 3.7
+},
+{
+"label": "Home FT rate",
+"impact_pp": -1.5
+},
+{
+"label": "Schedule-strength edge",
+"impact_pp": 1.5
+},
+{
+"label": "Away 3-point profile",
+"impact_pp": -1.1
+}
+],
+"result": {
+"home_win": 0,
+"margin_home": -3,
+"pick_correct": 0
+}
+},
+{
+"game_id": "202512080NOP",
+"away": "San Antonio Spurs",
+"home": "New Orleans Pelicans",
+"away_abbr": "SAS",
+"home_abbr": "NOP",
+"p_home": 0.2857,
+"pick": "SAS",
+"pick_prob": 0.7143,
+"fair_ml_home": 250,
+"fair_ml_away": -250,
+"pred_margin_home": -6.4,
+"grade": "A",
+"tier": "PLATINUM",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": -18.0
+},
+{
+"label": "Home off-rebound rate",
+"impact_pp": 2.9
+},
+{
+"label": "Home adjusted quality",
+"impact_pp": -2.0
+},
+{
+"label": "Home season defense",
+"impact_pp": -1.2
+},
+{
+"label": "Home season net rating",
+"impact_pp": 1.1
+}
+],
+"result": {
+"home_win": 0,
+"margin_home": -3,
+"pick_correct": 1
+}
+}
+]
+}

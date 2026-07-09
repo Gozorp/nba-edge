@@ -1,0 +1,91 @@
+{
+"date": "2025-12-13",
+"games": [
+{
+"game_id": "202512130OKC",
+"away": "San Antonio Spurs",
+"home": "Oklahoma City Thunder",
+"away_abbr": "SAS",
+"home_abbr": "OKC",
+"p_home": 0.7418,
+"pick": "OKC",
+"pick_prob": 0.7418,
+"fair_ml_home": -287,
+"fair_ml_away": 287,
+"pred_margin_home": 11.4,
+"grade": "A",
+"tier": "PLATINUM",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": 17.0
+},
+{
+"label": "Home season net rating",
+"impact_pp": 4.3
+},
+{
+"label": "Home recent shooting",
+"impact_pp": 2.3
+},
+{
+"label": "Home season shooting",
+"impact_pp": 2.0
+},
+{
+"label": "Home recent turnovers",
+"impact_pp": -1.8
+}
+],
+"result": {
+"home_win": 0,
+"margin_home": -2,
+"pick_correct": 0
+}
+},
+{
+"game_id": "202512130ORL",
+"away": "New York Knicks",
+"home": "Orlando Magic",
+"away_abbr": "NYK",
+"home_abbr": "ORL",
+"p_home": 0.2542,
+"pick": "NYK",
+"pick_prob": 0.7458,
+"fair_ml_home": 293,
+"fair_ml_away": -293,
+"pred_margin_home": -5.7,
+"grade": "A",
+"tier": "PLATINUM",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": -6.6
+},
+{
+"label": "Away recent offense",
+"impact_pp": -2.6
+},
+{
+"label": "Home opponent quality faced",
+"impact_pp": -1.8
+},
+{
+"label": "Last-7 form edge",
+"impact_pp": -1.6
+},
+{
+"label": "Away last-3 net rating",
+"impact_pp": -1.1
+}
+],
+"result": {
+"home_win": 0,
+"margin_home": -12,
+"pick_correct": 1
+}
+}
+]
+}

@@ -1,0 +1,134 @@
+{
+"date": "2026-04-21",
+"games": [
+{
+"game_id": "202604210BOS",
+"away": "Philadelphia 76ers",
+"home": "Boston Celtics",
+"away_abbr": "PHI",
+"home_abbr": "BOS",
+"p_home": 0.6587,
+"pick": "BOS",
+"pick_prob": 0.6587,
+"fair_ml_home": -193,
+"fair_ml_away": 193,
+"pred_margin_home": 10.3,
+"grade": "A-",
+"tier": "GOLD",
+"season_type": "Playoffs",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": 10.2
+},
+{
+"label": "Last-7 form edge",
+"impact_pp": 2.9
+},
+{
+"label": "Home pace_r3",
+"impact_pp": -2.4
+},
+{
+"label": "Home season offense",
+"impact_pp": -2.3
+},
+{
+"label": "Home recent shooting",
+"impact_pp": 2.0
+}
+],
+"result": {
+"home_win": 0,
+"margin_home": -14,
+"pick_correct": 0
+}
+},
+{
+"game_id": "202604210LAL",
+"away": "Houston Rockets",
+"home": "Los Angeles Lakers",
+"away_abbr": "HOU",
+"home_abbr": "LAL",
+"p_home": 0.581,
+"pick": "LAL",
+"pick_prob": 0.581,
+"fair_ml_home": -139,
+"fair_ml_away": 139,
+"pred_margin_home": 3.9,
+"grade": "B",
+"tier": "BRONZE",
+"season_type": "Playoffs",
+"factors": [
+{
+"label": "Home recent shooting",
+"impact_pp": 4.4
+},
+{
+"label": "Home season shooting",
+"impact_pp": 3.7
+},
+{
+"label": "Season net-rating edge",
+"impact_pp": 3.7
+},
+{
+"label": "Last-7 form edge",
+"impact_pp": -2.2
+},
+{
+"label": "Home FT rate",
+"impact_pp": -1.8
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 7,
+"pick_correct": 1
+}
+},
+{
+"game_id": "202604210SAS",
+"away": "Portland Trail Blazers",
+"home": "San Antonio Spurs",
+"away_abbr": "POR",
+"home_abbr": "SAS",
+"p_home": 0.6979,
+"pick": "SAS",
+"pick_prob": 0.6979,
+"fair_ml_home": -231,
+"fair_ml_away": 231,
+"pred_margin_home": 8.0,
+"grade": "A-",
+"tier": "GOLD",
+"season_type": "Playoffs",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": 15.4
+},
+{
+"label": "Home season offense",
+"impact_pp": -1.6
+},
+{
+"label": "Away recent FT rate (3g)",
+"impact_pp": 1.5
+},
+{
+"label": "Away 3-point profile",
+"impact_pp": -1.2
+},
+{
+"label": "SOS-adjusted quality edge",
+"impact_pp": 1.0
+}
+],
+"result": {
+"home_win": 0,
+"margin_home": -3,
+"pick_correct": 0
+}
+}
+]
+}

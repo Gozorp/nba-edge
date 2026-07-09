@@ -1,0 +1,91 @@
+{
+"date": "2025-12-17",
+"games": [
+{
+"game_id": "202512170CHI",
+"away": "Cleveland Cavaliers",
+"home": "Chicago Bulls",
+"away_abbr": "CLE",
+"home_abbr": "CHI",
+"p_home": 0.2759,
+"pick": "CLE",
+"pick_prob": 0.7241,
+"fair_ml_home": 263,
+"fair_ml_away": -263,
+"pred_margin_home": -10.2,
+"grade": "A",
+"tier": "PLATINUM",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": -9.5
+},
+{
+"label": "Home adjusted quality",
+"impact_pp": -2.5
+},
+{
+"label": "Last-7 form edge",
+"impact_pp": -1.9
+},
+{
+"label": "Away season pace",
+"impact_pp": 1.1
+},
+{
+"label": "Away recent shooting (3g)",
+"impact_pp": -1.1
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 16,
+"pick_correct": 0
+}
+},
+{
+"game_id": "202512170MIN",
+"away": "Memphis Grizzlies",
+"home": "Minnesota Timberwolves",
+"away_abbr": "MEM",
+"home_abbr": "MIN",
+"p_home": 0.6447,
+"pick": "MIN",
+"pick_prob": 0.6447,
+"fair_ml_home": -181,
+"fair_ml_away": 181,
+"pred_margin_home": 5.5,
+"grade": "B+",
+"tier": "SILVER",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": 10.6
+},
+{
+"label": "Away adjusted quality",
+"impact_pp": 1.9
+},
+{
+"label": "Home FT rate",
+"impact_pp": -1.4
+},
+{
+"label": "Home season offense",
+"impact_pp": -1.4
+},
+{
+"label": "Away last-3 net rating",
+"impact_pp": 1.1
+}
+],
+"result": {
+"home_win": 0,
+"margin_home": -6,
+"pick_correct": 0
+}
+}
+]
+}

@@ -1,0 +1,48 @@
+{
+"date": "2026-05-02",
+"games": [
+{
+"game_id": "202605020BOS",
+"away": "Philadelphia 76ers",
+"home": "Boston Celtics",
+"away_abbr": "PHI",
+"home_abbr": "BOS",
+"p_home": 0.6285,
+"pick": "BOS",
+"pick_prob": 0.6285,
+"fair_ml_home": -169,
+"fair_ml_away": 169,
+"pred_margin_home": 7.8,
+"grade": "B+",
+"tier": "SILVER",
+"season_type": "Playoffs",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": 10.1
+},
+{
+"label": "Home recent 3P profile",
+"impact_pp": 4.5
+},
+{
+"label": "Home season offense",
+"impact_pp": -2.1
+},
+{
+"label": "Home off-rebound rate",
+"impact_pp": 0.9
+},
+{
+"label": "Away 3-point profile",
+"impact_pp": -0.8
+}
+],
+"result": {
+"home_win": 0,
+"margin_home": -9,
+"pick_correct": 0
+}
+}
+]
+}

@@ -1,0 +1,48 @@
+{
+"date": "2026-05-13",
+"games": [
+{
+"game_id": "202605130DET",
+"away": "Cleveland Cavaliers",
+"home": "Detroit Pistons",
+"away_abbr": "CLE",
+"home_abbr": "DET",
+"p_home": 0.5963,
+"pick": "DET",
+"pick_prob": 0.5963,
+"fair_ml_home": -148,
+"fair_ml_away": 148,
+"pred_margin_home": 4.5,
+"grade": "B",
+"tier": "BRONZE",
+"season_type": "Playoffs",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": 4.6
+},
+{
+"label": "Home recent o-boards (3g)",
+"impact_pp": 3.5
+},
+{
+"label": "Home recent o-boards",
+"impact_pp": 2.4
+},
+{
+"label": "Home FT rate",
+"impact_pp": -2.1
+},
+{
+"label": "Away 3-point profile",
+"impact_pp": -1.4
+}
+],
+"result": {
+"home_win": 0,
+"margin_home": -4,
+"pick_correct": 0
+}
+}
+]
+}

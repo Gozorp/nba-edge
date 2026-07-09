@@ -1,0 +1,48 @@
+{
+"date": "2026-05-21",
+"games": [
+{
+"game_id": "202605210NYK",
+"away": "Cleveland Cavaliers",
+"home": "New York Knicks",
+"away_abbr": "CLE",
+"home_abbr": "NYK",
+"p_home": 0.5158,
+"pick": "NYK",
+"pick_prob": 0.5158,
+"fair_ml_home": -107,
+"fair_ml_away": 107,
+"pred_margin_home": 2.2,
+"grade": "C",
+"tier": "COINFLIP",
+"season_type": "Playoffs",
+"factors": [
+{
+"label": "Away 3-point profile",
+"impact_pp": -2.4
+},
+{
+"label": "Home recent o-boards (3g)",
+"impact_pp": 2.2
+},
+{
+"label": "Season net-rating edge",
+"impact_pp": 2.0
+},
+{
+"label": "Home recent defense",
+"impact_pp": 1.6
+},
+{
+"label": "Away off-rebound rate",
+"impact_pp": 1.5
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 16,
+"pick_correct": 1
+}
+}
+]
+}

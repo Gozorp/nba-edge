@@ -1,0 +1,48 @@
+{
+"date": "2025-12-16",
+"games": [
+{
+"game_id": "202512160NYK",
+"away": "San Antonio Spurs",
+"home": "New York Knicks",
+"away_abbr": "SAS",
+"home_abbr": "NYK",
+"p_home": 0.6024,
+"pick": "NYK",
+"pick_prob": 0.6024,
+"fair_ml_home": -152,
+"fair_ml_away": 152,
+"pred_margin_home": 7.6,
+"grade": "B+",
+"tier": "SILVER",
+"season_type": "Regular Season",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": 8.9
+},
+{
+"label": "Home recent shooting",
+"impact_pp": 2.7
+},
+{
+"label": "Home season offense",
+"impact_pp": -2.2
+},
+{
+"label": "Away season shooting",
+"impact_pp": -1.6
+},
+{
+"label": "Home recent o-boards",
+"impact_pp": 1.5
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 11,
+"pick_correct": 1
+}
+}
+]
+}

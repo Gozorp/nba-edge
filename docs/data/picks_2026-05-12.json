@@ -1,0 +1,48 @@
+{
+"date": "2026-05-12",
+"games": [
+{
+"game_id": "202605120SAS",
+"away": "Minnesota Timberwolves",
+"home": "San Antonio Spurs",
+"away_abbr": "MIN",
+"home_abbr": "SAS",
+"p_home": 0.5728,
+"pick": "SAS",
+"pick_prob": 0.5728,
+"fair_ml_home": -134,
+"fair_ml_away": 134,
+"pred_margin_home": 7.7,
+"grade": "B",
+"tier": "BRONZE",
+"season_type": "Playoffs",
+"factors": [
+{
+"label": "Season net-rating edge",
+"impact_pp": 9.3
+},
+{
+"label": "Home recent defense",
+"impact_pp": 2.9
+},
+{
+"label": "Home season offense",
+"impact_pp": -2.6
+},
+{
+"label": "Away last-3 net rating",
+"impact_pp": -2.0
+},
+{
+"label": "Home recent FT rate",
+"impact_pp": -1.8
+}
+],
+"result": {
+"home_win": 1,
+"margin_home": 29,
+"pick_correct": 1
+}
+}
+]
+}
