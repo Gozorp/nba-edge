@@ -126,12 +126,15 @@ tr.deep.open{display:table-row}
 .fv{font-family:var(--mono);font-size:.72rem;width:56px;text-align:right}
 .deep-meta div{margin:4px 0;font-size:.8rem;color:var(--muted)}
 .props-box{grid-column:1 / -1}
-.props-table{width:100%;border-collapse:collapse;font-size:.76rem;margin-top:6px}
-.props-table th{font-family:var(--mono);font-size:.62rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);text-align:right;padding:4px 8px;border-bottom:1px solid var(--border)}
-.props-table th:first-child,.props-table td:first-child{text-align:left}
-.props-table td{padding:4px 8px;border-bottom:1px solid var(--bg-elev2);text-align:right;font-variant-numeric:tabular-nums}
+.props-table{border-collapse:collapse;font-size:.78rem;margin-top:6px;max-width:680px;width:100%}
+.props-table th{font-family:var(--mono);font-size:.6rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);padding:4px 10px;border-bottom:1px solid var(--border);text-align:center}
+.props-table th.gh{color:var(--text);border-bottom:none;padding-top:6px}
+.props-table th.ph,.props-table td.pn{text-align:left;width:38%}
+.props-table td{padding:5px 10px;border-bottom:1px solid var(--bg-elev2);text-align:center;font-variant-numeric:tabular-nums;min-width:52px}
 .props-table .pn{color:var(--text);font-weight:600}
-.props-proj{color:var(--accent)} .props-act{color:var(--text)}
+.props-table .gs{border-left:1px solid var(--border)}
+.props-proj{color:var(--accent)} .props-act{color:var(--text);font-weight:600}
+.props-team td{background:var(--bg-elev2);color:var(--muted);font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;text-align:left;padding:3px 10px;border-bottom:none}
 .deep-meta b{color:var(--text)}
 #empty{color:var(--muted);padding:40px 0;text-align:center;display:none}
 
@@ -309,6 +312,6 @@ footer{border-top:1px solid var(--border);padding:26px 0 60px;color:var(--muted)
   </div>
 </footer>
 
-<script src="js/app.js?v=12"></script>
+<script src="js/app.js?v=13"></script>
 </body>
 </html>

@@ -299,17 +299,32 @@ async function loadProps(date, deepRow) {
     box.dataset.loaded = "1";
     return;
   }
-  const tr8 = rows.slice(0, 8).map((r) =>
-    "<tr><td class='pn'>" + r.player + " <span class='mono' style='color:var(--muted)'>"
-    + r.abbr + "</span></td>"
-    + "<td class='props-proj'>" + r.proj.pts.toFixed(1) + "</td><td class='props-act'>" + r.actual.pts + "</td>"
-    + "<td class='props-proj'>" + r.proj.reb.toFixed(1) + "</td><td class='props-act'>" + r.actual.reb + "</td>"
-    + "<td class='props-proj'>" + r.proj.ast.toFixed(1) + "</td><td class='props-act'>" + r.actual.ast + "</td></tr>"
+  // Organize: block by team, sort by projected points inside each block,
+  // and group stat pairs under a two-tier header (proj | act per stat).
+  const byTeam = {};
+  rows.forEach((r) => (byTeam[r.abbr] = byTeam[r.abbr] || []).push(r));
+  const playerRow = (r) =>
+    "<tr><td class='pn'>" + r.player + "</td>"
+    + "<td class='props-proj gs'>" + r.proj.pts.toFixed(1) + "</td><td class='props-act'>" + r.actual.pts + "</td>"
+    + "<td class='props-proj gs'>" + r.proj.reb.toFixed(1) + "</td><td class='props-act'>" + r.actual.reb + "</td>"
+    + "<td class='props-proj gs'>" + r.proj.ast.toFixed(1) + "</td><td class='props-act'>" + r.actual.ast + "</td></tr>";
+  const body = Object.keys(byTeam).map((team) =>
+    "<tr class='props-team'><td colspan='7'>" + team + "</td></tr>"
+    + byTeam[team]
+        .sort((a, b) => b.proj.pts - a.proj.pts)
+        .slice(0, 5)
+        .map(playerRow).join("")
   ).join("");
   slot.outerHTML =
-    "<table class='props-table'><thead><tr><th>Player</th>"
-    + "<th>proj P</th><th>act P</th><th>proj R</th><th>act R</th>"
-    + "<th>proj A</th><th>act A</th></tr></thead><tbody>" + tr8 + "</tbody></table>";
+    "<table class='props-table'><thead>"
+    + "<tr><th class='ph' rowspan='2'>Player</th>"
+    + "<th class='gh gs' colspan='2'>Points</th>"
+    + "<th class='gh gs' colspan='2'>Rebounds</th>"
+    + "<th class='gh gs' colspan='2'>Assists</th></tr>"
+    + "<tr><th class='gs'>proj</th><th>act</th>"
+    + "<th class='gs'>proj</th><th>act</th>"
+    + "<th class='gs'>proj</th><th>act</th></tr>"
+    + "</thead><tbody>" + body + "</tbody></table>";
   box.dataset.loaded = "1";
 }
 
