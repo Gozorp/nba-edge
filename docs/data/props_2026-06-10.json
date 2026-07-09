@@ -1,0 +1,232 @@
+{
+"date": "2026-06-10",
+"games": {
+"202606100NYK": [
+{
+"player": "Jalen Brunson",
+"abbr": "NYK",
+"mp": 44.5,
+"proj": {
+"pts": 27.399999618530273,
+"reb": 3.5,
+"ast": 7.0
+},
+"actual": {
+"pts": 36,
+"reb": 5,
+"ast": 7
+}
+},
+{
+"player": "Victor Wembanyama",
+"abbr": "SAS",
+"mp": 43.9,
+"proj": {
+"pts": 23.799999237060547,
+"reb": 10.800000190734863,
+"ast": 3.0
+},
+"actual": {
+"pts": 24,
+"reb": 13,
+"ast": 1
+}
+},
+{
+"player": "Stephon Castle",
+"abbr": "SAS",
+"mp": 25.9,
+"proj": {
+"pts": 18.5,
+"reb": 5.300000190734863,
+"ast": 6.099999904632568
+},
+"actual": {
+"pts": 13,
+"reb": 5,
+"ast": 5
+}
+},
+{
+"player": "De'Aaron Fox",
+"abbr": "SAS",
+"mp": 37.4,
+"proj": {
+"pts": 17.200000762939453,
+"reb": 4.0,
+"ast": 5.699999809265137
+},
+"actual": {
+"pts": 18,
+"reb": 5,
+"ast": 7
+}
+},
+{
+"player": "Karl-Anthony Towns",
+"abbr": "NYK",
+"mp": 25.8,
+"proj": {
+"pts": 16.899999618530273,
+"reb": 12.199999809265137,
+"ast": 3.0
+},
+"actual": {
+"pts": 13,
+"reb": 10,
+"ast": 2
+}
+},
+{
+"player": "OG Anunoby",
+"abbr": "NYK",
+"mp": 41.5,
+"proj": {
+"pts": 15.5,
+"reb": 5.300000190734863,
+"ast": 2.200000047683716
+},
+"actual": {
+"pts": 33,
+"reb": 4,
+"ast": 1
+}
+},
+{
+"player": "Mikal Bridges",
+"abbr": "NYK",
+"mp": 28.1,
+"proj": {
+"pts": 13.399999618530273,
+"reb": 4.0,
+"ast": 3.299999952316284
+},
+"actual": {
+"pts": 7,
+"reb": 2,
+"ast": 2
+}
+},
+{
+"player": "Dylan Harper",
+"abbr": "SAS",
+"mp": 32.3,
+"proj": {
+"pts": 12.800000190734863,
+"reb": 5.0,
+"ast": 3.5
+},
+"actual": {
+"pts": 21,
+"reb": 4,
+"ast": 3
+}
+},
+{
+"player": "Devin Vassell",
+"abbr": "SAS",
+"mp": 40.4,
+"proj": {
+"pts": 11.899999618530273,
+"reb": 4.699999809265137,
+"ast": 2.5
+},
+"actual": {
+"pts": 18,
+"reb": 5,
+"ast": 4
+}
+},
+{
+"player": "Julian Champagnie",
+"abbr": "SAS",
+"mp": 33.0,
+"proj": {
+"pts": 11.5,
+"reb": 5.599999904632568,
+"ast": 1.600000023841858
+},
+"actual": {
+"pts": 5,
+"reb": 5,
+"ast": 3
+}
+},
+{
+"player": "Josh Hart",
+"abbr": "NYK",
+"mp": 32.8,
+"proj": {
+"pts": 10.899999618530273,
+"reb": 7.900000095367432,
+"ast": 4.099999904632568
+},
+"actual": {
+"pts": 6,
+"reb": 8,
+"ast": 6
+}
+},
+{
+"player": "Landry Shamet",
+"abbr": "NYK",
+"mp": 20.5,
+"proj": {
+"pts": 9.199999809265137,
+"reb": 2.299999952316284,
+"ast": 1.600000023841858
+},
+"actual": {
+"pts": 0,
+"reb": 2,
+"ast": 1
+}
+},
+{
+"player": "Keldon Johnson",
+"abbr": "SAS",
+"mp": 18.0,
+"proj": {
+"pts": 8.899999618530273,
+"reb": 4.099999904632568,
+"ast": 0.8999999761581421
+},
+"actual": {
+"pts": 2,
+"reb": 4,
+"ast": 1
+}
+},
+{
+"player": "Jose Alvarado",
+"abbr": "NYK",
+"mp": 15.6,
+"proj": {
+"pts": 7.0,
+"reb": 2.0999999046325684,
+"ast": 2.200000047683716
+},
+"actual": {
+"pts": 8,
+"reb": 2,
+"ast": 3
+}
+},
+{
+"player": "Mitchell Robinson",
+"abbr": "NYK",
+"mp": 13.0,
+"proj": {
+"pts": 5.400000095367432,
+"reb": 6.800000190734863,
+"ast": 0.800000011920929
+},
+"actual": {
+"pts": 2,
+"reb": 5,
+"ast": 1
+}
+}
+]
+}
+}

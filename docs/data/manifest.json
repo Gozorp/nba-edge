@@ -276,5 +276,20 @@
    "in_summer_form_edge",
    "rest_edge"
   ]
+ },
+ "props": {
+  "n_train": 44648,
+  "n_eval": 22912,
+  "split": "2025-08-01",
+  "mae": {
+   "pts": 4.762,
+   "reb": 1.951,
+   "ast": 1.434
+  },
+  "baseline_mae": {
+   "pts": 4.926,
+   "reb": 2.012,
+   "ast": 1.466
+  }
  }
 }

@@ -1,0 +1,232 @@
+{
+"date": "2026-05-02",
+"games": {
+"202605020BOS": [
+{
+"player": "Joel Embiid",
+"abbr": "PHI",
+"mp": 39.1,
+"proj": {
+"pts": 25.899999618530273,
+"reb": 8.0,
+"ast": 5.099999904632568
+},
+"actual": {
+"pts": 34,
+"reb": 12,
+"ast": 6
+}
+},
+{
+"player": "Jaylen Brown",
+"abbr": "BOS",
+"mp": 40.0,
+"proj": {
+"pts": 25.0,
+"reb": 6.800000190734863,
+"ast": 4.699999809265137
+},
+"actual": {
+"pts": 33,
+"reb": 9,
+"ast": 4
+}
+},
+{
+"player": "Tyrese Maxey",
+"abbr": "PHI",
+"mp": 45.2,
+"proj": {
+"pts": 23.799999237060547,
+"reb": 4.0,
+"ast": 6.300000190734863
+},
+"actual": {
+"pts": 30,
+"reb": 11,
+"ast": 7
+}
+},
+{
+"player": "Paul George",
+"abbr": "PHI",
+"mp": 41.8,
+"proj": {
+"pts": 16.600000381469727,
+"reb": 4.800000190734863,
+"ast": 3.700000047683716
+},
+"actual": {
+"pts": 13,
+"reb": 3,
+"ast": 1
+}
+},
+{
+"player": "Payton Pritchard",
+"abbr": "BOS",
+"mp": 39.4,
+"proj": {
+"pts": 16.5,
+"reb": 3.799999952316284,
+"ast": 5.400000095367432
+},
+"actual": {
+"pts": 13,
+"reb": 5,
+"ast": 7
+}
+},
+{
+"player": "VJ Edgecombe",
+"abbr": "PHI",
+"mp": 43.7,
+"proj": {
+"pts": 14.699999809265137,
+"reb": 6.099999904632568,
+"ast": 3.700000047683716
+},
+"actual": {
+"pts": 23,
+"reb": 6,
+"ast": 4
+}
+},
+{
+"player": "Derrick White",
+"abbr": "BOS",
+"mp": 45.4,
+"proj": {
+"pts": 14.5,
+"reb": 3.799999952316284,
+"ast": 4.099999904632568
+},
+"actual": {
+"pts": 26,
+"reb": 6,
+"ast": 4
+}
+},
+{
+"player": "Kelly Oubre Jr.",
+"abbr": "PHI",
+"mp": 31.1,
+"proj": {
+"pts": 12.5,
+"reb": 5.099999904632568,
+"ast": 1.5
+},
+"actual": {
+"pts": 6,
+"reb": 5,
+"ast": 2
+}
+},
+{
+"player": "Quentin Grimes",
+"abbr": "PHI",
+"mp": 26.1,
+"proj": {
+"pts": 9.800000190734863,
+"reb": 3.200000047683716,
+"ast": 2.0999999046325684
+},
+"actual": {
+"pts": 3,
+"reb": 6,
+"ast": 4
+}
+},
+{
+"player": "Sam Hauser",
+"abbr": "BOS",
+"mp": 29.8,
+"proj": {
+"pts": 8.300000190734863,
+"reb": 3.5999999046325684,
+"ast": 1.399999976158142
+},
+"actual": {
+"pts": 11,
+"reb": 3,
+"ast": 1
+}
+},
+{
+"player": "Neemias Queta",
+"abbr": "BOS",
+"mp": 32.5,
+"proj": {
+"pts": 8.100000381469727,
+"reb": 7.599999904632568,
+"ast": 1.2999999523162842
+},
+"actual": {
+"pts": 17,
+"reb": 12,
+"ast": 1
+}
+},
+{
+"player": "Luka Garza",
+"abbr": "BOS",
+"mp": 8.6,
+"proj": {
+"pts": 7.699999809265137,
+"reb": 4.599999904632568,
+"ast": 1.0
+},
+"actual": {
+"pts": 0,
+"reb": 0,
+"ast": 0
+}
+},
+{
+"player": "Andre Drummond",
+"abbr": "PHI",
+"mp": 8.5,
+"proj": {
+"pts": 7.199999809265137,
+"reb": 7.699999809265137,
+"ast": 1.399999976158142
+},
+"actual": {
+"pts": 0,
+"reb": 1,
+"ast": 1
+}
+},
+{
+"player": "Baylor Scheierman",
+"abbr": "BOS",
+"mp": 22.4,
+"proj": {
+"pts": 6.099999904632568,
+"reb": 3.200000047683716,
+"ast": 1.2000000476837158
+},
+"actual": {
+"pts": 0,
+"reb": 6,
+"ast": 2
+}
+},
+{
+"player": "Hugo Gonz\u00c3\u00a1lez",
+"abbr": "BOS",
+"mp": 12.9,
+"proj": {
+"pts": 4.699999809265137,
+"reb": 3.5,
+"ast": 0.699999988079071
+},
+"actual": {
+"pts": 0,
+"reb": 3,
+"ast": 0
+}
+}
+]
+}
+}

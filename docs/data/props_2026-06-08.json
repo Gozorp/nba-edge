@@ -1,0 +1,247 @@
+{
+"date": "2026-06-08",
+"games": {
+"202606080NYK": [
+{
+"player": "Jalen Brunson",
+"abbr": "NYK",
+"mp": 35.5,
+"proj": {
+"pts": 25.5,
+"reb": 3.4000000953674316,
+"ast": 6.599999904632568
+},
+"actual": {
+"pts": 32,
+"reb": 5,
+"ast": 5
+}
+},
+{
+"player": "Victor Wembanyama",
+"abbr": "SAS",
+"mp": 38.7,
+"proj": {
+"pts": 22.600000381469727,
+"reb": 10.5,
+"ast": 2.9000000953674316
+},
+"actual": {
+"pts": 32,
+"reb": 8,
+"ast": 6
+}
+},
+{
+"player": "Stephon Castle",
+"abbr": "SAS",
+"mp": 38.0,
+"proj": {
+"pts": 18.600000381469727,
+"reb": 5.400000095367432,
+"ast": 6.0
+},
+"actual": {
+"pts": 23,
+"reb": 5,
+"ast": 5
+}
+},
+{
+"player": "Karl-Anthony Towns",
+"abbr": "NYK",
+"mp": 38.0,
+"proj": {
+"pts": 18.0,
+"reb": 12.100000381469727,
+"ast": 3.799999952316284
+},
+"actual": {
+"pts": 11,
+"reb": 8,
+"ast": 1
+}
+},
+{
+"player": "De'Aaron Fox",
+"abbr": "SAS",
+"mp": 36.7,
+"proj": {
+"pts": 17.0,
+"reb": 4.0,
+"ast": 5.400000095367432
+},
+"actual": {
+"pts": 12,
+"reb": 3,
+"ast": 8
+}
+},
+{
+"player": "OG Anunoby",
+"abbr": "NYK",
+"mp": 38.0,
+"proj": {
+"pts": 16.0,
+"reb": 5.300000190734863,
+"ast": 2.299999952316284
+},
+"actual": {
+"pts": 28,
+"reb": 5,
+"ast": 1
+}
+},
+{
+"player": "Mikal Bridges",
+"abbr": "NYK",
+"mp": 28.7,
+"proj": {
+"pts": 14.100000381469727,
+"reb": 4.0,
+"ast": 3.700000047683716
+},
+"actual": {
+"pts": 2,
+"reb": 5,
+"ast": 2
+}
+},
+{
+"player": "Devin Vassell",
+"abbr": "SAS",
+"mp": 38.1,
+"proj": {
+"pts": 13.0,
+"reb": 4.900000095367432,
+"ast": 2.5999999046325684
+},
+"actual": {
+"pts": 11,
+"reb": 4,
+"ast": 0
+}
+},
+{
+"player": "Dylan Harper",
+"abbr": "SAS",
+"mp": 32.0,
+"proj": {
+"pts": 11.699999809265137,
+"reb": 4.699999809265137,
+"ast": 3.299999952316284
+},
+"actual": {
+"pts": 13,
+"reb": 9,
+"ast": 4
+}
+},
+{
+"player": "Julian Champagnie",
+"abbr": "SAS",
+"mp": 26.6,
+"proj": {
+"pts": 11.600000381469727,
+"reb": 6.0,
+"ast": 1.600000023841858
+},
+"actual": {
+"pts": 12,
+"reb": 1,
+"ast": 3
+}
+},
+{
+"player": "Josh Hart",
+"abbr": "NYK",
+"mp": 34.9,
+"proj": {
+"pts": 10.300000190734863,
+"reb": 7.400000095367432,
+"ast": 4.0
+},
+"actual": {
+"pts": 16,
+"reb": 9,
+"ast": 5
+}
+},
+{
+"player": "Keldon Johnson",
+"abbr": "SAS",
+"mp": 16.8,
+"proj": {
+"pts": 9.0,
+"reb": 4.0,
+"ast": 1.0
+},
+"actual": {
+"pts": 7,
+"reb": 2,
+"ast": 0
+}
+},
+{
+"player": "Landry Shamet",
+"abbr": "NYK",
+"mp": 23.4,
+"proj": {
+"pts": 9.0,
+"reb": 2.299999952316284,
+"ast": 1.399999976158142
+},
+"actual": {
+"pts": 3,
+"reb": 4,
+"ast": 2
+}
+},
+{
+"player": "Miles McBride",
+"abbr": "NYK",
+"mp": 8.7,
+"proj": {
+"pts": 8.399999618530273,
+"reb": 2.0999999046325684,
+"ast": 1.7999999523162842
+},
+"actual": {
+"pts": 0,
+"reb": 0,
+"ast": 0
+}
+},
+{
+"player": "Jordan Clarkson",
+"abbr": "NYK",
+"mp": 13.2,
+"proj": {
+"pts": 7.300000190734863,
+"reb": 2.0,
+"ast": 1.2999999523162842
+},
+"actual": {
+"pts": 10,
+"reb": 3,
+"ast": 1
+}
+},
+{
+"player": "Jose Alvarado",
+"abbr": "NYK",
+"mp": 12.4,
+"proj": {
+"pts": 7.300000190734863,
+"reb": 2.4000000953674316,
+"ast": 2.299999952316284
+},
+"actual": {
+"pts": 4,
+"reb": 3,
+"ast": 1
+}
+}
+]
+}
+}

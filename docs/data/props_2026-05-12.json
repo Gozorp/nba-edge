@@ -1,0 +1,247 @@
+{
+"date": "2026-05-12",
+"games": {
+"202605120SAS": [
+{
+"player": "Anthony Edwards",
+"abbr": "MIN",
+"mp": 39.2,
+"proj": {
+"pts": 24.600000381469727,
+"reb": 5.599999904632568,
+"ast": 3.200000047683716
+},
+"actual": {
+"pts": 20,
+"reb": 2,
+"ast": 2
+}
+},
+{
+"player": "Victor Wembanyama",
+"abbr": "SAS",
+"mp": 32.6,
+"proj": {
+"pts": 22.5,
+"reb": 11.199999809265137,
+"ast": 2.5999999046325684
+},
+"actual": {
+"pts": 27,
+"reb": 17,
+"ast": 5
+}
+},
+{
+"player": "De'Aaron Fox",
+"abbr": "SAS",
+"mp": 34.5,
+"proj": {
+"pts": 19.600000381469727,
+"reb": 3.9000000953674316,
+"ast": 5.900000095367432
+},
+"actual": {
+"pts": 18,
+"reb": 4,
+"ast": 5
+}
+},
+{
+"player": "Julius Randle",
+"abbr": "MIN",
+"mp": 36.4,
+"proj": {
+"pts": 18.899999618530273,
+"reb": 6.900000095367432,
+"ast": 4.099999904632568
+},
+"actual": {
+"pts": 17,
+"reb": 10,
+"ast": 1
+}
+},
+{
+"player": "Stephon Castle",
+"abbr": "SAS",
+"mp": 27.1,
+"proj": {
+"pts": 18.700000762939453,
+"reb": 4.900000095367432,
+"ast": 6.5
+},
+"actual": {
+"pts": 17,
+"reb": 4,
+"ast": 6
+}
+},
+{
+"player": "Jaden McDaniels",
+"abbr": "MIN",
+"mp": 29.6,
+"proj": {
+"pts": 15.5,
+"reb": 4.599999904632568,
+"ast": 2.299999952316284
+},
+"actual": {
+"pts": 17,
+"reb": 6,
+"ast": 2
+}
+},
+{
+"player": "Ayo Dosunmu",
+"abbr": "MIN",
+"mp": 33.3,
+"proj": {
+"pts": 13.399999618530273,
+"reb": 3.5,
+"ast": 3.299999952316284
+},
+"actual": {
+"pts": 16,
+"reb": 9,
+"ast": 4
+}
+},
+{
+"player": "Devin Vassell",
+"abbr": "SAS",
+"mp": 32.4,
+"proj": {
+"pts": 12.899999618530273,
+"reb": 4.099999904632568,
+"ast": 2.5
+},
+"actual": {
+"pts": 12,
+"reb": 3,
+"ast": 2
+}
+},
+{
+"player": "Naz Reid",
+"abbr": "MIN",
+"mp": 30.6,
+"proj": {
+"pts": 12.699999809265137,
+"reb": 6.699999809265137,
+"ast": 2.0999999046325684
+},
+"actual": {
+"pts": 12,
+"reb": 5,
+"ast": 2
+}
+},
+{
+"player": "Dylan Harper",
+"abbr": "SAS",
+"mp": 25.3,
+"proj": {
+"pts": 12.399999618530273,
+"reb": 3.9000000953674316,
+"ast": 3.5
+},
+"actual": {
+"pts": 12,
+"reb": 10,
+"ast": 2
+}
+},
+{
+"player": "Terrence Shannon Jr.",
+"abbr": "MIN",
+"mp": 17.4,
+"proj": {
+"pts": 11.100000381469727,
+"reb": 2.5,
+"ast": 1.5
+},
+"actual": {
+"pts": 2,
+"reb": 0,
+"ast": 4
+}
+},
+{
+"player": "Julian Champagnie",
+"abbr": "SAS",
+"mp": 29.2,
+"proj": {
+"pts": 10.300000190734863,
+"reb": 6.0,
+"ast": 1.7000000476837158
+},
+"actual": {
+"pts": 8,
+"reb": 4,
+"ast": 0
+}
+},
+{
+"player": "Rudy Gobert",
+"abbr": "MIN",
+"mp": 22.6,
+"proj": {
+"pts": 10.0,
+"reb": 10.399999618530273,
+"ast": 1.899999976158142
+},
+"actual": {
+"pts": 4,
+"reb": 5,
+"ast": 0
+}
+},
+{
+"player": "Keldon Johnson",
+"abbr": "SAS",
+"mp": 22.3,
+"proj": {
+"pts": 9.899999618530273,
+"reb": 4.599999904632568,
+"ast": 1.2999999523162842
+},
+"actual": {
+"pts": 21,
+"reb": 2,
+"ast": 0
+}
+},
+{
+"player": "Carter Bryant",
+"abbr": "SAS",
+"mp": 12.5,
+"proj": {
+"pts": 6.300000190734863,
+"reb": 3.299999952316284,
+"ast": 1.399999976158142
+},
+"actual": {
+"pts": 3,
+"reb": 4,
+"ast": 2
+}
+},
+{
+"player": "Mike Conley",
+"abbr": "MIN",
+"mp": 15.2,
+"proj": {
+"pts": 5.400000095367432,
+"reb": 2.0,
+"ast": 3.0999999046325684
+},
+"actual": {
+"pts": 5,
+"reb": 1,
+"ast": 2
+}
+}
+]
+}
+}

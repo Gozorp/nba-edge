@@ -1,0 +1,489 @@
+{
+"date": "2026-05-09",
+"games": {
+"202605090CLE": [
+{
+"player": "Cade Cunningham",
+"abbr": "DET",
+"mp": 38.6,
+"proj": {
+"pts": 25.700000762939453,
+"reb": 5.099999904632568,
+"ast": 8.5
+},
+"actual": {
+"pts": 27,
+"reb": 10,
+"ast": 10
+}
+},
+{
+"player": "Donovan Mitchell",
+"abbr": "CLE",
+"mp": 38.4,
+"proj": {
+"pts": 23.399999618530273,
+"reb": 4.400000095367432,
+"ast": 4.199999809265137
+},
+"actual": {
+"pts": 35,
+"reb": 10,
+"ast": 4
+}
+},
+{
+"player": "James Harden",
+"abbr": "CLE",
+"mp": 39.8,
+"proj": {
+"pts": 21.600000381469727,
+"reb": 5.199999809265137,
+"ast": 6.5
+},
+"actual": {
+"pts": 19,
+"reb": 2,
+"ast": 7
+}
+},
+{
+"player": "Tobias Harris",
+"abbr": "DET",
+"mp": 37.9,
+"proj": {
+"pts": 16.399999618530273,
+"reb": 5.900000095367432,
+"ast": 2.700000047683716
+},
+"actual": {
+"pts": 21,
+"reb": 5,
+"ast": 0
+}
+},
+{
+"player": "Jalen Duren",
+"abbr": "DET",
+"mp": 29.3,
+"proj": {
+"pts": 16.200000762939453,
+"reb": 11.100000381469727,
+"ast": 1.899999976158142
+},
+"actual": {
+"pts": 11,
+"reb": 4,
+"ast": 1
+}
+},
+{
+"player": "Evan Mobley",
+"abbr": "CLE",
+"mp": 36.2,
+"proj": {
+"pts": 15.800000190734863,
+"reb": 8.399999618530273,
+"ast": 3.5999999046325684
+},
+"actual": {
+"pts": 13,
+"reb": 8,
+"ast": 4
+}
+},
+{
+"player": "Jarrett Allen",
+"abbr": "CLE",
+"mp": 31.6,
+"proj": {
+"pts": 14.0,
+"reb": 8.100000381469727,
+"ast": 1.600000023841858
+},
+"actual": {
+"pts": 18,
+"reb": 4,
+"ast": 1
+}
+},
+{
+"player": "Duncan Robinson",
+"abbr": "DET",
+"mp": 35.5,
+"proj": {
+"pts": 12.0,
+"reb": 3.0,
+"ast": 2.200000047683716
+},
+"actual": {
+"pts": 15,
+"reb": 3,
+"ast": 4
+}
+},
+{
+"player": "Daniss Jenkins",
+"abbr": "DET",
+"mp": 18.1,
+"proj": {
+"pts": 11.600000381469727,
+"reb": 2.9000000953674316,
+"ast": 4.300000190734863
+},
+"actual": {
+"pts": 2,
+"reb": 1,
+"ast": 3
+}
+},
+{
+"player": "Max Strus",
+"abbr": "CLE",
+"mp": 26.4,
+"proj": {
+"pts": 10.800000190734863,
+"reb": 5.0,
+"ast": 2.200000047683716
+},
+"actual": {
+"pts": 7,
+"reb": 5,
+"ast": 2
+}
+},
+{
+"player": "Ausar Thompson",
+"abbr": "DET",
+"mp": 29.2,
+"proj": {
+"pts": 10.199999809265137,
+"reb": 7.300000190734863,
+"ast": 3.700000047683716
+},
+"actual": {
+"pts": 9,
+"reb": 7,
+"ast": 5
+}
+},
+{
+"player": "Jaylon Tyson",
+"abbr": "CLE",
+"mp": 14.4,
+"proj": {
+"pts": 9.5,
+"reb": 4.400000095367432,
+"ast": 1.600000023841858
+},
+"actual": {
+"pts": 3,
+"reb": 2,
+"ast": 2
+}
+},
+{
+"player": "Paul Reed",
+"abbr": "DET",
+"mp": 9.8,
+"proj": {
+"pts": 8.399999618530273,
+"reb": 4.900000095367432,
+"ast": 1.2000000476837158
+},
+"actual": {
+"pts": 11,
+"reb": 3,
+"ast": 0
+}
+},
+{
+"player": "Sam Merrill",
+"abbr": "CLE",
+"mp": 14.2,
+"proj": {
+"pts": 8.199999809265137,
+"reb": 2.299999952316284,
+"ast": 1.600000023841858
+},
+"actual": {
+"pts": 7,
+"reb": 0,
+"ast": 0
+}
+},
+{
+"player": "Dennis Schr\u00c3\u00b6der",
+"abbr": "CLE",
+"mp": 22.3,
+"proj": {
+"pts": 8.199999809265137,
+"reb": 2.200000047683716,
+"ast": 3.299999952316284
+},
+"actual": {
+"pts": 11,
+"reb": 1,
+"ast": 2
+}
+},
+{
+"player": "Caris LeVert",
+"abbr": "DET",
+"mp": 17.2,
+"proj": {
+"pts": 6.300000190734863,
+"reb": 2.0,
+"ast": 2.200000047683716
+},
+"actual": {
+"pts": 6,
+"reb": 2,
+"ast": 0
+}
+}
+],
+"202605090LAL": [
+{
+"player": "Shai Gilgeous-Alexander",
+"abbr": "OKC",
+"mp": 33.4,
+"proj": {
+"pts": 27.700000762939453,
+"reb": 4.400000095367432,
+"ast": 6.300000190734863
+},
+"actual": {
+"pts": 23,
+"reb": 4,
+"ast": 9
+}
+},
+{
+"player": "LeBron James",
+"abbr": "LAL",
+"mp": 36.9,
+"proj": {
+"pts": 21.799999237060547,
+"reb": 5.800000190734863,
+"ast": 6.300000190734863
+},
+"actual": {
+"pts": 19,
+"reb": 6,
+"ast": 8
+}
+},
+{
+"player": "Austin Reaves",
+"abbr": "LAL",
+"mp": 39.0,
+"proj": {
+"pts": 20.700000762939453,
+"reb": 4.5,
+"ast": 5.199999809265137
+},
+"actual": {
+"pts": 17,
+"reb": 3,
+"ast": 9
+}
+},
+{
+"player": "Chet Holmgren",
+"abbr": "OKC",
+"mp": 31.3,
+"proj": {
+"pts": 16.399999618530273,
+"reb": 9.100000381469727,
+"ast": 1.899999976158142
+},
+"actual": {
+"pts": 18,
+"reb": 9,
+"ast": 1
+}
+},
+{
+"player": "Ajay Mitchell",
+"abbr": "OKC",
+"mp": 29.8,
+"proj": {
+"pts": 16.100000381469727,
+"reb": 3.799999952316284,
+"ast": 4.400000095367432
+},
+"actual": {
+"pts": 24,
+"reb": 4,
+"ast": 10
+}
+},
+{
+"player": "Rui Hachimura",
+"abbr": "LAL",
+"mp": 38.7,
+"proj": {
+"pts": 13.100000381469727,
+"reb": 3.9000000953674316,
+"ast": 1.600000023841858
+},
+"actual": {
+"pts": 21,
+"reb": 5,
+"ast": 4
+}
+},
+{
+"player": "Marcus Smart",
+"abbr": "LAL",
+"mp": 32.5,
+"proj": {
+"pts": 12.300000190734863,
+"reb": 3.4000000953674316,
+"ast": 4.699999809265137
+},
+"actual": {
+"pts": 10,
+"reb": 3,
+"ast": 3
+}
+},
+{
+"player": "Deandre Ayton",
+"abbr": "LAL",
+"mp": 23.5,
+"proj": {
+"pts": 12.0,
+"reb": 8.899999618530273,
+"ast": 1.2999999523162842
+},
+"actual": {
+"pts": 10,
+"reb": 6,
+"ast": 0
+}
+},
+{
+"player": "Isaiah Hartenstein",
+"abbr": "OKC",
+"mp": 30.8,
+"proj": {
+"pts": 9.800000190734863,
+"reb": 8.399999618530273,
+"ast": 2.700000047683716
+},
+"actual": {
+"pts": 12,
+"reb": 9,
+"ast": 2
+}
+},
+{
+"player": "Jared McCain",
+"abbr": "OKC",
+"mp": 9.6,
+"proj": {
+"pts": 9.300000190734863,
+"reb": 2.0999999046325684,
+"ast": 1.100000023841858
+},
+"actual": {
+"pts": 3,
+"reb": 0,
+"ast": 1
+}
+},
+{
+"player": "Luke Kennard",
+"abbr": "LAL",
+"mp": 29.3,
+"proj": {
+"pts": 8.699999809265137,
+"reb": 3.0999999046325684,
+"ast": 2.0999999046325684
+},
+"actual": {
+"pts": 18,
+"reb": 2,
+"ast": 2
+}
+},
+{
+"player": "Isaiah Joe",
+"abbr": "OKC",
+"mp": 18.2,
+"proj": {
+"pts": 8.199999809265137,
+"reb": 2.200000047683716,
+"ast": 1.100000023841858
+},
+"actual": {
+"pts": 12,
+"reb": 5,
+"ast": 2
+}
+},
+{
+"player": "Cason Wallace",
+"abbr": "OKC",
+"mp": 24.7,
+"proj": {
+"pts": 8.100000381469727,
+"reb": 3.0999999046325684,
+"ast": 2.799999952316284
+},
+"actual": {
+"pts": 16,
+"reb": 1,
+"ast": 1
+}
+},
+{
+"player": "Luguentz Dort",
+"abbr": "OKC",
+"mp": 20.1,
+"proj": {
+"pts": 7.800000190734863,
+"reb": 3.0999999046325684,
+"ast": 1.5
+},
+"actual": {
+"pts": 10,
+"reb": 3,
+"ast": 0
+}
+},
+{
+"player": "Alex Caruso",
+"abbr": "OKC",
+"mp": 20.2,
+"proj": {
+"pts": 6.900000095367432,
+"reb": 3.299999952316284,
+"ast": 2.0
+},
+"actual": {
+"pts": 6,
+"reb": 2,
+"ast": 2
+}
+},
+{
+"player": "Jaylin Williams",
+"abbr": "OKC",
+"mp": 12.6,
+"proj": {
+"pts": 6.199999809265137,
+"reb": 4.400000095367432,
+"ast": 2.0
+},
+"actual": {
+"pts": 3,
+"reb": 4,
+"ast": 2
+}
+}
+]
+}
+}

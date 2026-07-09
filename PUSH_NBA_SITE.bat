@@ -5,3 +5,5 @@ python -m src.site.export_site_data
 git add docs/data
 git commit -m "site: daily slate + health refresh"
 git push origin main
+python -m src.model.props
+python -m src.site.summer_league

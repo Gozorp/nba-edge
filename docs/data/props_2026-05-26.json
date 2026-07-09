@@ -1,0 +1,247 @@
+{
+"date": "2026-05-26",
+"games": {
+"202605260OKC": [
+{
+"player": "Shai Gilgeous-Alexander",
+"abbr": "OKC",
+"mp": 37.1,
+"proj": {
+"pts": 27.600000381469727,
+"reb": 4.199999809265137,
+"ast": 6.699999809265137
+},
+"actual": {
+"pts": 32,
+"reb": 2,
+"ast": 9
+}
+},
+{
+"player": "Victor Wembanyama",
+"abbr": "SAS",
+"mp": 37.6,
+"proj": {
+"pts": 24.100000381469727,
+"reb": 11.399999618530273,
+"ast": 3.700000047683716
+},
+"actual": {
+"pts": 20,
+"reb": 6,
+"ast": 1
+}
+},
+{
+"player": "Stephon Castle",
+"abbr": "SAS",
+"mp": 33.3,
+"proj": {
+"pts": 18.700000762939453,
+"reb": 5.199999809265137,
+"ast": 5.800000190734863
+},
+"actual": {
+"pts": 24,
+"reb": 5,
+"ast": 6
+}
+},
+{
+"player": "De'Aaron Fox",
+"abbr": "SAS",
+"mp": 32.5,
+"proj": {
+"pts": 17.100000381469727,
+"reb": 4.199999809265137,
+"ast": 5.400000095367432
+},
+"actual": {
+"pts": 9,
+"reb": 4,
+"ast": 8
+}
+},
+{
+"player": "Chet Holmgren",
+"abbr": "OKC",
+"mp": 29.8,
+"proj": {
+"pts": 14.800000190734863,
+"reb": 8.399999618530273,
+"ast": 1.600000023841858
+},
+"actual": {
+"pts": 16,
+"reb": 11,
+"ast": 1
+}
+},
+{
+"player": "Devin Vassell",
+"abbr": "SAS",
+"mp": 35.6,
+"proj": {
+"pts": 12.899999618530273,
+"reb": 4.400000095367432,
+"ast": 2.4000000953674316
+},
+"actual": {
+"pts": 6,
+"reb": 4,
+"ast": 4
+}
+},
+{
+"player": "Dylan Harper",
+"abbr": "SAS",
+"mp": 24.9,
+"proj": {
+"pts": 11.600000381469727,
+"reb": 4.0,
+"ast": 3.200000047683716
+},
+"actual": {
+"pts": 5,
+"reb": 6,
+"ast": 3
+}
+},
+{
+"player": "Jared McCain",
+"abbr": "OKC",
+"mp": 33.5,
+"proj": {
+"pts": 10.800000190734863,
+"reb": 2.700000047683716,
+"ast": 1.5
+},
+"actual": {
+"pts": 20,
+"reb": 3,
+"ast": 0
+}
+},
+{
+"player": "Julian Champagnie",
+"abbr": "SAS",
+"mp": 30.2,
+"proj": {
+"pts": 10.399999618530273,
+"reb": 5.599999904632568,
+"ast": 1.600000023841858
+},
+"actual": {
+"pts": 22,
+"reb": 8,
+"ast": 1
+}
+},
+{
+"player": "Kenrich Williams",
+"abbr": "OKC",
+"mp": 11.6,
+"proj": {
+"pts": 10.199999809265137,
+"reb": 4.599999904632568,
+"ast": 2.5
+},
+"actual": {
+"pts": 8,
+"reb": 3,
+"ast": 0
+}
+},
+{
+"player": "Keldon Johnson",
+"abbr": "SAS",
+"mp": 19.9,
+"proj": {
+"pts": 10.100000381469727,
+"reb": 4.300000190734863,
+"ast": 1.2000000476837158
+},
+"actual": {
+"pts": 15,
+"reb": 4,
+"ast": 2
+}
+},
+{
+"player": "Cason Wallace",
+"abbr": "OKC",
+"mp": 31.3,
+"proj": {
+"pts": 9.100000381469727,
+"reb": 3.299999952316284,
+"ast": 2.5
+},
+"actual": {
+"pts": 7,
+"reb": 4,
+"ast": 5
+}
+},
+{
+"player": "Isaiah Hartenstein",
+"abbr": "OKC",
+"mp": 30.6,
+"proj": {
+"pts": 9.0,
+"reb": 8.800000190734863,
+"ast": 3.0999999046325684
+},
+"actual": {
+"pts": 12,
+"reb": 15,
+"ast": 4
+}
+},
+{
+"player": "Alex Caruso",
+"abbr": "OKC",
+"mp": 28.1,
+"proj": {
+"pts": 8.899999618530273,
+"reb": 3.0999999046325684,
+"ast": 2.200000047683716
+},
+"actual": {
+"pts": 22,
+"reb": 2,
+"ast": 6
+}
+},
+{
+"player": "Luguentz Dort",
+"abbr": "OKC",
+"mp": 18.1,
+"proj": {
+"pts": 6.599999904632568,
+"reb": 3.0999999046325684,
+"ast": 1.2999999523162842
+},
+"actual": {
+"pts": 7,
+"reb": 4,
+"ast": 0
+}
+},
+{
+"player": "Jaylin Williams",
+"abbr": "OKC",
+"mp": 16.6,
+"proj": {
+"pts": 6.5,
+"reb": 4.5,
+"ast": 1.899999976158142
+},
+"actual": {
+"pts": 3,
+"reb": 4,
+"ast": 1
+}
+}
+]
+}
+}

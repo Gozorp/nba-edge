@@ -1,0 +1,247 @@
+{
+"date": "2025-11-06",
+"games": {
+"202511060PHO": [
+{
+"player": "Devin Booker",
+"abbr": "PHO",
+"mp": 37.3,
+"proj": {
+"pts": 27.600000381469727,
+"reb": 4.0,
+"ast": 7.199999809265137
+},
+"actual": {
+"pts": 24,
+"reb": 6,
+"ast": 7
+}
+},
+{
+"player": "Grayson Allen",
+"abbr": "PHO",
+"mp": 36.5,
+"proj": {
+"pts": 18.299999237060547,
+"reb": 3.9000000953674316,
+"ast": 5.400000095367432
+},
+"actual": {
+"pts": 18,
+"reb": 3,
+"ast": 4
+}
+},
+{
+"player": "Ivica Zubac",
+"abbr": "LAC",
+"mp": 27.1,
+"proj": {
+"pts": 13.399999618530273,
+"reb": 10.5,
+"ast": 2.5999999046325684
+},
+"actual": {
+"pts": 23,
+"reb": 11,
+"ast": 2
+}
+},
+{
+"player": "Royce O'Neale",
+"abbr": "PHO",
+"mp": 28.4,
+"proj": {
+"pts": 12.899999618530273,
+"reb": 5.599999904632568,
+"ast": 3.4000000953674316
+},
+"actual": {
+"pts": 17,
+"reb": 4,
+"ast": 2
+}
+},
+{
+"player": "Mark Williams",
+"abbr": "PHO",
+"mp": 27.6,
+"proj": {
+"pts": 12.600000381469727,
+"reb": 10.699999809265137,
+"ast": 1.399999976158142
+},
+"actual": {
+"pts": 13,
+"reb": 10,
+"ast": 0
+}
+},
+{
+"player": "John Collins",
+"abbr": "LAC",
+"mp": 23.1,
+"proj": {
+"pts": 12.5,
+"reb": 4.800000190734863,
+"ast": 1.2000000476837158
+},
+"actual": {
+"pts": 13,
+"reb": 4,
+"ast": 1
+}
+},
+{
+"player": "Collin Gillespie",
+"abbr": "PHO",
+"mp": 25.3,
+"proj": {
+"pts": 11.399999618530273,
+"reb": 3.5,
+"ast": 5.0
+},
+"actual": {
+"pts": 1,
+"reb": 5,
+"ast": 7
+}
+},
+{
+"player": "Ryan Dunn",
+"abbr": "PHO",
+"mp": 24.9,
+"proj": {
+"pts": 11.199999809265137,
+"reb": 5.5,
+"ast": 1.7999999523162842
+},
+"actual": {
+"pts": 10,
+"reb": 5,
+"ast": 3
+}
+},
+{
+"player": "Derrick Jones Jr.",
+"abbr": "LAC",
+"mp": 22.1,
+"proj": {
+"pts": 10.300000190734863,
+"reb": 3.0999999046325684,
+"ast": 1.399999976158142
+},
+"actual": {
+"pts": 10,
+"reb": 1,
+"ast": 0
+}
+},
+{
+"player": "Brook Lopez",
+"abbr": "LAC",
+"mp": 17.8,
+"proj": {
+"pts": 8.399999618530273,
+"reb": 3.5,
+"ast": 0.8999999761581421
+},
+"actual": {
+"pts": 6,
+"reb": 3,
+"ast": 0
+}
+},
+{
+"player": "Kris Dunn",
+"abbr": "LAC",
+"mp": 23.8,
+"proj": {
+"pts": 8.100000381469727,
+"reb": 3.299999952316284,
+"ast": 2.0
+},
+"actual": {
+"pts": 9,
+"reb": 2,
+"ast": 6
+}
+},
+{
+"player": "Jordan Goodwin",
+"abbr": "PHO",
+"mp": 10.6,
+"proj": {
+"pts": 7.900000095367432,
+"reb": 3.299999952316284,
+"ast": 2.4000000953674316
+},
+"actual": {
+"pts": 0,
+"reb": 1,
+"ast": 0
+}
+},
+{
+"player": "Bradley Beal",
+"abbr": "LAC",
+"mp": 19.6,
+"proj": {
+"pts": 7.900000095367432,
+"reb": 2.0,
+"ast": 2.0999999046325684
+},
+"actual": {
+"pts": 5,
+"reb": 1,
+"ast": 1
+}
+},
+{
+"player": "Bogdan Bogdanovi\u00c4\u0087",
+"abbr": "LAC",
+"mp": 28.4,
+"proj": {
+"pts": 7.900000095367432,
+"reb": 3.9000000953674316,
+"ast": 1.899999976158142
+},
+"actual": {
+"pts": 12,
+"reb": 4,
+"ast": 5
+}
+},
+{
+"player": "Nick Richards",
+"abbr": "PHO",
+"mp": 11.4,
+"proj": {
+"pts": 6.5,
+"reb": 4.199999809265137,
+"ast": 0.8999999761581421
+},
+"actual": {
+"pts": 3,
+"reb": 3,
+"ast": 0
+}
+},
+{
+"player": "Oso Ighodaro",
+"abbr": "PHO",
+"mp": 11.6,
+"proj": {
+"pts": 6.099999904632568,
+"reb": 3.9000000953674316,
+"ast": 1.5
+},
+"actual": {
+"pts": 0,
+"reb": 3,
+"ast": 1
+}
+}
+]
+}
+}

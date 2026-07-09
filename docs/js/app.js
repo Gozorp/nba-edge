@@ -30,6 +30,13 @@ async function boot() {
     MANIFEST = await fetch("data/manifest.json", { cache: "no-store" }).then(r => r.json());
   } catch (e) { setStatus("manifest unavailable"); return; }
   try { paintHero(); paintDateStrip(); paintGradeRecord(); loadHealth(); } catch (e) { console.error("[nbaedge]", e); }
+  try {
+    const pm = (MANIFEST.props || {});
+    if (pm.mae && $("props-mae")) $("props-mae").textContent =
+      "PTS MAE " + pm.mae.pts + " (naive " + pm.baseline_mae.pts + "), REB "
+      + pm.mae.reb + " (" + pm.baseline_mae.reb + "), AST "
+      + pm.mae.ast + " (" + pm.baseline_mae.ast + ")";
+  } catch (e) { /* cosmetic */ }
   $("built-at").textContent = " · data built " + (MANIFEST.built_at || "").slice(0, 10);
   const initial = MANIFEST.dates[0];
   $("datePicker").value = initial;
@@ -237,8 +244,15 @@ function renderSlate(games) {
       "<td>" + resCell + "</td>";
     const deep = document.createElement("tr");
     deep.className = "deep";
-    deep.innerHTML = '<td colspan="7"><div class="deep-inner">' + deepPanel(g) + "</div></td>";
-    tr.onclick = () => deep.classList.toggle("open");
+    deep.innerHTML = '<td colspan="7"><div class="deep-inner">' + deepPanel(g)
+      + '<div class="props-box" data-gid="' + g.game_id + '">'
+      + '<div class="deep-h">Player props — projection vs actual</div>'
+      + '<div class="props-slot mono" style="color:var(--muted);font-size:.75rem">click to load…</div>'
+      + "</div></div></td>";
+    tr.onclick = () => {
+      deep.classList.toggle("open");
+      if (deep.classList.contains("open")) loadProps(CURRENT.date, deep);
+    };
     tb.appendChild(tr); tb.appendChild(deep);
   });
 }
@@ -262,6 +276,41 @@ function deepPanel(g) {
     "<div>Tier: <b>" + g.tier + "</b> · " + g.season_type + "</div>" +
     "<div class='mono' style='font-size:.68rem'>id " + g.game_id + "</div></div>"
   );
+}
+
+/* ---------- player props (lazy per-date) ---------- */
+const PROPS_CACHE = {};
+async function loadProps(date, deepRow) {
+  const box = deepRow.querySelector(".props-box");
+  const slot = deepRow.querySelector(".props-slot");
+  if (!box || box.dataset.loaded) return;
+  let payload = PROPS_CACHE[date];
+  if (!payload) {
+    slot.textContent = "loading projections…";
+    try {
+      const r = await fetch("data/props_" + date + ".json");
+      payload = r.ok ? await r.json() : null;
+    } catch (e) { payload = null; }
+    PROPS_CACHE[date] = payload;
+  }
+  const rows = payload && payload.games && payload.games[box.dataset.gid];
+  if (!rows || !rows.length) {
+    slot.textContent = "no player projections for this game";
+    box.dataset.loaded = "1";
+    return;
+  }
+  const tr8 = rows.slice(0, 8).map((r) =>
+    "<tr><td class='pn'>" + r.player + " <span class='mono' style='color:var(--muted)'>"
+    + r.abbr + "</span></td>"
+    + "<td class='props-proj'>" + r.proj.pts.toFixed(1) + "</td><td class='props-act'>" + r.actual.pts + "</td>"
+    + "<td class='props-proj'>" + r.proj.reb.toFixed(1) + "</td><td class='props-act'>" + r.actual.reb + "</td>"
+    + "<td class='props-proj'>" + r.proj.ast.toFixed(1) + "</td><td class='props-act'>" + r.actual.ast + "</td></tr>"
+  ).join("");
+  slot.outerHTML =
+    "<table class='props-table'><thead><tr><th>Player</th>"
+    + "<th>proj P</th><th>act P</th><th>proj R</th><th>act R</th>"
+    + "<th>proj A</th><th>act A</th></tr></thead><tbody>" + tr8 + "</tbody></table>";
+  box.dataset.loaded = "1";
 }
 
 /* ---------- quick chips ---------- */

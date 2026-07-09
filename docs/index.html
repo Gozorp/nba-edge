@@ -125,6 +125,13 @@ tr.deep.open{display:table-row}
 .fbar i.pos{background:var(--green);left:50%} .fbar i.neg{background:var(--red);right:50%}
 .fv{font-family:var(--mono);font-size:.72rem;width:56px;text-align:right}
 .deep-meta div{margin:4px 0;font-size:.8rem;color:var(--muted)}
+.props-box{grid-column:1 / -1}
+.props-table{width:100%;border-collapse:collapse;font-size:.76rem;margin-top:6px}
+.props-table th{font-family:var(--mono);font-size:.62rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);text-align:right;padding:4px 8px;border-bottom:1px solid var(--border)}
+.props-table th:first-child,.props-table td:first-child{text-align:left}
+.props-table td{padding:4px 8px;border-bottom:1px solid var(--bg-elev2);text-align:right;font-variant-numeric:tabular-nums}
+.props-table .pn{color:var(--text);font-weight:600}
+.props-proj{color:var(--accent)} .props-act{color:var(--text)}
 .deep-meta b{color:var(--text)}
 #empty{color:var(--muted);padding:40px 0;text-align:center;display:none}
 
@@ -280,6 +287,11 @@ footer{border-top:1px solid var(--border);padding:26px 0 60px;color:var(--muted)
     <div class="glossary-row"><span class="term">FACTORS</span><span class="def">
       Exact SHAP attribution for this game, converted to approximate win-probability
       points. Positive pushes toward the home side.</span></div>
+    <div class="glossary-row"><span class="term">PLAYER PROPS</span><span class="def">
+      Per-player projections (points / rebounds / assists) from dedicated XGBoost
+      models over trailing form, usage, rest, archetype, and opponent context.
+      Trained through 2024-25 only; verified on 2025-26: <span id="props-mae">—</span>.
+      Every projection beats the naive trailing-7-average baseline or it doesn't ship.</span></div>
     <div class="glossary-row"><span class="term">RESULT</span><span class="def">
       Final score verification — every archived pick is graded against what actually
       happened. Nothing is retroactively edited.</span></div>
@@ -297,6 +309,6 @@ footer{border-top:1px solid var(--border);padding:26px 0 60px;color:var(--muted)
   </div>
 </footer>
 
-<script src="js/app.js?v=11"></script>
+<script src="js/app.js?v=12"></script>
 </body>
 </html>

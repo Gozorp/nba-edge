@@ -1,0 +1,489 @@
+{
+"date": "2026-04-22",
+"games": {
+"202604220DET": [
+{
+"player": "Cade Cunningham",
+"abbr": "DET",
+"mp": 37.4,
+"proj": {
+"pts": 22.700000762939453,
+"reb": 5.400000095367432,
+"ast": 10.0
+},
+"actual": {
+"pts": 27,
+"reb": 6,
+"ast": 11
+}
+},
+{
+"player": "Paolo Banchero",
+"abbr": "ORL",
+"mp": 34.4,
+"proj": {
+"pts": 21.600000381469727,
+"reb": 7.199999809265137,
+"ast": 5.099999904632568
+},
+"actual": {
+"pts": 18,
+"reb": 6,
+"ast": 8
+}
+},
+{
+"player": "Desmond Bane",
+"abbr": "ORL",
+"mp": 33.6,
+"proj": {
+"pts": 19.299999237060547,
+"reb": 4.300000190734863,
+"ast": 3.700000047683716
+},
+"actual": {
+"pts": 12,
+"reb": 4,
+"ast": 2
+}
+},
+{
+"player": "Franz Wagner",
+"abbr": "ORL",
+"mp": 31.6,
+"proj": {
+"pts": 18.5,
+"reb": 5.0,
+"ast": 3.5
+},
+"actual": {
+"pts": 12,
+"reb": 7,
+"ast": 1
+}
+},
+{
+"player": "Jalen Duren",
+"abbr": "DET",
+"mp": 31.7,
+"proj": {
+"pts": 16.5,
+"reb": 10.699999809265137,
+"ast": 2.4000000953674316
+},
+"actual": {
+"pts": 11,
+"reb": 9,
+"ast": 4
+}
+},
+{
+"player": "Tobias Harris",
+"abbr": "DET",
+"mp": 32.7,
+"proj": {
+"pts": 13.399999618530273,
+"reb": 5.300000190734863,
+"ast": 2.5999999046325684
+},
+"actual": {
+"pts": 16,
+"reb": 11,
+"ast": 1
+}
+},
+{
+"player": "Jalen Suggs",
+"abbr": "ORL",
+"mp": 31.9,
+"proj": {
+"pts": 12.600000381469727,
+"reb": 4.099999904632568,
+"ast": 5.099999904632568
+},
+"actual": {
+"pts": 19,
+"reb": 6,
+"ast": 4
+}
+},
+{
+"player": "Anthony Black",
+"abbr": "ORL",
+"mp": 24.0,
+"proj": {
+"pts": 12.0,
+"reb": 3.700000047683716,
+"ast": 3.0
+},
+"actual": {
+"pts": 5,
+"reb": 3,
+"ast": 1
+}
+},
+{
+"player": "Duncan Robinson",
+"abbr": "DET",
+"mp": 31.9,
+"proj": {
+"pts": 11.5,
+"reb": 2.5999999046325684,
+"ast": 2.0999999046325684
+},
+"actual": {
+"pts": 10,
+"reb": 6,
+"ast": 3
+}
+},
+{
+"player": "Wendell Carter Jr.",
+"abbr": "ORL",
+"mp": 23.8,
+"proj": {
+"pts": 11.300000190734863,
+"reb": 7.199999809265137,
+"ast": 1.899999976158142
+},
+"actual": {
+"pts": 3,
+"reb": 5,
+"ast": 0
+}
+},
+{
+"player": "Daniss Jenkins",
+"abbr": "DET",
+"mp": 11.2,
+"proj": {
+"pts": 10.100000381469727,
+"reb": 2.700000047683716,
+"ast": 4.0
+},
+"actual": {
+"pts": 4,
+"reb": 2,
+"ast": 2
+}
+},
+{
+"player": "Ausar Thompson",
+"abbr": "DET",
+"mp": 27.6,
+"proj": {
+"pts": 10.100000381469727,
+"reb": 6.199999809265137,
+"ast": 3.5
+},
+"actual": {
+"pts": 11,
+"reb": 8,
+"ast": 1
+}
+},
+{
+"player": "Isaiah Stewart",
+"abbr": "DET",
+"mp": 15.6,
+"proj": {
+"pts": 8.399999618530273,
+"reb": 5.199999809265137,
+"ast": 1.100000023841858
+},
+"actual": {
+"pts": 10,
+"reb": 5,
+"ast": 0
+}
+},
+{
+"player": "Tristan Da Silva",
+"abbr": "ORL",
+"mp": 16.9,
+"proj": {
+"pts": 7.599999904632568,
+"reb": 3.200000047683716,
+"ast": 1.2999999523162842
+},
+"actual": {
+"pts": 3,
+"reb": 3,
+"ast": 0
+}
+},
+{
+"player": "Caris LeVert",
+"abbr": "DET",
+"mp": 13.6,
+"proj": {
+"pts": 7.0,
+"reb": 2.0,
+"ast": 2.299999952316284
+},
+"actual": {
+"pts": 4,
+"reb": 1,
+"ast": 0
+}
+},
+{
+"player": "Javonte Green",
+"abbr": "DET",
+"mp": 23.0,
+"proj": {
+"pts": 6.400000095367432,
+"reb": 3.200000047683716,
+"ast": 0.8999999761581421
+},
+"actual": {
+"pts": 2,
+"reb": 5,
+"ast": 0
+}
+}
+],
+"202604220OKC": [
+{
+"player": "Shai Gilgeous-Alexander",
+"abbr": "OKC",
+"mp": 38.2,
+"proj": {
+"pts": 27.0,
+"reb": 4.599999904632568,
+"ast": 6.699999809265137
+},
+"actual": {
+"pts": 37,
+"reb": 5,
+"ast": 9
+}
+},
+{
+"player": "Devin Booker",
+"abbr": "PHO",
+"mp": 40.1,
+"proj": {
+"pts": 24.299999237060547,
+"reb": 4.0,
+"ast": 6.0
+},
+"actual": {
+"pts": 22,
+"reb": 7,
+"ast": 4
+}
+},
+{
+"player": "Jalen Green",
+"abbr": "PHO",
+"mp": 41.4,
+"proj": {
+"pts": 22.200000762939453,
+"reb": 4.199999809265137,
+"ast": 3.4000000953674316
+},
+"actual": {
+"pts": 21,
+"reb": 5,
+"ast": 3
+}
+},
+{
+"player": "Dillon Brooks",
+"abbr": "PHO",
+"mp": 38.4,
+"proj": {
+"pts": 20.200000762939453,
+"reb": 4.099999904632568,
+"ast": 2.4000000953674316
+},
+"actual": {
+"pts": 30,
+"reb": 6,
+"ast": 1
+}
+},
+{
+"player": "Jalen Williams",
+"abbr": "OKC",
+"mp": 23.3,
+"proj": {
+"pts": 17.100000381469727,
+"reb": 4.699999809265137,
+"ast": 5.699999809265137
+},
+"actual": {
+"pts": 19,
+"reb": 1,
+"ast": 4
+}
+},
+{
+"player": "Chet Holmgren",
+"abbr": "OKC",
+"mp": 32.5,
+"proj": {
+"pts": 15.5,
+"reb": 8.199999809265137,
+"ast": 1.7000000476837158
+},
+"actual": {
+"pts": 19,
+"reb": 8,
+"ast": 0
+}
+},
+{
+"player": "Ajay Mitchell",
+"abbr": "OKC",
+"mp": 29.0,
+"proj": {
+"pts": 11.399999618530273,
+"reb": 3.200000047683716,
+"ast": 3.5
+},
+"actual": {
+"pts": 14,
+"reb": 5,
+"ast": 5
+}
+},
+{
+"player": "Isaiah Joe",
+"abbr": "OKC",
+"mp": 14.8,
+"proj": {
+"pts": 9.800000190734863,
+"reb": 2.4000000953674316,
+"ast": 1.2000000476837158
+},
+"actual": {
+"pts": 6,
+"reb": 1,
+"ast": 0
+}
+},
+{
+"player": "Collin Gillespie",
+"abbr": "PHO",
+"mp": 29.0,
+"proj": {
+"pts": 9.300000190734863,
+"reb": 3.299999952316284,
+"ast": 2.799999952316284
+},
+"actual": {
+"pts": 7,
+"reb": 6,
+"ast": 6
+}
+},
+{
+"player": "Royce O'Neale",
+"abbr": "PHO",
+"mp": 34.2,
+"proj": {
+"pts": 8.199999809265137,
+"reb": 4.300000190734863,
+"ast": 2.0
+},
+"actual": {
+"pts": 16,
+"reb": 9,
+"ast": 4
+}
+},
+{
+"player": "Luguentz Dort",
+"abbr": "OKC",
+"mp": 23.9,
+"proj": {
+"pts": 7.800000190734863,
+"reb": 3.0,
+"ast": 1.2000000476837158
+},
+"actual": {
+"pts": 9,
+"reb": 1,
+"ast": 0
+}
+},
+{
+"player": "Cason Wallace",
+"abbr": "OKC",
+"mp": 21.4,
+"proj": {
+"pts": 7.599999904632568,
+"reb": 2.9000000953674316,
+"ast": 2.200000047683716
+},
+"actual": {
+"pts": 0,
+"reb": 6,
+"ast": 2
+}
+},
+{
+"player": "Khaman Maluach",
+"abbr": "PHO",
+"mp": 18.6,
+"proj": {
+"pts": 7.199999809265137,
+"reb": 7.400000095367432,
+"ast": 1.0
+},
+"actual": {
+"pts": 4,
+"reb": 2,
+"ast": 0
+}
+},
+{
+"player": "Isaiah Hartenstein",
+"abbr": "OKC",
+"mp": 22.1,
+"proj": {
+"pts": 6.900000095367432,
+"reb": 6.800000190734863,
+"ast": 2.5
+},
+"actual": {
+"pts": 9,
+"reb": 10,
+"ast": 2
+}
+},
+{
+"player": "Oso Ighodaro",
+"abbr": "PHO",
+"mp": 29.4,
+"proj": {
+"pts": 6.5,
+"reb": 5.400000095367432,
+"ast": 2.0999999046325684
+},
+"actual": {
+"pts": 7,
+"reb": 8,
+"ast": 5
+}
+},
+{
+"player": "Alex Caruso",
+"abbr": "OKC",
+"mp": 23.5,
+"proj": {
+"pts": 5.900000095367432,
+"reb": 2.799999952316284,
+"ast": 1.7000000476837158
+},
+"actual": {
+"pts": 7,
+"reb": 2,
+"ast": 1
+}
+}
+]
+}
+}

@@ -1,0 +1,1457 @@
+{
+"date": "2025-11-11",
+"games": {
+"202511110BRK": [
+{
+"player": "Michael Porter Jr.",
+"abbr": "BRK",
+"mp": 35.7,
+"proj": {
+"pts": 23.799999237060547,
+"reb": 7.300000190734863,
+"ast": 3.200000047683716
+},
+"actual": {
+"pts": 21,
+"reb": 6,
+"ast": 3
+}
+},
+{
+"player": "Brandon Ingram",
+"abbr": "TOR",
+"mp": 32.7,
+"proj": {
+"pts": 20.200000762939453,
+"reb": 6.300000190734863,
+"ast": 4.099999904632568
+},
+"actual": {
+"pts": 25,
+"reb": 5,
+"ast": 4
+}
+},
+{
+"player": "Scottie Barnes",
+"abbr": "TOR",
+"mp": 30.6,
+"proj": {
+"pts": 19.799999237060547,
+"reb": 6.900000095367432,
+"ast": 4.699999809265137
+},
+"actual": {
+"pts": 15,
+"reb": 11,
+"ast": 5
+}
+},
+{
+"player": "RJ Barrett",
+"abbr": "TOR",
+"mp": 28.5,
+"proj": {
+"pts": 19.399999618530273,
+"reb": 4.599999904632568,
+"ast": 4.199999809265137
+},
+"actual": {
+"pts": 13,
+"reb": 4,
+"ast": 6
+}
+},
+{
+"player": "Immanuel Quickley",
+"abbr": "TOR",
+"mp": 31.7,
+"proj": {
+"pts": 14.699999809265137,
+"reb": 4.199999809265137,
+"ast": 6.099999904632568
+},
+"actual": {
+"pts": 24,
+"reb": 8,
+"ast": 5
+}
+},
+{
+"player": "Nic Claxton",
+"abbr": "BRK",
+"mp": 35.5,
+"proj": {
+"pts": 13.899999618530273,
+"reb": 7.400000095367432,
+"ast": 3.9000000953674316
+},
+"actual": {
+"pts": 21,
+"reb": 8,
+"ast": 4
+}
+},
+{
+"player": "Noah Clowney",
+"abbr": "BRK",
+"mp": 34.7,
+"proj": {
+"pts": 10.899999618530273,
+"reb": 3.700000047683716,
+"ast": 1.7999999523162842
+},
+"actual": {
+"pts": 18,
+"reb": 8,
+"ast": 3
+}
+},
+{
+"player": "Ziaire Williams",
+"abbr": "BRK",
+"mp": 17.0,
+"proj": {
+"pts": 10.300000190734863,
+"reb": 2.9000000953674316,
+"ast": 1.2000000476837158
+},
+"actual": {
+"pts": 2,
+"reb": 2,
+"ast": 0
+}
+},
+{
+"player": "Tyrese Martin",
+"abbr": "BRK",
+"mp": 13.6,
+"proj": {
+"pts": 9.600000381469727,
+"reb": 3.700000047683716,
+"ast": 2.4000000953674316
+},
+"actual": {
+"pts": 0,
+"reb": 1,
+"ast": 1
+}
+},
+{
+"player": "Terance Mann",
+"abbr": "BRK",
+"mp": 32.5,
+"proj": {
+"pts": 9.600000381469727,
+"reb": 3.0,
+"ast": 3.299999952316284
+},
+"actual": {
+"pts": 9,
+"reb": 3,
+"ast": 4
+}
+},
+{
+"player": "Collin Murray-Boyles",
+"abbr": "TOR",
+"mp": 19.6,
+"proj": {
+"pts": 8.399999618530273,
+"reb": 4.5,
+"ast": 1.399999976158142
+},
+"actual": {
+"pts": 9,
+"reb": 4,
+"ast": 1
+}
+},
+{
+"player": "Gradey Dick",
+"abbr": "TOR",
+"mp": 19.8,
+"proj": {
+"pts": 8.0,
+"reb": 3.0999999046325684,
+"ast": 0.8999999761581421
+},
+"actual": {
+"pts": 6,
+"reb": 3,
+"ast": 2
+}
+},
+{
+"player": "Jamison Battle",
+"abbr": "TOR",
+"mp": 13.1,
+"proj": {
+"pts": 7.199999809265137,
+"reb": 3.4000000953674316,
+"ast": 0.699999988079071
+},
+"actual": {
+"pts": 3,
+"reb": 3,
+"ast": 1
+}
+},
+{
+"player": "Jakob Poeltl",
+"abbr": "TOR",
+"mp": 29.6,
+"proj": {
+"pts": 6.900000095367432,
+"reb": 6.800000190734863,
+"ast": 1.600000023841858
+},
+"actual": {
+"pts": 12,
+"reb": 10,
+"ast": 2
+}
+},
+{
+"player": "Egor D\u00d1\u0091min",
+"abbr": "BRK",
+"mp": 27.5,
+"proj": {
+"pts": 6.800000190734863,
+"reb": 2.9000000953674316,
+"ast": 3.299999952316284
+},
+"actual": {
+"pts": 16,
+"reb": 4,
+"ast": 5
+}
+},
+{
+"player": "Jalen Wilson",
+"abbr": "BRK",
+"mp": 15.6,
+"proj": {
+"pts": 6.199999809265137,
+"reb": 1.7999999523162842,
+"ast": 1.0
+},
+"actual": {
+"pts": 9,
+"reb": 1,
+"ast": 0
+}
+}
+],
+"202511110NYK": [
+{
+"player": "Jalen Brunson",
+"abbr": "NYK",
+"mp": 36.1,
+"proj": {
+"pts": 27.200000762939453,
+"reb": 4.0,
+"ast": 6.599999904632568
+},
+"actual": {
+"pts": 32,
+"reb": 5,
+"ast": 10
+}
+},
+{
+"player": "Ja Morant",
+"abbr": "MEM",
+"mp": 33.5,
+"proj": {
+"pts": 21.899999618530273,
+"reb": 4.099999904632568,
+"ast": 8.199999809265137
+},
+"actual": {
+"pts": 16,
+"reb": 3,
+"ast": 10
+}
+},
+{
+"player": "Karl-Anthony Towns",
+"abbr": "NYK",
+"mp": 31.7,
+"proj": {
+"pts": 20.899999618530273,
+"reb": 12.199999809265137,
+"ast": 3.4000000953674316
+},
+"actual": {
+"pts": 21,
+"reb": 13,
+"ast": 4
+}
+},
+{
+"player": "OG Anunoby",
+"abbr": "NYK",
+"mp": 35.6,
+"proj": {
+"pts": 17.100000381469727,
+"reb": 6.0,
+"ast": 2.799999952316284
+},
+"actual": {
+"pts": 16,
+"reb": 4,
+"ast": 3
+}
+},
+{
+"player": "Jaren Jackson Jr.",
+"abbr": "MEM",
+"mp": 29.7,
+"proj": {
+"pts": 16.299999237060547,
+"reb": 5.599999904632568,
+"ast": 1.7000000476837158
+},
+"actual": {
+"pts": 19,
+"reb": 6,
+"ast": 3
+}
+},
+{
+"player": "Mikal Bridges",
+"abbr": "NYK",
+"mp": 38.0,
+"proj": {
+"pts": 14.899999618530273,
+"reb": 4.099999904632568,
+"ast": 5.099999904632568
+},
+"actual": {
+"pts": 22,
+"reb": 7,
+"ast": 5
+}
+},
+{
+"player": "Cedric Coward",
+"abbr": "MEM",
+"mp": 30.2,
+"proj": {
+"pts": 14.399999618530273,
+"reb": 7.300000190734863,
+"ast": 3.200000047683716
+},
+"actual": {
+"pts": 11,
+"reb": 3,
+"ast": 5
+}
+},
+{
+"player": "Santi Aldama",
+"abbr": "MEM",
+"mp": 30.1,
+"proj": {
+"pts": 12.600000381469727,
+"reb": 6.400000095367432,
+"ast": 2.5
+},
+"actual": {
+"pts": 19,
+"reb": 7,
+"ast": 3
+}
+},
+{
+"player": "Jock Landale",
+"abbr": "MEM",
+"mp": 25.9,
+"proj": {
+"pts": 10.600000381469727,
+"reb": 5.300000190734863,
+"ast": 1.7000000476837158
+},
+"actual": {
+"pts": 8,
+"reb": 8,
+"ast": 1
+}
+},
+{
+"player": "Jaylen Wells",
+"abbr": "MEM",
+"mp": 29.1,
+"proj": {
+"pts": 9.699999809265137,
+"reb": 3.700000047683716,
+"ast": 1.600000023841858
+},
+"actual": {
+"pts": 18,
+"reb": 3,
+"ast": 4
+}
+},
+{
+"player": "Cam Spencer",
+"abbr": "MEM",
+"mp": 18.8,
+"proj": {
+"pts": 9.399999618530273,
+"reb": 2.200000047683716,
+"ast": 2.700000047683716
+},
+"actual": {
+"pts": 11,
+"reb": 2,
+"ast": 4
+}
+},
+{
+"player": "Jordan Clarkson",
+"abbr": "NYK",
+"mp": 16.8,
+"proj": {
+"pts": 9.399999618530273,
+"reb": 2.0,
+"ast": 2.0
+},
+"actual": {
+"pts": 13,
+"reb": 3,
+"ast": 2
+}
+},
+{
+"player": "Josh Hart",
+"abbr": "NYK",
+"mp": 30.3,
+"proj": {
+"pts": 9.199999809265137,
+"reb": 6.400000095367432,
+"ast": 3.4000000953674316
+},
+"actual": {
+"pts": 8,
+"reb": 4,
+"ast": 8
+}
+},
+{
+"player": "Kentavious Caldwell-Pope",
+"abbr": "MEM",
+"mp": 15.2,
+"proj": {
+"pts": 8.899999618530273,
+"reb": 2.9000000953674316,
+"ast": 3.0
+},
+"actual": {
+"pts": 4,
+"reb": 2,
+"ast": 0
+}
+},
+{
+"player": "Miles McBride",
+"abbr": "NYK",
+"mp": 15.7,
+"proj": {
+"pts": 8.0,
+"reb": 2.799999952316284,
+"ast": 2.799999952316284
+},
+"actual": {
+"pts": 9,
+"reb": 1,
+"ast": 2
+}
+},
+{
+"player": "Landry Shamet",
+"abbr": "NYK",
+"mp": 20.9,
+"proj": {
+"pts": 7.300000190734863,
+"reb": 2.4000000953674316,
+"ast": 1.2000000476837158
+},
+"actual": {
+"pts": 10,
+"reb": 1,
+"ast": 0
+}
+}
+],
+"202511110OKC": [
+{
+"player": "Shai Gilgeous-Alexander",
+"abbr": "OKC",
+"mp": 28.5,
+"proj": {
+"pts": 29.299999237060547,
+"reb": 5.099999904632568,
+"ast": 6.300000190734863
+},
+"actual": {
+"pts": 28,
+"reb": 5,
+"ast": 11
+}
+},
+{
+"player": "Stephen Curry",
+"abbr": "GSW",
+"mp": 20.0,
+"proj": {
+"pts": 24.200000762939453,
+"reb": 4.0,
+"ast": 5.0
+},
+"actual": {
+"pts": 11,
+"reb": 1,
+"ast": 0
+}
+},
+{
+"player": "Chet Holmgren",
+"abbr": "OKC",
+"mp": 24.6,
+"proj": {
+"pts": 17.200000762939453,
+"reb": 8.300000190734863,
+"ast": 1.899999976158142
+},
+"actual": {
+"pts": 23,
+"reb": 11,
+"ast": 2
+}
+},
+{
+"player": "Jonathan Kuminga",
+"abbr": "GSW",
+"mp": 23.7,
+"proj": {
+"pts": 16.600000381469727,
+"reb": 7.0,
+"ast": 2.799999952316284
+},
+"actual": {
+"pts": 13,
+"reb": 3,
+"ast": 4
+}
+},
+{
+"player": "Jimmy Butler",
+"abbr": "GSW",
+"mp": 22.2,
+"proj": {
+"pts": 16.600000381469727,
+"reb": 5.5,
+"ast": 4.300000190734863
+},
+"actual": {
+"pts": 12,
+"reb": 3,
+"ast": 2
+}
+},
+{
+"player": "Ajay Mitchell",
+"abbr": "OKC",
+"mp": 30.9,
+"proj": {
+"pts": 16.299999237060547,
+"reb": 3.9000000953674316,
+"ast": 4.400000095367432
+},
+"actual": {
+"pts": 17,
+"reb": 3,
+"ast": 2
+}
+},
+{
+"player": "Isaiah Joe",
+"abbr": "OKC",
+"mp": 29.1,
+"proj": {
+"pts": 14.0,
+"reb": 3.700000047683716,
+"ast": 1.2999999523162842
+},
+"actual": {
+"pts": 18,
+"reb": 1,
+"ast": 1
+}
+},
+{
+"player": "Isaiah Hartenstein",
+"abbr": "OKC",
+"mp": 19.6,
+"proj": {
+"pts": 13.100000381469727,
+"reb": 12.399999618530273,
+"ast": 3.4000000953674316
+},
+"actual": {
+"pts": 8,
+"reb": 7,
+"ast": 2
+}
+},
+{
+"player": "Brandin Podziemski",
+"abbr": "GSW",
+"mp": 20.6,
+"proj": {
+"pts": 12.199999809265137,
+"reb": 4.5,
+"ast": 3.700000047683716
+},
+"actual": {
+"pts": 10,
+"reb": 4,
+"ast": 1
+}
+},
+{
+"player": "Moses Moody",
+"abbr": "GSW",
+"mp": 20.1,
+"proj": {
+"pts": 11.699999809265137,
+"reb": 3.200000047683716,
+"ast": 1.7999999523162842
+},
+"actual": {
+"pts": 10,
+"reb": 0,
+"ast": 0
+}
+},
+{
+"player": "Will Richard",
+"abbr": "GSW",
+"mp": 22.0,
+"proj": {
+"pts": 10.699999809265137,
+"reb": 3.4000000953674316,
+"ast": 1.899999976158142
+},
+"actual": {
+"pts": 9,
+"reb": 0,
+"ast": 1
+}
+},
+{
+"player": "Cason Wallace",
+"abbr": "OKC",
+"mp": 20.8,
+"proj": {
+"pts": 9.5,
+"reb": 3.799999952316284,
+"ast": 2.799999952316284
+},
+"actual": {
+"pts": 3,
+"reb": 1,
+"ast": 2
+}
+},
+{
+"player": "Draymond Green",
+"abbr": "GSW",
+"mp": 21.9,
+"proj": {
+"pts": 8.899999618530273,
+"reb": 5.199999809265137,
+"ast": 5.099999904632568
+},
+"actual": {
+"pts": 3,
+"reb": 2,
+"ast": 4
+}
+},
+{
+"player": "Quinten Post",
+"abbr": "GSW",
+"mp": 16.6,
+"proj": {
+"pts": 7.800000190734863,
+"reb": 4.599999904632568,
+"ast": 1.2000000476837158
+},
+"actual": {
+"pts": 6,
+"reb": 3,
+"ast": 2
+}
+},
+{
+"player": "Pat Spencer",
+"abbr": "GSW",
+"mp": 12.0,
+"proj": {
+"pts": 7.0,
+"reb": 2.5999999046325684,
+"ast": 2.5
+},
+"actual": {
+"pts": 12,
+"reb": 1,
+"ast": 1
+}
+},
+{
+"player": "Buddy Hield",
+"abbr": "GSW",
+"mp": 11.7,
+"proj": {
+"pts": 6.900000095367432,
+"reb": 2.0,
+"ast": 1.5
+},
+"actual": {
+"pts": 4,
+"reb": 0,
+"ast": 4
+}
+}
+],
+"202511110PHI": [
+{
+"player": "Jaylen Brown",
+"abbr": "BOS",
+"mp": 35.2,
+"proj": {
+"pts": 27.399999618530273,
+"reb": 5.300000190734863,
+"ast": 4.699999809265137
+},
+"actual": {
+"pts": 24,
+"reb": 6,
+"ast": 5
+}
+},
+{
+"player": "Tyrese Maxey",
+"abbr": "PHI",
+"mp": 33.6,
+"proj": {
+"pts": 27.200000762939453,
+"reb": 4.800000190734863,
+"ast": 7.800000190734863
+},
+"actual": {
+"pts": 21,
+"reb": 5,
+"ast": 9
+}
+},
+{
+"player": "Kelly Oubre Jr.",
+"abbr": "PHI",
+"mp": 30.8,
+"proj": {
+"pts": 17.0,
+"reb": 5.300000190734863,
+"ast": 1.7999999523162842
+},
+"actual": {
+"pts": 12,
+"reb": 7,
+"ast": 0
+}
+},
+{
+"player": "Derrick White",
+"abbr": "BOS",
+"mp": 35.0,
+"proj": {
+"pts": 16.700000762939453,
+"reb": 3.799999952316284,
+"ast": 5.599999904632568
+},
+"actual": {
+"pts": 18,
+"reb": 5,
+"ast": 7
+}
+},
+{
+"player": "Payton Pritchard",
+"abbr": "BOS",
+"mp": 31.4,
+"proj": {
+"pts": 15.899999618530273,
+"reb": 3.700000047683716,
+"ast": 4.800000190734863
+},
+"actual": {
+"pts": 5,
+"reb": 3,
+"ast": 3
+}
+},
+{
+"player": "Quentin Grimes",
+"abbr": "PHI",
+"mp": 27.8,
+"proj": {
+"pts": 15.800000190734863,
+"reb": 4.199999809265137,
+"ast": 4.300000190734863
+},
+"actual": {
+"pts": 18,
+"reb": 6,
+"ast": 4
+}
+},
+{
+"player": "Anfernee Simons",
+"abbr": "BOS",
+"mp": 25.9,
+"proj": {
+"pts": 15.199999809265137,
+"reb": 2.5,
+"ast": 1.7999999523162842
+},
+"actual": {
+"pts": 17,
+"reb": 4,
+"ast": 5
+}
+},
+{
+"player": "VJ Edgecombe",
+"abbr": "PHI",
+"mp": 34.6,
+"proj": {
+"pts": 15.0,
+"reb": 5.5,
+"ast": 3.9000000953674316
+},
+"actual": {
+"pts": 6,
+"reb": 3,
+"ast": 3
+}
+},
+{
+"player": "Trendon Watford",
+"abbr": "PHI",
+"mp": 21.4,
+"proj": {
+"pts": 9.800000190734863,
+"reb": 5.800000190734863,
+"ast": 4.599999904632568
+},
+"actual": {
+"pts": 7,
+"reb": 2,
+"ast": 1
+}
+},
+{
+"player": "Josh Minott",
+"abbr": "BOS",
+"mp": 8.3,
+"proj": {
+"pts": 9.699999809265137,
+"reb": 6.300000190734863,
+"ast": 1.5
+},
+"actual": {
+"pts": 3,
+"reb": 1,
+"ast": 0
+}
+},
+{
+"player": "Neemias Queta",
+"abbr": "BOS",
+"mp": 28.7,
+"proj": {
+"pts": 9.100000381469727,
+"reb": 8.399999618530273,
+"ast": 1.7999999523162842
+},
+"actual": {
+"pts": 8,
+"reb": 10,
+"ast": 2
+}
+},
+{
+"player": "Andre Drummond",
+"abbr": "PHI",
+"mp": 33.3,
+"proj": {
+"pts": 8.300000190734863,
+"reb": 8.5,
+"ast": 1.100000023841858
+},
+"actual": {
+"pts": 14,
+"reb": 13,
+"ast": 0
+}
+},
+{
+"player": "Sam Hauser",
+"abbr": "BOS",
+"mp": 21.1,
+"proj": {
+"pts": 7.400000095367432,
+"reb": 3.0999999046325684,
+"ast": 1.600000023841858
+},
+"actual": {
+"pts": 3,
+"reb": 7,
+"ast": 0
+}
+},
+{
+"player": "Luka Garza",
+"abbr": "BOS",
+"mp": 19.3,
+"proj": {
+"pts": 7.0,
+"reb": 4.5,
+"ast": 1.100000023841858
+},
+"actual": {
+"pts": 9,
+"reb": 8,
+"ast": 0
+}
+},
+{
+"player": "Jordan Walsh",
+"abbr": "BOS",
+"mp": 29.3,
+"proj": {
+"pts": 6.400000095367432,
+"reb": 5.599999904632568,
+"ast": 1.600000023841858
+},
+"actual": {
+"pts": 8,
+"reb": 7,
+"ast": 1
+}
+},
+{
+"player": "Justin Edwards",
+"abbr": "PHI",
+"mp": 26.6,
+"proj": {
+"pts": 5.699999809265137,
+"reb": 1.899999976158142,
+"ast": 0.8999999761581421
+},
+"actual": {
+"pts": 22,
+"reb": 3,
+"ast": 3
+}
+}
+],
+"202511110SAC": [
+{
+"player": "Nikola Joki\u00c4\u0087",
+"abbr": "DEN",
+"mp": 32.8,
+"proj": {
+"pts": 24.0,
+"reb": 12.199999809265137,
+"ast": 10.699999809265137
+},
+"actual": {
+"pts": 35,
+"reb": 15,
+"ast": 7
+}
+},
+{
+"player": "Jamal Murray",
+"abbr": "DEN",
+"mp": 37.1,
+"proj": {
+"pts": 23.0,
+"reb": 5.400000095367432,
+"ast": 5.5
+},
+"actual": {
+"pts": 23,
+"reb": 3,
+"ast": 8
+}
+},
+{
+"player": "Zach LaVine",
+"abbr": "SAC",
+"mp": 34.5,
+"proj": {
+"pts": 21.5,
+"reb": 3.9000000953674316,
+"ast": 2.4000000953674316
+},
+"actual": {
+"pts": 12,
+"reb": 4,
+"ast": 3
+}
+},
+{
+"player": "DeMar DeRozan",
+"abbr": "SAC",
+"mp": 31.0,
+"proj": {
+"pts": 19.5,
+"reb": 4.0,
+"ast": 3.799999952316284
+},
+"actual": {
+"pts": 18,
+"reb": 1,
+"ast": 2
+}
+},
+{
+"player": "Aaron Gordon",
+"abbr": "DEN",
+"mp": 30.1,
+"proj": {
+"pts": 18.0,
+"reb": 4.900000095367432,
+"ast": 1.7000000476837158
+},
+"actual": {
+"pts": 17,
+"reb": 7,
+"ast": 3
+}
+},
+{
+"player": "Russell Westbrook",
+"abbr": "SAC",
+"mp": 31.0,
+"proj": {
+"pts": 16.700000762939453,
+"reb": 6.900000095367432,
+"ast": 5.5
+},
+"actual": {
+"pts": 14,
+"reb": 8,
+"ast": 11
+}
+},
+{
+"player": "Domantas Sabonis",
+"abbr": "SAC",
+"mp": 25.6,
+"proj": {
+"pts": 16.600000381469727,
+"reb": 10.899999618530273,
+"ast": 3.9000000953674316
+},
+"actual": {
+"pts": 19,
+"reb": 8,
+"ast": 4
+}
+},
+{
+"player": "Malik Monk",
+"abbr": "SAC",
+"mp": 28.5,
+"proj": {
+"pts": 13.699999809265137,
+"reb": 2.4000000953674316,
+"ast": 2.799999952316284
+},
+"actual": {
+"pts": 12,
+"reb": 1,
+"ast": 2
+}
+},
+{
+"player": "Dennis Schr\u00c3\u00b6der",
+"abbr": "SAC",
+"mp": 20.8,
+"proj": {
+"pts": 12.699999809265137,
+"reb": 3.9000000953674316,
+"ast": 5.400000095367432
+},
+"actual": {
+"pts": 0,
+"reb": 0,
+"ast": 3
+}
+},
+{
+"player": "Christian Braun",
+"abbr": "DEN",
+"mp": 29.7,
+"proj": {
+"pts": 12.300000190734863,
+"reb": 4.900000095367432,
+"ast": 3.200000047683716
+},
+"actual": {
+"pts": 12,
+"reb": 1,
+"ast": 1
+}
+},
+{
+"player": "Tim Hardaway Jr.",
+"abbr": "DEN",
+"mp": 24.1,
+"proj": {
+"pts": 10.5,
+"reb": 2.4000000953674316,
+"ast": 1.7999999523162842
+},
+"actual": {
+"pts": 6,
+"reb": 2,
+"ast": 1
+}
+},
+{
+"player": "Jonas Valan\u00c4\u008di\u00c5\u00abnas",
+"abbr": "DEN",
+"mp": 15.2,
+"proj": {
+"pts": 10.199999809265137,
+"reb": 5.699999809265137,
+"ast": 1.399999976158142
+},
+"actual": {
+"pts": 10,
+"reb": 7,
+"ast": 1
+}
+},
+{
+"player": "Cameron Johnson",
+"abbr": "DEN",
+"mp": 22.3,
+"proj": {
+"pts": 9.199999809265137,
+"reb": 3.0999999046325684,
+"ast": 2.0
+},
+"actual": {
+"pts": 5,
+"reb": 2,
+"ast": 2
+}
+},
+{
+"player": "Drew Eubanks",
+"abbr": "SAC",
+"mp": 22.2,
+"proj": {
+"pts": 8.5,
+"reb": 3.700000047683716,
+"ast": 1.100000023841858
+},
+"actual": {
+"pts": 19,
+"reb": 7,
+"ast": 1
+}
+},
+{
+"player": "Peyton Watson",
+"abbr": "DEN",
+"mp": 18.3,
+"proj": {
+"pts": 8.100000381469727,
+"reb": 4.099999904632568,
+"ast": 1.7000000476837158
+},
+"actual": {
+"pts": 0,
+"reb": 3,
+"ast": 0
+}
+},
+{
+"player": "Bruce Brown",
+"abbr": "DEN",
+"mp": 27.3,
+"proj": {
+"pts": 7.0,
+"reb": 4.0,
+"ast": 1.600000023841858
+},
+"actual": {
+"pts": 14,
+"reb": 7,
+"ast": 1
+}
+}
+],
+"202511110UTA": [
+{
+"player": "Pascal Siakam",
+"abbr": "IND",
+"mp": 35.1,
+"proj": {
+"pts": 25.799999237060547,
+"reb": 7.300000190734863,
+"ast": 6.300000190734863
+},
+"actual": {
+"pts": 27,
+"reb": 5,
+"ast": 4
+}
+},
+{
+"player": "Lauri Markkanen",
+"abbr": "UTA",
+"mp": 34.6,
+"proj": {
+"pts": 25.0,
+"reb": 5.800000190734863,
+"ast": 2.0999999046325684
+},
+"actual": {
+"pts": 35,
+"reb": 3,
+"ast": 2
+}
+},
+{
+"player": "Keyonte George",
+"abbr": "UTA",
+"mp": 26.7,
+"proj": {
+"pts": 22.799999237060547,
+"reb": 4.099999904632568,
+"ast": 6.900000095367432
+},
+"actual": {
+"pts": 10,
+"reb": 5,
+"ast": 7
+}
+},
+{
+"player": "Andrew Nembhard",
+"abbr": "IND",
+"mp": 29.5,
+"proj": {
+"pts": 17.600000381469727,
+"reb": 2.0999999046325684,
+"ast": 6.5
+},
+"actual": {
+"pts": 25,
+"reb": 2,
+"ast": 7
+}
+},
+{
+"player": "Aaron Nesmith",
+"abbr": "IND",
+"mp": 31.9,
+"proj": {
+"pts": 16.700000762939453,
+"reb": 4.5,
+"ast": 1.600000023841858
+},
+"actual": {
+"pts": 17,
+"reb": 4,
+"ast": 7
+}
+},
+{
+"player": "Jarace Walker",
+"abbr": "IND",
+"mp": 22.1,
+"proj": {
+"pts": 12.800000190734863,
+"reb": 5.5,
+"ast": 3.200000047683716
+},
+"actual": {
+"pts": 11,
+"reb": 1,
+"ast": 0
+}
+},
+{
+"player": "Svi Mykhailiuk",
+"abbr": "UTA",
+"mp": 27.3,
+"proj": {
+"pts": 10.199999809265137,
+"reb": 3.0999999046325684,
+"ast": 1.7000000476837158
+},
+"actual": {
+"pts": 20,
+"reb": 4,
+"ast": 4
+}
+},
+{
+"player": "Jeremiah Robinson-Earl",
+"abbr": "IND",
+"mp": 21.8,
+"proj": {
+"pts": 10.100000381469727,
+"reb": 10.199999809265137,
+"ast": 1.600000023841858
+},
+"actual": {
+"pts": 6,
+"reb": 4,
+"ast": 3
+}
+},
+{
+"player": "Jusuf Nurki\u00c4\u0087",
+"abbr": "UTA",
+"mp": 30.7,
+"proj": {
+"pts": 9.899999618530273,
+"reb": 8.5,
+"ast": 3.0
+},
+"actual": {
+"pts": 11,
+"reb": 11,
+"ast": 4
+}
+},
+{
+"player": "Brice Sensabaugh",
+"abbr": "UTA",
+"mp": 16.0,
+"proj": {
+"pts": 9.5,
+"reb": 3.200000047683716,
+"ast": 1.5
+},
+"actual": {
+"pts": 16,
+"reb": 4,
+"ast": 1
+}
+},
+{
+"player": "Ace Bailey",
+"abbr": "UTA",
+"mp": 25.6,
+"proj": {
+"pts": 8.899999618530273,
+"reb": 3.9000000953674316,
+"ast": 1.7999999523162842
+},
+"actual": {
+"pts": 20,
+"reb": 4,
+"ast": 1
+}
+},
+{
+"player": "Kyle Filipowski",
+"abbr": "UTA",
+"mp": 20.2,
+"proj": {
+"pts": 8.899999618530273,
+"reb": 5.0,
+"ast": 2.200000047683716
+},
+"actual": {
+"pts": 16,
+"reb": 7,
+"ast": 3
+}
+},
+{
+"player": "Ben Sheppard",
+"abbr": "IND",
+"mp": 17.0,
+"proj": {
+"pts": 8.600000381469727,
+"reb": 4.400000095367432,
+"ast": 1.899999976158142
+},
+"actual": {
+"pts": 4,
+"reb": 2,
+"ast": 0
+}
+},
+{
+"player": "Isaiah Jackson",
+"abbr": "IND",
+"mp": 22.6,
+"proj": {
+"pts": 8.600000381469727,
+"reb": 6.5,
+"ast": 1.2999999523162842
+},
+"actual": {
+"pts": 12,
+"reb": 10,
+"ast": 2
+}
+},
+{
+"player": "Jay Huff",
+"abbr": "IND",
+"mp": 11.1,
+"proj": {
+"pts": 7.800000190734863,
+"reb": 3.9000000953674316,
+"ast": 1.399999976158142
+},
+"actual": {
+"pts": 3,
+"reb": 3,
+"ast": 0
+}
+},
+{
+"player": "Walter Clayton",
+"abbr": "UTA",
+"mp": 12.2,
+"proj": {
+"pts": 6.5,
+"reb": 2.5999999046325684,
+"ast": 3.5999999046325684
+},
+"actual": {
+"pts": 8,
+"reb": 0,
+"ast": 3
+}
+}
+]
+}
+}

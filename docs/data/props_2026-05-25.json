@@ -1,0 +1,247 @@
+{
+"date": "2026-05-25",
+"games": {
+"202605250CLE": [
+{
+"player": "Jalen Brunson",
+"abbr": "NYK",
+"mp": 30.9,
+"proj": {
+"pts": 26.899999618530273,
+"reb": 3.5,
+"ast": 6.900000095367432
+},
+"actual": {
+"pts": 15,
+"reb": 2,
+"ast": 5
+}
+},
+{
+"player": "Donovan Mitchell",
+"abbr": "CLE",
+"mp": 31.5,
+"proj": {
+"pts": 23.700000762939453,
+"reb": 4.5,
+"ast": 4.5
+},
+"actual": {
+"pts": 31,
+"reb": 4,
+"ast": 1
+}
+},
+{
+"player": "James Harden",
+"abbr": "CLE",
+"mp": 32.9,
+"proj": {
+"pts": 20.899999618530273,
+"reb": 4.699999809265137,
+"ast": 6.300000190734863
+},
+"actual": {
+"pts": 12,
+"reb": 4,
+"ast": 2
+}
+},
+{
+"player": "Karl-Anthony Towns",
+"abbr": "NYK",
+"mp": 26.0,
+"proj": {
+"pts": 17.399999618530273,
+"reb": 10.800000190734863,
+"ast": 4.0
+},
+"actual": {
+"pts": 19,
+"reb": 14,
+"ast": 3
+}
+},
+{
+"player": "Evan Mobley",
+"abbr": "CLE",
+"mp": 33.3,
+"proj": {
+"pts": 17.100000381469727,
+"reb": 8.699999809265137,
+"ast": 3.799999952316284
+},
+"actual": {
+"pts": 15,
+"reb": 7,
+"ast": 4
+}
+},
+{
+"player": "OG Anunoby",
+"abbr": "NYK",
+"mp": 27.1,
+"proj": {
+"pts": 15.399999618530273,
+"reb": 5.599999904632568,
+"ast": 2.0999999046325684
+},
+"actual": {
+"pts": 17,
+"reb": 7,
+"ast": 4
+}
+},
+{
+"player": "Mikal Bridges",
+"abbr": "NYK",
+"mp": 30.1,
+"proj": {
+"pts": 14.899999618530273,
+"reb": 4.199999809265137,
+"ast": 3.200000047683716
+},
+"actual": {
+"pts": 15,
+"reb": 3,
+"ast": 5
+}
+},
+{
+"player": "Jarrett Allen",
+"abbr": "CLE",
+"mp": 25.6,
+"proj": {
+"pts": 14.300000190734863,
+"reb": 8.300000190734863,
+"ast": 1.600000023841858
+},
+"actual": {
+"pts": 6,
+"reb": 3,
+"ast": 1
+}
+},
+{
+"player": "Josh Hart",
+"abbr": "NYK",
+"mp": 23.6,
+"proj": {
+"pts": 13.5,
+"reb": 7.300000190734863,
+"ast": 5.0
+},
+"actual": {
+"pts": 6,
+"reb": 11,
+"ast": 6
+}
+},
+{
+"player": "Max Strus",
+"abbr": "CLE",
+"mp": 21.9,
+"proj": {
+"pts": 10.300000190734863,
+"reb": 4.900000095367432,
+"ast": 2.0
+},
+"actual": {
+"pts": 5,
+"reb": 2,
+"ast": 2
+}
+},
+{
+"player": "Sam Merrill",
+"abbr": "CLE",
+"mp": 17.6,
+"proj": {
+"pts": 10.0,
+"reb": 2.200000047683716,
+"ast": 1.899999976158142
+},
+"actual": {
+"pts": 5,
+"reb": 1,
+"ast": 1
+}
+},
+{
+"player": "Tyrese Proctor",
+"abbr": "CLE",
+"mp": 8.6,
+"proj": {
+"pts": 8.800000190734863,
+"reb": 2.5,
+"ast": 2.9000000953674316
+},
+"actual": {
+"pts": 0,
+"reb": 1,
+"ast": 2
+}
+},
+{
+"player": "Jaylon Tyson",
+"abbr": "CLE",
+"mp": 16.0,
+"proj": {
+"pts": 8.0,
+"reb": 3.799999952316284,
+"ast": 1.600000023841858
+},
+"actual": {
+"pts": 2,
+"reb": 3,
+"ast": 2
+}
+},
+{
+"player": "Miles McBride",
+"abbr": "NYK",
+"mp": 16.7,
+"proj": {
+"pts": 7.800000190734863,
+"reb": 1.899999976158142,
+"ast": 1.7000000476837158
+},
+"actual": {
+"pts": 11,
+"reb": 2,
+"ast": 2
+}
+},
+{
+"player": "Jose Alvarado",
+"abbr": "NYK",
+"mp": 10.1,
+"proj": {
+"pts": 7.800000190734863,
+"reb": 2.4000000953674316,
+"ast": 2.5
+},
+"actual": {
+"pts": 4,
+"reb": 0,
+"ast": 2
+}
+},
+{
+"player": "Jordan Clarkson",
+"abbr": "NYK",
+"mp": 8.6,
+"proj": {
+"pts": 7.599999904632568,
+"reb": 2.0999999046325684,
+"ast": 1.2000000476837158
+},
+"actual": {
+"pts": 3,
+"reb": 1,
+"ast": 0
+}
+}
+]
+}
+}
