@@ -57,23 +57,27 @@ function animate(el, target, suffix) {
 /* ---------- date strip + picker ---------- */
 function paintDateStrip() {
   const strip = $("dateStrip");
-  MANIFEST.dates.slice(0, 14).forEach((d) => {
+  // Chronological left -> right (past .. future), so the strip reads like a
+  // timeline and the arrow buttons move the same direction as the dates.
+  MANIFEST.dates.slice(0, 14).reverse().forEach((d) => {
     const b = document.createElement("button");
     b.className = "date-chip"; b.textContent = d.slice(5); b.dataset.date = d;
     b.onclick = () => { $("datePicker").value = d; loadSlate(d); };
     strip.appendChild(b);
   });
+  strip.scrollLeft = strip.scrollWidth;   // newest (right edge) in view
 }
 function initPicker() {
   $("loadBtn").onclick = () => loadSlate($("datePicker").value);
   $("refreshBtn").onclick = () => loadSlate($("datePicker").value, { bust: true });
   $("datePicker").addEventListener("change", () => loadSlate($("datePicker").value));
-  $("prevBtn").onclick = () => step(1);
-  $("nextBtn").onclick = () => step(-1);
+  $("prevBtn").onclick = () => step("past");
+  $("nextBtn").onclick = () => step("future");
 }
-function step(dir) {
+function step(where) {
+  // MANIFEST.dates is newest-first: past = index+1, future = index-1.
   const i = MANIFEST.dates.indexOf(CURRENT.date);
-  const j = i + dir;
+  const j = i + (where === "past" ? 1 : -1);
   if (j >= 0 && j < MANIFEST.dates.length) {
     $("datePicker").value = MANIFEST.dates[j];
     loadSlate(MANIFEST.dates[j]);
