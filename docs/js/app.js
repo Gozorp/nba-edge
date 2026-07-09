@@ -224,10 +224,55 @@ function initTheme() {
     localStorage.setItem("nbaedge-theme", next);
   };
 }
+/* Unique-visit counter via counterapi.dev (anonymous, no fingerprinting).
+   Dedup: one increment per browser, ever (localStorage flag) — returning
+   browsers are read-only and NEVER fall back to /up (no double counting).
+   Bot gating: crawlers without JS never reach this; webdriver/headless and
+   bot UAs are read-only; prerendered pages (speculation rules) defer until
+   real activation + tab visibility, so background prerenders don't count. */
+function isLikelyBot() {
+  if (navigator.webdriver === true) return true;
+  return /bot|crawl|spider|slurp|headless|lighthouse|prerender|preview|fetch|monitor|scan/i
+    .test(navigator.userAgent || "");
+}
+function whenTrulyVisible(fn) {
+  const arm = () => {
+    if (document.visibilityState === "visible") { fn(); return; }
+    const h = () => {
+      if (document.visibilityState === "visible") {
+        document.removeEventListener("visibilitychange", h); fn();
+      }
+    };
+    document.addEventListener("visibilitychange", h);
+  };
+  if (document.prerendering) {
+    document.addEventListener("prerenderingchange", arm, { once: true });
+  } else { arm(); }
+}
 function initVisits() {
-  const n = (parseInt(localStorage.getItem("nbaedge-visits") || "0", 10) || 0) + 1;
-  localStorage.setItem("nbaedge-visits", String(n));
-  $("visitText").textContent = n === 1 ? "first visit" : n + " visits";
+  const el = $("visitText");
+  const VISIT_KEY = "nbaedge_visited_v1", COUNT_KEY = "nbaedge_last_count_v1";
+  const BASE = "https://api.counterapi.dev/v1/gozorp-nba-edge/unique_visits";
+  const cached = parseInt(localStorage.getItem(COUNT_KEY) || "0", 10);
+  if (cached > 0) el.textContent = cached.toLocaleString() + " unique visits";
+  whenTrulyVisible(async () => {
+    const bump = !localStorage.getItem(VISIT_KEY) && !isLikelyBot();
+    const urls = bump ? [BASE + "/up"] : [BASE + "/"];
+    let count = null;
+    for (const url of urls) {
+      try {
+        const r = await fetch(url, { cache: "no-store" });
+        if (!r.ok) continue;
+        const j = await r.json();
+        if (typeof j.count === "number") { count = j.count; break; }
+      } catch (e) { /* offline — cached count stays */ }
+    }
+    if (count != null) {
+      if (bump) localStorage.setItem(VISIT_KEY, "1");
+      localStorage.setItem(COUNT_KEY, String(count));
+      el.textContent = count.toLocaleString() + " unique visits";
+    } else if (cached <= 0) { el.textContent = "visits offline"; }
+  });
 }
 function initXfade() {
   const vt = window.CSS && CSS.supports && CSS.supports("(view-transition-name: x)");
