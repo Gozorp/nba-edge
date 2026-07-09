@@ -1,6 +1,6 @@
 /* NBA edge service worker — cache-first app shell, network-first data */
-const SHELL = "nba-edge-shell-v2";
-const ASSETS = ["./", "./index.html", "./js/app.js?v=2", "./icon.svg", "./manifest.json"];
+const SHELL = "nba-edge-shell-v3";
+const ASSETS = ["./", "./index.html", "./js/app.js?v=3", "./icon.svg", "./manifest.json"];
 self.addEventListener("install", (e) => {
   e.waitUntil(caches.open(SHELL).then((c) => c.addAll(ASSETS)));
   self.skipWaiting();

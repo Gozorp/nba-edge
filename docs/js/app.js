@@ -20,7 +20,7 @@ function setStatus(msg) { $("status").textContent = msg || ""; }
    <body>), falls back to DOMContentLoaded otherwise — immune to load-order
    races. Each init is isolated so one failure cannot kill the rest. */
 async function boot() {
-  const inits = [initTheme, initVisits, initDrawer, initHelp, initPicker, initChips];
+  const inits = [initTheme, initVisits, initDrawer, initHelp, initPicker, initChips, initXfade];
   for (const f of inits) { try { f(); } catch (e) { console.error("[nbaedge]", f.name, e); } }
   if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("sw.js").catch(() => {});
@@ -229,6 +229,21 @@ function initVisits() {
   localStorage.setItem("nbaedge-visits", String(n));
   $("visitText").textContent = n === 1 ? "first visit" : n + " visits";
 }
+function initXfade() {
+  const vt = window.CSS && CSS.supports && CSS.supports("(view-transition-name: x)");
+  const rm = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const a = $("mlb-return");
+  if (a && !vt && !rm) {
+    a.addEventListener("click", (e) => {
+      e.preventDefault();
+      document.body.classList.add("xfade-leave");
+      setTimeout(() => { location.href = a.href; }, 170);
+    });
+  }
+  window.addEventListener("pageshow", () =>
+    document.body.classList.remove("xfade-leave"));
+}
+
 function initHelp() {
   $("help-btn").onclick = () => $("help-backdrop").classList.add("show");
   $("help-close").onclick = () => $("help-backdrop").classList.remove("show");

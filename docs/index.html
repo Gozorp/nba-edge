@@ -7,6 +7,10 @@
 <meta name="description" content="Daily NBA slate predictions with graded picks, fair odds, and SHAP factor analysis.">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="manifest" href="manifest.json">
+<script type="speculationrules">
+{ "prerender": [ { "urls": ["/MLB-edges/"] } ],
+  "prefetch":  [ { "urls": ["/MLB-edges/"] } ] }
+</script>
 <style>
 :root{
   --bg:#0b0e13; --bg-elev:#141a23; --bg-elev2:#1a2230; --text:#e8edf4;
@@ -19,6 +23,17 @@ body[data-theme="courtside"]{
   --muted:#6d6156; --border:#d8cbb8; --accent:#c2410c;
 }
 *{box-sizing:border-box;margin:0;padding:0}
+/* Smooth cross-site transition (NBA edge <-> MLB edge, same origin) */
+html{background:var(--bg)}
+@view-transition { navigation: auto; }
+::view-transition-old(root){animation-duration:.32s;animation-timing-function:ease-in}
+::view-transition-new(root){animation-duration:.32s;animation-timing-function:ease-out}
+#mlb-return{view-transition-name:sport-switch}
+body.xfade-leave{opacity:0;transition:opacity .18s ease}
+@media (prefers-reduced-motion: reduce){
+  ::view-transition-old(root),::view-transition-new(root){animation:none}
+  body.xfade-leave{transition:none;opacity:1}
+}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font:15px/1.55 "Segoe UI",system-ui,sans-serif;transition:background .2s}
 .wrap{max-width:1080px;margin:0 auto;padding:0 18px}
@@ -261,6 +276,6 @@ footer{border-top:1px solid var(--border);padding:26px 0 60px;color:var(--muted)
   </div>
 </footer>
 
-<script src="js/app.js?v=2"></script>
+<script src="js/app.js?v=3"></script>
 </body>
 </html>
