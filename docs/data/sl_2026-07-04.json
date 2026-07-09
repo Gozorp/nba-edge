@@ -2,6 +2,42 @@
 "date": "2026-07-04",
 "games": [
 {
+"espn_id": "401881933",
+"league": "California Classic",
+"tip_utc": "2026-07-04T00:00Z",
+"state": "STATUS_FINAL",
+"is_final": true,
+"away": "Miami Heat",
+"home": "San Antonio Spurs",
+"away_abbr": "MIA",
+"home_abbr": "SA",
+"away_score": 88,
+"home_score": 87,
+"p_home": 0.5013,
+"pick": "SA",
+"p_pick": 0.5013,
+"tier": "COINFLIP",
+"pick_correct": 0
+},
+{
+"espn_id": "401881934",
+"league": "California Classic",
+"tip_utc": "2026-07-04T02:30Z",
+"state": "STATUS_FINAL",
+"is_final": true,
+"away": "Los Angeles Lakers",
+"home": "Golden State Warriors Gold",
+"away_abbr": "LAL",
+"home_abbr": "GS",
+"away_score": 72,
+"home_score": 104,
+"p_home": 0.5013,
+"pick": "GS",
+"p_pick": 0.5013,
+"tier": "COINFLIP",
+"pick_correct": 1
+},
+{
 "espn_id": "401879920",
 "league": "Salt Lake City",
 "tip_utc": "2026-07-04T19:00Z",
@@ -12,7 +48,12 @@
 "away_abbr": "MEM",
 "home_abbr": "OKC",
 "away_score": 111,
-"home_score": 74
+"home_score": 74,
+"p_home": 0.5013,
+"pick": "OKC",
+"p_pick": 0.5013,
+"tier": "COINFLIP",
+"pick_correct": 0
 },
 {
 "espn_id": "401881927",
@@ -25,7 +66,12 @@
 "away_abbr": "MIL",
 "home_abbr": "GS",
 "away_score": 97,
-"home_score": 83
+"home_score": 83,
+"p_home": 0.5756,
+"pick": "GS",
+"p_pick": 0.5756,
+"tier": "COINFLIP",
+"pick_correct": 0
 },
 {
 "espn_id": "401879921",
@@ -38,7 +84,12 @@
 "away_abbr": "ATL",
 "home_abbr": "UTAH",
 "away_score": 102,
-"home_score": 103
+"home_score": 103,
+"p_home": 0.5013,
+"pick": "UTAH",
+"p_pick": 0.5013,
+"tier": "COINFLIP",
+"pick_correct": 1
 },
 {
 "espn_id": "401881925",
@@ -51,7 +102,12 @@
 "away_abbr": "BKN",
 "home_abbr": "SAC",
 "away_score": 76,
-"home_score": 79
+"home_score": 79,
+"p_home": 0.5013,
+"pick": "SAC",
+"p_pick": 0.5013,
+"tier": "COINFLIP",
+"pick_correct": 1
 }
 ]
 }

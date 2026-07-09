@@ -1,0 +1,23 @@
+{
+"date": "2026-07-08",
+"games": [
+{
+"espn_id": "401879925",
+"league": "Salt Lake City",
+"tip_utc": "2026-07-08T01:00Z",
+"state": "STATUS_FINAL",
+"is_final": true,
+"away": "Oklahoma City Thunder",
+"home": "Utah Jazz",
+"away_abbr": "OKC",
+"home_abbr": "UTAH",
+"away_score": 69,
+"home_score": 103,
+"p_home": 0.5657,
+"pick": "UTAH",
+"p_pick": 0.5657,
+"tier": "COINFLIP",
+"pick_correct": 1
+}
+]
+}

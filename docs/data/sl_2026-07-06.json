@@ -12,7 +12,12 @@
 "away_abbr": "ATL",
 "home_abbr": "OKC",
 "away_score": 82,
-"home_score": 77
+"home_score": 77,
+"p_home": 0.4509,
+"pick": "ATL",
+"p_pick": 0.5491,
+"tier": "COINFLIP",
+"pick_correct": 1
 },
 {
 "espn_id": "401881937",
@@ -25,59 +30,12 @@
 "away_abbr": "LAL",
 "home_abbr": "SA",
 "away_score": 88,
-"home_score": 84
-},
-{
-"espn_id": "401881931",
-"league": "California Classic",
-"tip_utc": "2026-07-07T00:00Z",
-"state": "STATUS_FINAL",
-"is_final": true,
-"away": "Golden State Warriors Blue",
-"home": "Brooklyn Nets",
-"away_abbr": "GS",
-"home_abbr": "BKN",
-"away_score": 79,
-"home_score": 100
-},
-{
-"espn_id": "401879923",
-"league": "Salt Lake City",
-"tip_utc": "2026-07-07T01:00Z",
-"state": "STATUS_FINAL",
-"is_final": true,
-"away": "Memphis Grizzlies",
-"home": "Utah Jazz",
-"away_abbr": "MEM",
-"home_abbr": "UTAH",
-"away_score": 100,
-"home_score": 109
-},
-{
-"espn_id": "401881938",
-"league": "California Classic",
-"tip_utc": "2026-07-07T02:00Z",
-"state": "STATUS_FINAL",
-"is_final": true,
-"away": "Miami Heat",
-"home": "Golden State Warriors Gold",
-"away_abbr": "MIA",
-"home_abbr": "GS",
-"away_score": 95,
-"home_score": 85
-},
-{
-"espn_id": "401881932",
-"league": "California Classic",
-"tip_utc": "2026-07-07T02:00Z",
-"state": "STATUS_FINAL",
-"is_final": true,
-"away": "Milwaukee Bucks",
-"home": "Sacramento Kings",
-"away_abbr": "MIL",
-"home_abbr": "SAC",
-"away_score": 89,
-"home_score": 95
+"home_score": 84,
+"p_home": 0.5013,
+"pick": "SA",
+"p_pick": 0.5013,
+"tier": "COINFLIP",
+"pick_correct": 0
 }
 ]
 }

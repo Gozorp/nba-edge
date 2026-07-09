@@ -241,16 +241,19 @@ footer{border-top:1px solid var(--border);padding:26px 0 60px;color:var(--muted)
       <button type="button" class="q-chip" data-filter="upset">Upset calls</button>
       <button type="button" class="q-chip" data-filter="wrong">Model misses</button>
     </div>
-    <div id="sl-banner"><b>Exhibition regime</b> — the NBA model does not grade
-      Summer League (five-game rosters of rookies and two-ways share nothing with
-      the parent club the features describe). Slate and verified results only.</div>
+    <div id="sl-banner"><b>Exhibition regime</b> — SL picks come from a separate
+      in-tournament form model (not the NBA model), and its own backtest says it has
+      <b>no measurable skill</b>: <span id="sl-acc">—</span> on Summer League 2025.
+      Books publish no SL lines here either. Treat every SL pick as a coin-flip lean,
+      never an edge. Finals are verified below regardless.</div>
     <table id="slate" style="display:none">
       <thead id="nba-head"><tr>
         <th>Grade</th><th>Matchup</th><th>Pick</th><th class="prob-cell">Win prob</th>
         <th>Fair ML</th><th>Proj margin</th><th>Result</th>
       </tr></thead>
       <thead id="sl-head" style="display:none"><tr>
-        <th>League</th><th>Matchup</th><th>Tip (UTC)</th><th>Status</th><th>Score</th>
+        <th>League</th><th>Matchup</th><th>Tip (UTC)</th><th>Pick</th>
+        <th>Win prob</th><th>Status</th><th>Score</th>
       </tr></thead>
       <tbody id="slate-body"></tbody>
     </table>
@@ -294,6 +297,6 @@ footer{border-top:1px solid var(--border);padding:26px 0 60px;color:var(--muted)
   </div>
 </footer>
 
-<script src="js/app.js?v=10"></script>
+<script src="js/app.js?v=11"></script>
 </body>
 </html>

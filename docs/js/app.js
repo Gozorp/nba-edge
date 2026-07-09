@@ -67,6 +67,9 @@ function initLeagueToggle() {
       document.querySelectorAll(".lg-chip").forEach((x) =>
         x.classList.toggle("on", x.dataset.mode === MODE));
       $("sl-banner").style.display = MODE === "sl" ? "block" : "none";
+      const slm = (MANIFEST || {}).sl_model;
+      if (slm && $("sl-acc")) $("sl-acc").textContent =
+        (slm.eval_2025.acc * 100).toFixed(1) + "% accuracy (n=" + slm.eval_2025.n + ")";
       $("nba-head").style.display = MODE === "sl" ? "none" : "";
       $("sl-head").style.display = MODE === "sl" ? "" : "none";
       $("quick-chips").style.display = MODE === "sl" ? "none" : "flex";
@@ -170,14 +173,27 @@ function renderSlateSL(games) {
     const score = (g.is_final || g.state === "STATUS_IN_PROGRESS")
       ? '<span class="mono sl-final">' + g.away_score + " – " + g.home_score + "</span>"
       : '<span class="mono sl-sched">—</span>';
+    const pickCell = g.pick
+      ? '<b class="mono">' + g.pick + '</b> <span class="mono" style="font-size:.64rem;color:var(--muted)">' + (g.tier || "") + "</span>"
+      : '<span class="sl-sched">—</span>';
+    const probCell = g.p_pick != null
+      ? '<span class="mono">' + (g.p_pick * 100).toFixed(1) + "%</span>"
+      : '<span class="sl-sched">—</span>';
+    let verdict = "";
+    if (g.is_final && g.pick_correct != null) {
+      verdict = g.pick_correct ? ' <span class="res-w">✓</span>'
+                               : ' <span class="res-l">✗</span>';
+    }
     tr.innerHTML =
       '<td class="mono" style="color:var(--muted)">' + g.league + "</td>" +
       "<td><b>" + (g.away_abbr || g.away) + "</b> @ <b>" + (g.home_abbr || g.home) + "</b></td>" +
       '<td class="mono">' + tip + "</td>" +
+      "<td>" + pickCell + "</td>" +
+      "<td>" + probCell + "</td>" +
       "<td>" + (g.is_final ? '<span class="res-w">' + stateTxt + "</span>"
                 : stateTxt === "LIVE" ? '<span style="color:var(--accent)">LIVE</span>'
                 : '<span class="sl-sched">' + stateTxt + "</span>") + "</td>" +
-      "<td>" + score + "</td>";
+      "<td>" + score + verdict + "</td>";
     tb.appendChild(tr);
   });
 }

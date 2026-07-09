@@ -2,6 +2,40 @@
 "date": "2026-07-10",
 "games": [
 {
+"espn_id": "401879488",
+"league": "Las Vegas",
+"tip_utc": "2026-07-10T01:00Z",
+"state": "STATUS_SCHEDULED",
+"is_final": false,
+"away": "Utah Jazz",
+"home": "Washington Wizards",
+"away_abbr": "UTAH",
+"home_abbr": "WSH",
+"away_score": 0,
+"home_score": 0,
+"p_home": 0.4445,
+"pick": "UTAH",
+"p_pick": 0.5555,
+"tier": "COINFLIP"
+},
+{
+"espn_id": "401881827",
+"league": "Las Vegas",
+"tip_utc": "2026-07-10T03:00Z",
+"state": "STATUS_SCHEDULED",
+"is_final": false,
+"away": "Sacramento Kings",
+"home": "LA Clippers",
+"away_abbr": "SAC",
+"home_abbr": "LAC",
+"away_score": 0,
+"home_score": 0,
+"p_home": 0.4787,
+"pick": "SAC",
+"p_pick": 0.5213,
+"tier": "COINFLIP"
+},
+{
 "espn_id": "401881828",
 "league": "Las Vegas",
 "tip_utc": "2026-07-10T20:00Z",
@@ -12,7 +46,11 @@
 "away_abbr": "MIL",
 "home_abbr": "MIA",
 "away_score": 0,
-"home_score": 0
+"home_score": 0,
+"p_home": 0.519,
+"pick": "MIA",
+"p_pick": 0.519,
+"tier": "COINFLIP"
 },
 {
 "espn_id": "401881829",
@@ -25,7 +63,11 @@
 "away_abbr": "CLE",
 "home_abbr": "IND",
 "away_score": 0,
-"home_score": 0
+"home_score": 0,
+"p_home": 0.5013,
+"pick": "IND",
+"p_pick": 0.5013,
+"tier": "COINFLIP"
 },
 {
 "espn_id": "401881830",
@@ -38,7 +80,11 @@
 "away_abbr": "BKN",
 "home_abbr": "NY",
 "away_score": 0,
-"home_score": 0
+"home_score": 0,
+"p_home": 0.4594,
+"pick": "BKN",
+"p_pick": 0.5406,
+"tier": "COINFLIP"
 },
 {
 "espn_id": "401881831",
@@ -51,59 +97,11 @@
 "away_abbr": "HOU",
 "home_abbr": "DEN",
 "away_score": 0,
-"home_score": 0
-},
-{
-"espn_id": "401879489",
-"league": "Las Vegas",
-"tip_utc": "2026-07-11T00:00Z",
-"state": "STATUS_SCHEDULED",
-"is_final": false,
-"away": "Chicago Bulls",
-"home": "Memphis Grizzlies",
-"away_abbr": "CHI",
-"home_abbr": "MEM",
-"away_score": 0,
-"home_score": 0
-},
-{
-"espn_id": "401881832",
-"league": "Las Vegas",
-"tip_utc": "2026-07-11T01:00Z",
-"state": "STATUS_SCHEDULED",
-"is_final": false,
-"away": "Boston Celtics",
-"home": "Toronto Raptors",
-"away_abbr": "BOS",
-"home_abbr": "TOR",
-"away_score": 0,
-"home_score": 0
-},
-{
-"espn_id": "401881833",
-"league": "Las Vegas",
-"tip_utc": "2026-07-11T02:00Z",
-"state": "STATUS_SCHEDULED",
-"is_final": false,
-"away": "Oklahoma City Thunder",
-"home": "Los Angeles Lakers",
-"away_abbr": "OKC",
-"home_abbr": "LAL",
-"away_score": 0,
-"home_score": 0
-},
-{
-"espn_id": "401881834",
-"league": "Las Vegas",
-"tip_utc": "2026-07-11T03:00Z",
-"state": "STATUS_SCHEDULED",
-"is_final": false,
-"away": "Portland Trail Blazers",
-"home": "Phoenix Suns",
-"away_abbr": "POR",
-"home_abbr": "PHX",
-"away_score": 0,
-"home_score": 0
+"home_score": 0,
+"p_home": 0.5013,
+"pick": "DEN",
+"p_pick": 0.5013,
+"tier": "COINFLIP"
 }
 ]
 }
