@@ -1,0 +1,6 @@
+# data + artifacts stay local (archive is 4.4 GB; nba_data holds parquet/models)
+nba_data/
+archive/
+__pycache__/
+*.pyc
+.DS_Store
