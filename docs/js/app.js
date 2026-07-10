@@ -210,6 +210,7 @@ async function refreshSlLive(date) {
         if (!sides.home || !sides.away) return;
         live[ev.id] = {
           state: ev.status.type.name,
+          detail: ev.status.type.shortDetail || "",
           is_final: !!ev.status.type.completed,
           home_score: parseInt(sides.home.score || 0, 10),
           away_score: parseInt(sides.away.score || 0, 10),
@@ -223,7 +224,8 @@ async function refreshSlLive(date) {
     const u = live[g.espn_id];
     if (!u) return;
     if (u.state !== g.state || u.home_score !== g.home_score
-        || u.away_score !== g.away_score || u.is_final !== g.is_final) {
+        || u.away_score !== g.away_score || u.is_final !== g.is_final
+        || u.detail !== g.detail) {
       changed = true;
       Object.assign(g, u);
       if (g.is_final && g.pick && g.pick_correct == null) {
@@ -237,6 +239,19 @@ async function refreshSlLive(date) {
             + (CURRENT.games.every(g => g.is_final) ? "" : " · live ⟳60s"));
   if (CURRENT.games.every(g => g.is_final)) stopSlLive();
   if (changed) renderSlateSL(CURRENT.games);
+}
+
+function slState(g) {
+  // ESPN emits many in-game states (IN_PROGRESS, HALFTIME, END_PERIOD,
+  // DELAYED...). Anything that isn't scheduled/postponed/canceled and isn't
+  // final IS live — never bucket a halftime game as "Scheduled".
+  if (g.is_final) return { k: "final", label: "FINAL" };
+  const s = g.state || "STATUS_SCHEDULED";
+  if (/POSTPONED|CANCELED|SUSPENDED/.test(s)) return { k: "off", label: s.replace("STATUS_", "") };
+  if (s !== "STATUS_SCHEDULED" || (g.home_score + g.away_score) > 0) {
+    return { k: "live", label: g.detail || "LIVE" };
+  }
+  return { k: "sched", label: "Scheduled" };
 }
 
 function renderSlateSL(games) {
@@ -253,9 +268,8 @@ function renderSlateSL(games) {
         { hour: "numeric", minute: "2-digit" }); }
       catch (e) { tip = g.tip_utc.slice(11, 16); }
     }
-    const stateTxt = g.is_final ? "FINAL"
-      : (g.state === "STATUS_IN_PROGRESS" ? "LIVE" : "Scheduled");
-    const score = (g.is_final || g.state === "STATUS_IN_PROGRESS")
+    const st = slState(g);
+    const score = (st.k === "final" || st.k === "live")
       ? '<span class="mono sl-final">' + g.away_score + " – " + g.home_score + "</span>"
       : '<span class="mono sl-sched">—</span>';
     const pickCell = g.pick
@@ -275,9 +289,9 @@ function renderSlateSL(games) {
       '<td class="mono">' + tip + "</td>" +
       "<td>" + pickCell + "</td>" +
       "<td>" + probCell + "</td>" +
-      "<td>" + (g.is_final ? '<span class="res-w">' + stateTxt + "</span>"
-                : stateTxt === "LIVE" ? '<span style="color:var(--accent)">LIVE</span>'
-                : '<span class="sl-sched">' + stateTxt + "</span>") + "</td>" +
+      "<td>" + (st.k === "final" ? '<span class="res-w">FINAL</span>'
+                : st.k === "live" ? '<span class="mono" style="color:var(--accent)">● ' + st.label + "</span>"
+                : '<span class="sl-sched">' + st.label + "</span>") + "</td>" +
       "<td>" + score + verdict + "</td>";
     tb.appendChild(tr);
   });

@@ -68,6 +68,7 @@ def _fetch(league: str, d: date) -> list[dict]:
             "slate_date": d.isoformat(),
             "tip_utc": ev.get("date"),
             "state": status.get("name", "STATUS_SCHEDULED"),
+            "detail": status.get("shortDetail", ""),
             "is_final": bool(status.get("completed")),
             "away": sides["away"]["team"].get("displayName"),
             "home": sides["home"]["team"].get("displayName"),
