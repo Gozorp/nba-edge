@@ -282,14 +282,26 @@
   "n_eval": 22912,
   "split": "2025-08-01",
   "mae": {
-   "pts": 4.762,
-   "reb": 1.951,
-   "ast": 1.434
+   "pts": 4.769,
+   "reb": 1.948,
+   "ast": 1.434,
+   "stl": 0.773,
+   "fg3m": 0.959
   },
   "baseline_mae": {
    "pts": 4.926,
    "reb": 2.012,
-   "ast": 1.466
+   "ast": 1.466,
+   "stl": 0.805,
+   "fg3m": 0.987
+  },
+  "method": {
+   "pts": "model",
+   "reb": "model",
+   "ast": "model",
+   "stl": "model",
+   "blk": "baseline_r7",
+   "fg3m": "model"
   }
  }
 }

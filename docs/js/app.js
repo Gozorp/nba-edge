@@ -33,9 +33,9 @@ async function boot() {
   try {
     const pm = (MANIFEST.props || {});
     if (pm.mae && $("props-mae")) $("props-mae").textContent =
-      "PTS MAE " + pm.mae.pts + " (naive " + pm.baseline_mae.pts + "), REB "
-      + pm.mae.reb + " (" + pm.baseline_mae.reb + "), AST "
-      + pm.mae.ast + " (" + pm.baseline_mae.ast + ")";
+      Object.keys(pm.mae).map((k) =>
+        k.toUpperCase() + " MAE " + pm.mae[k] + " (naive " + pm.baseline_mae[k] + ")"
+      ).join(" · ");
   } catch (e) { /* cosmetic */ }
   $("built-at").textContent = " · data built " + (MANIFEST.built_at || "").slice(0, 10);
   const initial = MANIFEST.dates[0];
@@ -308,28 +308,34 @@ async function loadProps(date, deepRow) {
   // and group stat pairs under a two-tier header (proj | act per stat).
   const byTeam = {};
   rows.forEach((r) => (byTeam[r.abbr] = byTeam[r.abbr] || []).push(r));
+  const STATS = [["pts", "PTS"], ["reb", "REB"], ["ast", "AST"],
+                 ["fg3m", "3PM"], ["stl", "STL"], ["blk", "BLK"]];
+  const methods = ((MANIFEST || {}).props || {}).method || {};
+  const label = (k, n) => n + (methods[k] === "baseline_r7" ? " †" : "");
+  const nCols = 1 + STATS.length * 2;
   const playerRow = (r) =>
     "<tr><td class='pn'>" + r.player + "</td>"
-    + "<td class='props-proj gs'>" + r.proj.pts.toFixed(1) + "</td><td class='props-act'>" + r.actual.pts + "</td>"
-    + "<td class='props-proj gs'>" + r.proj.reb.toFixed(1) + "</td><td class='props-act'>" + r.actual.reb + "</td>"
-    + "<td class='props-proj gs'>" + r.proj.ast.toFixed(1) + "</td><td class='props-act'>" + r.actual.ast + "</td></tr>";
+    + STATS.map(([k]) =>
+        "<td class='props-proj gs'>" + (r.proj[k] != null ? r.proj[k].toFixed(1) : "—")
+        + "</td><td class='props-act'>" + (r.actual[k] != null ? r.actual[k] : "—") + "</td>"
+      ).join("") + "</tr>";
   const body = Object.keys(byTeam).map((team) =>
-    "<tr class='props-team'><td colspan='7'>" + team + "</td></tr>"
+    "<tr class='props-team'><td colspan='" + nCols + "'>" + team + "</td></tr>"
     + byTeam[team]
         .sort((a, b) => b.proj.pts - a.proj.pts)
         .slice(0, 5)
         .map(playerRow).join("")
   ).join("");
+  const note = Object.values(methods).includes("baseline_r7")
+    ? "<div class='props-note'>† trailing-7 average — learned model excluded by the baseline gate</div>"
+    : "";
   slot.outerHTML =
     "<table class='props-table'><thead>"
     + "<tr><th class='ph' rowspan='2'>Player</th>"
-    + "<th class='gh gs' colspan='2'>Points</th>"
-    + "<th class='gh gs' colspan='2'>Rebounds</th>"
-    + "<th class='gh gs' colspan='2'>Assists</th></tr>"
-    + "<tr><th class='gs'>proj</th><th>act</th>"
-    + "<th class='gs'>proj</th><th>act</th>"
-    + "<th class='gs'>proj</th><th>act</th></tr>"
-    + "</thead><tbody>" + body + "</tbody></table>";
+    + STATS.map(([k, n]) => "<th class='gh gs' colspan='2'>" + label(k, n) + "</th>").join("")
+    + "</tr><tr>"
+    + STATS.map(() => "<th class='gs'>proj</th><th>act</th>").join("")
+    + "</tr></thead><tbody>" + body + "</tbody></table>" + note;
   box.dataset.loaded = "1";
 }
 

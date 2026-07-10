@@ -126,11 +126,12 @@ tr.deep.open{display:table-row}
 .fv{font-family:var(--mono);font-size:.72rem;width:56px;text-align:right}
 .deep-meta div{margin:4px 0;font-size:.8rem;color:var(--muted)}
 .props-box{grid-column:1 / -1}
-.props-table{border-collapse:collapse;font-size:.78rem;margin-top:6px;max-width:680px;width:100%}
+.props-table{border-collapse:collapse;font-size:.74rem;margin-top:6px;max-width:960px;width:100%}
 .props-table th{font-family:var(--mono);font-size:.6rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);padding:4px 10px;border-bottom:1px solid var(--border);text-align:center}
 .props-table th.gh{color:var(--text);border-bottom:none;padding-top:6px}
 .props-table th.ph,.props-table td.pn{text-align:left;width:38%}
-.props-table td{padding:5px 10px;border-bottom:1px solid var(--bg-elev2);text-align:center;font-variant-numeric:tabular-nums;min-width:52px}
+.props-table td{padding:4px 7px;border-bottom:1px solid var(--bg-elev2);text-align:center;font-variant-numeric:tabular-nums;min-width:40px}
+.props-note{color:var(--muted);font-size:.68rem;margin-top:6px;font-family:var(--mono)}
 .props-table .pn{color:var(--text);font-weight:600}
 .props-table .gs{border-left:1px solid var(--border)}
 .props-proj{color:var(--accent)} .props-act{color:var(--text);font-weight:600}
@@ -293,8 +294,11 @@ footer{border-top:1px solid var(--border);padding:26px 0 60px;color:var(--muted)
     <div class="glossary-row"><span class="term">PLAYER PROPS</span><span class="def">
       Per-player projections (points / rebounds / assists) from dedicated XGBoost
       models over trailing form, usage, rest, archetype, and opponent context.
+      Six markets: points, rebounds, assists, threes, steals, blocks.
       Trained through 2024-25 only; verified on 2025-26: <span id="props-mae">—</span>.
-      Every projection beats the naive trailing-7-average baseline or it doesn't ship.</span></div>
+      A market ships a learned model only if it beats the naive trailing-7-average
+      baseline; markets that can't (currently blocks) publish the baseline itself,
+      marked with †.</span></div>
     <div class="glossary-row"><span class="term">RESULT</span><span class="def">
       Final score verification — every archived pick is graded against what actually
       happened. Nothing is retroactively edited.</span></div>
@@ -312,6 +316,6 @@ footer{border-top:1px solid var(--border);padding:26px 0 60px;color:var(--muted)
   </div>
 </footer>
 
-<script src="js/app.js?v=14"></script>
+<script src="js/app.js?v=15"></script>
 </body>
 </html>

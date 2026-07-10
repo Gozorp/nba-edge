@@ -131,7 +131,7 @@ def compute_player_pi() -> pd.DataFrame:
     pb["reb"] = pb["oreb"] + pb["dreb"]           # prop targets
     out_cols = ["bref_game_id", "player_id", "player", "abbr", "mp",
                 "exposure_poss", "pi", "pi_off", "pi_def", "pts", "reb",
-                "ast", "usg_pct", "ts_pct"]
+                "ast", "stl", "blk", "fg3m", "usg_pct", "ts_pct"]
     out = pb[out_cols].copy()
     out.to_parquet(PROCESSED_DIR / "player_pi.parquet", index=False)
     print(f"[PI] scored {len(out)} player-games "
@@ -182,7 +182,7 @@ def build_player_matrix() -> pd.DataFrame:
     df = df.sort_values(["player_id", "season", "game_date"]).reset_index(drop=True)
     df = add_rolling(df, ["player_id", "season"],
                      ["pi", "pi_off", "pi_def", "mp", "usg_pct", "ts_pct",
-                      "pts", "reb", "ast"])
+                      "pts", "reb", "ast", "stl", "blk", "fg3m"])
     df["rest_days"] = df.groupby(["player_id", "season"], observed=True)[
         "game_date"].transform(_rest_days)
 
@@ -193,9 +193,10 @@ def build_player_matrix() -> pd.DataFrame:
 
     feature_cols = (
         [f"{c}_r{w}" for c in ("pi", "pi_off", "pi_def", "mp", "usg_pct",
-                               "ts_pct", "pts", "reb", "ast") for w in (3, 7)]
+                               "ts_pct", "pts", "reb", "ast",
+                               "stl", "blk", "fg3m") for w in (3, 7)]
         + [f"{c}_std" for c in ("pi", "mp", "usg_pct", "ts_pct", "pts",
-                                "reb", "ast")]
+                                "reb", "ast", "stl", "blk", "fg3m")]
         + ["rest_days", "is_home", "opp_def_rtg_std", "opp_net_rtg_std",
            "opp_pace_r7", "cluster"]
     )

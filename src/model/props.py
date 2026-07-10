@@ -28,7 +28,8 @@ sys.path.append(str(Path(__file__).resolve().parents[2]))
 from config import EARLY_STOPPING_ROUNDS, PROCESSED_DIR, REPO_ROOT, XGB_SEED
 
 SPLIT = pd.Timestamp("2025-08-01")
-TARGETS = {"player_pts": "pts", "player_reb": "reb", "player_ast": "ast"}
+TARGETS = {"player_pts": "pts", "player_reb": "reb", "player_ast": "ast",
+           "player_stl": "stl", "player_blk": "blk", "player_fg3m": "fg3m"}
 OUT_DIR = REPO_ROOT / "docs" / "data"
 
 PARAMS = {
@@ -37,6 +38,11 @@ PARAMS = {
     "subsample": 0.8, "colsample_bytree": 0.8,
     "tree_method": "hist", "seed": XGB_SEED,
 }
+# Sparse counting stats are Poisson-distributed; squared error over-smooths
+# them. Per-target objective overrides:
+TARGET_PARAMS = {"stl": {"objective": "count:poisson"},
+                 "blk": {"objective": "count:poisson"},
+                 "fg3m": {"objective": "count:poisson"}}
 
 
 def _load() -> tuple[pd.DataFrame, list[str]]:
@@ -47,7 +53,7 @@ def _load() -> tuple[pd.DataFrame, list[str]]:
     return df, cols
 
 
-def train_props() -> dict:
+def train_props(only: list[str] | None = None) -> dict:
     from src.model.registry import save_model
 
     df, cols = _load()
@@ -60,15 +66,18 @@ def train_props() -> dict:
     cut = int(len(tr) * 0.9)
 
     report: dict = {"n_train": int(len(tr)), "n_eval": int(len(ev)),
-                    "split": str(SPLIT.date()), "mae": {}, "baseline_mae": {}}
+                    "split": str(SPLIT.date()), "mae": {}, "baseline_mae": {},
+                    "skipped": []}
     preds: dict[str, np.ndarray] = {}
-    for kind, tgt in TARGETS.items():
+    todo = {k: t for k, t in TARGETS.items() if only is None or t in only}
+    for kind, tgt in todo.items():
         dtr = xgb.DMatrix(tr[cols].iloc[:cut], label=tr[tgt].iloc[:cut],
                           feature_names=cols)
         dva = xgb.DMatrix(tr[cols].iloc[cut:], label=tr[tgt].iloc[cut:],
                           feature_names=cols)
         dev = xgb.DMatrix(ev[cols], feature_names=cols)
-        bst = xgb.train(PARAMS, dtr, num_boost_round=2000,
+        params = PARAMS | TARGET_PARAMS.get(tgt, {})
+        bst = xgb.train(params, dtr, num_boost_round=2000,
                         evals=[(dva, "va")],
                         early_stopping_rounds=EARLY_STOPPING_ROUNDS,
                         verbose_eval=False)
@@ -76,12 +85,18 @@ def train_props() -> dict:
         y = ev[tgt].to_numpy(np.float64)
         mae = float(np.abs(p - y).mean())
         base = float(np.abs(ev[f"{tgt}_r7"].to_numpy(np.float64) - y).mean())
-        assert mae < base, f"FATAL: {kind} does not beat trailing-mean baseline"
+        if mae >= base:
+            # the ship-gate: a market that cannot beat the naive trailing
+            # average is excluded, loudly, rather than dressed up.
+            report["skipped"].append({"target": tgt, "mae": round(mae, 3),
+                                      "baseline_mae": round(base, 3)})
+            print(f"[props:{tgt}] EXCLUDED — MAE {mae:.3f} >= baseline {base:.3f}")
+            continue
         report["mae"][tgt] = round(mae, 3)
         report["baseline_mae"][tgt] = round(base, 3)
         preds[tgt] = p
         save_model(bst, {
-            "kind": kind, "params": PARAMS, "feature_cols": cols,
+            "kind": kind, "params": params, "feature_cols": cols,
             "n_train": int(cut), "best_iteration": int(bst.best_iteration),
             "train_span": [str(tr["game_date"].iloc[0].date()),
                            str(tr["game_date"].iloc[cut - 1].date())],
@@ -93,11 +108,37 @@ def train_props() -> dict:
         print(f"[props:{tgt}] eval MAE {mae:.3f} vs baseline {base:.3f} "
               f"(iter {bst.best_iteration})")
 
-    # ---- site export: per-date, per-game projections vs actuals ------------
-    out = ev[["game_date", "bref_game_id", "player", "abbr", "mp",
-              "pts", "reb", "ast"]].copy()
+    return report
+
+
+def export_props() -> None:
+    """Write props_{date}.json for the eval season from PROMOTED models.
+
+    Markets whose model was gate-excluded (couldn't beat the trailing-7
+    baseline) are published WITH the baseline itself as the projection and
+    flagged in manifest.props.method — an honest number beats a missing one.
+    """
+    from src.model.registry import current_version, load_model
+
+    df, cols = _load()
+    ev = df[df["game_date"] >= SPLIT]
+    method: dict[str, str] = {}
+    proj: dict[str, np.ndarray] = {}
+    dev = xgb.DMatrix(ev[cols], feature_names=cols)
+    for kind, tgt in TARGETS.items():
+        if current_version(kind):
+            bst, meta = load_model(kind)
+            proj[tgt] = bst.predict(
+                dev, iteration_range=(0, meta.get("best_iteration", 0) + 1))
+            method[tgt] = "model"
+        else:
+            proj[tgt] = ev[f"{tgt}_r7"].to_numpy(np.float64)
+            method[tgt] = "baseline_r7"
+
+    out = ev[["game_date", "bref_game_id", "player", "abbr", "mp"]
+             + list(TARGETS.values())].copy()
     for tgt in TARGETS.values():
-        out[f"proj_{tgt}"] = np.round(preds[tgt], 1)
+        out[f"proj_{tgt}"] = np.round(np.clip(proj[tgt], 0, None), 1)
     n_files = 0
     for iso, day in out.groupby(out["game_date"].dt.strftime("%Y-%m-%d")):
         games: dict[str, list] = {}
@@ -106,10 +147,8 @@ def train_props() -> dict:
             games[str(gid)] = [{
                 "player": r["player"], "abbr": r["abbr"],
                 "mp": round(float(r["mp"]), 1),
-                "proj": {"pts": float(r["proj_pts"]), "reb": float(r["proj_reb"]),
-                         "ast": float(r["proj_ast"])},
-                "actual": {"pts": int(r["pts"]), "reb": int(r["reb"]),
-                           "ast": int(r["ast"])},
+                "proj": {t: float(r[f"proj_{t}"]) for t in TARGETS.values()},
+                "actual": {t: int(r[t]) for t in TARGETS.values()},
             } for _, r in gframe.iterrows()]
         (OUT_DIR / f"props_{iso}.json").write_text(
             json.dumps({"date": iso, "games": games}, indent=0))
@@ -117,11 +156,22 @@ def train_props() -> dict:
 
     mpath = OUT_DIR / "manifest.json"
     manifest = json.loads(mpath.read_text())
-    manifest["props"] = report
+    props_block = manifest.get("props", {})
+    props_block["method"] = method
+    # refresh mae blocks from the promoted models' stored holdout metrics
+    mae, base = {}, {}
+    for kind, tgt in TARGETS.items():
+        if current_version(kind):
+            _, meta = load_model(kind)
+            hm = meta.get("holdout_metrics", {})
+            if "mae" in hm:
+                mae[tgt] = hm["mae"]; base[tgt] = hm.get("baseline_mae")
+    props_block["mae"], props_block["baseline_mae"] = mae, base
+    manifest["props"] = props_block
     mpath.write_text(json.dumps(manifest, indent=1))
-    print(f"[props] {n_files} prop files; manifest updated")
-    return report
+    print(f"[props] exported {n_files} files; methods={method}")
 
 
 if __name__ == "__main__":
     train_props()
+    export_props()
