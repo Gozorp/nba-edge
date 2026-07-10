@@ -21,7 +21,7 @@ function setStatus(msg) { $("status").textContent = msg || ""; }
    <body>), falls back to DOMContentLoaded otherwise — immune to load-order
    races. Each init is isolated so one failure cannot kill the rest. */
 async function boot() {
-  const inits = [initTheme, initVisits, initDrawer, initHelp, initPicker, initChips, initXfade, initLeagueToggle];
+  const inits = [initTheme, initVisits, initDrawer, initHelp, initPicker, initChips, initXfade, initLeagueToggle, initRadarTip];
   for (const f of inits) { try { f(); } catch (e) { console.error("[nbaedge]", f.name, e); } }
   if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("sw.js").catch(() => {});
@@ -168,6 +168,7 @@ async function loadSlate(date, { bust = false } = {}) {
 }
 
 function renderSlateSL(games) {
+  $("card-grid").style.display = "none";
   const tb = $("slate-body");
   tb.innerHTML = "";
   $("slate").style.display = games.length ? "table" : "none";
@@ -223,75 +224,179 @@ function applyFilter(games) {
 }
 
 function renderSlate(games) {
-  const tb = $("slate-body");
-  tb.innerHTML = "";
-  $("slate").style.display = games.length ? "table" : "none";
+  // NBA mode renders the card grid; the table is Summer League's.
+  $("slate").style.display = "none";
+  const grid = $("card-grid");
+  grid.innerHTML = "";
+  grid.style.display = games.length ? "grid" : "none";
   $("empty").style.display = games.length ? "none" : "block";
+  const rm = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+
   games.forEach((g, i) => {
-    const tr = document.createElement("tr");
-    tr.className = "row-clickable";
-    const pickProbPct = (g.pick_prob * 100).toFixed(1);
+    const card = document.createElement("div");
+    card.className = "game-card glass" + (g.grade === "A" || g.grade === "A-" ? " alit" : "");
+    const p = g.pick_prob;
+    const R = 26, C = 2 * Math.PI * R;
     const res = g.result;
-    const finalScore = res ? (res.margin_home > 0 ? "W " : "L ") + "by " + Math.abs(res.margin_home) : "—";
-    const resCell = res
+    const resTxt = res
       ? (res.pick_correct ? '<span class="res-w">✓ HIT</span>' : '<span class="res-l">✗ MISS</span>')
-        + ' <span class="mono" style="color:var(--muted);font-size:.72rem">(home ' + finalScore + ")</span>"
+        + ' <span style="color:var(--muted)">home ' + (res.margin_home > 0 ? "W" : "L")
+        + " by " + Math.abs(res.margin_home) + "</span>"
       : '<span class="res-pend">pending</span>';
-    tr.innerHTML =
-      '<td><span class="grade ' + gradeClass(g.grade) + '">' + g.grade + "</span></td>" +
-      "<td><b>" + g.away_abbr + "</b> @ <b>" + g.home_abbr + "</b>" +
-      (g.season_type === "Playoffs" ? ' <span class="mono" style="color:var(--accent);font-size:.66rem">PO</span>' : "") + "</td>" +
-      '<td class="mono"><b>' + g.pick + "</b></td>" +
-      '<td class="prob-cell"><span class="mono">' + pickProbPct + '%</span>' +
-      '<div class="prob-bar"><i style="width:' + pickProbPct + '%"></i></div></td>' +
-      '<td class="mono">' + fmtML(g.fair_ml_home) + " / " + fmtML(g.fair_ml_away) + "</td>" +
-      '<td class="mono">' + (g.pred_margin_home > 0 ? "H −" : "A −") + Math.abs(g.pred_margin_home).toFixed(1) + "</td>" +
-      "<td>" + resCell + "</td>";
-    const deep = document.createElement("tr");
-    deep.className = "deep";
-    deep.innerHTML = '<td colspan="7"><div class="deep-inner">' + deepPanel(g)
+    // underdog edge: confident road call gets the pulse
+    const pulse = (g.pick === g.away_abbr && p >= 0.55 && !rm) ? " pulse" : "";
+    card.innerHTML =
+      '<div class="gc-top"><div><div class="gc-matchup">' + g.away_abbr
+      + ' @ ' + g.home_abbr
+      + (g.season_type === "Playoffs" ? ' <span class="po">PO</span>' : "") + "</div>"
+      + '<div class="gc-sub">' + g.away + " at " + g.home + "</div></div>"
+      + '<div class="gc-dial' + (p >= 0.6 ? " hot" : "") + '">'
+      + '<svg width="64" height="64" viewBox="0 0 64 64">'
+      + '<circle class="ring" cx="32" cy="32" r="' + R + '"/>'
+      + '<circle class="arc" cx="32" cy="32" r="' + R + '" stroke-dasharray="' + C.toFixed(1)
+      + '" stroke-dashoffset="' + C.toFixed(1) + '"/></svg>'
+      + '<span class="pct">0%</span></div></div>'
+      + '<div class="gc-verdict"><span class="verdict-tag' + pulse + '">' + g.pick + "</span>"
+      + '<span class="grade ' + gradeClass(g.grade) + '">' + g.grade + "</span>"
+      + '<span class="gc-line">' + fmtML(g.fair_ml_home) + " / " + fmtML(g.fair_ml_away)
+      + " · " + (g.pred_margin_home > 0 ? "H" : "A") + " −"
+      + Math.abs(g.pred_margin_home).toFixed(1) + "</span>"
+      + '<span class="gc-res">' + resTxt + "</span></div>"
+      + '<div class="card-deep"><div class="deep-inner">' + deepPanel(g)
       + '<div class="props-box" data-gid="' + g.game_id + '">'
-      + '<div class="deep-h">Player props — projection vs actual</div>'
-      + '<div class="props-slot mono" style="color:var(--muted);font-size:.75rem">click to load…</div>'
-      + "</div></div></td>";
-    tr.onclick = () => {
-      deep.classList.toggle("open");
-      if (deep.classList.contains("open")) loadProps(CURRENT.date, deep);
-    };
-    tb.appendChild(tr); tb.appendChild(deep);
+      + '<div class="deep-h">Player telemetry — projected vs actual</div>'
+      + '<div class="props-slot mono" style="color:var(--muted);font-size:.75rem">…</div>'
+      + "</div></div></div>";
+
+    card.addEventListener("click", (e) => {
+      if (e.target.closest(".card-deep")) return;   // interacting with content
+      const opening = !card.classList.contains("open");
+      card.classList.toggle("open");
+      if (opening) {
+        card.querySelectorAll(".wf-seg").forEach((s, j) =>
+          setTimeout(() => s.classList.add("on"), rm ? 0 : 90 + j * 120));
+        loadProps(CURRENT.date, card);
+      }
+    });
+    grid.appendChild(card);
+
+    // dial spin-up (next frame so the transition engages)
+    const arc = card.querySelector(".arc");
+    const pct = card.querySelector(".pct");
+    const target = C * (1 - p);
+    if (rm) { arc.style.strokeDashoffset = target; pct.textContent = (p * 100).toFixed(1) + "%"; }
+    else {
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        arc.style.strokeDashoffset = target;
+      }));
+      const t0 = performance.now();
+      (function tick(t) {
+        const k = Math.min(1, (t - t0) / 950);
+        pct.textContent = (p * 100 * (k < 1 ? k : 1)).toFixed(1) + "%";
+        if (k < 1) requestAnimationFrame(tick);
+      })(t0);
+    }
   });
 }
 
 function deepPanel(g) {
-  const maxImpact = Math.max(4, ...g.factors.map(f => Math.abs(f.impact_pp)));
-  const bars = g.factors.map(f => {
-    const w = Math.min(50, Math.abs(f.impact_pp) / maxImpact * 50);
-    const cls = f.impact_pp >= 0 ? "pos" : "neg";
-    return '<div class="factor"><span class="fl">' + f.label + "</span>" +
-      '<span class="fbar"><i class="' + cls + '" style="width:' + w + '%"></i></span>' +
-      '<span class="fv">' + (f.impact_pp >= 0 ? "+" : "") + f.impact_pp.toFixed(1) + " pp</span></div>";
+  // Horizontal waterfall: segments build the cumulative top-factor total.
+  const fs = g.factors || [];
+  const maxAbs = Math.max(2, ...fs.map(f => Math.abs(f.impact_pp)));
+  let run = 0;
+  const span = maxAbs * 2.6;                       // px-free: percent scale
+  const segs = fs.map((f) => {
+    const a = run, b = run + f.impact_pp;
+    run = b;
+    const lo = Math.min(a, b), hi = Math.max(a, b);
+    const left = 50 + (lo / span) * 100, width = ((hi - lo) / span) * 100;
+    return '<div class="wf-row"><span class="wf-label">' + f.label + "</span>"
+      + '<span class="wf-track"><span class="wf-zero" style="left:50%"></span>'
+      + '<span class="wf-seg ' + (f.impact_pp >= 0 ? "pos" : "neg")
+      + '" style="left:' + left.toFixed(2) + "%;width:" + Math.max(1.2, width).toFixed(2) + '%"></span></span>'
+      + '<span class="wf-val" style="color:' + (f.impact_pp >= 0 ? "var(--green)" : "var(--red)") + '">'
+      + (f.impact_pp >= 0 ? "+" : "") + f.impact_pp.toFixed(1) + " pp</span></div>";
   }).join("");
+  const sum = fs.reduce((s, f) => s + f.impact_pp, 0);
   return (
-    "<div><div class='deep-h'>Why — top factors (SHAP, → home)</div>" + bars + "</div>" +
-    "<div class='deep-meta'><div class='deep-h'>Game meta</div>" +
-    "<div>Matchup: <b>" + g.away + " @ " + g.home + "</b></div>" +
-    "<div>Model home win prob: <b>" + (g.p_home * 100).toFixed(1) + "%</b></div>" +
-    "<div>Fair line: <b>" + fmtML(g.fair_ml_home) + " home / " + fmtML(g.fair_ml_away) + " away</b></div>" +
-    "<div>Projected margin: <b>home " + (g.pred_margin_home > 0 ? "+" : "") + g.pred_margin_home.toFixed(1) + "</b></div>" +
-    "<div>Tier: <b>" + g.tier + "</b> · " + g.season_type + "</div>" +
-    "<div class='mono' style='font-size:.68rem'>id " + g.game_id + "</div></div>"
+    "<div class='wf'><div class='deep-h'>Why — top-factor waterfall (SHAP, → home)</div>"
+    + segs
+    + "<div class='wf-row wf-sum'><span class='wf-label'>Σ top factors</span><span></span>"
+    + "<span class='wf-val' style='color:" + (sum >= 0 ? "var(--green)" : "var(--red)") + "'>"
+    + (sum >= 0 ? "+" : "") + sum.toFixed(1) + " pp</span></div></div>"
+    + "<div class='deep-meta'><div class='deep-h'>Game meta</div>"
+    + "<div>Model home win prob: <b>" + (g.p_home * 100).toFixed(1) + "%</b></div>"
+    + "<div>Fair line: <b>" + fmtML(g.fair_ml_home) + " home / " + fmtML(g.fair_ml_away) + " away</b></div>"
+    + "<div>Projected margin: <b>home " + (g.pred_margin_home > 0 ? "+" : "") + g.pred_margin_home.toFixed(1) + "</b></div>"
+    + "<div>Tier: <b>" + g.tier + "</b> · " + g.season_type + "</div>"
+    + "<div class='mono' style='font-size:.68rem'>id " + g.game_id + "</div></div>"
   );
 }
 
-/* ---------- player props (lazy per-date) ---------- */
+/* ---------- player props (lazy per-date) ---------- *//* ---------- player props (lazy per-date) ---------- */
 const PROPS_CACHE = {};
-async function loadProps(date, deepRow) {
-  const box = deepRow.querySelector(".props-box");
-  const slot = deepRow.querySelector(".props-slot");
+const RADAR_AXES = [["pts", "PTS", 40], ["reb", "REB", 16], ["ast", "AST", 12],
+                    ["fg3m", "3PM", 6], ["stl", "STL", 4], ["blk", "BLK", 4]];
+
+function radarSVG(r) {
+  // hexagonal radar, 120x120 viewBox, proj polygon (accent) vs actual (green)
+  const cx = 60, cy = 62, R = 44, n = RADAR_AXES.length;
+  const angle = (i) => -Math.PI / 2 + (i * 2 * Math.PI) / n;
+  const px = (i, v, max) => {
+    const k = Math.min(1, Math.max(0, v / max));
+    return [(cx + Math.cos(angle(i)) * R * k).toFixed(1),
+            (cy + Math.sin(angle(i)) * R * k).toFixed(1)];
+  };
+  const ring = (k) => RADAR_AXES.map((_, i) =>
+    [(cx + Math.cos(angle(i)) * R * k).toFixed(1),
+     (cy + Math.sin(angle(i)) * R * k).toFixed(1)].join(",")).join(" ");
+  const poly = (get) => RADAR_AXES.map(([k, , max], i) => px(i, get(k), max).join(",")).join(" ");
+  const labels = RADAR_AXES.map(([, name], i) => {
+    const lx = cx + Math.cos(angle(i)) * (R + 9), ly = cy + Math.sin(angle(i)) * (R + 9);
+    return '<text class="r-lab" x="' + lx.toFixed(1) + '" y="' + ly.toFixed(1)
+      + '" text-anchor="middle" dominant-baseline="middle">' + name + "</text>";
+  }).join("");
+  const nodes = RADAR_AXES.map(([k, name, max], i) => {
+    const [nx, ny] = px(i, r.actual[k], max);
+    const d = (r.actual[k] - r.proj[k]);
+    return '<circle class="r-node" cx="' + nx + '" cy="' + ny + '" r="7" '
+      + 'data-tip="<b>' + r.player.split(" ").pop() + " · " + name + "</b><br>"
+      + "PROJ: " + r.proj[k].toFixed(1) + " | ACT: " + r.actual[k]
+      + " | Δ " + (d >= 0 ? "+" : "") + d.toFixed(1) + '"/>';
+  }).join("");
+  return '<svg width="138" height="132" viewBox="0 0 120 124">'
+    + [0.33, 0.66, 1].map(k => '<polygon class="r-grid" points="' + ring(k) + '"/>').join("")
+    + RADAR_AXES.map((_, i) => { const [ex, ey] = px(i, 1, 1);
+        return '<line class="r-axis" x1="' + cx + '" y1="' + cy + '" x2="' + ex + '" y2="' + ey + '"/>'; }).join("")
+    + '<polygon class="r-proj" points="' + poly(k => r.proj[k]) + '"/>'
+    + '<polygon class="r-act" points="' + poly(k => r.actual[k]) + '"/>'
+    + labels + nodes + "</svg>";
+}
+
+function initRadarTip() {
+  const tip = $("radar-tip");
+  document.addEventListener("mouseover", (e) => {
+    const n = e.target.closest && e.target.closest(".r-node");
+    if (!n) { tip.style.display = "none"; return; }
+    tip.innerHTML = n.dataset.tip;
+    tip.style.display = "block";
+  });
+  document.addEventListener("mousemove", (e) => {
+    if (tip.style.display !== "block") return;
+    const x = Math.min(e.clientX + 14, innerWidth - tip.offsetWidth - 8);
+    const y = Math.min(e.clientY + 14, innerHeight - tip.offsetHeight - 8);
+    tip.style.transform = "translate3d(" + x + "px," + y + "px,0)";
+    tip.style.left = "0"; tip.style.top = "0";
+  });
+}
+
+async function loadProps(date, cardEl) {
+  const box = cardEl.querySelector(".props-box");
+  const slot = cardEl.querySelector(".props-slot");
   if (!box || box.dataset.loaded) return;
   let payload = PROPS_CACHE[date];
   if (!payload) {
-    slot.textContent = "loading projections…";
+    slot.textContent = "loading telemetry…";
     try {
       const r = await fetch("data/props_" + date + ".json");
       payload = r.ok ? await r.json() : null;
@@ -304,38 +409,18 @@ async function loadProps(date, deepRow) {
     box.dataset.loaded = "1";
     return;
   }
-  // Organize: block by team, sort by projected points inside each block,
-  // and group stat pairs under a two-tier header (proj | act per stat).
-  const byTeam = {};
-  rows.forEach((r) => (byTeam[r.abbr] = byTeam[r.abbr] || []).push(r));
-  const STATS = [["pts", "PTS"], ["reb", "REB"], ["ast", "AST"],
-                 ["fg3m", "3PM"], ["stl", "STL"], ["blk", "BLK"]];
   const methods = ((MANIFEST || {}).props || {}).method || {};
-  const label = (k, n) => n + (methods[k] === "baseline_r7" ? " †" : "");
-  const nCols = 1 + STATS.length * 2;
-  const playerRow = (r) =>
-    "<tr><td class='pn'>" + r.player + "</td>"
-    + STATS.map(([k]) =>
-        "<td class='props-proj gs'>" + (r.proj[k] != null ? r.proj[k].toFixed(1) : "—")
-        + "</td><td class='props-act'>" + (r.actual[k] != null ? r.actual[k] : "—") + "</td>"
-      ).join("") + "</tr>";
-  const body = Object.keys(byTeam).map((team) =>
-    "<tr class='props-team'><td colspan='" + nCols + "'>" + team + "</td></tr>"
-    + byTeam[team]
-        .sort((a, b) => b.proj.pts - a.proj.pts)
-        .slice(0, 5)
-        .map(playerRow).join("")
-  ).join("");
-  const note = Object.values(methods).includes("baseline_r7")
-    ? "<div class='props-note'>† trailing-7 average — learned model excluded by the baseline gate</div>"
-    : "";
+  const cells = rows.slice(0, 12).map((r) =>
+    '<div class="radar-cell"><div class="radar-name">' + r.player + "</div>"
+    + '<div class="radar-team">' + r.abbr + " · " + r.mp.toFixed(0) + " min</div>"
+    + radarSVG(r) + "</div>").join("");
+  const dagger = Object.values(methods).includes("baseline_r7")
+    ? " · † BLK proj = trailing-7 avg (model gate)" : "";
   slot.outerHTML =
-    "<table class='props-table'><thead>"
-    + "<tr><th class='ph' rowspan='2'>Player</th>"
-    + STATS.map(([k, n]) => "<th class='gh gs' colspan='2'>" + label(k, n) + "</th>").join("")
-    + "</tr><tr>"
-    + STATS.map(() => "<th class='gs'>proj</th><th>act</th>").join("")
-    + "</tr></thead><tbody>" + body + "</tbody></table>" + note;
+    '<div class="radar-grid">' + cells + "</div>"
+    + '<div class="radar-legend"><span><i style="background:var(--accent)"></i>projected</span>'
+    + '<span><i style="background:var(--green)"></i>actual</span>'
+    + '<span>hover nodes for exact deltas' + dagger + "</span></div>";
   box.dataset.loaded = "1";
 }
 

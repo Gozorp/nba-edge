@@ -7,6 +7,9 @@
 <meta name="description" content="Daily NBA slate predictions with graded picks, fair odds, and SHAP factor analysis.">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="manifest" href="manifest.json">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&display=swap" rel="stylesheet">
 <script type="speculationrules">
 { "prerender": [ { "urls": ["/MLB-edges/"] } ],
   "prefetch":  [ { "urls": ["/MLB-edges/"] } ] }
@@ -16,11 +19,13 @@
   --bg:#0b0e13; --bg-elev:#141a23; --bg-elev2:#1a2230; --text:#e8edf4;
   --muted:#8b98ab; --border:#243040; --accent:#f0803c; --green:#3fb950;
   --yellow:#d29922; --orange:#db6d28; --red:#f85149;
-  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --mono:"Fira Code",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --glass:rgba(20,20,22,.6); --glass-line:rgba(255,255,255,.05);
 }
 body[data-theme="courtside"]{
   --bg:#f4efe7; --bg-elev:#ffffff; --bg-elev2:#efe7d9; --text:#191512;
   --muted:#6d6156; --border:#d8cbb8; --accent:#c2410c;
+  --glass:rgba(255,255,255,.55); --glass-line:rgba(0,0,0,.07);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 /* Smooth cross-site transition (NBA edge <-> MLB edge, same origin) */
@@ -35,7 +40,17 @@ body.xfade-leave{opacity:0;transition:opacity .18s ease}
   body.xfade-leave{transition:none;opacity:1}
 }
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font:15px/1.55 "Segoe UI",system-ui,sans-serif;transition:background .2s}
+body{color:var(--text);font:15px/1.55 "Segoe UI",system-ui,sans-serif;transition:background .2s;
+  background:radial-gradient(1400px 900px at 22% -12%, #182031 0%, #0d1119 46%, #090c11 100%) fixed}
+body[data-theme="courtside"]{background:radial-gradient(1400px 900px at 22% -12%, #fffdf8 0%, #f4efe7 55%, #e9e1d2 100%) fixed}
+/* carbon weave: ultra-subtle texture in the negative space */
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Cpath d='M0 0h7v7H0zM7 7h7v7H7z' fill='%23ffffff' fill-opacity='.28'/%3E%3C/svg%3E")}
+body[data-theme="courtside"]::before{opacity:.04;filter:invert(1)}
+/* ---------- glass panels ---------- */
+.glass{background:var(--glass);backdrop-filter:blur(14px) saturate(1.15);
+  -webkit-backdrop-filter:blur(14px) saturate(1.15);border-radius:14px;
+  box-shadow:inset 0 0 0 1px var(--glass-line), 0 12px 34px rgba(0,0,0,.35)}
 .wrap{max-width:1080px;margin:0 auto;padding:0 18px}
 
 /* ---------- header ---------- */
@@ -138,6 +153,81 @@ tr.deep.open{display:table-row}
 .props-team td{background:var(--bg-elev2);color:var(--muted);font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;text-align:left;padding:3px 10px;border-bottom:none}
 .deep-meta b{color:var(--text)}
 #empty{color:var(--muted);padding:40px 0;text-align:center;display:none}
+
+/* ---------- matchup card grid ---------- */
+#card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px;margin-top:14px}
+.game-card{position:relative;padding:16px 18px 14px;cursor:pointer;
+  transition:transform .16s cubic-bezier(.2,.8,.3,1.2), box-shadow .16s;will-change:transform}
+.game-card:hover{transform:translateY(-3px) scale(1.02);
+  box-shadow:inset 0 0 0 1px var(--glass-line), 0 22px 44px rgba(0,0,0,.55)}
+.game-card.open{grid-column:1 / -1;cursor:default}
+/* edge-lit border for A-grade picks: neon gradient fading downward */
+.game-card.alit::before{content:"";position:absolute;inset:0;border-radius:14px;padding:1px;
+  background:linear-gradient(180deg, rgba(240,128,60,.95), rgba(240,128,60,.25) 55%, transparent 85%);
+  -webkit-mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.game-card.alit{box-shadow:inset 0 0 0 1px transparent, 0 0 22px rgba(240,128,60,.14), 0 12px 34px rgba(0,0,0,.35)}
+.gc-top{display:flex;align-items:flex-start;gap:10px}
+.gc-matchup{font-size:1.05rem;font-weight:700;letter-spacing:.01em}
+.gc-matchup .po{color:var(--accent);font-family:var(--mono);font-size:.6rem;vertical-align:super}
+.gc-sub{color:var(--muted);font-size:.72rem;font-family:var(--mono);margin-top:2px}
+.gc-dial{margin-left:auto;flex:none;position:relative;width:64px;height:64px}
+.gc-dial svg{transform:rotate(-90deg)}
+.gc-dial .ring{fill:none;stroke:var(--bg-elev2);stroke-width:5}
+.gc-dial .arc{fill:none;stroke:var(--muted);stroke-width:5;stroke-linecap:round;
+  transition:stroke-dashoffset 1s cubic-bezier(.3,.9,.35,1), stroke .3s}
+.gc-dial.hot .arc{stroke:var(--accent);filter:drop-shadow(0 0 6px rgba(240,128,60,.85))}
+.gc-dial .pct{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:.78rem;font-weight:700}
+.gc-verdict{display:flex;align-items:center;gap:10px;margin-top:12px}
+.verdict-tag{font-family:var(--mono);font-weight:800;font-size:.92rem;letter-spacing:.08em;
+  background:var(--text);color:var(--bg);padding:5px 12px;border-radius:4px}
+.verdict-tag.pulse{animation:vpulse 1.6s ease-in-out infinite}
+@keyframes vpulse{50%{transform:scale(1.05);box-shadow:0 0 14px rgba(240,128,60,.5)}}
+.gc-line{color:var(--muted);font-family:var(--mono);font-size:.74rem}
+.gc-res{margin-left:auto;font-family:var(--mono);font-size:.74rem}
+.card-deep{overflow:hidden;max-height:0;opacity:0;transition:max-height .45s cubic-bezier(.3,.8,.3,1), opacity .3s .1s}
+.game-card.open .card-deep{max-height:1400px;opacity:1}
+/* ---------- SHAP waterfall ---------- */
+.wf{margin-top:16px}
+.wf-row{display:grid;grid-template-columns:180px 1fr 84px;align-items:center;gap:10px;margin:6px 0}
+.wf-label{font-size:.76rem;color:var(--muted)}
+.wf-track{position:relative;height:14px}
+.wf-zero{position:absolute;top:-3px;bottom:-3px;width:1px;background:var(--border)}
+.wf-seg{position:absolute;top:0;height:100%;border-radius:3px;transform:scaleX(0);
+  transition:transform .34s cubic-bezier(.25,.9,.3,1)}
+.wf-seg.pos{background:linear-gradient(90deg, rgba(63,185,80,.55), var(--green));transform-origin:left}
+.wf-seg.neg{background:linear-gradient(270deg, rgba(248,81,73,.55), var(--red));transform-origin:right}
+.wf-seg.on{transform:scaleX(1)}
+.wf-val{font-family:var(--mono);font-size:.74rem;text-align:right;white-space:nowrap}
+.wf-sum{border-top:1px dashed var(--border);margin-top:8px;padding-top:8px}
+/* ---------- radar telemetry ---------- */
+.radar-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(158px,1fr));gap:12px;margin-top:10px}
+.radar-cell{padding:10px 8px 8px;text-align:center;transition:opacity .18s;border-radius:12px;
+  background:rgba(255,255,255,.02);box-shadow:inset 0 0 0 1px var(--glass-line)}
+.radar-grid:hover .radar-cell{opacity:.5}
+.radar-grid .radar-cell:hover{opacity:1}
+.radar-name{font-size:.72rem;font-weight:700;margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.radar-team{font-family:var(--mono);font-size:.6rem;color:var(--muted)}
+.radar-cell svg{display:block;margin:4px auto 0}
+.r-grid{fill:none;stroke:var(--border);stroke-width:.6}
+.r-axis{stroke:var(--border);stroke-width:.5}
+.r-lab{font-family:var(--mono);font-size:6.5px;fill:var(--muted)}
+.r-proj{fill:rgba(240,128,60,.14);stroke:var(--accent);stroke-width:1.4}
+.r-act{fill:rgba(63,185,80,.16);stroke:var(--green);stroke-width:1.4}
+.r-node{fill:transparent;r:7;cursor:crosshair}
+#radar-tip{position:fixed;z-index:500;pointer-events:none;display:none;
+  font-family:var(--mono);font-size:.7rem;line-height:1.5;padding:7px 10px;border-radius:8px;
+  background:rgba(10,12,17,.92);color:var(--text);box-shadow:0 6px 18px rgba(0,0,0,.5), inset 0 0 0 1px var(--glass-line)}
+#radar-tip b{color:var(--accent)}
+.radar-legend{display:flex;gap:14px;justify-content:flex-end;font-family:var(--mono);font-size:.64rem;color:var(--muted);margin-top:8px}
+.radar-legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+@media (prefers-reduced-motion: reduce){
+  .gc-dial .arc{transition:none}
+  .verdict-tag.pulse{animation:none}
+  .wf-seg{transition:none}
+  .game-card:hover{transform:none}
+}
 
 /* ---------- drawer ---------- */
 #side-drawer{position:fixed;top:0;right:-340px;width:330px;height:100%;background:var(--bg-elev);border-left:1px solid var(--border);z-index:200;transition:right .25s;padding:18px;overflow-y:auto}
@@ -257,6 +347,8 @@ footer{border-top:1px solid var(--border);padding:26px 0 60px;color:var(--muted)
       <b>no measurable skill</b>: <span id="sl-acc">—</span> on Summer League 2025.
       Books publish no SL lines here either. Treat every SL pick as a coin-flip lean,
       never an edge. Finals are verified below regardless.</div>
+    <div id="card-grid" style="display:none"></div>
+    <div id="radar-tip"></div>
     <table id="slate" style="display:none">
       <thead id="nba-head"><tr>
         <th>Grade</th><th>Matchup</th><th>Pick</th><th class="prob-cell">Win prob</th>
@@ -316,6 +408,6 @@ footer{border-top:1px solid var(--border);padding:26px 0 60px;color:var(--muted)
   </div>
 </footer>
 
-<script src="js/app.js?v=15"></script>
+<script src="js/app.js?v=16"></script>
 </body>
 </html>
