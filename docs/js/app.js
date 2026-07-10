@@ -160,11 +160,81 @@ async function loadSlate(date, { bust = false } = {}) {
     renderSlateSL(payload.games);
     const fin = payload.games.filter(g => g.is_final).length;
     setStatus(n + " games · " + fin + " final · " + date);
+    startSlLive(date);
   } else {
+    stopSlLive();
     renderSlate(applyFilter(payload.games));
     const hits = payload.games.filter(g => g.result && g.result.pick_correct).length;
     setStatus(n + " games · model " + hits + "/" + n + " on " + date);
   }
+}
+
+/* ---------- SL live refresh (client-side ESPN merge) ----------
+   The static sl_*.json is a snapshot from export time; live scores are
+   merged in-browser straight from ESPN's CORS-open scoreboard API and
+   re-polled every 60s while the tab is visible and games are in window. */
+let SL_TIMER = null;
+const SL_LEAGUES = ["nba-summer-las-vegas", "nba-summer-utah", "nba-summer-california"];
+
+function stopSlLive() { if (SL_TIMER) { clearInterval(SL_TIMER); SL_TIMER = null; } }
+
+function startSlLive(date) {
+  stopSlLive();
+  const games = CURRENT.games || [];
+  if (!games.length || games.every(g => g.is_final)) return;
+  const tips = games.map(g => +new Date(g.tip_utc)).filter(Number.isFinite);
+  const now = Date.now();
+  // poll only around game window: 1h before first tip -> 5h after last tip
+  if (!tips.length || now < Math.min(...tips) - 3600e3
+      || now > Math.max(...tips) + 5 * 3600e3) return;
+  const tick = () => { if (!document.hidden && MODE === "sl") refreshSlLive(date); };
+  tick();
+  SL_TIMER = setInterval(tick, 60_000);
+}
+
+async function refreshSlLive(date) {
+  const ymd = date.replaceAll("-", "");
+  const live = {};
+  await Promise.all(SL_LEAGUES.map(async (lg) => {
+    try {
+      const r = await fetch("https://site.api.espn.com/apis/site/v2/sports/basketball/"
+        + lg + "/scoreboard?dates=" + ymd, { cache: "no-store" });
+      if (!r.ok) return;
+      const j = await r.json();
+      (j.events || []).forEach((ev) => {
+        const comp = (ev.competitions || [{}])[0];
+        const sides = {};
+        (comp.competitors || []).forEach((c) => { sides[c.homeAway] = c; });
+        if (!sides.home || !sides.away) return;
+        live[ev.id] = {
+          state: ev.status.type.name,
+          is_final: !!ev.status.type.completed,
+          home_score: parseInt(sides.home.score || 0, 10),
+          away_score: parseInt(sides.away.score || 0, 10),
+        };
+      });
+    } catch (e) { /* offline: keep snapshot */ }
+  }));
+  if (MODE !== "sl" || CURRENT.date !== date) return;
+  let changed = false;
+  CURRENT.games.forEach((g) => {
+    const u = live[g.espn_id];
+    if (!u) return;
+    if (u.state !== g.state || u.home_score !== g.home_score
+        || u.away_score !== g.away_score || u.is_final !== g.is_final) {
+      changed = true;
+      Object.assign(g, u);
+      if (g.is_final && g.pick && g.pick_correct == null) {
+        const winner = g.home_score > g.away_score ? g.home_abbr : g.away_abbr;
+        g.pick_correct = g.pick === winner ? 1 : 0;
+      }
+    }
+  });
+  const fin = CURRENT.games.filter(g => g.is_final).length;
+  setStatus(CURRENT.games.length + " games · " + fin + " final · " + date
+            + (CURRENT.games.every(g => g.is_final) ? "" : " · live ⟳60s"));
+  if (CURRENT.games.every(g => g.is_final)) stopSlLive();
+  if (changed) renderSlateSL(CURRENT.games);
 }
 
 function renderSlateSL(games) {

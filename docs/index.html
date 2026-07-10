@@ -103,6 +103,7 @@ body[data-theme="courtside"] .picker input[type=date]{color-scheme:light}
 #sl-banner b{color:var(--accent)}
 .sl-final{color:var(--text);font-weight:700}
 .sl-sched{color:var(--muted)}
+#slate-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
 #quick-chips{display:flex;gap:7px;flex-wrap:wrap}
 .q-chip{background:transparent;border:1px dashed var(--border);color:var(--muted);border-radius:999px;padding:5px 11px;font-size:.72rem;cursor:pointer}
 .q-chip.on,.q-chip:hover{color:var(--accent);border-color:var(--accent)}
@@ -380,6 +381,7 @@ footer{border-top:1px solid var(--border);padding:26px 0 60px;color:var(--muted)
       never an edge. Finals are verified below regardless.</div>
     <div id="card-grid" style="display:none"></div>
     <div id="radar-tip"></div>
+    <div id="slate-wrap">
     <table id="slate" style="display:none">
       <thead id="nba-head"><tr>
         <th>Grade</th><th>Matchup</th><th>Pick</th><th class="prob-cell">Win prob</th>
@@ -391,6 +393,7 @@ footer{border-top:1px solid var(--border);padding:26px 0 60px;color:var(--muted)
       </tr></thead>
       <tbody id="slate-body"></tbody>
     </table>
+    </div>
     <div id="empty">No games match — clear filters or pick another date.</div>
   </div>
 </main>
@@ -439,6 +442,6 @@ footer{border-top:1px solid var(--border);padding:26px 0 60px;color:var(--muted)
   </div>
 </footer>
 
-<script src="js/app.js?v=17"></script>
+<script src="js/app.js?v=18"></script>
 </body>
 </html>
