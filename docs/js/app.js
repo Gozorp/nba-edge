@@ -182,13 +182,15 @@ function startSlLive(date) {
   stopSlLive();
   const games = CURRENT.games || [];
   if (!games.length || games.every(g => g.is_final)) return;
+  // Any non-final snapshot gets ONE immediate merge — this heals stale
+  // past-date exports (frozen LIVE rows) the moment they're viewed.
+  refreshSlLive(date);
   const tips = games.map(g => +new Date(g.tip_utc)).filter(Number.isFinite);
   const now = Date.now();
-  // poll only around game window: 1h before first tip -> 5h after last tip
+  // recurring poll only around the game window: 1h before first tip -> 5h after last
   if (!tips.length || now < Math.min(...tips) - 3600e3
       || now > Math.max(...tips) + 5 * 3600e3) return;
   const tick = () => { if (!document.hidden && MODE === "sl") refreshSlLive(date); };
-  tick();
   SL_TIMER = setInterval(tick, 60_000);
 }
 
