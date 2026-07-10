@@ -1,6 +1,6 @@
 pandas>=2.1
 numpy>=1.26
-pyarrow>=14.0
+pyarrow>=25.0.0
 requests>=2.31
 beautifulsoup4>=4.12
 lxml>=5.0
