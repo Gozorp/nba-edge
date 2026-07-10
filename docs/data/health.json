@@ -31,6 +31,12 @@
    "severity": "green",
    "message": "only 0 post-holdout games \u2014 below CLT floor (30)",
    "category": "model"
+  },
+  {
+   "name": "data_contracts",
+   "severity": "green",
+   "message": "424 artifacts clean",
+   "category": "data_flow"
   }
  ],
  "holdout_metrics": {
