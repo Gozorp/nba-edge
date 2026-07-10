@@ -1,0 +1,9 @@
+# Keep the pipeline's software current — the static-site equivalent of
+# "update your CMS/plugins". Dependabot opens PRs for outdated Python deps.
+version: 2
+updates:
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5

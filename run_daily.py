@@ -36,3 +36,6 @@ if __name__ == "__main__":
     a = ap.parse_args()
     daily_update(scrape=not a.no_scrape, predict=not a.no_predict,
                  force_retrain=a.force_retrain)
+    # automated daily backup rides the daily loop (see src/ops/backup.py)
+    from src.ops.backup import run as backup_run
+    backup_run()
