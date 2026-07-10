@@ -40,7 +40,7 @@ body.xfade-leave{opacity:0;transition:opacity .18s ease}
   body.xfade-leave{transition:none;opacity:1}
 }
 html{scroll-behavior:smooth}
-body{color:var(--text);font:15px/1.55 "Segoe UI",system-ui,sans-serif;transition:background .2s;
+body{color:var(--text);font:16px/1.55 "Segoe UI",system-ui,sans-serif;transition:background .2s;
   background:radial-gradient(1400px 900px at 22% -12%, #182031 0%, #0d1119 46%, #090c11 100%) fixed}
 body[data-theme="courtside"]{background:radial-gradient(1400px 900px at 22% -12%, #fffdf8 0%, #f4efe7 55%, #e9e1d2 100%) fixed}
 /* carbon weave: ultra-subtle texture in the negative space */
@@ -222,6 +222,37 @@ tr.deep.open{display:table-row}
 #radar-tip b{color:var(--accent)}
 .radar-legend{display:flex;gap:14px;justify-content:flex-end;font-family:var(--mono);font-size:.64rem;color:var(--muted);margin-top:8px}
 .radar-legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+/* ---------- progressive disclosure ---------- */
+details.dd{margin-top:10px}
+details.dd summary{cursor:pointer;font-family:var(--mono);font-size:.68rem;
+  text-transform:uppercase;letter-spacing:.12em;color:var(--muted);
+  padding:9px 4px;list-style:none;display:flex;align-items:center;gap:8px;user-select:none}
+details.dd summary::before{content:"▸";color:var(--accent);transition:transform .15s}
+details.dd[open] summary::before{transform:rotate(90deg)}
+details.dd summary:hover{color:var(--text)}
+.props-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.view-toggle{background:var(--bg-elev);border:1px solid var(--border);color:var(--muted);
+  border-radius:8px;font-family:var(--mono);font-size:.66rem;padding:6px 12px;cursor:pointer;margin-left:auto}
+.view-toggle:hover{color:var(--accent);border-color:var(--accent)}
+.props-head{display:flex;align-items:center;gap:10px}
+/* ---------- mobile (≤640px) ---------- */
+@media (max-width:640px){
+  .date-strip{display:none}                       /* stepper is the mobile nav */
+  .picker{gap:10px}
+  .picker button,.picker input[type=date],.q-chip,.lg-chip,.view-toggle{
+    min-height:44px;min-width:44px;padding:10px 16px;font-size:.85rem}
+  .picker-arrow{font-size:1.25rem}
+  details.dd summary{min-height:44px;font-size:.74rem}
+  .radar-grid{grid-template-columns:1fr}
+  .radar-cell svg{width:min(72vw,260px);height:auto}
+  .radar-name{font-size:.9rem}
+  .radar-team{font-size:.72rem}
+  .gc-sub,.gc-line{font-size:.8rem}
+  .wf-row{grid-template-columns:110px 1fr 70px}
+  .wf-label{font-size:.78rem}
+  .hero-headline{font-size:2rem}
+  #card-grid{grid-template-columns:1fr}
+}
 @media (prefers-reduced-motion: reduce){
   .gc-dial .arc{transition:none}
   .verdict-tag.pulse{animation:none}
@@ -408,6 +439,6 @@ footer{border-top:1px solid var(--border);padding:26px 0 60px;color:var(--muted)
   </div>
 </footer>
 
-<script src="js/app.js?v=16"></script>
+<script src="js/app.js?v=17"></script>
 </body>
 </html>

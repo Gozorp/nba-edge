@@ -273,8 +273,16 @@ function renderSlate(games) {
       const opening = !card.classList.contains("open");
       card.classList.toggle("open");
       if (opening) {
-        card.querySelectorAll(".wf-seg").forEach((s, j) =>
-          setTimeout(() => s.classList.add("on"), rm ? 0 : 90 + j * 120));
+        const cascade = () => card.querySelectorAll(".wf-seg").forEach((s, j) => {
+          s.classList.remove("on");
+          setTimeout(() => s.classList.add("on"), rm ? 0 : 90 + j * 120);
+        });
+        cascade();
+        const wf = card.querySelector("details.wf");
+        if (wf && !wf.dataset.bound) {
+          wf.dataset.bound = "1";
+          wf.addEventListener("toggle", () => { if (wf.open) cascade(); });
+        }
         loadProps(CURRENT.date, card);
       }
     });
@@ -318,18 +326,21 @@ function deepPanel(g) {
       + (f.impact_pp >= 0 ? "+" : "") + f.impact_pp.toFixed(1) + " pp</span></div>";
   }).join("");
   const sum = fs.reduce((s, f) => s + f.impact_pp, 0);
+  // progressive disclosure: open by default on desktop, tap-to-expand on mobile
+  const openAttr = (window.matchMedia && matchMedia("(min-width: 760px)").matches)
+    ? " open" : "";
   return (
-    "<div class='wf'><div class='deep-h'>Why — top-factor waterfall (SHAP, → home)</div>"
+    "<details class='dd wf'" + openAttr + "><summary>Why — top-factor waterfall (SHAP, → home)</summary>"
     + segs
     + "<div class='wf-row wf-sum'><span class='wf-label'>Σ top factors</span><span></span>"
     + "<span class='wf-val' style='color:" + (sum >= 0 ? "var(--green)" : "var(--red)") + "'>"
-    + (sum >= 0 ? "+" : "") + sum.toFixed(1) + " pp</span></div></div>"
-    + "<div class='deep-meta'><div class='deep-h'>Game meta</div>"
+    + (sum >= 0 ? "+" : "") + sum.toFixed(1) + " pp</span></div></details>"
+    + "<details class='dd deep-meta'" + openAttr + "><summary>Game meta</summary>"
     + "<div>Model home win prob: <b>" + (g.p_home * 100).toFixed(1) + "%</b></div>"
     + "<div>Fair line: <b>" + fmtML(g.fair_ml_home) + " home / " + fmtML(g.fair_ml_away) + " away</b></div>"
     + "<div>Projected margin: <b>home " + (g.pred_margin_home > 0 ? "+" : "") + g.pred_margin_home.toFixed(1) + "</b></div>"
     + "<div>Tier: <b>" + g.tier + "</b> · " + g.season_type + "</div>"
-    + "<div class='mono' style='font-size:.68rem'>id " + g.game_id + "</div></div>"
+    + "<div class='mono' style='font-size:.68rem'>id " + g.game_id + "</div></details>"
   );
 }
 
@@ -409,19 +420,63 @@ async function loadProps(date, cardEl) {
     box.dataset.loaded = "1";
     return;
   }
+  box.dataset.loaded = "1";
+  box.dataset.date = date;
+  renderPropsInto(box, rows);
+}
+
+function propsView() {
+  const saved = lsGet("nbaedge-props-view");
+  if (saved) return saved;
+  // default: data table on small screens (labels stay legible), radar on desktop
+  return (window.matchMedia && matchMedia("(max-width: 640px)").matches)
+    ? "table" : "radar";
+}
+
+function renderPropsInto(box, rows) {
   const methods = ((MANIFEST || {}).props || {}).method || {};
-  const cells = rows.slice(0, 12).map((r) =>
-    '<div class="radar-cell"><div class="radar-name">' + r.player + "</div>"
-    + '<div class="radar-team">' + r.abbr + " · " + r.mp.toFixed(0) + " min</div>"
-    + radarSVG(r) + "</div>").join("");
   const dagger = Object.values(methods).includes("baseline_r7")
     ? " · † BLK proj = trailing-7 avg (model gate)" : "";
-  slot.outerHTML =
-    '<div class="radar-grid">' + cells + "</div>"
-    + '<div class="radar-legend"><span><i style="background:var(--accent)"></i>projected</span>'
-    + '<span><i style="background:var(--green)"></i>actual</span>'
-    + '<span>hover nodes for exact deltas' + dagger + "</span></div>";
-  box.dataset.loaded = "1";
+  const view = propsView();
+  const head =
+    '<div class="props-head"><div class="deep-h" style="margin:0">Player telemetry — projected vs actual</div>'
+    + '<button type="button" class="view-toggle">' + (view === "radar" ? "☰ table" : "⬡ radar")
+    + "</button></div>";
+  let bodyHTML;
+  if (view === "radar") {
+    const cells = rows.slice(0, 12).map((r) =>
+      '<div class="radar-cell"><div class="radar-name">' + r.player + "</div>"
+      + '<div class="radar-team">' + r.abbr + " · " + r.mp.toFixed(0) + " min</div>"
+      + radarSVG(r) + "</div>").join("");
+    bodyHTML = '<div class="radar-grid">' + cells + "</div>"
+      + '<div class="radar-legend"><span><i style="background:var(--accent)"></i>projected</span>'
+      + '<span><i style="background:var(--green)"></i>actual</span>'
+      + '<span>hover nodes for exact deltas' + dagger + "</span></div>";
+  } else {
+    const STATS = RADAR_AXES.map(([k, n]) => [k, n]);
+    const label = (k, n) => n + (methods[k] === "baseline_r7" ? " †" : "");
+    const byTeam = {};
+    rows.forEach((r) => (byTeam[r.abbr] = byTeam[r.abbr] || []).push(r));
+    const nCols = 1 + STATS.length * 2;
+    const trow = (r) => "<tr><td class='pn'>" + r.player + "</td>"
+      + STATS.map(([k]) => "<td class='props-proj gs'>" + r.proj[k].toFixed(1)
+        + "</td><td class='props-act'>" + r.actual[k] + "</td>").join("") + "</tr>";
+    const body = Object.keys(byTeam).map((team) =>
+      "<tr class='props-team'><td colspan='" + nCols + "'>" + team + "</td></tr>"
+      + byTeam[team].sort((a, b) => b.proj.pts - a.proj.pts).slice(0, 5).map(trow).join("")).join("");
+    bodyHTML = '<div class="props-scroll"><table class="props-table"><thead>'
+      + "<tr><th class='ph' rowspan='2'>Player</th>"
+      + STATS.map(([k, n]) => "<th class='gh gs' colspan='2'>" + label(k, n) + "</th>").join("")
+      + "</tr><tr>" + STATS.map(() => "<th class='gs'>proj</th><th>act</th>").join("")
+      + "</tr></thead><tbody>" + body + "</tbody></table></div>"
+      + (dagger ? '<div class="props-note">' + dagger.slice(3) + "</div>" : "");
+  }
+  box.innerHTML = head + bodyHTML;
+  box.querySelector(".view-toggle").addEventListener("click", (e) => {
+    e.stopPropagation();
+    lsSet("nbaedge-props-view", propsView() === "radar" ? "table" : "radar");
+    renderPropsInto(box, rows);
+  });
 }
 
 /* ---------- quick chips ---------- */
