@@ -4,6 +4,7 @@
 {
 "espn_id": "401881933",
 "league": "California Classic",
+"slate_date": "2026-07-03",
 "tip_utc": "2026-07-04T00:00Z",
 "state": "STATUS_FINAL",
 "is_final": true,
@@ -12,11 +13,17 @@
 "away_abbr": "MIA",
 "home_abbr": "SA",
 "away_score": 88,
-"home_score": 87
+"home_score": 87,
+"p_home": 0.5013,
+"pick": "SA",
+"p_pick": 0.5013,
+"tier": "COINFLIP",
+"pick_correct": 0
 },
 {
 "espn_id": "401881934",
 "league": "California Classic",
+"slate_date": "2026-07-03",
 "tip_utc": "2026-07-04T02:30Z",
 "state": "STATUS_FINAL",
 "is_final": true,
@@ -25,7 +32,12 @@
 "away_abbr": "LAL",
 "home_abbr": "GS",
 "away_score": 72,
-"home_score": 104
+"home_score": 104,
+"p_home": 0.5013,
+"pick": "GS",
+"p_pick": 0.5013,
+"tier": "COINFLIP",
+"pick_correct": 1
 }
 ]
 }

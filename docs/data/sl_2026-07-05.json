@@ -4,6 +4,7 @@
 {
 "espn_id": "401881929",
 "league": "California Classic",
+"slate_date": "2026-07-05",
 "tip_utc": "2026-07-05T19:00Z",
 "state": "STATUS_FINAL",
 "is_final": true,
@@ -22,6 +23,7 @@
 {
 "espn_id": "401881935",
 "league": "California Classic",
+"slate_date": "2026-07-05",
 "tip_utc": "2026-07-05T20:30Z",
 "state": "STATUS_FINAL",
 "is_final": true,
@@ -40,6 +42,7 @@
 {
 "espn_id": "401881930",
 "league": "California Classic",
+"slate_date": "2026-07-05",
 "tip_utc": "2026-07-05T21:00Z",
 "state": "STATUS_FINAL",
 "is_final": true,
@@ -58,6 +61,7 @@
 {
 "espn_id": "401881936",
 "league": "California Classic",
+"slate_date": "2026-07-05",
 "tip_utc": "2026-07-05T23:00Z",
 "state": "STATUS_FINAL",
 "is_final": true,

@@ -174,7 +174,12 @@ function renderSlateSL(games) {
   $("empty").style.display = games.length ? "none" : "block";
   games.forEach((g) => {
     const tr = document.createElement("tr");
-    const tip = (g.tip_utc || "").slice(11, 16) || "—";
+    let tip = "—";
+    if (g.tip_utc) {
+      try { tip = new Date(g.tip_utc).toLocaleTimeString([],
+        { hour: "numeric", minute: "2-digit" }); }
+      catch (e) { tip = g.tip_utc.slice(11, 16); }
+    }
     const stateTxt = g.is_final ? "FINAL"
       : (g.state === "STATUS_IN_PROGRESS" ? "LIVE" : "Scheduled");
     const score = (g.is_final || g.state === "STATUS_IN_PROGRESS")

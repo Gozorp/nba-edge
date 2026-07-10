@@ -62,6 +62,10 @@ def _fetch(league: str, d: date) -> list[dict]:
         games.append({
             "espn_id": ev.get("id"),
             "league": LEAGUES[league],
+            # ESPN's ?dates= parameter buckets by US-Eastern slate date; keep
+            # that as the game's slate identity so late ET tips (01:00+ UTC)
+            # don't spill onto the next day's slate.
+            "slate_date": d.isoformat(),
             "tip_utc": ev.get("date"),
             "state": status.get("name", "STATUS_SCHEDULED"),
             "is_final": bool(status.get("completed")),
@@ -194,7 +198,7 @@ def export(start: date, end: date) -> None:
 
     by_date: dict[str, list[dict]] = {}
     for g in season:
-        iso = g["tip_utc"][:10]
+        iso = g.get("slate_date") or g["tip_utc"][:10]
         if start <= date.fromisoformat(iso) <= end:
             by_date.setdefault(iso, []).append(g)
 
