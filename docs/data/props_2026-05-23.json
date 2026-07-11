@@ -337,6 +337,57 @@
 "blk": 0,
 "fg3m": 0
 }
+},
+{
+"player": "Dean Wade",
+"abbr": "CLE",
+"mp": 16.8,
+"proj": {
+"pts": 5.099999904632568,
+"reb": 3.799999952316284,
+"ast": 1.2000000476837158,
+"stl": 0.6000000238418579,
+"blk": 0.0,
+"fg3m": 1.2000000476837158
+},
+"actual": {
+"pts": 0,
+"reb": 2,
+"ast": 1,
+"stl": 1,
+"blk": 0,
+"fg3m": 0
+}
+},
+{
+"player": "Jose Alvarado",
+"abbr": "NYK",
+"mp": 4.0,
+"proj": null,
+"reason": "below_floor",
+"actual": {
+"pts": 2,
+"reb": 0,
+"ast": 0,
+"stl": 0,
+"blk": 0,
+"fg3m": 0
+}
+},
+{
+"player": "Jordan Clarkson",
+"abbr": "NYK",
+"mp": 2.8,
+"proj": null,
+"reason": "below_floor",
+"actual": {
+"pts": 0,
+"reb": 0,
+"ast": 0,
+"stl": 0,
+"blk": 0,
+"fg3m": 0
+}
 }
 ]
 }

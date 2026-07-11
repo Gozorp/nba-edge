@@ -316,6 +316,96 @@
 "blk": 2,
 "fg3m": 0
 }
+},
+{
+"player": "Carter Bryant",
+"abbr": "SAS",
+"mp": 5.0,
+"proj": null,
+"reason": "below_floor",
+"actual": {
+"pts": 5,
+"reb": 1,
+"ast": 0,
+"stl": 1,
+"blk": 0,
+"fg3m": 1
+}
+},
+{
+"player": "Jordan Clarkson",
+"abbr": "NYK",
+"mp": 4.7,
+"proj": null,
+"reason": "below_floor",
+"actual": {
+"pts": 2,
+"reb": 1,
+"ast": 0,
+"stl": 0,
+"blk": 0,
+"fg3m": 0
+}
+},
+{
+"player": "Ariel Hukporti",
+"abbr": "NYK",
+"mp": 3.5,
+"proj": null,
+"reason": "below_floor",
+"actual": {
+"pts": 0,
+"reb": 0,
+"ast": 0,
+"stl": 0,
+"blk": 1,
+"fg3m": 0
+}
+},
+{
+"player": "Luke Kornet",
+"abbr": "SAS",
+"mp": 4.1,
+"proj": null,
+"reason": "below_floor",
+"actual": {
+"pts": 0,
+"reb": 0,
+"ast": 0,
+"stl": 1,
+"blk": 0,
+"fg3m": 0
+}
+},
+{
+"player": "Miles McBride",
+"abbr": "NYK",
+"mp": 7.2,
+"proj": null,
+"reason": "below_floor",
+"actual": {
+"pts": 0,
+"reb": 0,
+"ast": 0,
+"stl": 0,
+"blk": 0,
+"fg3m": 0
+}
+},
+{
+"player": "Jeremy Sochan",
+"abbr": "NYK",
+"mp": 3.0,
+"proj": null,
+"reason": "below_floor",
+"actual": {
+"pts": 0,
+"reb": 0,
+"ast": 0,
+"stl": 0,
+"blk": 0,
+"fg3m": 0
+}
 }
 ]
 }

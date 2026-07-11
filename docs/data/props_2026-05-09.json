@@ -337,6 +337,72 @@
 "blk": 0,
 "fg3m": 0
 }
+},
+{
+"player": "Dean Wade",
+"abbr": "CLE",
+"mp": 16.8,
+"proj": {
+"pts": 6.300000190734863,
+"reb": 4.0,
+"ast": 1.2000000476837158,
+"stl": 0.699999988079071,
+"blk": 0.0,
+"fg3m": 1.2999999523162842
+},
+"actual": {
+"pts": 3,
+"reb": 1,
+"ast": 0,
+"stl": 0,
+"blk": 0,
+"fg3m": 1
+}
+},
+{
+"player": "Javonte Green",
+"abbr": "DET",
+"mp": 11.4,
+"proj": null,
+"reason": "insufficient_history",
+"actual": {
+"pts": 3,
+"reb": 2,
+"ast": 0,
+"stl": 0,
+"blk": 0,
+"fg3m": 1
+}
+},
+{
+"player": "Ron Holland",
+"abbr": "DET",
+"mp": 4.0,
+"proj": null,
+"reason": "below_floor",
+"actual": {
+"pts": 0,
+"reb": 1,
+"ast": 0,
+"stl": 0,
+"blk": 1,
+"fg3m": 0
+}
+},
+{
+"player": "Isaiah Stewart",
+"abbr": "DET",
+"mp": 8.9,
+"proj": null,
+"reason": "insufficient_history",
+"actual": {
+"pts": 4,
+"reb": 2,
+"ast": 0,
+"stl": 0,
+"blk": 0,
+"fg3m": 0
+}
 }
 ],
 "202605090LAL": [
@@ -674,6 +740,153 @@
 "stl": 0,
 "blk": 0,
 "fg3m": 1
+}
+},
+{
+"player": "Jaxson Hayes",
+"abbr": "LAL",
+"mp": 8.5,
+"proj": {
+"pts": 5.800000190734863,
+"reb": 4.300000190734863,
+"ast": 1.0,
+"stl": 0.5,
+"blk": 0.9,
+"fg3m": 0.0
+},
+"actual": {
+"pts": 1,
+"reb": 2,
+"ast": 0,
+"stl": 0,
+"blk": 0,
+"fg3m": 0
+}
+},
+{
+"player": "Adou Thiero",
+"abbr": "LAL",
+"mp": 13.2,
+"proj": {
+"pts": 5.300000190734863,
+"reb": 2.5,
+"ast": 1.100000023841858,
+"stl": 0.5,
+"blk": 0.2,
+"fg3m": 0.30000001192092896
+},
+"actual": {
+"pts": 4,
+"reb": 8,
+"ast": 1,
+"stl": 0,
+"blk": 0,
+"fg3m": 0
+}
+},
+{
+"player": "Bronny James",
+"abbr": "LAL",
+"mp": 3.6,
+"proj": null,
+"reason": "below_floor",
+"actual": {
+"pts": 2,
+"reb": 0,
+"ast": 0,
+"stl": 0,
+"blk": 0,
+"fg3m": 0
+}
+},
+{
+"player": "Maxi Kleber",
+"abbr": "LAL",
+"mp": 7.5,
+"proj": null,
+"reason": "below_floor",
+"actual": {
+"pts": 0,
+"reb": 1,
+"ast": 1,
+"stl": 0,
+"blk": 0,
+"fg3m": 0
+}
+},
+{
+"player": "Dalton Knecht",
+"abbr": "LAL",
+"mp": 3.6,
+"proj": null,
+"reason": "below_floor",
+"actual": {
+"pts": 0,
+"reb": 1,
+"ast": 3,
+"stl": 0,
+"blk": 0,
+"fg3m": 0
+}
+},
+{
+"player": "Nick Smith Jr.",
+"abbr": "LAL",
+"mp": 3.6,
+"proj": null,
+"reason": "below_floor",
+"actual": {
+"pts": 6,
+"reb": 0,
+"ast": 0,
+"stl": 1,
+"blk": 0,
+"fg3m": 1
+}
+},
+{
+"player": "Nikola Topi\u00c4\u0087",
+"abbr": "OKC",
+"mp": 2.6,
+"proj": null,
+"reason": "below_floor",
+"actual": {
+"pts": 0,
+"reb": 2,
+"ast": 0,
+"stl": 1,
+"blk": 0,
+"fg3m": 0
+}
+},
+{
+"player": "Aaron Wiggins",
+"abbr": "OKC",
+"mp": 3.4,
+"proj": null,
+"reason": "below_floor",
+"actual": {
+"pts": 4,
+"reb": 0,
+"ast": 0,
+"stl": 0,
+"blk": 0,
+"fg3m": 0
+}
+},
+{
+"player": "Kenrich Williams",
+"abbr": "OKC",
+"mp": 3.4,
+"proj": null,
+"reason": "below_floor",
+"actual": {
+"pts": 0,
+"reb": 0,
+"ast": 0,
+"stl": 0,
+"blk": 0,
+"fg3m": 0
 }
 }
 ]

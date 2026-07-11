@@ -337,6 +337,99 @@
 "blk": 0,
 "fg3m": 1
 }
+},
+{
+"player": "Kobe Sanders",
+"abbr": "LAC",
+"mp": 15.9,
+"proj": {
+"pts": 6.199999809265137,
+"reb": 2.0999999046325684,
+"ast": 1.2000000476837158,
+"stl": 0.6000000238418579,
+"blk": 0.1,
+"fg3m": 1.100000023841858
+},
+"actual": {
+"pts": 0,
+"reb": 0,
+"ast": 2,
+"stl": 0,
+"blk": 0,
+"fg3m": 0
+}
+},
+{
+"player": "Nicolas Batum",
+"abbr": "LAC",
+"mp": 31.4,
+"proj": {
+"pts": 5.900000095367432,
+"reb": 3.0,
+"ast": 1.2999999523162842,
+"stl": 0.800000011920929,
+"blk": 0.3,
+"fg3m": 1.600000023841858
+},
+"actual": {
+"pts": 12,
+"reb": 4,
+"ast": 1,
+"stl": 1,
+"blk": 0,
+"fg3m": 4
+}
+},
+{
+"player": "Yanic Konan Niederh\u00c3\u00a4user",
+"abbr": "LAC",
+"mp": 12.3,
+"proj": {
+"pts": 5.0,
+"reb": 3.0999999046325684,
+"ast": 0.800000011920929,
+"stl": 0.5,
+"blk": 1.0,
+"fg3m": 0.20000000298023224
+},
+"actual": {
+"pts": 2,
+"reb": 2,
+"ast": 0,
+"stl": 1,
+"blk": 0,
+"fg3m": 0
+}
+},
+{
+"player": "Daniss Jenkins",
+"abbr": "DET",
+"mp": 2.4,
+"proj": null,
+"reason": "below_floor",
+"actual": {
+"pts": 0,
+"reb": 0,
+"ast": 0,
+"stl": 0,
+"blk": 0,
+"fg3m": 0
+}
+},
+{
+"player": "Paul Reed",
+"abbr": "DET",
+"mp": 5.7,
+"proj": null,
+"reason": "below_floor",
+"actual": {
+"pts": 3,
+"reb": 2,
+"ast": 0,
+"stl": 1,
+"blk": 0,
+"fg3m": 0
+}
 }
 ],
 "202512280LAL": [
@@ -672,6 +765,117 @@
 "reb": 7,
 "ast": 0,
 "stl": 3,
+"blk": 0,
+"fg3m": 0
+}
+},
+{
+"player": "Maxi Kleber",
+"abbr": "LAL",
+"mp": 13.2,
+"proj": {
+"pts": 3.5,
+"reb": 2.799999952316284,
+"ast": 1.0,
+"stl": 0.5,
+"blk": 0.3,
+"fg3m": 0.4000000059604645
+},
+"actual": {
+"pts": 2,
+"reb": 3,
+"ast": 2,
+"stl": 1,
+"blk": 0,
+"fg3m": 0
+}
+},
+{
+"player": "Keon Ellis",
+"abbr": "SAC",
+"mp": 22.3,
+"proj": null,
+"reason": "insufficient_history",
+"actual": {
+"pts": 2,
+"reb": 0,
+"ast": 0,
+"stl": 0,
+"blk": 1,
+"fg3m": 0
+}
+},
+{
+"player": "Bronny James",
+"abbr": "LAL",
+"mp": 4.6,
+"proj": null,
+"reason": "below_floor",
+"actual": {
+"pts": 0,
+"reb": 0,
+"ast": 0,
+"stl": 0,
+"blk": 0,
+"fg3m": 0
+}
+},
+{
+"player": "Dalton Knecht",
+"abbr": "LAL",
+"mp": 4.6,
+"proj": null,
+"reason": "below_floor",
+"actual": {
+"pts": 3,
+"reb": 1,
+"ast": 0,
+"stl": 0,
+"blk": 0,
+"fg3m": 1
+}
+},
+{
+"player": "Doug McDermott",
+"abbr": "SAC",
+"mp": 12.1,
+"proj": null,
+"reason": "insufficient_history",
+"actual": {
+"pts": 3,
+"reb": 0,
+"ast": 0,
+"stl": 0,
+"blk": 1,
+"fg3m": 1
+}
+},
+{
+"player": "Adou Thiero",
+"abbr": "LAL",
+"mp": 4.6,
+"proj": null,
+"reason": "below_floor",
+"actual": {
+"pts": 2,
+"reb": 3,
+"ast": 1,
+"stl": 1,
+"blk": 0,
+"fg3m": 0
+}
+},
+{
+"player": "Drew Timme",
+"abbr": "LAL",
+"mp": 3.2,
+"proj": null,
+"reason": "below_floor",
+"actual": {
+"pts": 0,
+"reb": 1,
+"ast": 0,
+"stl": 0,
 "blk": 0,
 "fg3m": 0
 }
@@ -1013,6 +1217,123 @@
 "blk": 0,
 "fg3m": 1
 }
+},
+{
+"player": "Adem Bona",
+"abbr": "PHI",
+"mp": 28.4,
+"proj": {
+"pts": 5.900000095367432,
+"reb": 4.699999809265137,
+"ast": 0.800000011920929,
+"stl": 0.5,
+"blk": 1.4,
+"fg3m": 0.20000000298023224
+},
+"actual": {
+"pts": 11,
+"reb": 8,
+"ast": 1,
+"stl": 0,
+"blk": 4,
+"fg3m": 0
+}
+},
+{
+"player": "Justin Edwards",
+"abbr": "PHI",
+"mp": 19.8,
+"proj": {
+"pts": 5.699999809265137,
+"reb": 2.0999999046325684,
+"ast": 1.2000000476837158,
+"stl": 0.699999988079071,
+"blk": 0.3,
+"fg3m": 1.100000023841858
+},
+"actual": {
+"pts": 12,
+"reb": 5,
+"ast": 1,
+"stl": 0,
+"blk": 1,
+"fg3m": 4
+}
+},
+{
+"player": "Branden Carlson",
+"abbr": "OKC",
+"mp": 5.5,
+"proj": null,
+"reason": "below_floor",
+"actual": {
+"pts": 4,
+"reb": 2,
+"ast": 0,
+"stl": 1,
+"blk": 0,
+"fg3m": 0
+}
+},
+{
+"player": "Isaiah Joe",
+"abbr": "OKC",
+"mp": 5.2,
+"proj": null,
+"reason": "below_floor",
+"actual": {
+"pts": 0,
+"reb": 1,
+"ast": 0,
+"stl": 0,
+"blk": 0,
+"fg3m": 0
+}
+},
+{
+"player": "Jabari Walker",
+"abbr": "PHI",
+"mp": 3.5,
+"proj": null,
+"reason": "below_floor",
+"actual": {
+"pts": 2,
+"reb": 3,
+"ast": 0,
+"stl": 0,
+"blk": 0,
+"fg3m": 0
+}
+},
+{
+"player": "Kenrich Williams",
+"abbr": "OKC",
+"mp": 7.1,
+"proj": null,
+"reason": "below_floor",
+"actual": {
+"pts": 3,
+"reb": 4,
+"ast": 2,
+"stl": 0,
+"blk": 0,
+"fg3m": 1
+}
+},
+{
+"player": "Chris Youngblood",
+"abbr": "OKC",
+"mp": 4.7,
+"proj": null,
+"reason": "below_floor",
+"actual": {
+"pts": 0,
+"reb": 0,
+"ast": 0,
+"stl": 0,
+"blk": 0,
+"fg3m": 0
+}
 }
 ],
 "202512280POR": [
@@ -1350,6 +1671,63 @@
 "stl": 2,
 "blk": 0,
 "fg3m": 1
+}
+},
+{
+"player": "Yang Hansen",
+"abbr": "POR",
+"mp": 10.6,
+"proj": {
+"pts": 6.599999904632568,
+"reb": 3.700000047683716,
+"ast": 1.7000000476837158,
+"stl": 0.6000000238418579,
+"blk": 0.5,
+"fg3m": 0.4000000059604645
+},
+"actual": {
+"pts": 3,
+"reb": 3,
+"ast": 0,
+"stl": 0,
+"blk": 0,
+"fg3m": 1
+}
+},
+{
+"player": "Rayan Rupert",
+"abbr": "POR",
+"mp": 8.4,
+"proj": {
+"pts": 4.199999809265137,
+"reb": 2.4000000953674316,
+"ast": 0.8999999761581421,
+"stl": 0.6000000238418579,
+"blk": 0.0,
+"fg3m": 0.800000011920929
+},
+"actual": {
+"pts": 0,
+"reb": 1,
+"ast": 1,
+"stl": 0,
+"blk": 0,
+"fg3m": 0
+}
+},
+{
+"player": "Baylor Scheierman",
+"abbr": "BOS",
+"mp": 7.0,
+"proj": null,
+"reason": "below_floor",
+"actual": {
+"pts": 0,
+"reb": 0,
+"ast": 1,
+"stl": 0,
+"blk": 0,
+"fg3m": 0
 }
 }
 ],
@@ -1689,6 +2067,114 @@
 "blk": 1,
 "fg3m": 1
 }
+},
+{
+"player": "Buddy Hield",
+"abbr": "GSW",
+"mp": 14.3,
+"proj": {
+"pts": 6.400000095367432,
+"reb": 2.299999952316284,
+"ast": 1.399999976158142,
+"stl": 0.699999988079071,
+"blk": 0.3,
+"fg3m": 1.2000000476837158
+},
+"actual": {
+"pts": 3,
+"reb": 3,
+"ast": 1,
+"stl": 0,
+"blk": 0,
+"fg3m": 1
+}
+},
+{
+"player": "Gary Payton II",
+"abbr": "GSW",
+"mp": 11.6,
+"proj": {
+"pts": 6.199999809265137,
+"reb": 4.300000190734863,
+"ast": 2.9000000953674316,
+"stl": 0.800000011920929,
+"blk": 0.3,
+"fg3m": 0.5
+},
+"actual": {
+"pts": 4,
+"reb": 1,
+"ast": 2,
+"stl": 0,
+"blk": 3,
+"fg3m": 0
+}
+},
+{
+"player": "Al Horford",
+"abbr": "GSW",
+"mp": 16.9,
+"proj": {
+"pts": 6.0,
+"reb": 4.300000190734863,
+"ast": 2.0999999046325684,
+"stl": 0.8999999761581421,
+"blk": 1.0,
+"fg3m": 1.2000000476837158
+},
+"actual": {
+"pts": 7,
+"reb": 7,
+"ast": 0,
+"stl": 0,
+"blk": 2,
+"fg3m": 1
+}
+},
+{
+"player": "Jamison Battle",
+"abbr": "TOR",
+"mp": 0.8,
+"proj": null,
+"reason": "below_floor",
+"actual": {
+"pts": 0,
+"reb": 0,
+"ast": 0,
+"stl": 0,
+"blk": 0,
+"fg3m": 0
+}
+},
+{
+"player": "Jonathan Mogbo",
+"abbr": "TOR",
+"mp": 0.8,
+"proj": null,
+"reason": "below_floor",
+"actual": {
+"pts": 0,
+"reb": 0,
+"ast": 0,
+"stl": 0,
+"blk": 0,
+"fg3m": 0
+}
+},
+{
+"player": "Garrett Temple",
+"abbr": "TOR",
+"mp": 0.8,
+"proj": null,
+"reason": "below_floor",
+"actual": {
+"pts": 0,
+"reb": 1,
+"ast": 0,
+"stl": 0,
+"blk": 0,
+"fg3m": 0
+}
 }
 ],
 "202512280WAS": [
@@ -2026,6 +2512,93 @@
 "stl": 1,
 "blk": 1,
 "fg3m": 2
+}
+},
+{
+"player": "Will Riley",
+"abbr": "WAS",
+"mp": 18.9,
+"proj": {
+"pts": 6.699999809265137,
+"reb": 2.299999952316284,
+"ast": 1.600000023841858,
+"stl": 0.6000000238418579,
+"blk": 0.3,
+"fg3m": 0.6000000238418579
+},
+"actual": {
+"pts": 0,
+"reb": 4,
+"ast": 4,
+"stl": 0,
+"blk": 1,
+"fg3m": 0
+}
+},
+{
+"player": "Malaki Branham",
+"abbr": "WAS",
+"mp": 11.1,
+"proj": {
+"pts": 5.5,
+"reb": 2.9000000953674316,
+"ast": 1.5,
+"stl": 0.5,
+"blk": 0.0,
+"fg3m": 0.30000001192092896
+},
+"actual": {
+"pts": 6,
+"reb": 0,
+"ast": 0,
+"stl": 0,
+"blk": 0,
+"fg3m": 0
+}
+},
+{
+"player": "Christian Koloko",
+"abbr": "MEM",
+"mp": 25.5,
+"proj": null,
+"reason": "insufficient_history",
+"actual": {
+"pts": 4,
+"reb": 7,
+"ast": 1,
+"stl": 1,
+"blk": 3,
+"fg3m": 0
+}
+},
+{
+"player": "Olivier-Maxence Prosper",
+"abbr": "MEM",
+"mp": 7.8,
+"proj": null,
+"reason": "below_floor",
+"actual": {
+"pts": 3,
+"reb": 0,
+"ast": 0,
+"stl": 1,
+"blk": 0,
+"fg3m": 1
+}
+},
+{
+"player": "Jamir Watkins",
+"abbr": "WAS",
+"mp": 0.4,
+"proj": null,
+"reason": "below_floor",
+"actual": {
+"pts": 0,
+"reb": 0,
+"ast": 0,
+"stl": 0,
+"blk": 0,
+"fg3m": 0
 }
 }
 ]

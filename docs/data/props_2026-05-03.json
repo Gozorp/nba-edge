@@ -337,6 +337,108 @@
 "blk": 1,
 "fg3m": 0
 }
+},
+{
+"player": "Dean Wade",
+"abbr": "CLE",
+"mp": 21.1,
+"proj": {
+"pts": 6.199999809265137,
+"reb": 4.0,
+"ast": 1.399999976158142,
+"stl": 0.699999988079071,
+"blk": 0.0,
+"fg3m": 1.2000000476837158
+},
+"actual": {
+"pts": 5,
+"reb": 4,
+"ast": 1,
+"stl": 1,
+"blk": 0,
+"fg3m": 1
+}
+},
+{
+"player": "Jamison Battle",
+"abbr": "TOR",
+"mp": 13.7,
+"proj": {
+"pts": 6.099999904632568,
+"reb": 2.4000000953674316,
+"ast": 0.800000011920929,
+"stl": 0.4000000059604645,
+"blk": 0.0,
+"fg3m": 1.0
+},
+"actual": {
+"pts": 3,
+"reb": 2,
+"ast": 1,
+"stl": 0,
+"blk": 0,
+"fg3m": 1
+}
+},
+{
+"player": "Gradey Dick",
+"abbr": "TOR",
+"mp": 0.4,
+"proj": null,
+"reason": "below_floor",
+"actual": {
+"pts": 0,
+"reb": 0,
+"ast": 0,
+"stl": 0,
+"blk": 0,
+"fg3m": 0
+}
+},
+{
+"player": "Trayce Jackson-Davis",
+"abbr": "TOR",
+"mp": 0.4,
+"proj": null,
+"reason": "below_floor",
+"actual": {
+"pts": 0,
+"reb": 0,
+"ast": 0,
+"stl": 0,
+"blk": 0,
+"fg3m": 0
+}
+},
+{
+"player": "Jonathan Mogbo",
+"abbr": "TOR",
+"mp": 0.4,
+"proj": null,
+"reason": "below_floor",
+"actual": {
+"pts": 0,
+"reb": 0,
+"ast": 0,
+"stl": 0,
+"blk": 0,
+"fg3m": 0
+}
+},
+{
+"player": "Garrett Temple",
+"abbr": "TOR",
+"mp": 0.4,
+"proj": null,
+"reason": "below_floor",
+"actual": {
+"pts": 0,
+"reb": 0,
+"ast": 0,
+"stl": 0,
+"blk": 0,
+"fg3m": 0
+}
 }
 ],
 "202605030DET": [
@@ -650,6 +752,111 @@
 "pts": 0,
 "reb": 1,
 "ast": 1,
+"stl": 0,
+"blk": 0,
+"fg3m": 0
+}
+},
+{
+"player": "Javonte Green",
+"abbr": "DET",
+"mp": 14.2,
+"proj": null,
+"reason": "insufficient_history",
+"actual": {
+"pts": 3,
+"reb": 2,
+"ast": 0,
+"stl": 0,
+"blk": 0,
+"fg3m": 1
+}
+},
+{
+"player": "Ron Holland",
+"abbr": "DET",
+"mp": 1.2,
+"proj": null,
+"reason": "below_floor",
+"actual": {
+"pts": 0,
+"reb": 0,
+"ast": 0,
+"stl": 0,
+"blk": 0,
+"fg3m": 0
+}
+},
+{
+"player": "Chaz Lanier",
+"abbr": "DET",
+"mp": 1.1,
+"proj": null,
+"reason": "below_floor",
+"actual": {
+"pts": 2,
+"reb": 0,
+"ast": 0,
+"stl": 0,
+"blk": 0,
+"fg3m": 0
+}
+},
+{
+"player": "Paul Reed",
+"abbr": "DET",
+"mp": 2.1,
+"proj": null,
+"reason": "below_floor",
+"actual": {
+"pts": 0,
+"reb": 0,
+"ast": 0,
+"stl": 0,
+"blk": 0,
+"fg3m": 0
+}
+},
+{
+"player": "Marcus Sasser",
+"abbr": "DET",
+"mp": 1.2,
+"proj": null,
+"reason": "below_floor",
+"actual": {
+"pts": 0,
+"reb": 0,
+"ast": 1,
+"stl": 0,
+"blk": 0,
+"fg3m": 0
+}
+},
+{
+"player": "Tolu Smith",
+"abbr": "DET",
+"mp": 1.2,
+"proj": null,
+"reason": "below_floor",
+"actual": {
+"pts": 0,
+"reb": 0,
+"ast": 0,
+"stl": 0,
+"blk": 0,
+"fg3m": 0
+}
+},
+{
+"player": "Isaiah Stewart",
+"abbr": "DET",
+"mp": 7.6,
+"proj": null,
+"reason": "below_floor",
+"actual": {
+"pts": 0,
+"reb": 1,
+"ast": 0,
 "stl": 0,
 "blk": 0,
 "fg3m": 0

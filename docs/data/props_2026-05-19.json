@@ -316,6 +316,66 @@
 "blk": 0,
 "fg3m": 0
 }
+},
+{
+"player": "Jose Alvarado",
+"abbr": "NYK",
+"mp": 6.5,
+"proj": null,
+"reason": "below_floor",
+"actual": {
+"pts": 4,
+"reb": 1,
+"ast": 0,
+"stl": 0,
+"blk": 0,
+"fg3m": 0
+}
+},
+{
+"player": "Keon Ellis",
+"abbr": "CLE",
+"mp": 5.5,
+"proj": null,
+"reason": "below_floor",
+"actual": {
+"pts": 2,
+"reb": 0,
+"ast": 0,
+"stl": 0,
+"blk": 0,
+"fg3m": 0
+}
+},
+{
+"player": "Landry Shamet",
+"abbr": "NYK",
+"mp": 17.4,
+"proj": null,
+"reason": "insufficient_history",
+"actual": {
+"pts": 9,
+"reb": 1,
+"ast": 0,
+"stl": 0,
+"blk": 0,
+"fg3m": 3
+}
+},
+{
+"player": "Dean Wade",
+"abbr": "CLE",
+"mp": 29.3,
+"proj": null,
+"reason": "insufficient_history",
+"actual": {
+"pts": 10,
+"reb": 5,
+"ast": 3,
+"stl": 0,
+"blk": 0,
+"fg3m": 3
+}
 }
 ]
 }

@@ -528,13 +528,24 @@ function renderPropsInto(box, rows) {
     '<div class="props-head"><div class="deep-h" style="margin:0">Player telemetry — projected vs actual</div>'
     + '<button type="button" class="view-toggle">' + (view === "radar" ? "☰ table" : "⬡ radar")
     + "</button></div>";
+  const projected = rows.filter(r => r.proj);
+  const benched = rows.filter(r => !r.proj);
+  const reasonTxt = (r) => r.reason === "below_floor"
+    ? "under 8 min — per-100 rates too noisy to project"
+    : "fewer than 3 prior games this season";
   let bodyHTML;
   if (view === "radar") {
-    const cells = rows.slice(0, 12).map((r) =>
+    const cells = projected.map((r) =>
       '<div class="radar-cell"><div class="radar-name">' + r.player + "</div>"
       + '<div class="radar-team">' + r.abbr + " · " + r.mp.toFixed(0) + " min</div>"
       + radarSVG(r) + "</div>").join("");
-    bodyHTML = '<div class="radar-grid">' + cells + "</div>"
+    const bench = benched.length
+      ? '<div class="props-note">Also appeared (no projection): '
+        + benched.map(r => r.player + " (" + r.abbr + ", " + r.mp.toFixed(0)
+          + " min, " + r.actual.pts + " pts)").join(" · ")
+        + " — " + reasonTxt(benched[0]) + "</div>"
+      : "";
+    bodyHTML = '<div class="radar-grid">' + cells + "</div>" + bench
       + '<div class="radar-legend"><span><i style="background:var(--accent)"></i>projected</span>'
       + '<span><i style="background:var(--green)"></i>actual</span>'
       + '<span>hover nodes for exact deltas' + dagger + "</span></div>";
@@ -544,12 +555,25 @@ function renderPropsInto(box, rows) {
     const byTeam = {};
     rows.forEach((r) => (byTeam[r.abbr] = byTeam[r.abbr] || []).push(r));
     const nCols = 1 + STATS.length * 2;
-    const trow = (r) => "<tr><td class='pn'>" + r.player + "</td>"
-      + STATS.map(([k]) => "<td class='props-proj gs'>" + r.proj[k].toFixed(1)
-        + "</td><td class='props-act'>" + r.actual[k] + "</td>").join("") + "</tr>";
+    const trow = (r) => {
+      if (!r.proj) {
+        return "<tr style='opacity:.45' title='" + reasonTxt(r) + "'>"
+          + "<td class='pn'>" + r.player
+          + " <span class='mono' style='font-size:.62rem;color:var(--muted)'>"
+          + r.mp.toFixed(0) + "m</span></td>"
+          + STATS.map(([k]) => "<td class='gs' style='color:var(--muted)'>—</td>"
+            + "<td class='props-act'>" + r.actual[k] + "</td>").join("") + "</tr>";
+      }
+      return "<tr><td class='pn'>" + r.player + "</td>"
+        + STATS.map(([k]) => "<td class='props-proj gs'>" + r.proj[k].toFixed(1)
+          + "</td><td class='props-act'>" + r.actual[k] + "</td>").join("") + "</tr>";
+    };
     const body = Object.keys(byTeam).map((team) =>
       "<tr class='props-team'><td colspan='" + nCols + "'>" + team + "</td></tr>"
-      + byTeam[team].sort((a, b) => b.proj.pts - a.proj.pts).slice(0, 5).map(trow).join("")).join("");
+      + byTeam[team].sort((a, b) => {
+          if (!!b.proj !== !!a.proj) return b.proj ? 1 : -1;   // projected first
+          return b.proj ? b.proj.pts - a.proj.pts : b.mp - a.mp;
+        }).map(trow).join("")).join("");
     bodyHTML = '<div class="props-scroll"><table class="props-table"><thead>'
       + "<tr><th class='ph' rowspan='2'>Player</th>"
       + STATS.map(([k, n]) => "<th class='gh gs' colspan='2'>" + label(k, n) + "</th>").join("")

@@ -337,6 +337,87 @@
 "blk": 0,
 "fg3m": 1
 }
+},
+{
+"player": "Luke Kornet",
+"abbr": "SAS",
+"mp": 9.5,
+"proj": {
+"pts": 5.0,
+"reb": 4.900000095367432,
+"ast": 1.2999999523162842,
+"stl": 0.5,
+"blk": 1.6,
+"fg3m": 0.0
+},
+"actual": {
+"pts": 0,
+"reb": 3,
+"ast": 1,
+"stl": 0,
+"blk": 0,
+"fg3m": 0
+}
+},
+{
+"player": "Harrison Barnes",
+"abbr": "SAS",
+"mp": 5.9,
+"proj": null,
+"reason": "below_floor",
+"actual": {
+"pts": 0,
+"reb": 0,
+"ast": 0,
+"stl": 0,
+"blk": 0,
+"fg3m": 0
+}
+},
+{
+"player": "Isaiah Joe",
+"abbr": "OKC",
+"mp": 0.3,
+"proj": null,
+"reason": "below_floor",
+"actual": {
+"pts": 0,
+"reb": 0,
+"ast": 0,
+"stl": 0,
+"blk": 0,
+"fg3m": 0
+}
+},
+{
+"player": "Aaron Wiggins",
+"abbr": "OKC",
+"mp": 4.0,
+"proj": null,
+"reason": "below_floor",
+"actual": {
+"pts": 0,
+"reb": 0,
+"ast": 0,
+"stl": 0,
+"blk": 0,
+"fg3m": 0
+}
+},
+{
+"player": "Jaylin Williams",
+"abbr": "OKC",
+"mp": 10.4,
+"proj": null,
+"reason": "insufficient_history",
+"actual": {
+"pts": 0,
+"reb": 3,
+"ast": 0,
+"stl": 0,
+"blk": 0,
+"fg3m": 0
+}
 }
 ]
 }

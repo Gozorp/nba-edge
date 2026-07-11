@@ -337,6 +337,42 @@
 "blk": 0,
 "fg3m": 2
 }
+},
+{
+"player": "Mitchell Robinson",
+"abbr": "NYK",
+"mp": 18.4,
+"proj": {
+"pts": 5.699999809265137,
+"reb": 7.5,
+"ast": 1.100000023841858,
+"stl": 0.6000000238418579,
+"blk": 1.0,
+"fg3m": 0.0
+},
+"actual": {
+"pts": 4,
+"reb": 15,
+"ast": 2,
+"stl": 1,
+"blk": 2,
+"fg3m": 0
+}
+},
+{
+"player": "Ariel Hukporti",
+"abbr": "NYK",
+"mp": 1.9,
+"proj": null,
+"reason": "below_floor",
+"actual": {
+"pts": 0,
+"reb": 0,
+"ast": 0,
+"stl": 1,
+"blk": 0,
+"fg3m": 0
+}
 }
 ]
 }

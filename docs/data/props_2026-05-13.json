@@ -337,6 +337,57 @@
 "blk": 1,
 "fg3m": 2
 }
+},
+{
+"player": "Dean Wade",
+"abbr": "CLE",
+"mp": 23.3,
+"proj": {
+"pts": 5.800000190734863,
+"reb": 3.5999999046325684,
+"ast": 1.0,
+"stl": 0.699999988079071,
+"blk": 0.0,
+"fg3m": 1.100000023841858
+},
+"actual": {
+"pts": 0,
+"reb": 6,
+"ast": 0,
+"stl": 1,
+"blk": 0,
+"fg3m": 0
+}
+},
+{
+"player": "Kevin Huerter",
+"abbr": "DET",
+"mp": 3.4,
+"proj": null,
+"reason": "below_floor",
+"actual": {
+"pts": 0,
+"reb": 0,
+"ast": 1,
+"stl": 0,
+"blk": 0,
+"fg3m": 0
+}
+},
+{
+"player": "Jaylon Tyson",
+"abbr": "CLE",
+"mp": 3.1,
+"proj": null,
+"reason": "below_floor",
+"actual": {
+"pts": 0,
+"reb": 0,
+"ast": 0,
+"stl": 0,
+"blk": 0,
+"fg3m": 0
+}
 }
 ]
 }

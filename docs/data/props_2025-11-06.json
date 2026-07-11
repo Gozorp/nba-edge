@@ -337,6 +337,168 @@
 "blk": 0,
 "fg3m": 0
 }
+},
+{
+"player": "Nicolas Batum",
+"abbr": "LAC",
+"mp": 18.4,
+"proj": {
+"pts": 5.800000190734863,
+"reb": 3.200000047683716,
+"ast": 1.2999999523162842,
+"stl": 0.800000011920929,
+"blk": 0.5,
+"fg3m": 1.2000000476837158
+},
+"actual": {
+"pts": 0,
+"reb": 2,
+"ast": 1,
+"stl": 0,
+"blk": 0,
+"fg3m": 0
+}
+},
+{
+"player": "Chris Paul",
+"abbr": "LAC",
+"mp": 9.5,
+"proj": {
+"pts": 5.300000190734863,
+"reb": 2.0999999046325684,
+"ast": 3.5999999046325684,
+"stl": 0.8999999761581421,
+"blk": 0.0,
+"fg3m": 1.0
+},
+"actual": {
+"pts": 2,
+"reb": 2,
+"ast": 2,
+"stl": 1,
+"blk": 0,
+"fg3m": 0
+}
+},
+{
+"player": "Kobe Brown",
+"abbr": "LAC",
+"mp": 15.9,
+"proj": null,
+"reason": "insufficient_history",
+"actual": {
+"pts": 0,
+"reb": 7,
+"ast": 2,
+"stl": 0,
+"blk": 0,
+"fg3m": 0
+}
+},
+{
+"player": "Cam Christie",
+"abbr": "LAC",
+"mp": 25.1,
+"proj": null,
+"reason": "insufficient_history",
+"actual": {
+"pts": 17,
+"reb": 2,
+"ast": 3,
+"stl": 1,
+"blk": 0,
+"fg3m": 2
+}
+},
+{
+"player": "Rasheer Fleming",
+"abbr": "PHO",
+"mp": 1.1,
+"proj": null,
+"reason": "below_floor",
+"actual": {
+"pts": 0,
+"reb": 1,
+"ast": 0,
+"stl": 0,
+"blk": 0,
+"fg3m": 0
+}
+},
+{
+"player": "Jalen Green",
+"abbr": "PHO",
+"mp": 23.0,
+"proj": null,
+"reason": "insufficient_history",
+"actual": {
+"pts": 29,
+"reb": 3,
+"ast": 3,
+"stl": 2,
+"blk": 0,
+"fg3m": 6
+}
+},
+{
+"player": "Nigel Hayes-Davis",
+"abbr": "PHO",
+"mp": 1.1,
+"proj": null,
+"reason": "below_floor",
+"actual": {
+"pts": 0,
+"reb": 0,
+"ast": 0,
+"stl": 0,
+"blk": 0,
+"fg3m": 0
+}
+},
+{
+"player": "Yanic Konan Niederh\u00c3\u00a4user",
+"abbr": "LAC",
+"mp": 2.6,
+"proj": null,
+"reason": "below_floor",
+"actual": {
+"pts": 4,
+"reb": 1,
+"ast": 0,
+"stl": 0,
+"blk": 1,
+"fg3m": 0
+}
+},
+{
+"player": "Khaman Maluach",
+"abbr": "PHO",
+"mp": 1.1,
+"proj": null,
+"reason": "below_floor",
+"actual": {
+"pts": 0,
+"reb": 0,
+"ast": 0,
+"stl": 0,
+"blk": 0,
+"fg3m": 0
+}
+},
+{
+"player": "Jahmyl Telfort",
+"abbr": "LAC",
+"mp": 6.5,
+"proj": null,
+"reason": "below_floor",
+"actual": {
+"pts": 1,
+"reb": 1,
+"ast": 1,
+"stl": 0,
+"blk": 0,
+"fg3m": 0
+}
 }
 ]
 }

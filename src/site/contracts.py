@@ -46,6 +46,7 @@ KNOWN_SL_LEAGUES = {"Las Vegas", "Salt Lake City", "California Classic"}
 KNOWN_GRADES = {"A", "A-", "B+", "B", "B-", "C", "D"}
 KNOWN_TIERS = {"PLATINUM", "GOLD", "SILVER", "BRONZE", "LEAN", "COINFLIP", "CONFLICT"}
 KNOWN_PROP_METHODS = {"model", "baseline_r7"}
+KNOWN_NOPROJ_REASONS = {"below_floor", "insufficient_history"}
 PROP_MARKETS = {"pts", "reb", "ast", "stl", "blk", "fg3m"}
 
 
@@ -114,7 +115,13 @@ def check_props(path: Path, rep: Report) -> None:
         for r in rows:
             if not r.get("player"):
                 rep.structural(f"{path.name}: prop row missing player"); break
-            for side in ("proj", "actual"):
+            if r.get("proj") is None:
+                # no-projection rows must carry a known named reason
+                rep.watch("noproj_reason", r.get("reason"), KNOWN_NOPROJ_REASONS)
+                sides = ("actual",)
+            else:
+                sides = ("proj", "actual")
+            for side in sides:
                 block = r.get(side, {})
                 if set(block) != PROP_MARKETS:
                     rep.structural(f"{path.name}: {side} markets != {sorted(PROP_MARKETS)}")

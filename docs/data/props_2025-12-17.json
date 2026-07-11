@@ -337,6 +337,114 @@
 "blk": 0,
 "fg3m": 0
 }
+},
+{
+"player": "Zach Collins",
+"abbr": "CHI",
+"mp": 16.3,
+"proj": {
+"pts": 6.699999809265137,
+"reb": 4.699999809265137,
+"ast": 1.100000023841858,
+"stl": 0.5,
+"blk": 0.5,
+"fg3m": 0.699999988079071
+},
+"actual": {
+"pts": 10,
+"reb": 4,
+"ast": 2,
+"stl": 2,
+"blk": 0,
+"fg3m": 1
+}
+},
+{
+"player": "Dean Wade",
+"abbr": "CLE",
+"mp": 21.9,
+"proj": {
+"pts": 6.599999904632568,
+"reb": 4.099999904632568,
+"ast": 1.7000000476837158,
+"stl": 0.8999999761581421,
+"blk": 0.3,
+"fg3m": 1.2999999523162842
+},
+"actual": {
+"pts": 2,
+"reb": 2,
+"ast": 1,
+"stl": 0,
+"blk": 0,
+"fg3m": 0
+}
+},
+{
+"player": "Craig Porter Jr.",
+"abbr": "CLE",
+"mp": 17.8,
+"proj": {
+"pts": 4.800000190734863,
+"reb": 3.5,
+"ast": 2.299999952316284,
+"stl": 0.8999999761581421,
+"blk": 0.6,
+"fg3m": 0.5
+},
+"actual": {
+"pts": 4,
+"reb": 2,
+"ast": 4,
+"stl": 3,
+"blk": 0,
+"fg3m": 0
+}
+},
+{
+"player": "Tyrese Proctor",
+"abbr": "CLE",
+"mp": 6.5,
+"proj": null,
+"reason": "below_floor",
+"actual": {
+"pts": 0,
+"reb": 3,
+"ast": 1,
+"stl": 0,
+"blk": 0,
+"fg3m": 0
+}
+},
+{
+"player": "Dalen Terry",
+"abbr": "CHI",
+"mp": 1.1,
+"proj": null,
+"reason": "below_floor",
+"actual": {
+"pts": 0,
+"reb": 0,
+"ast": 0,
+"stl": 0,
+"blk": 0,
+"fg3m": 0
+}
+},
+{
+"player": "Nae'Qwan Tomlin",
+"abbr": "CLE",
+"mp": 7.8,
+"proj": null,
+"reason": "below_floor",
+"actual": {
+"pts": 2,
+"reb": 1,
+"ast": 1,
+"stl": 0,
+"blk": 0,
+"fg3m": 0
+}
 }
 ],
 "202512170MIN": [
@@ -674,6 +782,57 @@
 "stl": 0,
 "blk": 0,
 "fg3m": 2
+}
+},
+{
+"player": "Jaylen Clark",
+"abbr": "MIN",
+"mp": 9.0,
+"proj": {
+"pts": 5.699999809265137,
+"reb": 2.0999999046325684,
+"ast": 1.0,
+"stl": 0.699999988079071,
+"blk": 0.0,
+"fg3m": 0.8999999761581421
+},
+"actual": {
+"pts": 2,
+"reb": 1,
+"ast": 0,
+"stl": 1,
+"blk": 1,
+"fg3m": 0
+}
+},
+{
+"player": "Brandon Clarke",
+"abbr": "MEM",
+"mp": 16.6,
+"proj": null,
+"reason": "insufficient_history",
+"actual": {
+"pts": 6,
+"reb": 3,
+"ast": 1,
+"stl": 1,
+"blk": 0,
+"fg3m": 0
+}
+},
+{
+"player": "Jahmai Mashack",
+"abbr": "MEM",
+"mp": 3.5,
+"proj": null,
+"reason": "below_floor",
+"actual": {
+"pts": 0,
+"reb": 1,
+"ast": 0,
+"stl": 0,
+"blk": 0,
+"fg3m": 0
 }
 }
 ]

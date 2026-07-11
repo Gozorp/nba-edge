@@ -139,17 +139,50 @@ def export_props() -> None:
              + list(TARGETS.values())].copy()
     for tgt in TARGETS.values():
         out[f"proj_{tgt}"] = np.round(np.clip(proj[tgt], 0, None), 1)
+
+    # FULL ROSTER: every player in the box score ships. Players without a
+    # model row (below the 8-min PI floor, or without 3 prior games of
+    # history) appear with actuals and an explicit no-projection reason —
+    # named exclusion, never silent omission.
+    from config import RAW_DIR
+    from src.features.performance_index import MIN_MP_FOR_PI
+    pb = pd.read_parquet(RAW_DIR / "player_box.parquet",
+                         columns=["bref_game_id", "player_id", "player",
+                                  "abbr", "mp", "pts", "oreb", "dreb",
+                                  "ast", "stl", "blk", "fg3m"])
+    eval_gids = set(out["bref_game_id"])
+    pb = pb[pb["bref_game_id"].isin(eval_gids)].copy()
+    counting = ["pts", "oreb", "dreb", "ast", "stl", "blk", "fg3m"]
+    pb[counting] = pb[counting].fillna(0.0)
+    pb["reb"] = pb["oreb"] + pb["dreb"]
+    modeled = set(zip(out["bref_game_id"], out["player"]))
+    extras = pb[~pb.apply(lambda r: (r["bref_game_id"], r["player"]) in modeled,
+                          axis=1)].copy()
+    extras["reason"] = np.where(extras["mp"] < MIN_MP_FOR_PI,
+                                "below_floor", "insufficient_history")
+    gid2date = dict(zip(out["bref_game_id"],
+                        out["game_date"].dt.strftime("%Y-%m-%d")))
+
     n_files = 0
+    extras_by = {k: v for k, v in extras.groupby("bref_game_id")}
     for iso, day in out.groupby(out["game_date"].dt.strftime("%Y-%m-%d")):
         games: dict[str, list] = {}
         for gid, gframe in day.groupby("bref_game_id"):
-            gframe = gframe.sort_values("proj_pts", ascending=False).head(16)
-            games[str(gid)] = [{
+            gframe = gframe.sort_values("proj_pts", ascending=False)
+            rows = [{
                 "player": r["player"], "abbr": r["abbr"],
                 "mp": round(float(r["mp"]), 1),
                 "proj": {t: float(r[f"proj_{t}"]) for t in TARGETS.values()},
                 "actual": {t: int(r[t]) for t in TARGETS.values()},
             } for _, r in gframe.iterrows()]
+            for _, r in extras_by.get(gid, pd.DataFrame()).iterrows():
+                rows.append({
+                    "player": r["player"], "abbr": r["abbr"],
+                    "mp": round(float(r["mp"]), 1),
+                    "proj": None, "reason": str(r["reason"]),
+                    "actual": {t: int(r[t]) for t in TARGETS.values()},
+                })
+            games[str(gid)] = rows
         (OUT_DIR / f"props_{iso}.json").write_text(
             json.dumps({"date": iso, "games": games}, indent=0))
         n_files += 1
