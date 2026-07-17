@@ -15,6 +15,13 @@ function gradeClass(g) {
 }
 function fmtML(v) { return v > 0 ? "+" + v : String(v); }
 function setStatus(msg) { $("status").textContent = msg || ""; }
+function todayLocalISO() {
+  // LOCAL wall-clock date, not UTC — toISOString() rolls to tomorrow after
+  // ~5pm PT and would land evening users on the wrong slate.
+  const d = new Date();
+  return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0")
+    + "-" + String(d.getDate()).padStart(2, "0");
+}
 
 /* ---------- boot ----------
    Runs immediately if the DOM is already parsed (script sits at the end of
@@ -75,7 +82,7 @@ function initLeagueToggle() {
         x.classList.toggle("on", x.dataset.mode === MODE));
       $("sl-banner").style.display = MODE === "sl" ? "block" : "none";
       const slm = (MANIFEST || {}).sl_model;
-      if (slm && $("sl-acc")) $("sl-acc").textContent =
+      if (slm && slm.eval_2025 && $("sl-acc")) $("sl-acc").textContent =
         (slm.eval_2025.acc * 100).toFixed(1) + "% accuracy (n=" + slm.eval_2025.n + ")";
       $("nba-head").style.display = MODE === "sl" ? "none" : "";
       $("sl-head").style.display = MODE === "sl" ? "" : "none";
@@ -86,7 +93,7 @@ function initLeagueToggle() {
       const dates = modeDates();
       // SL runs live in July: land on TODAY's slate when it exists,
       // otherwise the nearest date (list is newest-first).
-      const today = new Date().toISOString().slice(0, 10);
+      const today = todayLocalISO();
       const first = dates.includes(today) ? today : dates[0];
       if (first) { $("datePicker").value = first; loadSlate(first); }
       else { renderSlate([]); setStatus("no slates published"); }
@@ -135,8 +142,10 @@ function step(where) {
 }
 
 /* ---------- slate ---------- */
+let SLATE_SEQ = 0;   // stale-response guard: last loadSlate call wins
 async function loadSlate(date, { bust = false } = {}) {
   if (!date) return;
+  const seq = ++SLATE_SEQ;
   setStatus("loading " + date + "…");
   let payload = null;
   try {
@@ -145,6 +154,7 @@ async function loadSlate(date, { bust = false } = {}) {
     const r = await fetch(url, { cache: bust ? "no-store" : "default" });
     if (r.ok) payload = await r.json();
   } catch (e) { /* handled below */ }
+  if (seq !== SLATE_SEQ) return;   // superseded by a newer load
   if (!payload) {
     CURRENT = { date, games: [] };
     renderSlate([]);
@@ -157,6 +167,7 @@ async function loadSlate(date, { bust = false } = {}) {
   followActiveChip();
   const n = payload.games.length;
   if (MODE === "sl") {
+    stopNbaLive();
     renderSlateSL(payload.games);
     const fin = payload.games.filter(g => g.is_final).length;
     setStatus(n + " games · " + fin + " final · " + date);
@@ -369,7 +380,9 @@ function renderSlateSL(games) {
     const tr = document.createElement("tr");
     let tip = "—";
     if (g.tip_utc) {
-      try { tip = new Date(g.tip_utc).toLocaleTimeString([],
+      // bare timestamps parse as LOCAL time — pin missing zone info to UTC
+      const iso = /(Z|[+-]\d\d:?\d\d)$/.test(g.tip_utc) ? g.tip_utc : g.tip_utc + "Z";
+      try { tip = new Date(iso).toLocaleTimeString([],
         { hour: "numeric", minute: "2-digit" }); }
       catch (e) { tip = g.tip_utc.slice(11, 16); }
     }
@@ -847,6 +860,8 @@ function initXfade() {
   const a = $("mlb-return");
   if (a && !vt && !rm) {
     a.addEventListener("click", (e) => {
+      // let modifier/middle clicks open a new tab natively
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
       e.preventDefault();
       document.body.classList.add("xfade-leave");
       setTimeout(() => { location.href = a.href; }, 170);

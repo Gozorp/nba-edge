@@ -63,6 +63,10 @@ def feature_drift(kind: str = "game_clf") -> dict[str, Any]:
     cols: list[str] = meta["feature_cols"]
     df = pd.read_parquet(PROCESSED_DIR / "features_games.parquet"
                          ).sort_values("game_date")
+    # Like-for-like populations only: playoff basketball (elite-team subset,
+    # no B2Bs, slower pace) is a different regime whose PSI vs. a pooled
+    # regular-season reference is structurally inflated. The gate must
+    # measure drift of the bulk regime, not the calendar phase.
     df = df[df["season_type"] == "Regular Season"]
     from config import PSI_REF_SEASONS
     train_end = pd.Timestamp(meta["train_span"][1])
@@ -72,6 +76,14 @@ def feature_drift(kind: str = "game_clf") -> dict[str, Any]:
     recent = df.tail(MONITOR_WINDOW_GAMES)
     assert len(ref) >= 100, "FATAL: reference window too small for PSI"
 
+    # Monitored subset: differential (d_*) and fatigue features only.
+    # Rationale: h_/a_ absolutes carry two benign non-stationarities that
+    # falsely trip PSI — (1) within-season information accumulation
+    # (expanding *_std variance ~ 1/n_games shrinks from Oct to Apr) and
+    # (2) the league's secular scoring trend. Both cancel in h−a
+    # differences because the two teams share phase and era. Residual d_*
+    # shift = genuine relational drift — the kind that breaks this model.
+    # Concept drift on absolutes is still caught by the Brier z-gate.
     monitored = [c for c in cols if c.startswith("d_")
                  or c.endswith(("rest_days", "is_b2b", "is_3in4", "is_4in6"))]
     assert len(monitored) >= 10, "FATAL: monitored feature subset too small"
@@ -108,9 +120,12 @@ def performance_drift(kind: str = "game_clf") -> dict[str, Any]:
         return {"concept_drift": False, "reason": f"only {len(recent)} "
                 "post-holdout games — below CLT floor (30)"}
 
+    ir = ((0, int(meta["best_iteration"]) + 1)
+          if meta.get("best_iteration") is not None else (0, 0))
+
     def _losses(frame: pd.DataFrame) -> np.ndarray:
         dm = xgb.DMatrix(frame[cols].astype("float64"), feature_names=cols)
-        p = bst.predict(dm)
+        p = bst.predict(dm, iteration_range=ir)
         if kind == "game_clf":
             return (p - frame["home_win"].to_numpy(np.float64)) ** 2
         return (p - frame["margin_home"].to_numpy(np.float64)) ** 2

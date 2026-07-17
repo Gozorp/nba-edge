@@ -96,9 +96,3 @@ space, k* = argmax silhouette over k ∈ [4,12]; FATAL if silhouette < 0.05.
   (requires minutes-weighted roster aggregation — v2).
 - Betting-market lines are not scraped; `fair_ml_*` are model-fair odds, not
   edges vs. a book. Comparing them to live lines is your edge calculation.
-
-## Publishing the terminal
-
-After a training/predict cycle: `python -m src.site.export_site_data` regenerates
-`docs/data/` (per-date slates, manifest, health). `PUSH_NBA_SITE.bat` wraps
-export + commit + push — same publish pattern as the MLB terminal.

@@ -53,7 +53,9 @@ def fetch_slate(target: date) -> pd.DataFrame:
     month = target.strftime("%B").lower()
     sess = RateLimitedSession()
     html = sess.fetch(f"/leagues/NBA_{season}_games-{month}.html")
-    assert html is not None, f"FATAL: no schedule page for {season}/{month}"
+    if html is None:                    # offseason: month page absent
+        print(f"[predict] no schedule page for {season}/{month} — skipping")
+        return pd.DataFrame()
     soup = BeautifulSoup(html, "lxml")
     table = soup.find("table", id="schedule")
     assert table is not None, "FATAL: schedule table missing"
@@ -118,6 +120,11 @@ def predict_games(target: date) -> pd.DataFrame:
     reg, reg_meta = load_model("game_margin")
     cols: list[str] = clf_meta["feature_cols"]
     assert cols == reg_meta["feature_cols"], "FATAL: model schema divergence"
+    # serve with the same tree count every validated metric used
+    clf_ir = ((0, int(clf_meta["best_iteration"]) + 1)
+              if clf_meta.get("best_iteration") is not None else (0, 0))
+    reg_ir = ((0, int(reg_meta["best_iteration"]) + 1)
+              if reg_meta.get("best_iteration") is not None else (0, 0))
 
     out_rows = []
     site_inputs = []
@@ -138,8 +145,8 @@ def predict_games(target: date) -> pd.DataFrame:
         assert X.shape == (1, len(cols)), "FATAL: inference vector shape"
 
         dm = xgb.DMatrix(X, feature_names=cols)
-        p_home = float(clf.predict(dm)[0])
-        margin = float(reg.predict(dm)[0])
+        p_home = float(clf.predict(dm, iteration_range=clf_ir)[0])
+        margin = float(reg.predict(dm, iteration_range=reg_ir)[0])
         out_rows.append({
             "date": str(target), "away": g["visitor"], "home": g["home"],
             "p_home_win": round(p_home, 4),
@@ -166,7 +173,7 @@ def _export_site_picks(target: date, site_inputs: list, clf, cols, xwalk) -> Non
     import json as _json
 
     from src.model.conviction import score as conviction_score
-    from src.site.export_site_data import _label, grade_for
+    from src.site.export_site_data import _label, _write_atomic, grade_for
 
     id2abbr = dict(zip(xwalk["team_id"].astype(int), xwalk["bref_abbr"]))
     games = []
@@ -208,14 +215,14 @@ def _export_site_picks(target: date, site_inputs: list, clf, cols, xwalk) -> Non
     from config import REPO_ROOT
     ddir = REPO_ROOT / "docs" / "data"
     iso = target.isoformat()
-    (ddir / f"picks_{iso}.json").write_text(
-        _json.dumps({"date": iso, "games": games}, indent=0))
+    _write_atomic(ddir / f"picks_{iso}.json",
+                  _json.dumps({"date": iso, "games": games}, indent=0))
     mpath = ddir / "manifest.json"
     m = _json.loads(mpath.read_text())
     if iso not in m["dates"]:
         m["dates"] = sorted(set(m["dates"]) | {iso}, reverse=True)
     m["mode"] = "live"
-    mpath.write_text(_json.dumps(m, indent=1))
+    _write_atomic(mpath, _json.dumps(m, indent=1))
     print(f"[predict] site slate published: picks_{iso}.json ({len(games)} games)")
 
 

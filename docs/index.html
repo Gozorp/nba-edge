@@ -12,17 +12,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&display=swap" rel="stylesheet">
-<script type="speculationrules">
-{ "prerender": [ { "urls": ["/MLB-edges/"] } ],
-  "prefetch":  [ { "urls": ["/MLB-edges/"] } ] }
-</script>
 <style>
 :root{
-  --bg:#0b0e13; --bg-elev:#141a23; --bg-elev2:#1a2230; --text:#e8edf4;
-  --muted:#8b98ab; --border:#243040; --accent:#f0803c; --green:#3fb950;
+  /* night-arena court: warm charcoal-hardwood surfaces, ball-orange accent */
+  --bg:#100d0a; --bg-elev:#191410; --bg-elev2:#221b14; --text:#f0eae1;
+  --muted:#a3968a; --border:#382c20; --accent:#c68a5e; --green:#3fb950;
   --yellow:#d29922; --orange:#db6d28; --red:#f85149;
   --mono:"Fira Code",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
-  --glass:rgba(20,20,22,.6); --glass-line:rgba(255,255,255,.05);
+  --glass:rgba(22,17,12,.6); --glass-line:rgba(255,255,255,.05);
 }
 body[data-theme="courtside"]{
   --bg:#f4efe7; --bg-elev:#ffffff; --bg-elev2:#efe7d9; --text:#191512;
@@ -30,29 +27,23 @@ body[data-theme="courtside"]{
   --glass:rgba(255,255,255,.55); --glass-line:rgba(0,0,0,.07);
 }
 *{box-sizing:border-box;margin:0;padding:0}
-/* Smooth cross-site transition (NBA edge <-> MLB edge, same origin) */
+/* Cross-site fade (NBA edge <-> MLB edge). The @view-transition /
+   speculationrules combo was removed 2026-07-17 — same reasons as the
+   MLB side's 2026-07-10 removal (aborted transitions, hidden prerender
+   of the whole sister site). The JS fade below is the only mechanism. */
 html{background:var(--bg)}
-@view-transition { navigation: auto; }
-::view-transition-old(root){animation-duration:.32s;animation-timing-function:ease-in}
-::view-transition-new(root){animation-duration:.32s;animation-timing-function:ease-out}
-#mlb-return{view-transition-name:sport-switch}
 body.xfade-leave{opacity:0;transition:opacity .18s ease}
 @media (prefers-reduced-motion: reduce){
-  ::view-transition-old(root),::view-transition-new(root){animation:none}
   body.xfade-leave{transition:none;opacity:1}
 }
 html{scroll-behavior:smooth}
 body{color:var(--text);font:16px/1.55 "Segoe UI",system-ui,sans-serif;transition:background .2s;
-  background:radial-gradient(1400px 900px at 22% -12%, #182031 0%, #0d1119 46%, #090c11 100%) fixed}
+  background:radial-gradient(1400px 900px at 22% -12%, #1c1610 0%, #120e0a 46%, #0c0906 100%) fixed}
 body[data-theme="courtside"]{background:radial-gradient(1400px 900px at 22% -12%, #fffdf8 0%, #f4efe7 55%, #e9e1d2 100%) fixed}
-/* carbon weave: ultra-subtle texture in the negative space */
-body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.05;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Cpath d='M0 0h7v7H0zM7 7h7v7H7z' fill='%23ffffff' fill-opacity='.28'/%3E%3C/svg%3E")}
-body[data-theme="courtside"]::before{opacity:.04;filter:invert(1)}
 /* ---------- glass panels ---------- */
 .glass{background:var(--glass);backdrop-filter:blur(14px) saturate(1.15);
   -webkit-backdrop-filter:blur(14px) saturate(1.15);border-radius:14px;
-  box-shadow:inset 0 0 0 1px var(--glass-line), 0 12px 34px rgba(0,0,0,.35)}
+  box-shadow:inset 0 0 0 1px var(--glass-line), 0 2px 8px rgba(0,0,0,.25)}
 .wrap{max-width:1080px;margin:0 auto;padding:0 18px}
 
 /* ---------- header ---------- */
@@ -73,8 +64,13 @@ header .meta{color:var(--muted);font-size:.8rem;flex:1 1 auto}
 #mlb-return:hover{border-color:var(--accent)}
 
 /* ---------- hero ---------- */
+/* court motif: the hero's bottom border is the half-court line, with the
+   center circle sitting on it (bottom half clipped) */
 #nba-hero{padding:72px 0 46px;border-bottom:1px solid var(--border);
-  background:radial-gradient(1000px 400px at 70% -10%, rgba(240,128,60,.12), transparent)}
+  position:relative;overflow:hidden}
+#nba-hero::after{content:"";position:absolute;left:50%;bottom:-70px;
+  width:140px;height:140px;border:1px solid rgba(198,138,94,.3);
+  border-radius:50%;transform:translateX(-50%);pointer-events:none}
 .hero-eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
 .hero-headline{font-size:2.7rem;letter-spacing:-.03em;line-height:1.1;margin-bottom:12px}
 .hero-tagline{color:var(--muted);max-width:640px;margin-bottom:28px}
@@ -170,15 +166,15 @@ tr.deep.open{display:table-row}
 #card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px;margin-top:14px}
 .game-card{position:relative;padding:16px 18px 14px;cursor:pointer;
   transition:transform .16s cubic-bezier(.2,.8,.3,1.2), box-shadow .16s;will-change:transform}
-.game-card:hover{transform:translateY(-3px) scale(1.02);
-  box-shadow:inset 0 0 0 1px var(--glass-line), 0 22px 44px rgba(0,0,0,.55)}
+.game-card:hover{transform:translateY(-2px);
+  box-shadow:inset 0 0 0 1px var(--glass-line), 0 6px 18px rgba(0,0,0,.35)}
 .game-card.open{grid-column:1 / -1;cursor:default}
 /* edge-lit border for A-grade picks: neon gradient fading downward */
 .game-card.alit::before{content:"";position:absolute;inset:0;border-radius:14px;padding:1px;
-  background:linear-gradient(180deg, rgba(240,128,60,.95), rgba(240,128,60,.25) 55%, transparent 85%);
+  background:linear-gradient(180deg, rgba(198,138,94,.95), rgba(198,138,94,.25) 55%, transparent 85%);
   -webkit-mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
-.game-card.alit{box-shadow:inset 0 0 0 1px transparent, 0 0 22px rgba(240,128,60,.14), 0 12px 34px rgba(0,0,0,.35)}
+.game-card.alit{box-shadow:inset 0 0 0 1px transparent, 0 0 22px rgba(198,138,94,.14), 0 2px 8px rgba(0,0,0,.25)}
 .gc-top{display:flex;align-items:flex-start;gap:10px}
 .gc-matchup{font-size:1.05rem;font-weight:700;letter-spacing:.01em}
 .gc-matchup .po{color:var(--accent);font-family:var(--mono);font-size:.6rem;vertical-align:super}
@@ -188,14 +184,14 @@ tr.deep.open{display:table-row}
 .gc-dial .ring{fill:none;stroke:var(--bg-elev2);stroke-width:5}
 .gc-dial .arc{fill:none;stroke:var(--muted);stroke-width:5;stroke-linecap:round;
   transition:stroke-dashoffset 1s cubic-bezier(.3,.9,.35,1), stroke .3s}
-.gc-dial.hot .arc{stroke:var(--accent);filter:drop-shadow(0 0 6px rgba(240,128,60,.85))}
+.gc-dial.hot .arc{stroke:var(--accent)}
 .gc-dial .pct{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
   font-family:var(--mono);font-size:.78rem;font-weight:700}
 .gc-verdict{display:flex;align-items:center;gap:10px;margin-top:12px}
 .verdict-tag{font-family:var(--mono);font-weight:800;font-size:.92rem;letter-spacing:.08em;
   background:var(--text);color:var(--bg);padding:5px 12px;border-radius:4px}
 .verdict-tag.pulse{animation:vpulse 1.6s ease-in-out infinite}
-@keyframes vpulse{50%{transform:scale(1.05);box-shadow:0 0 14px rgba(240,128,60,.5)}}
+@keyframes vpulse{50%{transform:scale(1.05);box-shadow:0 0 14px rgba(198,138,94,.5)}}
 .gc-line{color:var(--muted);font-family:var(--mono);font-size:.74rem}
 .gc-res{margin-left:auto;font-family:var(--mono);font-size:.74rem}
 .card-deep{overflow:hidden;max-height:0;opacity:0;transition:max-height .45s cubic-bezier(.3,.8,.3,1), opacity .3s .1s}
@@ -225,7 +221,7 @@ tr.deep.open{display:table-row}
 .r-grid{fill:none;stroke:var(--border);stroke-width:.6}
 .r-axis{stroke:var(--border);stroke-width:.5}
 .r-lab{font-family:var(--mono);font-size:6.5px;fill:var(--muted)}
-.r-proj{fill:rgba(240,128,60,.14);stroke:var(--accent);stroke-width:1.4}
+.r-proj{fill:rgba(198,138,94,.14);stroke:var(--accent);stroke-width:1.4}
 .r-act{fill:rgba(63,185,80,.16);stroke:var(--green);stroke-width:1.4}
 .r-node{fill:transparent;r:7;cursor:crosshair}
 #radar-tip{position:fixed;z-index:500;pointer-events:none;display:none;
@@ -457,6 +453,6 @@ footer{border-top:1px solid var(--border);padding:26px 0 60px;color:var(--muted)
   </div>
 </footer>
 
-<script src="js/app.js?v=23"></script>
+<script src="js/app.js?v=24"></script>
 </body>
 </html>

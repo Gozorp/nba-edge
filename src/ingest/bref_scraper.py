@@ -30,6 +30,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import random
 import re
 import sys
@@ -124,7 +125,10 @@ class RateLimitedSession:
                     return None
                 if status not in RETRYABLE_STATUS:
                     raise FatalScrapeError(f"HTTP {status} (non-retryable): {url}")
-                retry_after = float(resp.headers.get("Retry-After", 0) or 0)
+                try:
+                    retry_after = float(resp.headers.get("Retry-After", 0) or 0)
+                except ValueError:      # HTTP-date form — use standard backoff
+                    retry_after = 0.0
             except requests.RequestException:
                 self._last_request_t = time.monotonic()
                 self._log(url, status, time.monotonic() - t0, attempt)
@@ -286,11 +290,15 @@ def _month_paths(sess: RateLimitedSession, season: int) -> list[str]:
 
 
 def _upsert(df: pd.DataFrame, path: Path, key: list[str]) -> None:
+    if df.empty:                        # all-404 checkpoint: nothing to write
+        return
     if path.exists():
         old = pd.read_parquet(path)
         df = pd.concat([old, df], ignore_index=True)
         df = df.drop_duplicates(subset=key, keep="last")
-    df.sort_values(key).to_parquet(path, index=False)
+    tmp = path.with_suffix(".parquet.tmp")
+    df.sort_values(key).to_parquet(tmp, index=False)
+    os.replace(tmp, path)               # atomic: never corrupt the store
 
 
 def _done_ids() -> set[str]:
@@ -333,13 +341,21 @@ def scrape_range(start: date, end: date) -> None:
         t_rows, p_rows = parse_box_page(html, gid)
         team_buf.extend(t_rows)
         player_buf.extend(p_rows)
-        if i % 25 == 0 or i == len(todo):   # checkpoint every 25 games
-            _upsert(pd.DataFrame(team_buf), RAW_DIR / "team_box.parquet",
-                    ["bref_game_id", "abbr"])
+        if i % 25 == 0:                     # checkpoint every 25 games
+            # player rows FIRST: a game only becomes "done" (_done_ids reads
+            # team_box) once its player rows are already on disk.
             _upsert(pd.DataFrame(player_buf), RAW_DIR / "player_box.parquet",
                     ["bref_game_id", "player_id"])
+            _upsert(pd.DataFrame(team_buf), RAW_DIR / "team_box.parquet",
+                    ["bref_game_id", "abbr"])
             team_buf, player_buf = [], []
             print(f"[scraper] checkpoint {i}/{len(todo)}")
+    if team_buf or player_buf:              # final flush (a 404 `continue` on
+        _upsert(pd.DataFrame(player_buf),   # the last game must not skip it)
+                RAW_DIR / "player_box.parquet", ["bref_game_id", "player_id"])
+        _upsert(pd.DataFrame(team_buf), RAW_DIR / "team_box.parquet",
+                ["bref_game_id", "abbr"])
+        print(f"[scraper] final flush ({len(todo)} games processed)")
     print("[scraper] complete")
 
 

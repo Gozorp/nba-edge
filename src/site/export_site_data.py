@@ -20,6 +20,7 @@ Run after training:  python -m src.site.export_site_data
 from __future__ import annotations
 
 import json
+import os
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -35,6 +36,13 @@ from src.model.registry import load_model, metrics_history
 
 OUT_DIR = REPO_ROOT / "docs" / "data"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
+
+
+def _write_atomic(path: Path, text: str) -> None:
+    """tmp + os.replace: a crash mid-write never leaves a truncated file."""
+    tmp = path.with_suffix(path.suffix + ".tmp")
+    tmp.write_text(text)
+    os.replace(tmp, path)
 
 FACTOR_LABELS: dict[str, str] = {
     "d_net_rtg_std": "Season net-rating edge",
@@ -179,8 +187,8 @@ def export(season: int = 2026) -> None:
                     "pick_correct": int(pick_home == bool(r["home_win"])),
                 },
             })
-        (OUT_DIR / f"picks_{date}.json").write_text(
-            json.dumps({"date": date, "games": rows}, indent=0))
+        _write_atomic(OUT_DIR / f"picks_{date}.json",
+                      json.dumps({"date": date, "games": rows}, indent=0))
         dates.append(date)
 
     dates.sort(reverse=True)
@@ -213,16 +221,20 @@ def export(season: int = 2026) -> None:
     mpath = OUT_DIR / "manifest.json"
     manifest = json.loads(mpath.read_text()) if mpath.exists() else {}
     manifest.update({
-        "dates": dates, "season": f"{season-1}-{str(season)[2:]}",
+        # union with existing dates so the daily loop's live slate survives
+        "dates": sorted(set(manifest.get("dates", [])) | set(dates),
+                        reverse=True),
+        "season": f"{season-1}-{str(season)[2:]}",
         "conviction": {"tiers": conviction_table,
                        "note": "S_VALUE inactive in archive (no market odds); "
                                "tiers from QUALITY/FORM/SCHEDULE/AGREEMENT only"},
         "built_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
-        "mode": "archive",   # flips to "live" in-season via daily loop
+        # preserve "live" set by the daily loop; default "archive" otherwise
+        "mode": "live" if manifest.get("mode") == "live" else "archive",
         "record": {"games": int(len(df)), "correct": picks_ok,
                    "acc": round(picks_ok / len(df), 4), "grades": gtab},
     })
-    mpath.write_text(json.dumps(manifest, indent=1))
+    _write_atomic(mpath, json.dumps(manifest, indent=1))
 
     # ---- health.json (MLB-health shape) ------------------------------------
     from src.recalibrate.drift import full_report
@@ -250,7 +262,7 @@ def export(season: int = 2026) -> None:
     sev = ("red" if any(c["severity"] == "red" for c in checks)
            else "yellow" if any(c["severity"] == "yellow" for c in checks)
            else "green")
-    (OUT_DIR / "health.json").write_text(json.dumps({
+    _write_atomic(OUT_DIR / "health.json", json.dumps({
         "version": 1,
         "checked_at": datetime.now(timezone.utc).isoformat(),
         "overall": sev,

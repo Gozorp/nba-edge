@@ -64,7 +64,11 @@ def _challenge(kind: str) -> dict:
     mask = (dates > lo).to_numpy()
     dm = xgb.DMatrix(X[mask], feature_names=cols)
     key = "brier" if kind == "game_clf" else "rmse"
-    m_champ = _fold_metrics(kind, y[mask], champion.predict(dm))
+    # symmetric comparison: both models truncated to their own best_iteration
+    champ_ir = ((0, int(champ_meta["best_iteration"]) + 1)
+                if champ_meta.get("best_iteration") is not None else (0, 0))
+    m_champ = _fold_metrics(kind, y[mask], champion.predict(
+        dm, iteration_range=champ_ir))
     m_chall = _fold_metrics(kind, y[mask], challenger.predict(
         dm, iteration_range=(0, challenger.best_iteration + 1)))
 
@@ -89,7 +93,9 @@ def daily_update(scrape: bool = True, predict: bool = True,
         # 1. INGEST ----------------------------------------------------------
         if scrape:
             y = date.today() - timedelta(days=1)
-            scrape_range(y, y)
+            # trailing window: the done-set makes re-scraping idempotent, so
+            # this backfills holes left by missed runs (machine off/asleep)
+            scrape_range(y - timedelta(days=6), y)
         unify.run()
         build_game_matrix()
 

@@ -124,7 +124,8 @@ def _featurize(games: list[dict]) -> list[dict]:
             ds = diff.get(t, [])
             n = len(ds)
             shrunk = (sum(ds) / n) * n / (n + 2.0) if n else 0.0
-            day = g["tip_utc"][:10]
+            # ET slate date, not tip_utc[:10] — late tips cross UTC midnight
+            day = g.get("slate_date") or g["tip_utc"][:10]
             rest = 3.0
             if t in last:
                 rest = min(3.0, max(0.0,
@@ -137,7 +138,7 @@ def _featurize(games: list[dict]) -> list[dict]:
             margin = g["home_score"] - g["away_score"]
             diff.setdefault(h, []).append(float(margin))
             diff.setdefault(a, []).append(float(-margin))
-            last[h] = last[a] = g["tip_utc"][:10]
+            last[h] = last[a] = g.get("slate_date") or g["tip_utc"][:10]
     return rows
 
 

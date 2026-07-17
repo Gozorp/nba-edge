@@ -150,17 +150,22 @@ def cross_validate(kind: str) -> tuple[list[dict[str, float]], pd.DataFrame]:
 
 
 def fit_final(kind: str) -> tuple[xgb.Booster, dict[str, Any]]:
-    """Train production booster on all-but-holdout; early stop on holdout."""
+    """Train production booster; early stop on an INNER validation slice
+    carved from the train span, so the temporal holdout stays untouched
+    for the champion-vs-challenger comparison (recalibrate/loop.py)."""
     X, y, cols, dates = _load_matrix(kind)
     cut = int(len(X) * (1.0 - HOLDOUT_FRACTION))
     assert 0 < cut < len(X), "FATAL: bad holdout cut"
+    icut = int(cut * (1.0 - HOLDOUT_FRACTION))   # inner early-stop slice
+    assert 0 < icut < cut, "FATAL: bad inner validation cut"
 
-    params = _params_for(kind, y[:cut])
-    dtr = _dmatrix(X.iloc[:cut], y[:cut])
+    params = _params_for(kind, y[:icut])
+    dtr = _dmatrix(X.iloc[:icut], y[:icut])
+    dva = _dmatrix(X.iloc[icut:cut], y[icut:cut])
     dho = _dmatrix(X.iloc[cut:], y[cut:])
     bst = xgb.train(
         params, dtr, num_boost_round=NUM_BOOST_ROUND,
-        evals=[(dho, "holdout")],
+        evals=[(dva, "inner_val")],
         early_stopping_rounds=EARLY_STOPPING_ROUNDS, verbose_eval=False,
     )
     pred = bst.predict(dho, iteration_range=(0, bst.best_iteration + 1))
@@ -169,10 +174,10 @@ def fit_final(kind: str) -> tuple[xgb.Booster, dict[str, Any]]:
     meta: dict[str, Any] = {
         "kind": kind,
         "params": {k: v for k, v in params.items() if k != "eval_metric"},
-        "n_train": cut, "n_holdout": len(X) - cut,
+        "n_train": icut, "n_holdout": len(X) - cut,
         "best_iteration": int(bst.best_iteration),
         "feature_cols": cols,
-        "train_span": [str(dates.iloc[0].date()), str(dates.iloc[cut - 1].date())],
+        "train_span": [str(dates.iloc[0].date()), str(dates.iloc[icut - 1].date())],
         "holdout_span": [str(dates.iloc[cut].date()), str(dates.iloc[-1].date())],
         "holdout_metrics": holdout,
     }

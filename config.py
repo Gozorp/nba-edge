@@ -102,8 +102,13 @@ TRAIN_START_SEASON: int = 2016
 # 0.25/sqrt(150) ≈ 0.02 — small enough to distinguish real drift from noise.
 # ----------------------------------------------------------------------------
 PSI_MODERATE: float = 0.10
-PSI_REF_SEASONS: int = 2
 PSI_CRITICAL: float = 0.25
+# PSI reference = trailing N seasons of the train span, not the full span.
+# The league's scoring environment trends ~+1 pt/season (secular, not
+# drift); a pooled decade reference makes trend-induced PSI permanent.
+# Two seasons bound trend PSI < 0.25 while abrupt regime breaks
+# (rule/ball changes) still trip the gate.
+PSI_REF_SEASONS: int = 2
 DRIFT_Z_THRESHOLD: float = 2.0
 MONITOR_WINDOW_GAMES: int = 100
 MIN_NEW_GAMES_RETRAIN: int = 150

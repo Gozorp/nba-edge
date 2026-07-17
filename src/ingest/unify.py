@@ -32,7 +32,9 @@ def build_scraped_wide() -> pd.DataFrame:
         "FATAL: scraped store empty — run bref_scraper first"
     )
     tb = pd.read_parquet(tb_path)
-    sched = pd.read_parquet(sc_path)[["bref_game_id", "game_date", "is_playoffs"]]
+    sched = pd.read_parquet(sc_path)
+    sched = sched[[c for c in ("bref_game_id", "game_date", "is_playoffs")
+                   if c in sched.columns]]
 
     xwalk = team_crosswalk().set_index("bref_abbr")["team_id"]
     tb["team_id"] = tb["abbr"].map(xwalk).astype("Int64")
@@ -66,19 +68,16 @@ def build_scraped_wide() -> pd.DataFrame:
     wide["game_date"] = pd.to_datetime(wide["game_date"])
     wide["season"] = _season_end_year(wide["game_date"])
 
-    wide = wide.drop(columns=["is_playoffs"])
-    nightly = wide.groupby("game_date")["game_id"].transform("size")
-    rs_end = (
-        wide.loc[nightly >= 12].groupby("season")["game_date"].max()
-        .rename("rs_end")
-    )
-    wide = wide.merge(rs_end, on="season", how="left")
-    assert wide["rs_end"].notna().all(), "FATAL: season without a full slate"
-    wide["season_type"] = (
-        (wide["game_date"] > wide["rs_end"])
-        .map({True: "Playoffs", False: "Regular Season"}).astype("string")
-    )
-    wide = wide.drop(columns=["rs_end"])
+    # Postseason label comes straight from the scraper's schedule-page
+    # divider flag. If the flag column is absent (old cached schedule data)
+    # fall back to "Regular Season" — never raise.
+    if "is_playoffs" in wide.columns:
+        is_po = wide["is_playoffs"].fillna(False).astype(bool)
+        wide = wide.drop(columns=["is_playoffs"])
+    else:
+        is_po = pd.Series(False, index=wide.index)
+    wide["season_type"] = is_po.map(
+        {True: "Playoffs", False: "Regular Season"}).astype("string")
     wide["margin_home"] = wide["pts_home"] - wide["pts_away"]
     assert (wide["margin_home"] != 0).all(), "FATAL: tied final score"
     wide["home_win"] = (wide["margin_home"] > 0).astype("int8")

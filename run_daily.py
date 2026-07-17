@@ -34,8 +34,11 @@ if __name__ == "__main__":
     ap.add_argument("--no-predict", action="store_true")
     ap.add_argument("--force-retrain", action="store_true")
     a = ap.parse_args()
-    daily_update(scrape=not a.no_scrape, predict=not a.no_predict,
-                 force_retrain=a.force_retrain)
-    # automated daily backup rides the daily loop (see src/ops/backup.py)
+    # automated daily backup rides the daily loop (see src/ops/backup.py) —
+    # and must run even when the update fails (error days need backups most).
     from src.ops.backup import run as backup_run
-    backup_run()
+    try:
+        daily_update(scrape=not a.no_scrape, predict=not a.no_predict,
+                     force_retrain=a.force_retrain)
+    finally:
+        backup_run()

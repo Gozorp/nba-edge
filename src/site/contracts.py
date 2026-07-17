@@ -199,8 +199,9 @@ def validate() -> int:
         h["checks"].append({"name": "data_contracts", "severity": verdict,
                             "message": msg, "category": "data_flow"})
         sev_rank = {"green": 0, "yellow": 1, "red": 2}
-        h["overall"] = max([h.get("overall", "green")]
-                           + [c["severity"] for c in h["checks"]],
+        # current checks only — carrying the old overall forward lets a
+        # stale red ratchet: it could never downgrade once set
+        h["overall"] = max([c["severity"] for c in h["checks"]] or ["green"],
                            key=lambda s: sev_rank.get(s, 0))
         hpath.write_text(json.dumps(h, indent=1, default=str))
 
