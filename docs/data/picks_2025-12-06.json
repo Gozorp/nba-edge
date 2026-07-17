@@ -14,7 +14,12 @@
 "fair_ml_away": 160,
 "pred_margin_home": 1.7,
 "grade": "B+",
-"tier": "SILVER",
+"tier": "SKIP",
+"signals": [],
+"why_skipped": "0 signals \u2014 below conviction floor (2)",
+"stake_frac": 0.0,
+"edge_pp": null,
+"ev_per_dollar": null,
 "season_type": "Regular Season",
 "factors": [
 {
@@ -57,7 +62,12 @@
 "fair_ml_away": 124,
 "pred_margin_home": 1.3,
 "grade": "B-",
-"tier": "LEAN",
+"tier": "SKIP",
+"signals": [],
+"why_skipped": "0 signals \u2014 below conviction floor (2)",
+"stake_frac": 0.0,
+"edge_pp": null,
+"ev_per_dollar": null,
 "season_type": "Regular Season",
 "factors": [
 {
@@ -100,7 +110,16 @@
 "fair_ml_away": -274,
 "pred_margin_home": -6.8,
 "grade": "A",
-"tier": "PLATINUM",
+"tier": "DIAMOND",
+"signals": [
+"QUALITY",
+"FORM",
+"AGREEMENT"
+],
+"why_skipped": "",
+"stake_frac": 0.0,
+"edge_pp": null,
+"ev_per_dollar": null,
 "season_type": "Regular Season",
 "factors": [
 {
@@ -143,7 +162,15 @@
 "fair_ml_away": 134,
 "pred_margin_home": 6.6,
 "grade": "B",
-"tier": "BRONZE",
+"tier": "PLATINUM",
+"signals": [
+"QUALITY",
+"AGREEMENT"
+],
+"why_skipped": "",
+"stake_frac": 0.0,
+"edge_pp": null,
+"ev_per_dollar": null,
 "season_type": "Regular Season",
 "factors": [
 {
@@ -186,7 +213,16 @@
 "fair_ml_away": 399,
 "pred_margin_home": 13.2,
 "grade": "A",
-"tier": "PLATINUM",
+"tier": "DIAMOND",
+"signals": [
+"QUALITY",
+"FORM",
+"AGREEMENT"
+],
+"why_skipped": "",
+"stake_frac": 0.0,
+"edge_pp": null,
+"ev_per_dollar": null,
 "season_type": "Regular Season",
 "factors": [
 {
@@ -229,7 +265,17 @@
 "fair_ml_away": 276,
 "pred_margin_home": 11.8,
 "grade": "A",
-"tier": "PLATINUM",
+"tier": "DIAMOND",
+"signals": [
+"QUALITY",
+"FORM",
+"SCHEDULE",
+"AGREEMENT"
+],
+"why_skipped": "",
+"stake_frac": 0.0,
+"edge_pp": null,
+"ev_per_dollar": null,
 "season_type": "Regular Season",
 "factors": [
 {
@@ -272,7 +318,16 @@
 "fair_ml_away": -237,
 "pred_margin_home": -7.4,
 "grade": "A",
-"tier": "PLATINUM",
+"tier": "DIAMOND",
+"signals": [
+"QUALITY",
+"FORM",
+"AGREEMENT"
+],
+"why_skipped": "",
+"stake_frac": 0.0,
+"edge_pp": null,
+"ev_per_dollar": null,
 "season_type": "Regular Season",
 "factors": [
 {

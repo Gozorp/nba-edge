@@ -15,6 +15,13 @@
 "pred_margin_home": -1.3,
 "grade": "A-",
 "tier": "GOLD",
+"signals": [
+"SCHEDULE"
+],
+"why_skipped": "1 signal \u2014 below conviction floor (2)",
+"stake_frac": 0.0,
+"edge_pp": null,
+"ev_per_dollar": null,
 "season_type": "Regular Season",
 "factors": [
 {
@@ -57,7 +64,17 @@
 "fair_ml_away": -240,
 "pred_margin_home": -8.1,
 "grade": "A",
-"tier": "PLATINUM",
+"tier": "DIAMOND",
+"signals": [
+"QUALITY",
+"FORM",
+"SCHEDULE",
+"AGREEMENT"
+],
+"why_skipped": "",
+"stake_frac": 0.0,
+"edge_pp": null,
+"ev_per_dollar": null,
 "season_type": "Regular Season",
 "factors": [
 {
@@ -100,7 +117,15 @@
 "fair_ml_away": -177,
 "pred_margin_home": -6.6,
 "grade": "B+",
-"tier": "SILVER",
+"tier": "PLATINUM",
+"signals": [
+"QUALITY",
+"AGREEMENT"
+],
+"why_skipped": "",
+"stake_frac": 0.0,
+"edge_pp": null,
+"ev_per_dollar": null,
 "season_type": "Regular Season",
 "factors": [
 {
@@ -143,7 +168,12 @@
 "fair_ml_away": 108,
 "pred_margin_home": 0.4,
 "grade": "C",
-"tier": "COINFLIP",
+"tier": "SKIP",
+"signals": [],
+"why_skipped": "0 signals \u2014 below conviction floor (2)",
+"stake_frac": 0.0,
+"edge_pp": null,
+"ev_per_dollar": null,
 "season_type": "Regular Season",
 "factors": [
 {
@@ -186,7 +216,15 @@
 "fair_ml_away": 222,
 "pred_margin_home": 8.4,
 "grade": "A-",
-"tier": "GOLD",
+"tier": "PLATINUM",
+"signals": [
+"FORM",
+"AGREEMENT"
+],
+"why_skipped": "",
+"stake_frac": 0.0,
+"edge_pp": null,
+"ev_per_dollar": null,
 "season_type": "Regular Season",
 "factors": [
 {
@@ -229,7 +267,15 @@
 "fair_ml_away": 213,
 "pred_margin_home": 6.6,
 "grade": "A-",
-"tier": "GOLD",
+"tier": "PLATINUM",
+"signals": [
+"QUALITY",
+"AGREEMENT"
+],
+"why_skipped": "",
+"stake_frac": 0.0,
+"edge_pp": null,
+"ev_per_dollar": null,
 "season_type": "Regular Season",
 "factors": [
 {
@@ -272,7 +318,16 @@
 "fair_ml_away": 347,
 "pred_margin_home": 10.3,
 "grade": "A",
-"tier": "PLATINUM",
+"tier": "DIAMOND",
+"signals": [
+"QUALITY",
+"FORM",
+"AGREEMENT"
+],
+"why_skipped": "",
+"stake_frac": 0.0,
+"edge_pp": null,
+"ev_per_dollar": null,
 "season_type": "Regular Season",
 "factors": [
 {
@@ -315,7 +370,16 @@
 "fair_ml_away": 364,
 "pred_margin_home": 14.9,
 "grade": "A",
-"tier": "PLATINUM",
+"tier": "DIAMOND",
+"signals": [
+"QUALITY",
+"FORM",
+"AGREEMENT"
+],
+"why_skipped": "",
+"stake_frac": 0.0,
+"edge_pp": null,
+"ev_per_dollar": null,
 "season_type": "Regular Season",
 "factors": [
 {
@@ -358,7 +422,16 @@
 "fair_ml_away": -345,
 "pred_margin_home": -10.0,
 "grade": "A",
-"tier": "PLATINUM",
+"tier": "DIAMOND",
+"signals": [
+"QUALITY",
+"FORM",
+"AGREEMENT"
+],
+"why_skipped": "",
+"stake_frac": 0.0,
+"edge_pp": null,
+"ev_per_dollar": null,
 "season_type": "Regular Season",
 "factors": [
 {

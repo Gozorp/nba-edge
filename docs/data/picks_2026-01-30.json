@@ -14,7 +14,17 @@
 "fair_ml_away": 478,
 "pred_margin_home": 16.2,
 "grade": "A",
-"tier": "PLATINUM",
+"tier": "DIAMOND",
+"signals": [
+"QUALITY",
+"FORM",
+"SCHEDULE",
+"AGREEMENT"
+],
+"why_skipped": "",
+"stake_frac": 0.0,
+"edge_pp": null,
+"ev_per_dollar": null,
 "season_type": "Regular Season",
 "factors": [
 {
@@ -57,7 +67,15 @@
 "fair_ml_away": -117,
 "pred_margin_home": 0.7,
 "grade": "B-",
-"tier": "LEAN",
+"tier": "PLATINUM",
+"signals": [
+"FORM",
+"SCHEDULE"
+],
+"why_skipped": "",
+"stake_frac": 0.0,
+"edge_pp": null,
+"ev_per_dollar": null,
 "season_type": "Regular Season",
 "factors": [
 {
@@ -100,7 +118,15 @@
 "fair_ml_away": 160,
 "pred_margin_home": 4.6,
 "grade": "B+",
-"tier": "SILVER",
+"tier": "PLATINUM",
+"signals": [
+"SCHEDULE",
+"AGREEMENT"
+],
+"why_skipped": "",
+"stake_frac": 0.0,
+"edge_pp": null,
+"ev_per_dollar": null,
 "season_type": "Regular Season",
 "factors": [
 {
@@ -143,7 +169,12 @@
 "fair_ml_away": 101,
 "pred_margin_home": 1.1,
 "grade": "C",
-"tier": "COINFLIP",
+"tier": "SKIP",
+"signals": [],
+"why_skipped": "0 signals \u2014 below conviction floor (2)",
+"stake_frac": 0.0,
+"edge_pp": null,
+"ev_per_dollar": null,
 "season_type": "Regular Season",
 "factors": [
 {
@@ -186,7 +217,16 @@
 "fair_ml_away": 252,
 "pred_margin_home": 6.8,
 "grade": "A",
-"tier": "PLATINUM",
+"tier": "DIAMOND",
+"signals": [
+"QUALITY",
+"FORM",
+"AGREEMENT"
+],
+"why_skipped": "",
+"stake_frac": 0.0,
+"edge_pp": null,
+"ev_per_dollar": null,
 "season_type": "Regular Season",
 "factors": [
 {
@@ -229,7 +269,14 @@
 "fair_ml_away": -131,
 "pred_margin_home": 0.4,
 "grade": "B",
-"tier": "BRONZE",
+"tier": "GOLD",
+"signals": [
+"FORM"
+],
+"why_skipped": "1 signal \u2014 below conviction floor (2)",
+"stake_frac": 0.0,
+"edge_pp": null,
+"ev_per_dollar": null,
 "season_type": "Regular Season",
 "factors": [
 {
@@ -272,7 +319,14 @@
 "fair_ml_away": -116,
 "pred_margin_home": -0.8,
 "grade": "B-",
-"tier": "LEAN",
+"tier": "GOLD",
+"signals": [
+"SCHEDULE"
+],
+"why_skipped": "1 signal \u2014 below conviction floor (2)",
+"stake_frac": 0.0,
+"edge_pp": null,
+"ev_per_dollar": null,
 "season_type": "Regular Season",
 "factors": [
 {
@@ -315,7 +369,16 @@
 "fair_ml_away": 126,
 "pred_margin_home": 5.3,
 "grade": "B-",
-"tier": "LEAN",
+"tier": "DIAMOND",
+"signals": [
+"FORM",
+"SCHEDULE",
+"AGREEMENT"
+],
+"why_skipped": "",
+"stake_frac": 0.0,
+"edge_pp": null,
+"ev_per_dollar": null,
 "season_type": "Regular Season",
 "factors": [
 {
@@ -358,7 +421,16 @@
 "fair_ml_away": -286,
 "pred_margin_home": -6.4,
 "grade": "A",
-"tier": "PLATINUM",
+"tier": "DIAMOND",
+"signals": [
+"QUALITY",
+"SCHEDULE",
+"AGREEMENT"
+],
+"why_skipped": "",
+"stake_frac": 0.0,
+"edge_pp": null,
+"ev_per_dollar": null,
 "season_type": "Regular Season",
 "factors": [
 {

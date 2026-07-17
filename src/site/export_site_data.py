@@ -116,6 +116,18 @@ def export(season: int = 2026) -> None:
     contribs = clf.predict(dm, pred_contribs=True)[:, :-1]
 
     df = df.reset_index(drop=True)
+
+    # games played entering each game (conviction reliability gate) — rank of
+    # the fixture within (team, season), zero-based = prior games count.
+    from src.model.conviction import score as conviction_score
+    longx = pd.concat([
+        df[["game_id", "game_date", "season", "team_id_home"]].rename(
+            columns={"team_id_home": "tid"}),
+        df[["game_id", "game_date", "season", "team_id_away"]].rename(
+            columns={"team_id_away": "tid"}),
+    ]).sort_values("game_date")
+    longx["gp"] = longx.groupby(["tid", "season"]).cumcount()
+    gp = longx.set_index(["game_id", "tid"])["gp"]
     dates: list[str] = []
     for date, idx in df.groupby(df["game_date"].dt.strftime("%Y-%m-%d")).groups.items():
         rows = []
@@ -133,6 +145,17 @@ def export(season: int = 2026) -> None:
             } for j in top if abs(phi[j]) > 1e-6]
             hid, aid = int(r["team_id_home"]), int(r["team_id_away"])
             pick_home = pi_ >= 0.5
+            conv = conviction_score(dict(
+                pick_is_home=pick_home,
+                p_pick=pi_ if pick_home else 1 - pi_,
+                d_net_rtg_std=float(r["d_net_rtg_std"]),
+                d_net_rtg_r7=float(r["d_net_rtg_r7"]),
+                games_h=int(gp.loc[(r["game_id"], hid)]),
+                games_a=int(gp.loc[(r["game_id"], aid)]),
+                h_rest=float(r["h_rest_days"]), a_rest=float(r["a_rest_days"]),
+                h_b2b=bool(r["h_is_b2b"]), a_b2b=bool(r["a_is_b2b"]),
+                pred_margin_home=mi_,
+            ))
             rows.append({
                 "game_id": str(r["game_id"]),
                 "away": id2name[aid], "home": id2name[hid],
@@ -143,7 +166,11 @@ def export(season: int = 2026) -> None:
                 "fair_ml_home": fair_american_odds(pi_),
                 "fair_ml_away": fair_american_odds(1 - pi_),
                 "pred_margin_home": round(mi_, 1),
-                "grade": g, "tier": tier,
+                "grade": g, "tier": conv.tier,
+                "signals": conv.signals,
+                "why_skipped": conv.why_skipped,
+                "stake_frac": conv.stake_frac,
+                "edge_pp": conv.edge_pp, "ev_per_dollar": conv.ev_per_dollar,
                 "season_type": str(r["season_type"]),
                 "factors": factors,
                 "result": {
@@ -167,8 +194,24 @@ def export(season: int = 2026) -> None:
         if mask.any():
             gtab[g] = {"n": int(mask.sum()),
                        "hit": round(float(correct_all[mask].mean()), 3)}
+    # conviction-tier backtest on this (out-of-sample) season
+    tier_stats: dict[str, dict] = {}
+    for date_games in ((OUT_DIR / f"picks_{d}.json") for d in dates):
+        for g in json.loads(date_games.read_text())["games"]:
+            t = g["tier"]
+            s = tier_stats.setdefault(t, {"n": 0, "hits": 0})
+            s["n"] += 1
+            s["hits"] += g["result"]["pick_correct"]
+    conviction_table = {t: {"n": v["n"],
+                            "hit": round(v["hits"] / v["n"], 4) if v["n"] else None}
+                        for t, v in sorted(tier_stats.items())}
+    print(f"[site] conviction backtest: {conviction_table}")
+
     (OUT_DIR / "manifest.json").write_text(json.dumps({
         "dates": dates, "season": f"{season-1}-{str(season)[2:]}",
+        "conviction": {"tiers": conviction_table,
+                       "note": "S_VALUE inactive in archive (no market odds); "
+                               "tiers from QUALITY/FORM/SCHEDULE/AGREEMENT only"},
         "built_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "mode": "archive",   # flips to "live" in-season via daily loop
         "record": {"games": int(len(df)), "correct": picks_ok,

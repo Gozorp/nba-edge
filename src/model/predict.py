@@ -74,6 +74,9 @@ def fetch_slate(target: date) -> pd.DataFrame:
 # Team state vectors
 # ----------------------------------------------------------------------------
 def _team_state(tf: pd.DataFrame, team_id: int, asof: date) -> dict[str, float] | None:
+    """State entering `asof` (unshifted tails). Extra keys prefixed '_' carry
+    conviction inputs (games played, rest, b2b) — excluded from model features."""
+
     season = asof.year + 1 if asof.month >= SEASON_START_MONTH else asof.year
     h = tf[(tf["team_id"] == team_id) & (tf["season"] == season)
            & (tf["game_date"] < pd.Timestamp(asof))].sort_values("game_date")
@@ -95,6 +98,7 @@ def _team_state(tf: pd.DataFrame, team_id: int, asof: date) -> dict[str, float] 
     s["sos_r7"] = float(h["opp_net_rtg_std"].tail(7).mean())
     s["adj_net_rtg_std"] = s["net_rtg_std"] + (
         0.0 if np.isnan(s["sos_r7"]) else s["sos_r7"])
+    s["_games"] = float(len(h))
     return s
 
 
@@ -116,6 +120,7 @@ def predict_games(target: date) -> pd.DataFrame:
     assert cols == reg_meta["feature_cols"], "FATAL: model schema divergence"
 
     out_rows = []
+    site_inputs = []
     for _, g in slate.iterrows():
         hid, aid = int(name_to_id[g["home"]]), int(name_to_id[g["visitor"]])
         hs, as_ = _team_state(tf, hid, target), _team_state(tf, aid, target)
@@ -143,6 +148,7 @@ def predict_games(target: date) -> pd.DataFrame:
             "pred_margin_home": round(margin, 2),
             "model_clf": clf_meta["version"], "model_margin": reg_meta["version"],
         })
+        site_inputs.append((g, hid, aid, hs, as_, X, dm, p_home, margin))
 
     preds = pd.DataFrame(out_rows)
     if not preds.empty:
@@ -150,7 +156,67 @@ def predict_games(target: date) -> pd.DataFrame:
         preds.to_csv(out, index=False)
         print(preds.to_string(index=False))
         print(f"[predict] written -> {out}")
+        _export_site_picks(target, site_inputs, clf, cols, xwalk)
     return preds
+
+
+def _export_site_picks(target: date, site_inputs: list, clf, cols, xwalk) -> None:
+    """Publish today's slate to the terminal (result: null until the live
+    layer verifies it client-side and the next daily export archives it)."""
+    import json as _json
+
+    from src.model.conviction import score as conviction_score
+    from src.site.export_site_data import _label, grade_for
+
+    id2abbr = dict(zip(xwalk["team_id"].astype(int), xwalk["bref_abbr"]))
+    games = []
+    for g, hid, aid, hs, as_, X, dm, p_home, margin in site_inputs:
+        contribs = clf.predict(dm, pred_contribs=True)[0, :-1]
+        slope = p_home * (1 - p_home) * 100.0
+        top = np.argsort(-np.abs(contribs))[:5]
+        factors = [{"label": _label(cols[j]),
+                    "impact_pp": round(float(contribs[j]) * slope, 1)}
+                   for j in top if abs(contribs[j]) > 1e-6]
+        pick_home = p_home >= 0.5
+        gr, _ = grade_for(p_home, margin)
+        conv = conviction_score(dict(
+            pick_is_home=pick_home, p_pick=p_home if pick_home else 1 - p_home,
+            d_net_rtg_std=float(X["d_net_rtg_std"].iloc[0]),
+            d_net_rtg_r7=float(X["d_net_rtg_r7"].iloc[0]),
+            games_h=int(hs["_games"]), games_a=int(as_["_games"]),
+            h_rest=hs["rest_days"], a_rest=as_["rest_days"],
+            h_b2b=bool(hs["is_b2b"]), a_b2b=bool(as_["is_b2b"]),
+            pred_margin_home=margin))
+        games.append({
+            "game_id": f"{target.isoformat()}_{id2abbr[aid]}@{id2abbr[hid]}",
+            "away": g["visitor"], "home": g["home"],
+            "away_abbr": id2abbr[aid], "home_abbr": id2abbr[hid],
+            "p_home": round(p_home, 4),
+            "pick": id2abbr[hid] if pick_home else id2abbr[aid],
+            "pick_prob": round(p_home if pick_home else 1 - p_home, 4),
+            "fair_ml_home": fair_american_odds(p_home),
+            "fair_ml_away": fair_american_odds(1 - p_home),
+            "pred_margin_home": round(margin, 1),
+            "grade": gr, "tier": conv.tier, "signals": conv.signals,
+            "why_skipped": conv.why_skipped, "stake_frac": conv.stake_frac,
+            "edge_pp": conv.edge_pp, "ev_per_dollar": conv.ev_per_dollar,
+            "season_type": "Regular Season", "factors": factors,
+            "result": None,
+        })
+    if not games:
+        return
+    from config import REPO_ROOT
+    ddir = REPO_ROOT / "docs" / "data"
+    iso = target.isoformat()
+    (ddir / f"picks_{iso}.json").write_text(
+        _json.dumps({"date": iso, "games": games}, indent=0))
+    mpath = ddir / "manifest.json"
+    m = _json.loads(mpath.read_text())
+    if iso not in m["dates"]:
+        m["dates"] = sorted(set(m["dates"]) | {iso}, reverse=True)
+    m["mode"] = "live"
+    mpath.write_text(_json.dumps(m, indent=1))
+    print(f"[predict] site slate published: picks_{iso}.json ({len(games)} games)")
 
 
 if __name__ == "__main__":

@@ -14,7 +14,15 @@
 "fair_ml_away": -155,
 "pred_margin_home": -1.7,
 "grade": "B+",
-"tier": "SILVER",
+"tier": "PLATINUM",
+"signals": [
+"QUALITY",
+"FORM"
+],
+"why_skipped": "",
+"stake_frac": 0.0,
+"edge_pp": null,
+"ev_per_dollar": null,
 "season_type": "Playoffs",
 "factors": [
 {
@@ -57,7 +65,14 @@
 "fair_ml_away": -110,
 "pred_margin_home": 2.8,
 "grade": "C",
-"tier": "COINFLIP",
+"tier": "GOLD",
+"signals": [
+"FORM"
+],
+"why_skipped": "1 signal \u2014 below conviction floor (2)",
+"stake_frac": 0.0,
+"edge_pp": null,
+"ev_per_dollar": null,
 "season_type": "Playoffs",
 "factors": [
 {
@@ -100,7 +115,12 @@
 "fair_ml_away": 126,
 "pred_margin_home": 1.5,
 "grade": "B-",
-"tier": "LEAN",
+"tier": "SKIP",
+"signals": [],
+"why_skipped": "0 signals \u2014 below conviction floor (2)",
+"stake_frac": 0.0,
+"edge_pp": null,
+"ev_per_dollar": null,
 "season_type": "Playoffs",
 "factors": [
 {

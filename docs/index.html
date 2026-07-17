@@ -125,6 +125,15 @@ tr.row-clickable:hover{background:var(--bg-elev)}
 .grade-Bm{background:rgba(139,148,158,.14);color:var(--muted)}
 .grade-C{background:rgba(219,109,40,.2);color:var(--orange)}
 .grade-D{background:rgba(248,81,73,.2);color:var(--red)}
+.tier{display:inline-block;font-family:var(--mono);font-weight:700;font-size:.62rem;
+  letter-spacing:.1em;border-radius:5px;padding:3px 8px}
+.tier-DIAMOND{background:rgba(63,185,80,.22);color:var(--green);
+  box-shadow:0 0 10px rgba(63,185,80,.25)}
+.tier-PLATINUM{background:rgba(200,210,225,.16);color:#c8d2e1}
+.tier-GOLD{background:rgba(210,153,34,.14);color:var(--yellow)}
+.tier-SKIP{background:rgba(139,148,158,.12);color:var(--muted)}
+.live-dot{display:inline-block;width:7px;height:7px;border-radius:50%;
+  background:var(--accent);animation:pulse 1.6s infinite;margin-right:5px}
 .prob-cell{min-width:130px}
 .prob-bar{height:7px;background:var(--bg-elev2);border-radius:4px;overflow:hidden;margin-top:4px}
 .prob-bar i{display:block;height:100%;background:var(--accent)}
@@ -327,6 +336,10 @@ footer{border-top:1px solid var(--border);padding:26px 0 60px;color:var(--muted)
     <div id="grade-record">…</div>
   </div>
   <div class="drawer-section">
+    <h3>Conviction tiers (2025-26 OOS)</h3>
+    <div id="tier-record">…</div>
+  </div>
+  <div class="drawer-section">
     <h3>Links</h3>
     <div class="health-row"><a href="https://github.com/Gozorp/nba-edge" style="color:var(--accent)">Pipeline source on GitHub</a></div>
     <div class="health-row"><a href="https://gozorp.github.io/MLB-edges/" style="color:var(--accent)">⚾ MLB edge terminal</a></div>
@@ -444,6 +457,6 @@ footer{border-top:1px solid var(--border);padding:26px 0 60px;color:var(--muted)
   </div>
 </footer>
 
-<script src="js/app.js?v=22"></script>
+<script src="js/app.js?v=23"></script>
 </body>
 </html>

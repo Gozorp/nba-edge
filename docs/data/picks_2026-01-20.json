@@ -14,7 +14,14 @@
 "fair_ml_away": 101,
 "pred_margin_home": 0.6,
 "grade": "C",
-"tier": "COINFLIP",
+"tier": "GOLD",
+"signals": [
+"SCHEDULE"
+],
+"why_skipped": "1 signal \u2014 below conviction floor (2)",
+"stake_frac": 0.0,
+"edge_pp": null,
+"ev_per_dollar": null,
 "season_type": "Regular Season",
 "factors": [
 {
@@ -57,7 +64,15 @@
 "fair_ml_away": 143,
 "pred_margin_home": 9.1,
 "grade": "B",
-"tier": "BRONZE",
+"tier": "PLATINUM",
+"signals": [
+"QUALITY",
+"AGREEMENT"
+],
+"why_skipped": "",
+"stake_frac": 0.0,
+"edge_pp": null,
+"ev_per_dollar": null,
 "season_type": "Regular Season",
 "factors": [
 {
@@ -100,7 +115,15 @@
 "fair_ml_away": 174,
 "pred_margin_home": 2.6,
 "grade": "B+",
-"tier": "SILVER",
+"tier": "PLATINUM",
+"signals": [
+"QUALITY",
+"FORM"
+],
+"why_skipped": "",
+"stake_frac": 0.0,
+"edge_pp": null,
+"ev_per_dollar": null,
 "season_type": "Regular Season",
 "factors": [
 {
@@ -144,6 +167,14 @@
 "pred_margin_home": 4.8,
 "grade": "A",
 "tier": "PLATINUM",
+"signals": [
+"SCHEDULE",
+"AGREEMENT"
+],
+"why_skipped": "",
+"stake_frac": 0.0,
+"edge_pp": null,
+"ev_per_dollar": null,
 "season_type": "Regular Season",
 "factors": [
 {
@@ -186,7 +217,12 @@
 "fair_ml_away": 136,
 "pred_margin_home": 0.3,
 "grade": "B",
-"tier": "BRONZE",
+"tier": "SKIP",
+"signals": [],
+"why_skipped": "0 signals \u2014 below conviction floor (2)",
+"stake_frac": 0.0,
+"edge_pp": null,
+"ev_per_dollar": null,
 "season_type": "Regular Season",
 "factors": [
 {
@@ -229,7 +265,15 @@
 "fair_ml_away": 105,
 "pred_margin_home": -0.1,
 "grade": "C",
-"tier": "COINFLIP",
+"tier": "PLATINUM",
+"signals": [
+"FORM",
+"SCHEDULE"
+],
+"why_skipped": "",
+"stake_frac": 0.0,
+"edge_pp": null,
+"ev_per_dollar": null,
 "season_type": "Regular Season",
 "factors": [
 {
@@ -272,7 +316,17 @@
 "fair_ml_away": -560,
 "pred_margin_home": -15.8,
 "grade": "A",
-"tier": "PLATINUM",
+"tier": "DIAMOND",
+"signals": [
+"QUALITY",
+"FORM",
+"SCHEDULE",
+"AGREEMENT"
+],
+"why_skipped": "",
+"stake_frac": 0.0,
+"edge_pp": null,
+"ev_per_dollar": null,
 "season_type": "Regular Season",
 "factors": [
 {

@@ -15,6 +15,13 @@
 "pred_margin_home": 6.5,
 "grade": "A-",
 "tier": "GOLD",
+"signals": [
+"AGREEMENT"
+],
+"why_skipped": "1 signal \u2014 below conviction floor (2)",
+"stake_frac": 0.0,
+"edge_pp": null,
+"ev_per_dollar": null,
 "season_type": "Playoffs",
 "factors": [
 {
@@ -57,7 +64,15 @@
 "fair_ml_away": -187,
 "pred_margin_home": -3.5,
 "grade": "A-",
-"tier": "GOLD",
+"tier": "PLATINUM",
+"signals": [
+"QUALITY",
+"FORM"
+],
+"why_skipped": "",
+"stake_frac": 0.0,
+"edge_pp": null,
+"ev_per_dollar": null,
 "season_type": "Playoffs",
 "factors": [
 {
@@ -100,7 +115,15 @@
 "fair_ml_away": -229,
 "pred_margin_home": 0.6,
 "grade": "D",
-"tier": "CONFLICT",
+"tier": "PLATINUM",
+"signals": [
+"QUALITY",
+"FORM"
+],
+"why_skipped": "",
+"stake_frac": 0.0,
+"edge_pp": null,
+"ev_per_dollar": null,
 "season_type": "Playoffs",
 "factors": [
 {
@@ -143,7 +166,14 @@
 "fair_ml_away": 113,
 "pred_margin_home": 3.4,
 "grade": "B-",
-"tier": "LEAN",
+"tier": "GOLD",
+"signals": [
+"FORM"
+],
+"why_skipped": "1 signal \u2014 below conviction floor (2)",
+"stake_frac": 0.0,
+"edge_pp": null,
+"ev_per_dollar": null,
 "season_type": "Playoffs",
 "factors": [
 {

@@ -29,7 +29,7 @@ async function boot() {
   try {
     MANIFEST = await fetch("data/manifest.json", { cache: "no-store" }).then(r => r.json());
   } catch (e) { setStatus("manifest unavailable"); return; }
-  try { paintHero(); paintDateStrip(); paintGradeRecord(); loadHealth(); } catch (e) { console.error("[nbaedge]", e); }
+  try { paintHero(); paintDateStrip(); paintGradeRecord(); paintTierRecord(); loadHealth(); } catch (e) { console.error("[nbaedge]", e); }
   try {
     const pm = (MANIFEST.props || {});
     if (pm.mae && $("props-mae")) $("props-mae").textContent =
@@ -164,8 +164,113 @@ async function loadSlate(date, { bust = false } = {}) {
   } else {
     stopSlLive();
     renderSlate(applyFilter(payload.games));
-    const hits = payload.games.filter(g => g.result && g.result.pick_correct).length;
-    setStatus(n + " games · model " + hits + "/" + n + " on " + date);
+    const done = payload.games.filter(g => g.result).length;
+    if (done === n) {
+      stopNbaLive();
+      const hits = payload.games.filter(g => g.result && g.result.pick_correct).length;
+      setStatus(n + " games · model " + hits + "/" + n + " on " + date);
+    } else {
+      setStatus(n + " games · " + done + " final · " + date);
+      startNbaLive(date);
+    }
+  }
+}
+
+/* ---------- NBA live layer: ESPN merge + Stern in-game win prob ----------
+   Same architecture as the SL live merge, for regular-season NBA mode.
+   Rows are matched by team abbreviations (ESPN vocab -> B-Ref vocab), live
+   games get a Stern-style win probability on the dial:
+       z = (lead_home + drift) / (13.5 * sqrt(t/48)),  drift = proj_margin * t/48
+       p_live = Phi(z)   [Stern 1994; sigma 13.5 pts/48min]
+   collapsing to the final result as t -> 0. */
+const ESPN2BREF = { NY: "NYK", GS: "GSW", SA: "SAS", UTAH: "UTA", WSH: "WAS",
+                    NO: "NOP", PHX: "PHO", BKN: "BRK", CHA: "CHO" };
+let NBA_TIMER = null;
+function stopNbaLive() { if (NBA_TIMER) { clearInterval(NBA_TIMER); NBA_TIMER = null; } }
+
+function phi(z) {   // standard normal CDF via Abramowitz-Stegun erf approx
+  const t = 1 / (1 + 0.3275911 * Math.abs(z) / Math.SQRT2);
+  const e = 1 - (((((1.061405429 * t - 1.453152027) * t) + 1.421413741) * t
+    - 0.284496736) * t + 0.254829592) * t * Math.exp(-(z * z) / 2);
+  return z >= 0 ? 0.5 * (1 + e) : 0.5 * (1 - e);
+}
+function sternLiveProb(leadHome, minsLeft, projMarginHome) {
+  if (minsLeft <= 0.05) return leadHome > 0 ? 0.999 : 0.001;
+  const t = Math.min(1, minsLeft / 48);
+  return phi((leadHome + projMarginHome * t) / (13.5 * Math.sqrt(t)));
+}
+function minsLeftFrom(period, clock) {
+  const m = /^(\d+):(\d{2})/.exec(clock || "");
+  const onClock = m ? (+m[1]) + (+m[2]) / 60 : 0;
+  if (period <= 4) return Math.max(0, (4 - period) * 12 + onClock);
+  return Math.max(0, onClock);              // overtime: clock only
+}
+
+function startNbaLive(date) {
+  stopNbaLive();
+  const games = CURRENT.games || [];
+  if (!games.length || games.every(g => g.result)) return;
+  const tick = () => { if (!document.hidden && MODE === "nba") refreshNbaLive(date); };
+  tick();
+  NBA_TIMER = setInterval(tick, 60_000);
+}
+
+async function refreshNbaLive(date) {
+  let events = [];
+  try {
+    const r = await fetch("https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard?dates="
+      + date.replaceAll("-", ""), { cache: "no-store" });
+    if (r.ok) events = (await r.json()).events || [];
+  } catch (e) { return; }
+  if (MODE !== "nba" || CURRENT.date !== date || !events.length) return;
+  const byPair = {};
+  events.forEach((ev) => {
+    const comp = (ev.competitions || [{}])[0];
+    const sides = {};
+    (comp.competitors || []).forEach((c) => { sides[c.homeAway] = c; });
+    if (!sides.home || !sides.away) return;
+    const ab = (c) => { const a = c.team.abbreviation; return ESPN2BREF[a] || a; };
+    byPair[ab(sides.away) + "@" + ab(sides.home)] = {
+      state: ev.status.type.name, detail: ev.status.type.shortDetail || "",
+      completed: !!ev.status.type.completed,
+      period: ev.status.period || 0, clock: ev.status.displayClock || "",
+      hs: parseInt(sides.home.score || 0, 10),
+      as: parseInt(sides.away.score || 0, 10),
+    };
+  });
+  let changed = false;
+  CURRENT.games.forEach((g) => {
+    const u = byPair[g.away_abbr + "@" + g.home_abbr];
+    if (!u) return;
+    if (u.completed && !g.result) {
+      g.result = { home_win: u.hs > u.as ? 1 : 0, margin_home: u.hs - u.as,
+                   pick_correct: ((u.hs > u.as) === (g.pick === g.home_abbr)) ? 1 : 0 };
+      g.live = null; changed = true;
+    } else if (!u.completed && /IN_PROGRESS|HALFTIME|END_PERIOD/.test(u.state)) {
+      const minsLeft = u.state === "STATUS_HALFTIME" ? 24 : minsLeftFrom(u.period, u.clock);
+      const pLive = sternLiveProb(u.hs - u.as, minsLeft, g.pred_margin_home);
+      const next = { detail: u.detail, hs: u.hs, as: u.as,
+                     p_home_live: Math.round(pLive * 1000) / 1000 };
+      if (JSON.stringify(next) !== JSON.stringify(g.live || {})) {
+        g.live = next; changed = true;
+      }
+    }
+  });
+  if (changed) {
+    const open = new Set([...document.querySelectorAll(".game-card.open .props-box")]
+      .map(b => b.dataset.gid));
+    renderSlate(applyFilter(CURRENT.games));
+    document.querySelectorAll(".game-card .props-box").forEach((b) => {
+      if (open.has(b.dataset.gid)) {
+        const card = b.closest(".game-card");
+        card.classList.add("open");
+        loadProps(CURRENT.date, card);
+      }
+    });
+    const fin = CURRENT.games.filter(g => g.result).length;
+    setStatus(CURRENT.games.length + " games · " + fin + " final · " + date
+              + (fin === CURRENT.games.length ? "" : " · live ⟳60s"));
+    if (fin === CURRENT.games.length) stopNbaLive();
   }
 }
 
@@ -328,7 +433,13 @@ function renderSlate(games) {
       ? (res.pick_correct ? '<span class="res-w">✓ HIT</span>' : '<span class="res-l">✗ MISS</span>')
         + ' <span style="color:var(--muted)">home ' + (res.margin_home > 0 ? "W" : "L")
         + " by " + Math.abs(res.margin_home) + "</span>"
+      : g.live
+      ? '<span class="mono" style="color:var(--accent)"><span class="live-dot"></span>'
+        + g.live.detail + " · " + g.live.as + "–" + g.live.hs + "</span>"
       : '<span class="res-pend">pending</span>';
+    const dialP = g.live ? (g.pick === g.home_abbr ? g.live.p_home_live
+                                                   : 1 - g.live.p_home_live)
+                         : p;
     // underdog edge: confident road call gets the pulse
     const pulse = (g.pick === g.away_abbr && p >= 0.55 && !rm) ? " pulse" : "";
     card.innerHTML =
@@ -336,7 +447,7 @@ function renderSlate(games) {
       + ' @ ' + g.home_abbr
       + (g.season_type === "Playoffs" ? ' <span class="po">PO</span>' : "") + "</div>"
       + '<div class="gc-sub">' + g.away + " at " + g.home + "</div></div>"
-      + '<div class="gc-dial' + (p >= 0.6 ? " hot" : "") + '">'
+      + '<div class="gc-dial' + ((g.live ? dialP : p) >= 0.6 ? " hot" : "") + '">'
       + '<svg width="64" height="64" viewBox="0 0 64 64">'
       + '<circle class="ring" cx="32" cy="32" r="' + R + '"/>'
       + '<circle class="arc" cx="32" cy="32" r="' + R + '" stroke-dasharray="' + C.toFixed(1)
@@ -344,6 +455,7 @@ function renderSlate(games) {
       + '<span class="pct">0%</span></div></div>'
       + '<div class="gc-verdict"><span class="verdict-tag' + pulse + '">' + g.pick + "</span>"
       + '<span class="grade ' + gradeClass(g.grade) + '">' + g.grade + "</span>"
+      + (g.tier ? '<span class="tier tier-' + g.tier + '">' + g.tier + "</span>" : "")
       + '<span class="gc-line">' + fmtML(g.fair_ml_home) + " / " + fmtML(g.fair_ml_away)
       + " · " + (g.pred_margin_home > 0 ? "H" : "A") + " −"
       + Math.abs(g.pred_margin_home).toFixed(1) + "</span>"
@@ -377,8 +489,8 @@ function renderSlate(games) {
     // dial spin-up (next frame so the transition engages)
     const arc = card.querySelector(".arc");
     const pct = card.querySelector(".pct");
-    const target = C * (1 - p);
-    if (rm) { arc.style.strokeDashoffset = target; pct.textContent = (p * 100).toFixed(1) + "%"; }
+    const target = C * (1 - dialP);
+    if (rm) { arc.style.strokeDashoffset = target; pct.textContent = (dialP * 100).toFixed(1) + "%"; }
     else {
       requestAnimationFrame(() => requestAnimationFrame(() => {
         arc.style.strokeDashoffset = target;
@@ -386,7 +498,7 @@ function renderSlate(games) {
       const t0 = performance.now();
       (function tick(t) {
         const k = Math.min(1, (t - t0) / 950);
-        pct.textContent = (p * 100 * (k < 1 ? k : 1)).toFixed(1) + "%";
+        pct.textContent = (dialP * 100 * (k < 1 ? k : 1)).toFixed(1) + "%";
         if (k < 1) requestAnimationFrame(tick);
       })(t0);
     }
@@ -425,7 +537,13 @@ function deepPanel(g) {
     + "<div>Model home win prob: <b>" + (g.p_home * 100).toFixed(1) + "%</b></div>"
     + "<div>Fair line: <b>" + fmtML(g.fair_ml_home) + " home / " + fmtML(g.fair_ml_away) + " away</b></div>"
     + "<div>Projected margin: <b>home " + (g.pred_margin_home > 0 ? "+" : "") + g.pred_margin_home.toFixed(1) + "</b></div>"
-    + "<div>Tier: <b>" + g.tier + "</b> · " + g.season_type + "</div>"
+    + "<div>Conviction: <b class='tier tier-" + g.tier + "'>" + g.tier + "</b>"
+    + (g.signals && g.signals.length ? " · signals: <b>" + g.signals.join(" + ") + "</b>" : "")
+    + "</div>"
+    + (g.why_skipped ? "<div>Why no stake: " + g.why_skipped + "</div>" : "")
+    + (g.stake_frac ? "<div>Stake: <b>" + (g.stake_frac * 100).toFixed(2) + "% bankroll</b> (¼-Kelly × tier)</div>" : "")
+    + (g.edge_pp != null ? "<div>Market edge: <b>" + g.edge_pp + " pp</b> · EV $" + g.ev_per_dollar + "/$1</div>" : "")
+    + "<div>" + g.season_type + "</div>"
     + "<div class='mono' style='font-size:.68rem'>id " + g.game_id + "</div></details>"
   );
 }
@@ -622,6 +740,14 @@ async function loadHealth() {
     h.checks.map(c =>
       '<div class="health-row"><div class="hr-name">' + c.name + "</div>" +
       '<span class="health-pill hp-' + c.severity + '"></span>' + c.message + "</div>").join("");
+}
+function paintTierRecord() {
+  const t = ((MANIFEST || {}).conviction || {}).tiers || {};
+  const order = ["DIAMOND", "PLATINUM", "GOLD", "SKIP"];
+  $("tier-record").innerHTML = order.filter(k => t[k]).map(k =>
+    '<div class="gr-row"><span class="tier tier-' + k + '">' + k + "</span><span>"
+    + t[k].n + " picks · " + (t[k].hit * 100).toFixed(1) + "%</span></div>").join("")
+    || "…";
 }
 function paintGradeRecord() {
   const g = ((MANIFEST || {}).record || {}).grades || {};

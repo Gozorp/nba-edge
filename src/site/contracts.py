@@ -44,7 +44,9 @@ KNOWN_ESPN_STATES = {
 }
 KNOWN_SL_LEAGUES = {"Las Vegas", "Salt Lake City", "California Classic"}
 KNOWN_GRADES = {"A", "A-", "B+", "B", "B-", "C", "D"}
-KNOWN_TIERS = {"PLATINUM", "GOLD", "SILVER", "BRONZE", "LEAN", "COINFLIP", "CONFLICT"}
+KNOWN_PICK_TIERS = {"DIAMOND", "PLATINUM", "GOLD", "SKIP"}   # conviction system
+KNOWN_SL_TIERS = {"LEAN", "COINFLIP"}
+KNOWN_SIGNALS = {"QUALITY", "FORM", "SCHEDULE", "AGREEMENT", "VALUE"}
 KNOWN_PROP_METHODS = {"model", "baseline_r7"}
 KNOWN_NOPROJ_REASONS = {"below_floor", "insufficient_history"}
 PROP_MARKETS = {"pts", "reb", "ast", "stl", "blk", "fg3m"}
@@ -87,7 +89,7 @@ def check_sl(path: Path, rep: Report) -> None:
         rep.watch("espn_state", g.get("state"), KNOWN_ESPN_STATES)
         rep.watch("sl_league", g.get("league"), KNOWN_SL_LEAGUES)
         if "tier" in g:
-            rep.watch("tier", g.get("tier"), KNOWN_TIERS)
+            rep.watch("sl_tier", g.get("tier"), KNOWN_SL_TIERS)
 
 
 def check_picks(path: Path, rep: Report) -> None:
@@ -99,7 +101,16 @@ def check_picks(path: Path, rep: Report) -> None:
         if not (_num(g.get("pred_margin_home"))):
             rep.structural(f"{path.name}: bad pred_margin_home")
         rep.watch("grade", g.get("grade"), KNOWN_GRADES)
-        rep.watch("tier", g.get("tier"), KNOWN_TIERS)
+        rep.watch("pick_tier", g.get("tier"), KNOWN_PICK_TIERS)
+        for s in g.get("signals", []):
+            rep.watch("signal", s, KNOWN_SIGNALS)
+        sf = g.get("stake_frac", 0.0)
+        if not (_num(sf) and 0.0 <= sf <= 0.05):
+            rep.structural(f"{path.name}: stake_frac outside [0,0.05]")
+        for k in ("edge_pp", "ev_per_dollar"):
+            v = g.get(k)
+            if v is not None and not _num(v):
+                rep.structural(f"{path.name}: {k} non-numeric")
         for f in g.get("factors", []):
             if not (isinstance(f.get("label"), str) and _num(f.get("impact_pp"))):
                 rep.structural(f"{path.name}: malformed factor"); break

@@ -14,7 +14,14 @@
 "fair_ml_away": -137,
 "pred_margin_home": 0.8,
 "grade": "B",
-"tier": "BRONZE",
+"tier": "GOLD",
+"signals": [
+"SCHEDULE"
+],
+"why_skipped": "quality gate: <15 games",
+"stake_frac": 0.0,
+"edge_pp": null,
+"ev_per_dollar": null,
 "season_type": "Regular Season",
 "factors": [
 {
@@ -58,6 +65,14 @@
 "pred_margin_home": 9.4,
 "grade": "A",
 "tier": "PLATINUM",
+"signals": [
+"FORM",
+"AGREEMENT"
+],
+"why_skipped": "",
+"stake_frac": 0.0,
+"edge_pp": null,
+"ev_per_dollar": null,
 "season_type": "Regular Season",
 "factors": [
 {
@@ -100,7 +115,15 @@
 "fair_ml_away": -227,
 "pred_margin_home": -4.9,
 "grade": "A-",
-"tier": "GOLD",
+"tier": "PLATINUM",
+"signals": [
+"FORM",
+"AGREEMENT"
+],
+"why_skipped": "",
+"stake_frac": 0.0,
+"edge_pp": null,
+"ev_per_dollar": null,
 "season_type": "Regular Season",
 "factors": [
 {

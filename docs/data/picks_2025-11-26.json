@@ -14,7 +14,14 @@
 "fair_ml_away": 108,
 "pred_margin_home": 4.5,
 "grade": "C",
-"tier": "COINFLIP",
+"tier": "GOLD",
+"signals": [
+"AGREEMENT"
+],
+"why_skipped": "quality gate: <15 games",
+"stake_frac": 0.0,
+"edge_pp": null,
+"ev_per_dollar": null,
 "season_type": "Regular Season",
 "factors": [
 {
@@ -58,6 +65,14 @@
 "pred_margin_home": -7.5,
 "grade": "A",
 "tier": "PLATINUM",
+"signals": [
+"FORM",
+"AGREEMENT"
+],
+"why_skipped": "",
+"stake_frac": 0.0,
+"edge_pp": null,
+"ev_per_dollar": null,
 "season_type": "Regular Season",
 "factors": [
 {
@@ -100,7 +115,14 @@
 "fair_ml_away": -118,
 "pred_margin_home": -0.9,
 "grade": "B-",
-"tier": "LEAN",
+"tier": "GOLD",
+"signals": [
+"FORM"
+],
+"why_skipped": "quality gate: <15 games",
+"stake_frac": 0.0,
+"edge_pp": null,
+"ev_per_dollar": null,
 "season_type": "Regular Season",
 "factors": [
 {
@@ -143,7 +165,15 @@
 "fair_ml_away": 173,
 "pred_margin_home": 6.8,
 "grade": "B+",
-"tier": "SILVER",
+"tier": "PLATINUM",
+"signals": [
+"FORM",
+"AGREEMENT"
+],
+"why_skipped": "",
+"stake_frac": 0.0,
+"edge_pp": null,
+"ev_per_dollar": null,
 "season_type": "Regular Season",
 "factors": [
 {
@@ -186,7 +216,12 @@
 "fair_ml_away": -279,
 "pred_margin_home": -2.6,
 "grade": "A",
-"tier": "PLATINUM",
+"tier": "SKIP",
+"signals": [],
+"why_skipped": "quality gate: <15 games",
+"stake_frac": 0.0,
+"edge_pp": null,
+"ev_per_dollar": null,
 "season_type": "Regular Season",
 "factors": [
 {
@@ -230,6 +265,14 @@
 "pred_margin_home": 10.1,
 "grade": "A",
 "tier": "PLATINUM",
+"signals": [
+"FORM",
+"AGREEMENT"
+],
+"why_skipped": "",
+"stake_frac": 0.0,
+"edge_pp": null,
+"ev_per_dollar": null,
 "season_type": "Regular Season",
 "factors": [
 {
@@ -272,7 +315,14 @@
 "fair_ml_away": -165,
 "pred_margin_home": -2.8,
 "grade": "B+",
-"tier": "SILVER",
+"tier": "GOLD",
+"signals": [
+"FORM"
+],
+"why_skipped": "quality gate: <15 games",
+"stake_frac": 0.0,
+"edge_pp": null,
+"ev_per_dollar": null,
 "season_type": "Regular Season",
 "factors": [
 {
@@ -316,6 +366,14 @@
 "pred_margin_home": -10.1,
 "grade": "A",
 "tier": "PLATINUM",
+"signals": [
+"FORM",
+"AGREEMENT"
+],
+"why_skipped": "",
+"stake_frac": 0.0,
+"edge_pp": null,
+"ev_per_dollar": null,
 "season_type": "Regular Season",
 "factors": [
 {
@@ -359,6 +417,14 @@
 "pred_margin_home": 12.7,
 "grade": "A",
 "tier": "PLATINUM",
+"signals": [
+"FORM",
+"AGREEMENT"
+],
+"why_skipped": "",
+"stake_frac": 0.0,
+"edge_pp": null,
+"ev_per_dollar": null,
 "season_type": "Regular Season",
 "factors": [
 {

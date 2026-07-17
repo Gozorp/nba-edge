@@ -15,6 +15,14 @@
 "pred_margin_home": 8.8,
 "grade": "A",
 "tier": "PLATINUM",
+"signals": [
+"FORM",
+"AGREEMENT"
+],
+"why_skipped": "",
+"stake_frac": 0.0,
+"edge_pp": null,
+"ev_per_dollar": null,
 "season_type": "Regular Season",
 "factors": [
 {
@@ -57,7 +65,14 @@
 "fair_ml_away": -200,
 "pred_margin_home": 2.9,
 "grade": "D",
-"tier": "CONFLICT",
+"tier": "GOLD",
+"signals": [
+"FORM"
+],
+"why_skipped": "quality gate: <15 games",
+"stake_frac": 0.0,
+"edge_pp": null,
+"ev_per_dollar": null,
 "season_type": "Regular Season",
 "factors": [
 {
@@ -101,6 +116,14 @@
 "pred_margin_home": -11.5,
 "grade": "A",
 "tier": "PLATINUM",
+"signals": [
+"FORM",
+"AGREEMENT"
+],
+"why_skipped": "",
+"stake_frac": 0.0,
+"edge_pp": null,
+"ev_per_dollar": null,
 "season_type": "Regular Season",
 "factors": [
 {

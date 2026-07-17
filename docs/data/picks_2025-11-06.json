@@ -15,6 +15,13 @@
 "pred_margin_home": 6.1,
 "grade": "A-",
 "tier": "GOLD",
+"signals": [
+"AGREEMENT"
+],
+"why_skipped": "quality gate: <15 games",
+"stake_frac": 0.0,
+"edge_pp": null,
+"ev_per_dollar": null,
 "season_type": "Regular Season",
 "factors": [
 {

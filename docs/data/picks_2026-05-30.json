@@ -14,7 +14,12 @@
 "fair_ml_away": 123,
 "pred_margin_home": 3.5,
 "grade": "B-",
-"tier": "LEAN",
+"tier": "SKIP",
+"signals": [],
+"why_skipped": "0 signals \u2014 below conviction floor (2)",
+"stake_frac": 0.0,
+"edge_pp": null,
+"ev_per_dollar": null,
 "season_type": "Playoffs",
 "factors": [
 {

@@ -14,7 +14,15 @@
 "fair_ml_away": 107,
 "pred_margin_home": 2.2,
 "grade": "C",
-"tier": "COINFLIP",
+"tier": "PLATINUM",
+"signals": [
+"QUALITY",
+"FORM"
+],
+"why_skipped": "",
+"stake_frac": 0.0,
+"edge_pp": null,
+"ev_per_dollar": null,
 "season_type": "Playoffs",
 "factors": [
 {
