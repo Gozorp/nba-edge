@@ -207,7 +207,12 @@ def export(season: int = 2026) -> None:
                         for t, v in sorted(tier_stats.items())}
     print(f"[site] conviction backtest: {conviction_table}")
 
-    (OUT_DIR / "manifest.json").write_text(json.dumps({
+    # MERGE into the existing manifest — other exporters (summer_league,
+    # props) own their keys; a from-scratch rewrite here wiped sl_dates on
+    # 2026-07-10 and blanked the SL tab. Never overwrite sibling keys.
+    mpath = OUT_DIR / "manifest.json"
+    manifest = json.loads(mpath.read_text()) if mpath.exists() else {}
+    manifest.update({
         "dates": dates, "season": f"{season-1}-{str(season)[2:]}",
         "conviction": {"tiers": conviction_table,
                        "note": "S_VALUE inactive in archive (no market odds); "
@@ -216,7 +221,8 @@ def export(season: int = 2026) -> None:
         "mode": "archive",   # flips to "live" in-season via daily loop
         "record": {"games": int(len(df)), "correct": picks_ok,
                    "acc": round(picks_ok / len(df), 4), "grades": gtab},
-    }, indent=1))
+    })
+    mpath.write_text(json.dumps(manifest, indent=1))
 
     # ---- health.json (MLB-health shape) ------------------------------------
     from src.recalibrate.drift import full_report

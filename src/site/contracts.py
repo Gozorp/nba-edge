@@ -144,6 +144,15 @@ def check_props(path: Path, rep: Report) -> None:
 
 def check_manifest(rep: Report) -> dict:
     m = json.loads((DATA_DIR / "manifest.json").read_text())
+    # cross-artifact integrity: if a family of files exists, its manifest
+    # keys MUST exist (the 2026-07-10 SL-tab blanking, made structural)
+    if list(DATA_DIR.glob("sl_*.json")):
+        if not m.get("sl_dates"):
+            rep.structural("manifest: sl_*.json exist but sl_dates missing/empty")
+        if not m.get("sl_model"):
+            rep.structural("manifest: sl files exist but sl_model block missing")
+    if list(DATA_DIR.glob("props_*.json")) and not m.get("props", {}).get("mae"):
+        rep.structural("manifest: props files exist but props.mae missing")
     for key in ("dates", "sl_dates"):
         ds = m.get(key, [])
         if any(not _ISO_DATE.match(x) for x in ds):

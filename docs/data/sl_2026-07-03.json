@@ -14,9 +14,9 @@
 "home_abbr": "SA",
 "away_score": 88,
 "home_score": 87,
-"p_home": 0.5013,
+"p_home": 0.5021,
 "pick": "SA",
-"p_pick": 0.5013,
+"p_pick": 0.5021,
 "tier": "COINFLIP",
 "pick_correct": 0
 },
@@ -33,9 +33,9 @@
 "home_abbr": "GS",
 "away_score": 72,
 "home_score": 104,
-"p_home": 0.5013,
+"p_home": 0.5021,
 "pick": "GS",
-"p_pick": 0.5013,
+"p_pick": 0.5021,
 "tier": "COINFLIP",
 "pick_correct": 1
 }

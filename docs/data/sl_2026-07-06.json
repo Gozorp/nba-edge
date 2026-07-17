@@ -14,10 +14,10 @@
 "home_abbr": "OKC",
 "away_score": 82,
 "home_score": 77,
-"p_home": 0.4509,
+"p_home": 0.3805,
 "pick": "ATL",
-"p_pick": 0.5491,
-"tier": "COINFLIP",
+"p_pick": 0.6195,
+"tier": "LEAN",
 "pick_correct": 1
 },
 {
@@ -33,9 +33,9 @@
 "home_abbr": "SA",
 "away_score": 88,
 "home_score": 84,
-"p_home": 0.5013,
+"p_home": 0.5021,
 "pick": "SA",
-"p_pick": 0.5013,
+"p_pick": 0.5021,
 "tier": "COINFLIP",
 "pick_correct": 0
 },
@@ -52,9 +52,9 @@
 "home_abbr": "BKN",
 "away_score": 79,
 "home_score": 100,
-"p_home": 0.4904,
+"p_home": 0.4754,
 "pick": "GS",
-"p_pick": 0.5096,
+"p_pick": 0.5246,
 "tier": "COINFLIP",
 "pick_correct": 0
 },
@@ -71,10 +71,10 @@
 "home_abbr": "UTAH",
 "away_score": 100,
 "home_score": 109,
-"p_home": 0.4509,
+"p_home": 0.3805,
 "pick": "MEM",
-"p_pick": 0.5491,
-"tier": "COINFLIP",
+"p_pick": 0.6195,
+"tier": "LEAN",
 "pick_correct": 0
 },
 {
@@ -90,9 +90,9 @@
 "home_abbr": "GS",
 "away_score": 95,
 "home_score": 85,
-"p_home": 0.5244,
+"p_home": 0.5803,
 "pick": "GS",
-"p_pick": 0.5244,
+"p_pick": 0.5803,
 "tier": "COINFLIP",
 "pick_correct": 0
 },
@@ -109,9 +109,9 @@
 "home_abbr": "SAC",
 "away_score": 89,
 "home_score": 95,
-"p_home": 0.5171,
+"p_home": 0.5407,
 "pick": "SAC",
-"p_pick": 0.5171,
+"p_pick": 0.5407,
 "tier": "COINFLIP",
 "pick_correct": 1
 }

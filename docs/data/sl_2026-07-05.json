@@ -14,9 +14,9 @@
 "home_abbr": "MIL",
 "away_score": 89,
 "home_score": 69,
-"p_home": 0.5252,
+"p_home": 0.5603,
 "pick": "MIL",
-"p_pick": 0.5252,
+"p_pick": 0.5603,
 "tier": "COINFLIP",
 "pick_correct": 0
 },
@@ -33,10 +33,10 @@
 "home_abbr": "LAL",
 "away_score": 91,
 "home_score": 93,
-"p_home": 0.4551,
+"p_home": 0.3903,
 "pick": "MIA",
-"p_pick": 0.5449,
-"tier": "COINFLIP",
+"p_pick": 0.6097,
+"tier": "LEAN",
 "pick_correct": 0
 },
 {
@@ -52,9 +52,9 @@
 "home_abbr": "SAC",
 "away_score": 85,
 "home_score": 91,
-"p_home": 0.4866,
+"p_home": 0.466,
 "pick": "GS",
-"p_pick": 0.5134,
+"p_pick": 0.534,
 "tier": "COINFLIP",
 "pick_correct": 0
 },
@@ -71,9 +71,9 @@
 "home_abbr": "GS",
 "away_score": 69,
 "home_score": 98,
-"p_home": 0.5128,
+"p_home": 0.5302,
 "pick": "GS",
-"p_pick": 0.5128,
+"p_pick": 0.5302,
 "tier": "COINFLIP",
 "pick_correct": 1
 }

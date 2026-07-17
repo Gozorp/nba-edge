@@ -14,9 +14,9 @@
 "home_abbr": "MEM",
 "away_score": 96,
 "home_score": 82,
-"p_home": 0.5266,
+"p_home": 0.5637,
 "pick": "MEM",
-"p_pick": 0.5266,
+"p_pick": 0.5637,
 "tier": "COINFLIP",
 "pick_correct": 0
 },
@@ -33,10 +33,10 @@
 "home_abbr": "UTAH",
 "away_score": 69,
 "home_score": 103,
-"p_home": 0.5657,
+"p_home": 0.6753,
 "pick": "UTAH",
-"p_pick": 0.5657,
-"tier": "COINFLIP",
+"p_pick": 0.6753,
+"tier": "LEAN",
 "pick_correct": 1
 }
 ]

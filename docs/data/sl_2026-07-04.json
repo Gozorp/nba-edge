@@ -14,9 +14,9 @@
 "home_abbr": "OKC",
 "away_score": 111,
 "home_score": 74,
-"p_home": 0.5013,
+"p_home": 0.5021,
 "pick": "OKC",
-"p_pick": 0.5013,
+"p_pick": 0.5021,
 "tier": "COINFLIP",
 "pick_correct": 0
 },
@@ -33,10 +33,10 @@
 "home_abbr": "GS",
 "away_score": 97,
 "home_score": 83,
-"p_home": 0.5756,
+"p_home": 0.7332,
 "pick": "GS",
-"p_pick": 0.5756,
-"tier": "COINFLIP",
+"p_pick": 0.7332,
+"tier": "LEAN",
 "pick_correct": 0
 },
 {
@@ -52,9 +52,9 @@
 "home_abbr": "UTAH",
 "away_score": 102,
 "home_score": 103,
-"p_home": 0.5013,
+"p_home": 0.5021,
 "pick": "UTAH",
-"p_pick": 0.5013,
+"p_pick": 0.5021,
 "tier": "COINFLIP",
 "pick_correct": 1
 },
@@ -71,9 +71,9 @@
 "home_abbr": "SAC",
 "away_score": 76,
 "home_score": 79,
-"p_home": 0.5013,
+"p_home": 0.5021,
 "pick": "SAC",
-"p_pick": 0.5013,
+"p_pick": 0.5021,
 "tier": "COINFLIP",
 "pick_correct": 1
 }
